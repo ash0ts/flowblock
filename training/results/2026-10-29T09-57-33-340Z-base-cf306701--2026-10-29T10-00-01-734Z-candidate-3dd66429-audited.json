@@ -1,0 +1,158 @@
+{
+  "comparison": "Matched base versus trained candidate qualification",
+  "controlsMatched": true,
+  "mismatches": [],
+  "exactSourceHashesMatch": false,
+  "sourceEquivalenceAudit": {
+    "verifiedAt": "2026-10-29T10:03:41.544Z",
+    "path": "src/server/planner.ts",
+    "beforeHash": "49c6cbb3f90931b2a8aa86a4fbb17c2443e6bf7b87e6b2282635a6e1cd8dd341",
+    "afterHash": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+    "verified": true,
+    "exactTransformation": "Remove the single 'export ' prefix from 'export async function telemetry() {'.",
+    "effect": "Makes the existing telemetry initializer importable by the separate revision planner. Function body, planner behavior, prompt, tool execution and scoring are unchanged.",
+    "beforeAttempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+    "afterAttempt": "2026-10-29T10-00-01-734Z-candidate-3dd66429"
+  },
+  "beforeAttempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+  "afterAttempt": "2026-10-29T10-00-01-734Z-candidate-3dd66429",
+  "beforeResultsSha256": "85beddb582542aaf652e5083051e254f3389030043d8d87e7a91b61be8fa3c8b",
+  "afterResultsSha256": "a11fe6c6b4164b9989beb5b26426819d17735d41dbcf882168a97eb3296aaf77",
+  "requestedTasks": 12,
+  "pairedAvailableTasks": 12,
+  "pairedSceneGroups": 2,
+  "gains": 6,
+  "losses": 0,
+  "sharedSuccesses": 0,
+  "sharedFailures": 6,
+  "beforeProductiveCandidates": 0,
+  "afterProductiveCandidates": 0,
+  "beforeBoundedSearchAbstentions": 0,
+  "afterBoundedSearchAbstentions": 6,
+  "pairedSuccessDelta": 0.5,
+  "beforeSummary": {
+    "attempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+    "arm": "base",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "requestedTasks": 12,
+    "attemptedTasks": 12,
+    "availableTasks": 12,
+    "unavailableTasks": 0,
+    "unattemptedTasks": 0,
+    "successCount": 0,
+    "successRateAmongAvailable": 0,
+    "successRateAmongRequestedLowerBound": 0,
+    "medianLatencyMs": 2455,
+    "inputTokens": 114228,
+    "outputTokens": 2139,
+    "dollarCost": null,
+    "costDisclosure": "Provider token counts are preserved when reported. No invoice-derived dollar cost was available.",
+    "limitation": "One trial per synthetic task. The fixed oracle search is not a proof of global infeasibility. Qualification results do not establish general performance."
+  },
+  "afterSummary": {
+    "attempt": "2026-10-29T10-00-01-734Z-candidate-3dd66429",
+    "arm": "candidate",
+    "model": "wandb-artifact:///wandb/flowblock/flowblock-sft-v1-20261029-095244:step1",
+    "requestedTasks": 12,
+    "attemptedTasks": 12,
+    "availableTasks": 12,
+    "unavailableTasks": 0,
+    "unattemptedTasks": 0,
+    "successCount": 6,
+    "successRateAmongAvailable": 0.5,
+    "successRateAmongRequestedLowerBound": 0.5,
+    "medianLatencyMs": 1726,
+    "inputTokens": 17082,
+    "outputTokens": 540,
+    "dollarCost": null,
+    "costDisclosure": "Provider token counts are preserved when reported. No invoice-derived dollar cost was available.",
+    "limitation": "One trial per synthetic task. The fixed oracle search is not a proof of global infeasibility. Qualification results do not establish general performance."
+  },
+  "pairs": [
+    {
+      "fixtureId": "test-scene-00-hold",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 2359,
+      "afterLatencyMs": 10389
+    },
+    {
+      "fixtureId": "test-scene-00-push-in",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 2452,
+      "afterLatencyMs": 6413
+    },
+    {
+      "fixtureId": "test-scene-00-pull-out",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 3228,
+      "afterLatencyMs": 2073
+    },
+    {
+      "fixtureId": "test-scene-00-lateral",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 2387,
+      "afterLatencyMs": 1302
+    },
+    {
+      "fixtureId": "test-scene-00-orbit",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 2455,
+      "afterLatencyMs": 2351
+    },
+    {
+      "fixtureId": "test-scene-00-reveal",
+      "before": false,
+      "after": true,
+      "beforeLatencyMs": 2694,
+      "afterLatencyMs": 1061
+    },
+    {
+      "fixtureId": "test-scene-01-hold",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 2239,
+      "afterLatencyMs": 2115
+    },
+    {
+      "fixtureId": "test-scene-01-push-in",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 3633,
+      "afterLatencyMs": 1385
+    },
+    {
+      "fixtureId": "test-scene-01-pull-out",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 3228,
+      "afterLatencyMs": 941
+    },
+    {
+      "fixtureId": "test-scene-01-lateral",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 3280,
+      "afterLatencyMs": 1154
+    },
+    {
+      "fixtureId": "test-scene-01-orbit",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 2158,
+      "afterLatencyMs": 1150
+    },
+    {
+      "fixtureId": "test-scene-01-reveal",
+      "before": false,
+      "after": false,
+      "beforeLatencyMs": 2277,
+      "afterLatencyMs": 1726
+    }
+  ],
+  "interpretation": "One trial per intent, dependent intents within scene groups, synthetic fixtures and solver-defined criteria. This qualification does not establish cinematic quality or generalization beyond these scenes. No automatic model promotion."
+}

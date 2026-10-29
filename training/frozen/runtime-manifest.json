@@ -1,0 +1,14 @@
+{
+  "runtimeVersion": "flowblock-planner-v1",
+  "snapshotPath": "training/frozen/runtime.ts",
+  "originalPath": "src/server/planner.ts",
+  "snapshotSha256": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+  "dependencies": {
+    "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+    "src/domain/defaults.ts": "79076d8bb3c4197124e0612673f28585b373e9e9279dd1c726b4b60173ec7773",
+    "src/domain/geometry.ts": "d85324b0adef37d3f5178963aafcdcf645d3054e6bc4f036b3f6671c32ea7884",
+    "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+    "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+  },
+  "scope": "Exact evaluated planner after telemetry export-only change; dependencies must retain these hashes. Historical receipts remain unchanged."
+}

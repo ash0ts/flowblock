@@ -1,0 +1,910 @@
+[
+  {
+    "fixtureId": "train-scene-00-hold",
+    "candidateId": "plan-2e0189dfa2a57973fa963da6df719c16",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-00-push-in",
+    "candidateId": "plan-08015c79578b54fe5fae4007f434b2db",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-00-pull-out",
+    "candidateId": "plan-73c117648a76ebd55a8a070a881f5380",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-00-lateral",
+    "candidateId": "plan-db3fabec4f9a534a230fcf6a2e5d351c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-00-orbit",
+    "candidateId": "plan-dfd9a71050577f1308460f3ea46efcd5",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-00-reveal",
+    "candidateId": "plan-2f52d01f7f3f81074b3304f517ad1778",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-01-hold",
+    "candidateId": "plan-f280d412ba3ca6d70fe151149e871eae",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-01-push-in",
+    "candidateId": "plan-efa231d5f1d26ccfb63853e2256117f0",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-01-pull-out",
+    "candidateId": "plan-83e8a07749ae2bf301fddca5835ff2b3",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-01-lateral",
+    "candidateId": "plan-512cf1b0bb5ebe0fc75a0de0697df0fd",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-01-orbit",
+    "candidateId": "plan-d6222e9ac33627e21cfbba58958fc318",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-01-reveal",
+    "candidateId": "plan-99ac2117545513b6193cac0c76ebf63e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-02-hold",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-02-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-02-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-02-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-02-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-02-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-03-hold",
+    "candidateId": "plan-118bf809c83b8302f613c32c8ccd2046",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-03-push-in",
+    "candidateId": "plan-dec6b0351a5919ba2eecc22d24380d0b",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-03-pull-out",
+    "candidateId": "plan-e3d4423f285cb82d88389021ce4efe07",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-03-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-03-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-03-reveal",
+    "candidateId": "plan-81f2917681bcc59e5a5466f50d3c543e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-04-hold",
+    "candidateId": "plan-1a4e044218054defed06b81922407802",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-04-push-in",
+    "candidateId": "plan-eeed5267d69fd68bea085141f3b21554",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-04-pull-out",
+    "candidateId": "plan-768042f1e87337b04360fee0365f2e87",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-04-lateral",
+    "candidateId": "plan-8a1eadf1893567bf0adca4d0f6264388",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-04-orbit",
+    "candidateId": "plan-42b3d7b456d4ec8101d4de6d5ea0189b",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-04-reveal",
+    "candidateId": "plan-326c2768cfcaf4f2489eec778af4f7a2",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-05-hold",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-05-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-05-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-05-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-05-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-05-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-06-hold",
+    "candidateId": "plan-58bdd299d4f3e9e9f34d6b47390f9c23",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-06-push-in",
+    "candidateId": "plan-68174fa942dab43cd30a0e97fd56b193",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-06-pull-out",
+    "candidateId": "plan-72e6e77a59811c01bb3a8fff2dfdea18",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-06-lateral",
+    "candidateId": "plan-128e41ee425dc830c443a024d46cdcfa",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-06-orbit",
+    "candidateId": "plan-ca4f215bc107542a577742d2dd42fb9c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-06-reveal",
+    "candidateId": "plan-802a3827e06ab3d568db63b88b5dd3bf",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-07-hold",
+    "candidateId": "plan-a5c1d072c7c19e8a0304ab1bd504db23",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-07-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-07-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-07-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-07-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-07-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-08-hold",
+    "candidateId": "plan-21c3a54bc7e6a5d1471cf1cd69823549",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-08-push-in",
+    "candidateId": "plan-a81c829d9045c8d49236204888dc3ad6",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-08-pull-out",
+    "candidateId": "plan-3a74fff0e563ab3c479d555c5c9c6359",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-08-lateral",
+    "candidateId": "plan-4b1c60852c2bff1597014313089d84fe",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-08-orbit",
+    "candidateId": "plan-01c92c3a81a6b91ae2e63529856f0eb1",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-08-reveal",
+    "candidateId": "plan-ee9c349839ceca583213d36c134b14a9",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-09-hold",
+    "candidateId": "plan-ea90c132794f452261a751f3389c163e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-09-push-in",
+    "candidateId": "plan-9eeaf66b46b7a0c1947cdffd5731ac4c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-09-pull-out",
+    "candidateId": "plan-6f8cdb79417732eb9ba2300d0b3b2eb2",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-09-lateral",
+    "candidateId": "plan-56bfd9ecd470ae89b672c3bf92960c9e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-09-orbit",
+    "candidateId": "plan-fe5512a394dc91d8ebfdb91dc43491e9",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-09-reveal",
+    "candidateId": "plan-0af5a124e3a3aef10c36022ca51fdeaf",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-10-hold",
+    "candidateId": "plan-66d7c5a80a35b2b7e5531ed41c219517",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-10-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-10-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-10-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-10-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-10-reveal",
+    "candidateId": "plan-7823e9456486712ce2cf7fb43a2a6a5c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-11-hold",
+    "candidateId": "plan-6c56b9f117710242e55360628462919a",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-11-push-in",
+    "candidateId": "plan-137c437d10b2c6b9ceef9decb09acda7",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-11-pull-out",
+    "candidateId": "plan-80bca02cd2b26d305504cabbf508ec89",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-11-lateral",
+    "candidateId": "plan-3082d75ab8d4d9fa923f601e6cc0b5be",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-11-orbit",
+    "candidateId": "plan-7268097d2d00619383ebf54cecc258ff",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-11-reveal",
+    "candidateId": "plan-62d18e6dcba705e379c307367a4da437",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-12-hold",
+    "candidateId": "plan-6a69ffc38313db087d0ab362259fdaeb",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-12-push-in",
+    "candidateId": "plan-7ad42d40ef45b2186248982b5c81e385",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-12-pull-out",
+    "candidateId": "plan-6954d329dbc5df5db210ec2e8deaf999",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-12-lateral",
+    "candidateId": "plan-bff8cc0f685f254bf45fcada4b6755c0",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-12-orbit",
+    "candidateId": "plan-8b7a5c481aa5c5091297325613b9940e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-12-reveal",
+    "candidateId": "plan-d817046c810cce7ba0c0d595032740a4",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-13-hold",
+    "candidateId": "plan-55e3dc03473d98c42c2b5efb1f1a909c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-13-push-in",
+    "candidateId": "plan-a35686bf4dbf5133aa5200faceacd785",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-13-pull-out",
+    "candidateId": "plan-8a4e09b019704219a2076fdc5acfcdd0",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-13-lateral",
+    "candidateId": "plan-002e775176a11f533deb67c5f5e76288",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-13-orbit",
+    "candidateId": "plan-cf36abdaf1ca5600c4125978fc7af55f",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-13-reveal",
+    "candidateId": "plan-47c9318ed953096bc2306fb99882aad0",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-14-hold",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-14-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-14-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-14-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-14-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-14-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-15-hold",
+    "candidateId": "plan-797f7841a8d3244601b8e160606e2ac9",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-15-push-in",
+    "candidateId": "plan-414d6e387882c4c624f0c535471144cc",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-15-pull-out",
+    "candidateId": "plan-814e37c5249c0d5219f2f4bc58168947",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-15-lateral",
+    "candidateId": "plan-211edcf59269e3140dfca32e127e36dc",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-15-orbit",
+    "candidateId": "plan-61b8e29c73db12435dd4b0c189b02aa6",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-15-reveal",
+    "candidateId": "plan-f7296b694dd34e1658891773922dcf9c",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-16-hold",
+    "candidateId": "plan-03cfdd8cca8acb668f1cf61dea835726",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-16-push-in",
+    "candidateId": "plan-a7f8595be910d3115882a8f704fd420d",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-16-pull-out",
+    "candidateId": "plan-79765e513f5611ec00c9e4bd9cebf5e2",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-16-lateral",
+    "candidateId": "plan-43c4987d6927821acb8ac67fd1d4f535",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-16-orbit",
+    "candidateId": "plan-94b121d9933f3602c32197362934431a",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-16-reveal",
+    "candidateId": "plan-5283d844f45c0d4b761e1ac0a993ae87",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-17-hold",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-17-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-17-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-17-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-17-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-17-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-18-hold",
+    "candidateId": "plan-2f83d14ea22b951c6255a0d80f997486",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-18-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-18-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-18-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-18-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-18-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-19-hold",
+    "candidateId": "plan-7a0d3169313f57ed11636dd088846296",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-19-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-19-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-19-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-19-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-19-reveal",
+    "candidateId": "plan-458b4b4d5b02c6b37925fe643d20a601",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-20-hold",
+    "candidateId": "plan-4bf171fdf6e064a5a8c3910ecd044094",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-20-push-in",
+    "candidateId": "plan-0c77a83fb949272666cc4f419d6568f6",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-20-pull-out",
+    "candidateId": "plan-9a4e273842839ee47f6a9390f37d784d",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-20-lateral",
+    "candidateId": "plan-7ecd90b44168bbd8b34b108e943db788",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-20-orbit",
+    "candidateId": "plan-011667c8d0ef55cdf212c6a7da7ab08d",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-20-reveal",
+    "candidateId": "plan-06c007106d719878bdac4eb7710b04e1",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-21-hold",
+    "candidateId": "plan-7dda9e1db85e62101677f9a873b7eb93",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-21-push-in",
+    "candidateId": "plan-0cb52c87782c826971fffd92cdaf9f20",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-21-pull-out",
+    "candidateId": "plan-31a5c5103fb4c58eca9f4cbf969bf34e",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-21-lateral",
+    "candidateId": "plan-9ab1e34953d6520cb8e76a61305a8709",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-21-orbit",
+    "candidateId": "plan-9b1593c3588eb85a49fecf3f058baa21",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-21-reveal",
+    "candidateId": "plan-43df102f4de49a716413ac63f3b20fce",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  },
+  {
+    "fixtureId": "train-scene-22-hold",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-22-push-in",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-22-pull-out",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-22-lateral",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-22-orbit",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-22-reveal",
+    "candidateId": null,
+    "review": "fixed finite recipe search found no valid candidate; not proof of global infeasibility"
+  },
+  {
+    "fixtureId": "train-scene-23-hold",
+    "candidateId": "plan-24f06617240bc022c55c67e7b89697a9",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "hold"
+  },
+  {
+    "fixtureId": "train-scene-23-push-in",
+    "candidateId": "plan-ae66716c419925f05c45dd7b2fc95f82",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "push-in"
+  },
+  {
+    "fixtureId": "train-scene-23-pull-out",
+    "candidateId": "plan-7903eb1f3a86ff8838b4bcc7c9948047",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "pull-out"
+  },
+  {
+    "fixtureId": "train-scene-23-lateral",
+    "candidateId": "plan-88d840334dc0eb3e40d9084ac970ff97",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "lateral"
+  },
+  {
+    "fixtureId": "train-scene-23-orbit",
+    "candidateId": "plan-b39667476e11b43b6f56acc3949ced03",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "orbit"
+  },
+  {
+    "fixtureId": "train-scene-23-reveal",
+    "candidateId": "plan-116a016f5f2c254996a21b9a829c07a8",
+    "review": "deterministic solver reviewed, not human rated",
+    "valid": true,
+    "family": "reveal"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "contentType": {
+      "type": "string",
+      "enum": [
+        "video/mp4",
+        "video/quicktime",
+        "video/webm",
+        "video/x-m4v"
+      ]
+    },
+    "sizeBytes": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 104857600
+    },
+    "plan": {},
+    "trainingConsent": {
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "fileName",
+    "contentType",
+    "sizeBytes",
+    "plan",
+    "trainingConsent"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/upload-request.json"
+}

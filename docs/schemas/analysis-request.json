@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "targetTimeBasis": {
+      "type": "string",
+      "enum": [
+        "absolute-seconds",
+        "normalized-phase"
+      ]
+    },
+    "seed": {
+      "type": "object",
+      "properties": {
+        "timeSeconds": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "box": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "timeSeconds",
+        "box"
+      ],
+      "additionalProperties": false
+    },
+    "corrections": {
+      "default": [],
+      "maxItems": 10,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timeSeconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "box": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "timeSeconds",
+          "box"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "expectedVisible": {
+      "type": "object",
+      "properties": {
+        "startSeconds": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "endSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 15
+        }
+      },
+      "required": [
+        "startSeconds",
+        "endSeconds"
+      ],
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "object",
+          "properties": {
+            "centerX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "centerY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "centerX",
+            "centerY",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "end": {
+          "type": "object",
+          "properties": {
+            "centerX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "centerY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "centerX",
+            "centerY",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "targetKeyframes": {
+      "minItems": 2,
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "centerX": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "centerY": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          },
+          "timeSeconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60
+          }
+        },
+        "required": [
+          "centerX",
+          "centerY",
+          "width",
+          "height",
+          "timeSeconds"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "seed",
+    "corrections",
+    "expectedVisible"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/analysis-request.json"
+}

@@ -1,0 +1,3 @@
+openpipe-art==0.5.23
+python-dotenv==1.2.4
+wandb==0.31.0

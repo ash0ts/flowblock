@@ -1,0 +1,9 @@
+.venv
+vendor
+models/*.pt
+models/*.part
+artifacts
+tests
+__pycache__
+.pytest_cache
+.ruff_cache

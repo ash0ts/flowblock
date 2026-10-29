@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-29T10:03:41.544Z",
+  "path": "src/server/planner.ts",
+  "beforeHash": "49c6cbb3f90931b2a8aa86a4fbb17c2443e6bf7b87e6b2282635a6e1cd8dd341",
+  "afterHash": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+  "verified": true,
+  "exactTransformation": "Remove the single 'export ' prefix from 'export async function telemetry() {'.",
+  "effect": "Makes the existing telemetry initializer importable by the separate revision planner. Function body, planner behavior, prompt, tool execution and scoring are unchanged.",
+  "beforeAttempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+  "afterAttempt": "2026-10-29T10-00-01-734Z-candidate-3dd66429"
+}

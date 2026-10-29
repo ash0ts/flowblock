@@ -1,0 +1,532 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "analysisSpace": {
+      "type": "string",
+      "const": "upright-normalized-image"
+    },
+    "jobId": {
+      "type": "string"
+    },
+    "takeId": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "string"
+    },
+    "planVersion": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "const": "SAM 2.1 Small"
+        },
+        "repositoryCommit": {
+          "type": "string"
+        },
+        "checkpointSha256": {
+          "type": "string"
+        },
+        "device": {
+          "type": "string",
+          "enum": [
+            "cuda",
+            "mps",
+            "cpu"
+          ]
+        },
+        "realInference": {
+          "type": "boolean",
+          "const": true
+        },
+        "rulesVersion": {
+          "type": "string",
+          "const": "framing-v1"
+        },
+        "generatedAt": {
+          "type": "string"
+        },
+        "targetTimeBasis": {
+          "type": "string",
+          "enum": [
+            "absolute-seconds",
+            "normalized-phase"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "repositoryCommit",
+        "checkpointSha256",
+        "device",
+        "realInference",
+        "rulesVersion",
+        "generatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "video": {
+      "type": "object",
+      "properties": {
+        "durationSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "sourceWidth": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "sourceHeight": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "rotationDegrees": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "codec": {
+          "type": "string"
+        },
+        "fps": {
+          "type": "number",
+          "const": 15
+        },
+        "sampledFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "sourceStartPtsSeconds": {
+          "type": "number"
+        },
+        "timestampMapping": {
+          "type": "string",
+          "const": "nearest-source-presentation-timestamp"
+        },
+        "timeMap": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "frameIndex": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "proxySeconds": {
+                "type": "number"
+              },
+              "sourceSeconds": {
+                "type": "number"
+              },
+              "sourcePtsSeconds": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "frameIndex",
+              "proxySeconds",
+              "sourceSeconds",
+              "sourcePtsSeconds"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "durationSeconds",
+        "sourceWidth",
+        "sourceHeight",
+        "rotationDegrees",
+        "width",
+        "height",
+        "codec",
+        "fps",
+        "sampledFrames",
+        "sourceStartPtsSeconds",
+        "timestampMapping",
+        "timeMap"
+      ],
+      "additionalProperties": false
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "frameIndex": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "timestamp": {
+            "type": "number",
+            "minimum": 0
+          },
+          "proxyTimestamp": {
+            "type": "number",
+            "minimum": 0
+          },
+          "box": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "width": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "center": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "boundary": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "maskArea": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "touchesBorder": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "visible",
+              "missing",
+              "uncertain",
+              "intentionally-hidden"
+            ]
+          },
+          "uncertaintyReasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "frameIndex",
+          "timestamp",
+          "proxyTimestamp",
+          "box",
+          "center",
+          "boundary",
+          "maskArea",
+          "touchesBorder",
+          "visibility",
+          "uncertaintyReasons"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "expectedFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "measuredFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "missingFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "uncertainFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "intentionallyHiddenFrames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "measuredFraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "needsReview": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "expectedFrames",
+        "measuredFrames",
+        "missingFrames",
+        "uncertainFrames",
+        "intentionallyHiddenFrames",
+        "measuredFraction",
+        "needsReview"
+      ],
+      "additionalProperties": false
+    },
+    "findings": {
+      "maxItems": 2,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "framing",
+              "size",
+              "clipping",
+              "duration"
+            ]
+          },
+          "phase": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "evidenceTimestamps": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "affectedFrames": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "measuredPhaseFrames": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "suggestion": {
+            "type": "string"
+          },
+          "measurement": {
+            "type": "object",
+            "properties": {
+              "metric": {
+                "type": "string",
+                "enum": [
+                  "center-distance",
+                  "size-ratio",
+                  "border-contact-fraction",
+                  "duration-seconds"
+                ]
+              },
+              "observed": {
+                "type": "number"
+              },
+              "target": {
+                "type": "number"
+              },
+              "delta": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "enum": [
+                  "normalized-image-distance",
+                  "relative-size",
+                  "fraction",
+                  "seconds"
+                ]
+              },
+              "timestamp": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "metric",
+              "observed",
+              "target",
+              "delta",
+              "unit",
+              "timestamp"
+            ],
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timestamp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "objectKey": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "timestamp",
+                "objectKey"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "phase",
+          "title",
+          "detail",
+          "evidenceTimestamps",
+          "affectedFrames",
+          "measuredPhaseFrames",
+          "suggestion"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "proxyObjectKey": {
+          "type": "string"
+        },
+        "timestampsObjectKey": {
+          "type": "string"
+        },
+        "analysisObjectKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "proxyObjectKey",
+        "timestampsObjectKey",
+        "analysisObjectKey"
+      ],
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "analysisSpace",
+    "jobId",
+    "takeId",
+    "planId",
+    "planVersion",
+    "summary",
+    "provenance",
+    "video",
+    "tracks",
+    "coverage",
+    "findings",
+    "artifacts",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/take-analysis.json"
+}

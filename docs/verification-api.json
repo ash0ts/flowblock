@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0",
+  "startedAt": "2026-10-29T10:17:25.570Z",
+  "completedAt": "2026-10-29T10:18:25.345Z",
+  "scope": "Actual local HTTP API, PostgreSQL, real Forge revision request, and real SAM 2.1 Small MPS inference. No remote app deployment.",
+  "fixture": {
+    "label": "SYNTHETIC PIPELINE FIXTURE",
+    "sameVideoReplayed": true,
+    "sha256": "c84230474f667d223232f1f6b68c6d3091f6b6eb1dce5c1bf5592f8a2c190b10",
+    "durationSeconds": 5,
+    "sampledFrames": 75,
+    "creatorFootage": false
+  },
+  "interpretation": "The same synthetic video was analyzed twice. Changing planned duration from 8 seconds to 5 seconds removed the duration mismatch. This validates a timing-correction workflow, not improved filming or a real creator outcome.",
+  "revision": {
+    "source": "forge",
+    "model": "openai/gpt-oss-20b",
+    "changedParameters": [
+      "durationSeconds"
+    ],
+    "beforeSeconds": 8,
+    "afterSeconds": 5,
+    "citedFindingIds": [
+      "duration:take:0"
+    ],
+    "feasible": true,
+    "accepted": true,
+    "actions": [
+      "read_take_findings",
+      "propose_revision"
+    ],
+    "modelFallbackUsed": false
+  },
+  "firstAnalysis": {
+    "device": "mps",
+    "realInference": true,
+    "coverage": {
+      "expectedFrames": 75,
+      "measuredFrames": 75,
+      "missingFrames": 0,
+      "uncertainFrames": 0,
+      "intentionallyHiddenFrames": 0,
+      "measuredFraction": 1,
+      "needsReview": false
+    },
+    "findingKinds": [
+      "duration"
+    ]
+  },
+  "secondAnalysis": {
+    "device": "mps",
+    "realInference": true,
+    "coverage": {
+      "expectedFrames": 75,
+      "measuredFrames": 75,
+      "missingFrames": 0,
+      "uncertainFrames": 0,
+      "intentionallyHiddenFrames": 0,
+      "measuredFraction": 1,
+      "needsReview": false
+    },
+    "findingKinds": [],
+    "durationFindingRemoved": true,
+    "targetTimeBasis": "normalized-phase"
+  },
+  "media": {
+    "evidenceJpegStatus": 200,
+    "evidenceJpegBytes": 6109,
+    "proxyRangeStatus": 206,
+    "proxyRangeBytes": 1024,
+    "proxyContentRange": "bytes 0-1023/11827"
+  },
+  "sharing": {
+    "createdStatus": 200,
+    "publicReadStatus": 200,
+    "revokedReadStatus": 404,
+    "tokensOmitted": true
+  },
+  "projects": {
+    "createStatus": 200,
+    "updateStatus": 200,
+    "staleVersionStatus": 409
+  },
+  "privacy": {
+    "rawFootageCommitted": false,
+    "objectKeysAndIdentifiersOmitted": true,
+    "privateRecord": ".data/smoke-loop.json",
+    "takesPreservedForScreenshots": true
+  },
+  "limitations": [
+    "Synthetic replay is not a field evaluation.",
+    "MPS uses CPU fallback for unsupported PyTorch operations; no CUDA run was performed.",
+    "The response source above explicitly distinguishes Forge from the deterministic fallback."
+  ]
+}

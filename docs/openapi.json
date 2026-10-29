@@ -1,0 +1,6178 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FlowBlock API",
+    "version": "1.0",
+    "description": "Local planning with owned project snapshots, explicit media completion, leased analysis jobs, and accepted evidence-linked revisions."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:3037"
+    }
+  ],
+  "security": [
+    {
+      "session": []
+    }
+  ],
+  "paths": {
+    "/api/status": {
+      "get": {
+        "operationId": "status",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Configured capabilities and recorded training state, without credentials."
+          }
+        }
+      }
+    },
+    "/api/plans": {
+      "post": {
+        "operationId": "planShot",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "description": "The same owner and key must have identical request inputs."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/planning-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/uploads": {
+      "post": {
+        "operationId": "createUpload",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/upload-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/takes/{id}/upload": {
+      "put": {
+        "operationId": "uploadLocalBytes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "video/mp4": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/uploads/{id}/complete": {
+      "post": {
+        "operationId": "verifyUpload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/takes/{id}/analyze": {
+      "post": {
+        "operationId": "analyzeTake",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "description": "The same owner and key must have identical request inputs."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/analysis-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/jobs/{id}": {
+      "get": {
+        "operationId": "readJob",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      },
+      "delete": {
+        "operationId": "cancelJob",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/takes/{id}/media": {
+      "get": {
+        "operationId": "readOwnedMedia",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "artifact",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "original, proxy, or an evidence object key already present in this take’s saved analysis."
+          },
+          {
+            "name": "Range",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "One HTTP bytes range."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "206": {
+            "description": "Partial byte range."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "416": {
+            "description": "Invalid byte range."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/takes/{id}": {
+      "delete": {
+        "operationId": "deleteTake",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/revisions": {
+      "post": {
+        "operationId": "proposeRevision",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/revision-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/revisions/{id}/accept": {
+      "post": {
+        "operationId": "acceptRevision",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "currentPlanId"
+                ],
+                "properties": {
+                  "currentPlanId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "post": {
+        "operationId": "saveProjectVersion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/project-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      },
+      "get": {
+        "operationId": "listOwnedProjects",
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/shares": {
+      "post": {
+        "operationId": "shareSnapshot",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "plan"
+                ],
+                "properties": {
+                  "plan": {
+                    "$ref": "#/components/schemas/plan"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
+    "/api/shares/{token}": {
+      "delete": {
+        "operationId": "revokeShare",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "session": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "authjs.session-token"
+      }
+    },
+    "schemas": {
+      "scene": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "boundary": {
+            "minItems": 3,
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": -1000,
+                  "maximum": 1000
+                },
+                "z": {
+                  "type": "number",
+                  "minimum": -1000,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "x",
+                "z"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "subject": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "center": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "z": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "x",
+                  "z"
+                ],
+                "additionalProperties": false
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 100
+              },
+              "depth": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 100
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 20
+              },
+              "baseHeight": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "yawDeg": {
+                "type": "number",
+                "minimum": -360,
+                "maximum": 360
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "center",
+              "width",
+              "depth",
+              "height",
+              "baseHeight",
+              "yawDeg"
+            ],
+            "additionalProperties": false
+          },
+          "obstacles": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "center": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "width": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                },
+                "depth": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                },
+                "height": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 20
+                },
+                "baseHeight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 20
+                },
+                "yawDeg": {
+                  "type": "number",
+                  "minimum": -360,
+                  "maximum": 360
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "center",
+                "width",
+                "depth",
+                "height",
+                "baseHeight",
+                "yawDeg"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "lights": {
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "intensity": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "position",
+                "intensity"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "measurementUncertainty": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "boundary",
+          "subject",
+          "obstacles",
+          "lights",
+          "measurementUncertainty"
+        ],
+        "additionalProperties": false
+      },
+      "gear": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "lens": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "physical"
+                  },
+                  "focalLengthMm": {
+                    "type": "number",
+                    "minimum": 4,
+                    "maximum": 600
+                  },
+                  "sensorWidthMm": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 100
+                  },
+                  "sensorHeightMm": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 100
+                  }
+                },
+                "required": [
+                  "kind",
+                  "focalLengthMm",
+                  "sensorWidthMm",
+                  "sensorHeightMm"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "equivalent"
+                  },
+                  "focalLengthMm": {
+                    "type": "number",
+                    "minimum": 4,
+                    "maximum": 600
+                  }
+                },
+                "required": [
+                  "kind",
+                  "focalLengthMm"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "aspectRatio": {
+            "type": "string",
+            "enum": [
+              "landscape",
+              "portrait",
+              "square"
+            ]
+          },
+          "stabilizer": {
+            "type": "string",
+            "enum": [
+              "handheld",
+              "gimbal",
+              "tripod",
+              "slider"
+            ]
+          },
+          "gimbalMode": {
+            "type": "string",
+            "enum": [
+              "follow",
+              "lock",
+              "pov"
+            ]
+          },
+          "cameraRadius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "operatorRadius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "operatorOffset": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "uncertaintyMargin": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minHeight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "maxHeight": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 5
+          },
+          "maxSpeed": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "lens",
+          "aspectRatio",
+          "stabilizer",
+          "gimbalMode",
+          "cameraRadius",
+          "operatorRadius",
+          "operatorOffset",
+          "uncertaintyMargin",
+          "minHeight",
+          "maxHeight",
+          "maxSpeed"
+        ],
+        "additionalProperties": false
+      },
+      "intent": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "brief": {
+            "default": "A controlled product hero shot",
+            "type": "string",
+            "maxLength": 4000
+          },
+          "durationSeconds": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "framing": {
+            "type": "string",
+            "enum": [
+              "wide",
+              "medium",
+              "close"
+            ]
+          },
+          "motion": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "balanced",
+              "dynamic"
+            ]
+          },
+          "cameraHeight": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 5
+          },
+          "framingTargets": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "end": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "brief",
+          "durationSeconds",
+          "framing",
+          "motion",
+          "cameraHeight"
+        ],
+        "additionalProperties": false
+      },
+      "overrides": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "distance": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 30
+          },
+          "travel": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "bearingDeg": {
+            "type": "number",
+            "minimum": -360,
+            "maximum": 360
+          },
+          "orbitDegrees": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "height": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 5
+          },
+          "durationSeconds": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "reverse": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "plan": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recipeId": {
+            "type": "string",
+            "enum": [
+              "hero-hold",
+              "elevated-hold",
+              "gentle-push",
+              "detail-push",
+              "context-pull",
+              "wide-pull",
+              "left-slide",
+              "right-slide",
+              "quarter-orbit",
+              "reverse-orbit",
+              "left-reveal",
+              "right-reveal"
+            ]
+          },
+          "family": {
+            "type": "string",
+            "enum": [
+              "hold",
+              "push-in",
+              "pull-out",
+              "lateral",
+              "orbit",
+              "reveal"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "scene": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "boundary": {
+                "minItems": 3,
+                "maxItems": 200,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "subject": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "center": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      },
+                      "z": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "z"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "depth": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 20
+                  },
+                  "baseHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 20
+                  },
+                  "yawDeg": {
+                    "type": "number",
+                    "minimum": -360,
+                    "maximum": 360
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "center",
+                  "width",
+                  "depth",
+                  "height",
+                  "baseHeight",
+                  "yawDeg"
+                ],
+                "additionalProperties": false
+              },
+              "obstacles": {
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "center": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "width": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 100
+                    },
+                    "depth": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 100
+                    },
+                    "height": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 20
+                    },
+                    "baseHeight": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 20
+                    },
+                    "yawDeg": {
+                      "type": "number",
+                      "minimum": -360,
+                      "maximum": 360
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "center",
+                    "width",
+                    "depth",
+                    "height",
+                    "baseHeight",
+                    "yawDeg"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "lights": {
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "position": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "intensity": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "position",
+                    "intensity"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "measurementUncertainty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "boundary",
+              "subject",
+              "obstacles",
+              "lights",
+              "measurementUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "gear": {
+            "type": "object",
+            "properties": {
+              "lens": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "physical"
+                      },
+                      "focalLengthMm": {
+                        "type": "number",
+                        "minimum": 4,
+                        "maximum": 600
+                      },
+                      "sensorWidthMm": {
+                        "type": "number",
+                        "minimum": 2,
+                        "maximum": 100
+                      },
+                      "sensorHeightMm": {
+                        "type": "number",
+                        "minimum": 2,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "focalLengthMm",
+                      "sensorWidthMm",
+                      "sensorHeightMm"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "equivalent"
+                      },
+                      "focalLengthMm": {
+                        "type": "number",
+                        "minimum": 4,
+                        "maximum": 600
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "focalLengthMm"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "aspectRatio": {
+                "type": "string",
+                "enum": [
+                  "landscape",
+                  "portrait",
+                  "square"
+                ]
+              },
+              "stabilizer": {
+                "type": "string",
+                "enum": [
+                  "handheld",
+                  "gimbal",
+                  "tripod",
+                  "slider"
+                ]
+              },
+              "gimbalMode": {
+                "type": "string",
+                "enum": [
+                  "follow",
+                  "lock",
+                  "pov"
+                ]
+              },
+              "cameraRadius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "operatorRadius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "operatorOffset": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "uncertaintyMargin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minHeight": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4
+              },
+              "maxHeight": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 5
+              },
+              "maxSpeed": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 5
+              }
+            },
+            "required": [
+              "lens",
+              "aspectRatio",
+              "stabilizer",
+              "gimbalMode",
+              "cameraRadius",
+              "operatorRadius",
+              "operatorOffset",
+              "uncertaintyMargin",
+              "minHeight",
+              "maxHeight",
+              "maxSpeed"
+            ],
+            "additionalProperties": false
+          },
+          "intent": {
+            "type": "object",
+            "properties": {
+              "brief": {
+                "default": "A controlled product hero shot",
+                "type": "string",
+                "maxLength": 4000
+              },
+              "durationSeconds": {
+                "type": "number",
+                "minimum": 2,
+                "maximum": 60
+              },
+              "framing": {
+                "type": "string",
+                "enum": [
+                  "wide",
+                  "medium",
+                  "close"
+                ]
+              },
+              "motion": {
+                "type": "string",
+                "enum": [
+                  "subtle",
+                  "balanced",
+                  "dynamic"
+                ]
+              },
+              "cameraHeight": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 5
+              },
+              "framingTargets": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "end": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "brief",
+              "durationSeconds",
+              "framing",
+              "motion",
+              "cameraHeight"
+            ],
+            "additionalProperties": false
+          },
+          "overrides": {
+            "type": "object",
+            "properties": {
+              "distance": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 30
+              },
+              "travel": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "bearingDeg": {
+                "type": "number",
+                "minimum": -360,
+                "maximum": 360
+              },
+              "orbitDegrees": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 5
+              },
+              "durationSeconds": {
+                "type": "number",
+                "minimum": 2,
+                "maximum": 60
+              },
+              "reverse": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "path": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "hold",
+                  "line",
+                  "arc"
+                ]
+              },
+              "start": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "z": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "x",
+                  "z"
+                ],
+                "additionalProperties": false
+              },
+              "end": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "z": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "x",
+                  "z"
+                ],
+                "additionalProperties": false
+              },
+              "center": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "z": {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "x",
+                  "z"
+                ],
+                "additionalProperties": false
+              },
+              "radius": {
+                "type": "number",
+                "minimum": 0
+              },
+              "startAngle": {
+                "type": "number"
+              },
+              "sweepAngle": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "kind",
+              "start",
+              "end",
+              "center",
+              "radius",
+              "startAngle",
+              "sweepAngle"
+            ],
+            "additionalProperties": false
+          },
+          "durationSeconds": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "arcLength": {
+            "type": "number",
+            "minimum": 0
+          },
+          "cameraHeight": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "validation": {
+            "type": "object",
+            "properties": {
+              "valid": {
+                "type": "boolean"
+              },
+              "violations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "error",
+                        "warning"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "obstacleId": {
+                      "type": "string"
+                    },
+                    "timeSeconds": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "severity",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "minClearance": {
+                "type": "number"
+              },
+              "approximationError": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.01
+              },
+              "checkedSegments": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "model": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "valid",
+              "violations",
+              "minClearance",
+              "approximationError",
+              "checkedSegments",
+              "model"
+            ],
+            "additionalProperties": false
+          },
+          "framing": {
+            "type": "object",
+            "properties": {
+              "startCoverage": {
+                "type": "number",
+                "minimum": 0
+              },
+              "endCoverage": {
+                "type": "number",
+                "minimum": 0
+              },
+              "target": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "temporalStart": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "temporalEnd": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 1
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "startCoverage",
+              "endCoverage",
+              "target",
+              "temporalStart",
+              "temporalEnd"
+            ],
+            "additionalProperties": false
+          },
+          "keyframes": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "t": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "timeSeconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "operator": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "target": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "yawDeg": {
+                  "type": "number"
+                },
+                "pitchDeg": {
+                  "type": "number"
+                },
+                "distance": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "coverage": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "framingBox": {
+                  "type": "object",
+                  "properties": {
+                    "centerX": {
+                      "type": "number"
+                    },
+                    "centerY": {
+                      "type": "number"
+                    },
+                    "width": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "height": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "centerX",
+                    "centerY",
+                    "width",
+                    "height"
+                  ],
+                  "additionalProperties": false
+                },
+                "projectionValid": {
+                  "type": "boolean"
+                },
+                "progress": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "t",
+                "timeSeconds",
+                "position",
+                "operator",
+                "target",
+                "yawDeg",
+                "pitchDeg",
+                "distance",
+                "coverage",
+                "framingBox",
+                "projectionValid",
+                "progress"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "id",
+          "recipeId",
+          "family",
+          "name",
+          "scene",
+          "gear",
+          "intent",
+          "overrides",
+          "path",
+          "durationSeconds",
+          "arcLength",
+          "cameraHeight",
+          "validation",
+          "framing",
+          "keyframes",
+          "score"
+        ],
+        "additionalProperties": false
+      },
+      "agent-action": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "list_recipes"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "compile_candidate"
+              },
+              "recipeId": {
+                "type": "string",
+                "enum": [
+                  "hero-hold",
+                  "elevated-hold",
+                  "gentle-push",
+                  "detail-push",
+                  "context-pull",
+                  "wide-pull",
+                  "left-slide",
+                  "right-slide",
+                  "quarter-orbit",
+                  "reverse-orbit",
+                  "left-reveal",
+                  "right-reveal"
+                ]
+              },
+              "overrides": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 30
+                  },
+                  "travel": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 20
+                  },
+                  "bearingDeg": {
+                    "type": "number",
+                    "minimum": -360,
+                    "maximum": 360
+                  },
+                  "orbitDegrees": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 5
+                  },
+                  "durationSeconds": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 60
+                  },
+                  "reverse": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "action",
+              "recipeId"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "validate_candidate"
+              },
+              "candidateId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "action",
+              "candidateId"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "read_take_findings"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "propose_revision"
+              },
+              "overrides": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 30
+                  },
+                  "travel": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 20
+                  },
+                  "bearingDeg": {
+                    "type": "number",
+                    "minimum": -360,
+                    "maximum": 360
+                  },
+                  "orbitDegrees": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 5
+                  },
+                  "durationSeconds": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 60
+                  },
+                  "reverse": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "findingIds": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "required": [
+              "action",
+              "overrides",
+              "reason",
+              "findingIds"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "const": "finish"
+              },
+              "candidateIds": {
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "action",
+              "candidateIds",
+              "explanation"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "agent-response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "actions": {
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "list_recipes"
+                    }
+                  },
+                  "required": [
+                    "action"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "compile_candidate"
+                    },
+                    "recipeId": {
+                      "type": "string",
+                      "enum": [
+                        "hero-hold",
+                        "elevated-hold",
+                        "gentle-push",
+                        "detail-push",
+                        "context-pull",
+                        "wide-pull",
+                        "left-slide",
+                        "right-slide",
+                        "quarter-orbit",
+                        "reverse-orbit",
+                        "left-reveal",
+                        "right-reveal"
+                      ]
+                    },
+                    "overrides": {
+                      "type": "object",
+                      "properties": {
+                        "distance": {
+                          "type": "number",
+                          "minimum": 0.1,
+                          "maximum": 30
+                        },
+                        "travel": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 20
+                        },
+                        "bearingDeg": {
+                          "type": "number",
+                          "minimum": -360,
+                          "maximum": 360
+                        },
+                        "orbitDegrees": {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180
+                        },
+                        "height": {
+                          "type": "number",
+                          "minimum": 0.1,
+                          "maximum": 5
+                        },
+                        "durationSeconds": {
+                          "type": "number",
+                          "minimum": 2,
+                          "maximum": 60
+                        },
+                        "reverse": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "recipeId"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "validate_candidate"
+                    },
+                    "candidateId": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "candidateId"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "read_take_findings"
+                    }
+                  },
+                  "required": [
+                    "action"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "propose_revision"
+                    },
+                    "overrides": {
+                      "type": "object",
+                      "properties": {
+                        "distance": {
+                          "type": "number",
+                          "minimum": 0.1,
+                          "maximum": 30
+                        },
+                        "travel": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 20
+                        },
+                        "bearingDeg": {
+                          "type": "number",
+                          "minimum": -360,
+                          "maximum": 360
+                        },
+                        "orbitDegrees": {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180
+                        },
+                        "height": {
+                          "type": "number",
+                          "minimum": 0.1,
+                          "maximum": 5
+                        },
+                        "durationSeconds": {
+                          "type": "number",
+                          "minimum": 2,
+                          "maximum": 60
+                        },
+                        "reverse": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "findingIds": {
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "overrides",
+                    "reason",
+                    "findingIds"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "finish"
+                    },
+                    "candidateIds": {
+                      "maxItems": 12,
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "explanation": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "candidateIds",
+                    "explanation"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "message",
+          "actions"
+        ],
+        "additionalProperties": false
+      },
+      "take-analysis": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "analysisSpace": {
+            "type": "string",
+            "const": "upright-normalized-image"
+          },
+          "jobId": {
+            "type": "string"
+          },
+          "takeId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "planVersion": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "const": "SAM 2.1 Small"
+              },
+              "repositoryCommit": {
+                "type": "string"
+              },
+              "checkpointSha256": {
+                "type": "string"
+              },
+              "device": {
+                "type": "string",
+                "enum": [
+                  "cuda",
+                  "mps",
+                  "cpu"
+                ]
+              },
+              "realInference": {
+                "type": "boolean",
+                "const": true
+              },
+              "rulesVersion": {
+                "type": "string",
+                "const": "framing-v1"
+              },
+              "generatedAt": {
+                "type": "string"
+              },
+              "targetTimeBasis": {
+                "type": "string",
+                "enum": [
+                  "absolute-seconds",
+                  "normalized-phase"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "repositoryCommit",
+              "checkpointSha256",
+              "device",
+              "realInference",
+              "rulesVersion",
+              "generatedAt"
+            ],
+            "additionalProperties": false
+          },
+          "video": {
+            "type": "object",
+            "properties": {
+              "durationSeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "sourceWidth": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "sourceHeight": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "rotationDegrees": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "codec": {
+                "type": "string"
+              },
+              "fps": {
+                "type": "number",
+                "const": 15
+              },
+              "sampledFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "sourceStartPtsSeconds": {
+                "type": "number"
+              },
+              "timestampMapping": {
+                "type": "string",
+                "const": "nearest-source-presentation-timestamp"
+              },
+              "timeMap": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "frameIndex": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "proxySeconds": {
+                      "type": "number"
+                    },
+                    "sourceSeconds": {
+                      "type": "number"
+                    },
+                    "sourcePtsSeconds": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "frameIndex",
+                    "proxySeconds",
+                    "sourceSeconds",
+                    "sourcePtsSeconds"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "durationSeconds",
+              "sourceWidth",
+              "sourceHeight",
+              "rotationDegrees",
+              "width",
+              "height",
+              "codec",
+              "fps",
+              "sampledFrames",
+              "sourceStartPtsSeconds",
+              "timestampMapping",
+              "timeMap"
+            ],
+            "additionalProperties": false
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frameIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "timestamp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "proxyTimestamp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "box": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "width": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "height": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "center": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "boundary": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "maskArea": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "touchesBorder": {
+                  "type": "boolean"
+                },
+                "visibility": {
+                  "type": "string",
+                  "enum": [
+                    "visible",
+                    "missing",
+                    "uncertain",
+                    "intentionally-hidden"
+                  ]
+                },
+                "uncertaintyReasons": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "frameIndex",
+                "timestamp",
+                "proxyTimestamp",
+                "box",
+                "center",
+                "boundary",
+                "maskArea",
+                "touchesBorder",
+                "visibility",
+                "uncertaintyReasons"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "expectedFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "measuredFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "missingFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "uncertainFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "intentionallyHiddenFrames": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "measuredFraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "needsReview": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "expectedFrames",
+              "measuredFrames",
+              "missingFrames",
+              "uncertainFrames",
+              "intentionallyHiddenFrames",
+              "measuredFraction",
+              "needsReview"
+            ],
+            "additionalProperties": false
+          },
+          "findings": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "framing",
+                    "size",
+                    "clipping",
+                    "duration"
+                  ]
+                },
+                "phase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "evidenceTimestamps": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "affectedFrames": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "measuredPhaseFrames": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "suggestion": {
+                  "type": "string"
+                },
+                "measurement": {
+                  "type": "object",
+                  "properties": {
+                    "metric": {
+                      "type": "string",
+                      "enum": [
+                        "center-distance",
+                        "size-ratio",
+                        "border-contact-fraction",
+                        "duration-seconds"
+                      ]
+                    },
+                    "observed": {
+                      "type": "number"
+                    },
+                    "target": {
+                      "type": "number"
+                    },
+                    "delta": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "normalized-image-distance",
+                        "relative-size",
+                        "fraction",
+                        "seconds"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "metric",
+                    "observed",
+                    "target",
+                    "delta",
+                    "unit",
+                    "timestamp"
+                  ],
+                  "additionalProperties": false
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "timestamp": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "objectKey": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "timestamp",
+                      "objectKey"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "kind",
+                "phase",
+                "title",
+                "detail",
+                "evidenceTimestamps",
+                "affectedFrames",
+                "measuredPhaseFrames",
+                "suggestion"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "artifacts": {
+            "type": "object",
+            "properties": {
+              "proxyObjectKey": {
+                "type": "string"
+              },
+              "timestampsObjectKey": {
+                "type": "string"
+              },
+              "analysisObjectKey": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "proxyObjectKey",
+              "timestampsObjectKey",
+              "analysisObjectKey"
+            ],
+            "additionalProperties": false
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "analysisSpace",
+          "jobId",
+          "takeId",
+          "planId",
+          "planVersion",
+          "summary",
+          "provenance",
+          "video",
+          "tracks",
+          "coverage",
+          "findings",
+          "artifacts",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "planning-request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "scene": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "boundary": {
+                "minItems": 3,
+                "maxItems": 200,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "subject": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "center": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      },
+                      "z": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "z"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "depth": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 20
+                  },
+                  "baseHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 20
+                  },
+                  "yawDeg": {
+                    "type": "number",
+                    "minimum": -360,
+                    "maximum": 360
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "center",
+                  "width",
+                  "depth",
+                  "height",
+                  "baseHeight",
+                  "yawDeg"
+                ],
+                "additionalProperties": false
+              },
+              "obstacles": {
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "center": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "width": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 100
+                    },
+                    "depth": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 100
+                    },
+                    "height": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 20
+                    },
+                    "baseHeight": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 20
+                    },
+                    "yawDeg": {
+                      "type": "number",
+                      "minimum": -360,
+                      "maximum": 360
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "center",
+                    "width",
+                    "depth",
+                    "height",
+                    "baseHeight",
+                    "yawDeg"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "lights": {
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "position": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "intensity": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "position",
+                    "intensity"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "measurementUncertainty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "boundary",
+              "subject",
+              "obstacles",
+              "lights",
+              "measurementUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "gear": {
+            "type": "object",
+            "properties": {
+              "lens": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "physical"
+                      },
+                      "focalLengthMm": {
+                        "type": "number",
+                        "minimum": 4,
+                        "maximum": 600
+                      },
+                      "sensorWidthMm": {
+                        "type": "number",
+                        "minimum": 2,
+                        "maximum": 100
+                      },
+                      "sensorHeightMm": {
+                        "type": "number",
+                        "minimum": 2,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "focalLengthMm",
+                      "sensorWidthMm",
+                      "sensorHeightMm"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "equivalent"
+                      },
+                      "focalLengthMm": {
+                        "type": "number",
+                        "minimum": 4,
+                        "maximum": 600
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "focalLengthMm"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "aspectRatio": {
+                "type": "string",
+                "enum": [
+                  "landscape",
+                  "portrait",
+                  "square"
+                ]
+              },
+              "stabilizer": {
+                "type": "string",
+                "enum": [
+                  "handheld",
+                  "gimbal",
+                  "tripod",
+                  "slider"
+                ]
+              },
+              "gimbalMode": {
+                "type": "string",
+                "enum": [
+                  "follow",
+                  "lock",
+                  "pov"
+                ]
+              },
+              "cameraRadius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "operatorRadius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "operatorOffset": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "uncertaintyMargin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minHeight": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4
+              },
+              "maxHeight": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 5
+              },
+              "maxSpeed": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 5
+              }
+            },
+            "required": [
+              "lens",
+              "aspectRatio",
+              "stabilizer",
+              "gimbalMode",
+              "cameraRadius",
+              "operatorRadius",
+              "operatorOffset",
+              "uncertaintyMargin",
+              "minHeight",
+              "maxHeight",
+              "maxSpeed"
+            ],
+            "additionalProperties": false
+          },
+          "intent": {
+            "type": "object",
+            "properties": {
+              "brief": {
+                "default": "A controlled product hero shot",
+                "type": "string",
+                "maxLength": 4000
+              },
+              "durationSeconds": {
+                "type": "number",
+                "minimum": 2,
+                "maximum": 60
+              },
+              "framing": {
+                "type": "string",
+                "enum": [
+                  "wide",
+                  "medium",
+                  "close"
+                ]
+              },
+              "motion": {
+                "type": "string",
+                "enum": [
+                  "subtle",
+                  "balanced",
+                  "dynamic"
+                ]
+              },
+              "cameraHeight": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 5
+              },
+              "framingTargets": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "end": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "brief",
+              "durationSeconds",
+              "framing",
+              "motion",
+              "cameraHeight"
+            ],
+            "additionalProperties": false
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 4000
+          }
+        },
+        "required": [
+          "scene",
+          "gear",
+          "intent"
+        ],
+        "additionalProperties": false
+      },
+      "upload-request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "contentType": {
+            "type": "string",
+            "enum": [
+              "video/mp4",
+              "video/quicktime",
+              "video/webm",
+              "video/x-m4v"
+            ]
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 104857600
+          },
+          "plan": {},
+          "trainingConsent": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "fileName",
+          "contentType",
+          "sizeBytes",
+          "plan",
+          "trainingConsent"
+        ],
+        "additionalProperties": false
+      },
+      "analysis-request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "targetTimeBasis": {
+            "type": "string",
+            "enum": [
+              "absolute-seconds",
+              "normalized-phase"
+            ]
+          },
+          "seed": {
+            "type": "object",
+            "properties": {
+              "timeSeconds": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 15
+              },
+              "box": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "timeSeconds",
+              "box"
+            ],
+            "additionalProperties": false
+          },
+          "corrections": {
+            "default": [],
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timeSeconds": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 15
+                },
+                "box": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "width": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 1
+                    },
+                    "height": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "width",
+                    "height"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "timeSeconds",
+                "box"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "expectedVisible": {
+            "type": "object",
+            "properties": {
+              "startSeconds": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 15
+              },
+              "endSeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 15
+              }
+            },
+            "required": [
+              "startSeconds",
+              "endSeconds"
+            ],
+            "additionalProperties": false
+          },
+          "target": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "object",
+                "properties": {
+                  "centerX": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "centerY": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "centerX",
+                  "centerY",
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              },
+              "end": {
+                "type": "object",
+                "properties": {
+                  "centerX": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "centerY": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "centerX",
+                  "centerY",
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          },
+          "targetKeyframes": {
+            "minItems": 2,
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "centerX": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "centerY": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "width": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                },
+                "height": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                },
+                "timeSeconds": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 60
+                }
+              },
+              "required": [
+                "centerX",
+                "centerY",
+                "width",
+                "height",
+                "timeSeconds"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "seed",
+          "corrections",
+          "expectedVisible"
+        ],
+        "additionalProperties": false
+      },
+      "project-request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "plan": {},
+          "projectId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expectedVersionId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "plan"
+        ],
+        "additionalProperties": false
+      },
+      "revision-request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "object",
+            "properties": {
+              "schemaVersion": {
+                "type": "string",
+                "const": "1.0"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "recipeId": {
+                "type": "string",
+                "enum": [
+                  "hero-hold",
+                  "elevated-hold",
+                  "gentle-push",
+                  "detail-push",
+                  "context-pull",
+                  "wide-pull",
+                  "left-slide",
+                  "right-slide",
+                  "quarter-orbit",
+                  "reverse-orbit",
+                  "left-reveal",
+                  "right-reveal"
+                ]
+              },
+              "family": {
+                "type": "string",
+                "enum": [
+                  "hold",
+                  "push-in",
+                  "pull-out",
+                  "lateral",
+                  "orbit",
+                  "reveal"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "scene": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "boundary": {
+                    "minItems": 3,
+                    "maxItems": 200,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "subject": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "center": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "minimum": -1000,
+                            "maximum": 1000
+                          },
+                          "z": {
+                            "type": "number",
+                            "minimum": -1000,
+                            "maximum": 1000
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "z"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "width": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 100
+                      },
+                      "depth": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 100
+                      },
+                      "height": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 20
+                      },
+                      "baseHeight": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20
+                      },
+                      "yawDeg": {
+                        "type": "number",
+                        "minimum": -360,
+                        "maximum": 360
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "center",
+                      "width",
+                      "depth",
+                      "height",
+                      "baseHeight",
+                      "yawDeg"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "obstacles": {
+                    "maxItems": 100,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "center": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "minimum": -1000,
+                              "maximum": 1000
+                            },
+                            "z": {
+                              "type": "number",
+                              "minimum": -1000,
+                              "maximum": 1000
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "z"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "width": {
+                          "type": "number",
+                          "exclusiveMinimum": 0,
+                          "maximum": 100
+                        },
+                        "depth": {
+                          "type": "number",
+                          "exclusiveMinimum": 0,
+                          "maximum": 100
+                        },
+                        "height": {
+                          "type": "number",
+                          "exclusiveMinimum": 0,
+                          "maximum": 20
+                        },
+                        "baseHeight": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 20
+                        },
+                        "yawDeg": {
+                          "type": "number",
+                          "minimum": -360,
+                          "maximum": 360
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "center",
+                        "width",
+                        "depth",
+                        "height",
+                        "baseHeight",
+                        "yawDeg"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "lights": {
+                    "maxItems": 20,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "position": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "minimum": -1000,
+                              "maximum": 1000
+                            },
+                            "y": {
+                              "type": "number",
+                              "minimum": -1000,
+                              "maximum": 1000
+                            },
+                            "z": {
+                              "type": "number",
+                              "minimum": -1000,
+                              "maximum": 1000
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "y",
+                            "z"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "intensity": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 100
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "position",
+                        "intensity"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "measurementUncertainty": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "boundary",
+                  "subject",
+                  "obstacles",
+                  "lights",
+                  "measurementUncertainty"
+                ],
+                "additionalProperties": false
+              },
+              "gear": {
+                "type": "object",
+                "properties": {
+                  "lens": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "physical"
+                          },
+                          "focalLengthMm": {
+                            "type": "number",
+                            "minimum": 4,
+                            "maximum": 600
+                          },
+                          "sensorWidthMm": {
+                            "type": "number",
+                            "minimum": 2,
+                            "maximum": 100
+                          },
+                          "sensorHeightMm": {
+                            "type": "number",
+                            "minimum": 2,
+                            "maximum": 100
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "focalLengthMm",
+                          "sensorWidthMm",
+                          "sensorHeightMm"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "equivalent"
+                          },
+                          "focalLengthMm": {
+                            "type": "number",
+                            "minimum": 4,
+                            "maximum": 600
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "focalLengthMm"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "aspectRatio": {
+                    "type": "string",
+                    "enum": [
+                      "landscape",
+                      "portrait",
+                      "square"
+                    ]
+                  },
+                  "stabilizer": {
+                    "type": "string",
+                    "enum": [
+                      "handheld",
+                      "gimbal",
+                      "tripod",
+                      "slider"
+                    ]
+                  },
+                  "gimbalMode": {
+                    "type": "string",
+                    "enum": [
+                      "follow",
+                      "lock",
+                      "pov"
+                    ]
+                  },
+                  "cameraRadius": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "operatorRadius": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "operatorOffset": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "uncertaintyMargin": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "minHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4
+                  },
+                  "maxHeight": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5
+                  },
+                  "maxSpeed": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5
+                  }
+                },
+                "required": [
+                  "lens",
+                  "aspectRatio",
+                  "stabilizer",
+                  "gimbalMode",
+                  "cameraRadius",
+                  "operatorRadius",
+                  "operatorOffset",
+                  "uncertaintyMargin",
+                  "minHeight",
+                  "maxHeight",
+                  "maxSpeed"
+                ],
+                "additionalProperties": false
+              },
+              "intent": {
+                "type": "object",
+                "properties": {
+                  "brief": {
+                    "default": "A controlled product hero shot",
+                    "type": "string",
+                    "maxLength": 4000
+                  },
+                  "durationSeconds": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 60
+                  },
+                  "framing": {
+                    "type": "string",
+                    "enum": [
+                      "wide",
+                      "medium",
+                      "close"
+                    ]
+                  },
+                  "motion": {
+                    "type": "string",
+                    "enum": [
+                      "subtle",
+                      "balanced",
+                      "dynamic"
+                    ]
+                  },
+                  "cameraHeight": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 5
+                  },
+                  "framingTargets": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "number",
+                            "minimum": 0.01,
+                            "maximum": 1
+                          },
+                          {
+                            "type": "number",
+                            "minimum": 0.01,
+                            "maximum": 1
+                          }
+                        ],
+                        "items": false,
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "end": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "number",
+                            "minimum": 0.01,
+                            "maximum": 1
+                          },
+                          {
+                            "type": "number",
+                            "minimum": 0.01,
+                            "maximum": 1
+                          }
+                        ],
+                        "items": false,
+                        "minItems": 2,
+                        "maxItems": 2
+                      }
+                    },
+                    "required": [
+                      "start",
+                      "end"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "brief",
+                  "durationSeconds",
+                  "framing",
+                  "motion",
+                  "cameraHeight"
+                ],
+                "additionalProperties": false
+              },
+              "overrides": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 30
+                  },
+                  "travel": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 20
+                  },
+                  "bearingDeg": {
+                    "type": "number",
+                    "minimum": -360,
+                    "maximum": 360
+                  },
+                  "orbitDegrees": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 5
+                  },
+                  "durationSeconds": {
+                    "type": "number",
+                    "minimum": 2,
+                    "maximum": 60
+                  },
+                  "reverse": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "path": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "hold",
+                      "line",
+                      "arc"
+                    ]
+                  },
+                  "start": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      },
+                      "z": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "z"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "end": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      },
+                      "z": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "z"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "center": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      },
+                      "z": {
+                        "type": "number",
+                        "minimum": -1000,
+                        "maximum": 1000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "z"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "radius": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "startAngle": {
+                    "type": "number"
+                  },
+                  "sweepAngle": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "start",
+                  "end",
+                  "center",
+                  "radius",
+                  "startAngle",
+                  "sweepAngle"
+                ],
+                "additionalProperties": false
+              },
+              "durationSeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "arcLength": {
+                "type": "number",
+                "minimum": 0
+              },
+              "cameraHeight": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "validation": {
+                "type": "object",
+                "properties": {
+                  "valid": {
+                    "type": "boolean"
+                  },
+                  "violations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "severity": {
+                          "type": "string",
+                          "enum": [
+                            "error",
+                            "warning"
+                          ]
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "obstacleId": {
+                          "type": "string"
+                        },
+                        "timeSeconds": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "severity",
+                        "message"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minClearance": {
+                    "type": "number"
+                  },
+                  "approximationError": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.01
+                  },
+                  "checkedSegments": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "model": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "valid",
+                  "violations",
+                  "minClearance",
+                  "approximationError",
+                  "checkedSegments",
+                  "model"
+                ],
+                "additionalProperties": false
+              },
+              "framing": {
+                "type": "object",
+                "properties": {
+                  "startCoverage": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "endCoverage": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "target": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "temporalStart": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "temporalEnd": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 1
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                },
+                "required": [
+                  "startCoverage",
+                  "endCoverage",
+                  "target",
+                  "temporalStart",
+                  "temporalEnd"
+                ],
+                "additionalProperties": false
+              },
+              "keyframes": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "t": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "timeSeconds": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "position": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "operator": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "target": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        },
+                        "z": {
+                          "type": "number",
+                          "minimum": -1000,
+                          "maximum": 1000
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "yawDeg": {
+                      "type": "number"
+                    },
+                    "pitchDeg": {
+                      "type": "number"
+                    },
+                    "distance": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "coverage": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "framingBox": {
+                      "type": "object",
+                      "properties": {
+                        "centerX": {
+                          "type": "number"
+                        },
+                        "centerY": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "height": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "centerX",
+                        "centerY",
+                        "width",
+                        "height"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "projectionValid": {
+                      "type": "boolean"
+                    },
+                    "progress": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": [
+                    "t",
+                    "timeSeconds",
+                    "position",
+                    "operator",
+                    "target",
+                    "yawDeg",
+                    "pitchDeg",
+                    "distance",
+                    "coverage",
+                    "framingBox",
+                    "projectionValid",
+                    "progress"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "score": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "schemaVersion",
+              "id",
+              "recipeId",
+              "family",
+              "name",
+              "scene",
+              "gear",
+              "intent",
+              "overrides",
+              "path",
+              "durationSeconds",
+              "arcLength",
+              "cameraHeight",
+              "validation",
+              "framing",
+              "keyframes",
+              "score"
+            ],
+            "additionalProperties": false
+          },
+          "analysis": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          },
+          "overrides": {
+            "type": "object",
+            "properties": {
+              "distance": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 30
+              },
+              "travel": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "bearingDeg": {
+                "type": "number",
+                "minimum": -360,
+                "maximum": 360
+              },
+              "orbitDegrees": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 5
+              },
+              "durationSeconds": {
+                "type": "number",
+                "minimum": 2,
+                "maximum": 60
+              },
+              "reverse": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "findingIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "plan",
+          "analysis"
+        ],
+        "additionalProperties": false
+      },
+      "room-capture-import": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "flowblock-native-companion/1.0"
+          },
+          "captureId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capturedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "platform": {
+                "type": "string",
+                "const": "ios"
+              },
+              "framework": {
+                "type": "string",
+                "const": "RoomPlan"
+              },
+              "appVersion": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "platform",
+              "framework",
+              "appVersion"
+            ],
+            "additionalProperties": false
+          },
+          "coordinateFrame": {
+            "type": "object",
+            "properties": {
+              "handedness": {
+                "type": "string",
+                "const": "right"
+              },
+              "upAxis": {
+                "type": "string",
+                "const": "+y"
+              },
+              "lengthUnit": {
+                "type": "string",
+                "const": "meter"
+              },
+              "origin": {
+                "type": "string",
+                "const": "capture-session-origin"
+              }
+            },
+            "required": [
+              "handedness",
+              "upAxis",
+              "lengthUnit",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "tracking": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "normal"
+                  }
+                },
+                "required": [
+                  "state"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "limited"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "initializing",
+                      "excessive-motion",
+                      "insufficient-features",
+                      "relocalizing",
+                      "unknown"
+                    ]
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "unavailable"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "alignment": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "unconfirmed",
+                  "aligned",
+                  "lost"
+                ]
+              },
+              "nativeToPlan": {
+                "type": "object",
+                "properties": {
+                  "matrix": {
+                    "minItems": 16,
+                    "maxItems": 16,
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "order": {
+                    "type": "string",
+                    "const": "column-major"
+                  },
+                  "convention": {
+                    "type": "string",
+                    "const": "planPoint = nativeToPlan * nativePoint"
+                  },
+                  "scale": {
+                    "type": "number",
+                    "const": 1
+                  }
+                },
+                "required": [
+                  "matrix",
+                  "order",
+                  "convention",
+                  "scale"
+                ],
+                "additionalProperties": false
+              },
+              "referencePoints": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "native": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "plan": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "native",
+                    "plan"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "horizontalUncertaintyMeters": {
+                "type": "number",
+                "minimum": 0
+              },
+              "verticalUncertaintyMeters": {
+                "type": "number",
+                "minimum": 0
+              },
+              "headingUncertaintyDegrees": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 180
+              },
+              "confirmedAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "confirmedBy": {
+                "type": "string",
+                "enum": [
+                  "operator",
+                  "unconfirmed"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "nativeToPlan",
+              "referencePoints",
+              "horizontalUncertaintyMeters",
+              "verticalUncertaintyMeters",
+              "headingUncertaintyDegrees",
+              "confirmedAt",
+              "confirmedBy"
+            ],
+            "additionalProperties": false
+          },
+          "floorBoundary": {
+            "minItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "z"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "obstacle",
+                    "product-candidate",
+                    "unclassified"
+                  ]
+                },
+                "nativeTransform": {
+                  "type": "object",
+                  "properties": {
+                    "matrix": {
+                      "minItems": 16,
+                      "maxItems": 16,
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "order": {
+                      "type": "string",
+                      "const": "column-major"
+                    },
+                    "convention": {
+                      "type": "string",
+                      "const": "nativePoint = objectToNative * localPoint"
+                    }
+                  },
+                  "required": [
+                    "matrix",
+                    "order",
+                    "convention"
+                  ],
+                  "additionalProperties": false
+                },
+                "dimensionsMeters": {
+                  "type": "object",
+                  "properties": {
+                    "width": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "height": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "depth": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "required": [
+                    "width",
+                    "height",
+                    "depth"
+                  ],
+                  "additionalProperties": false
+                },
+                "provenance": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string",
+                      "enum": [
+                        "manual",
+                        "roomplan",
+                        "measured-device",
+                        "assumed"
+                      ]
+                    },
+                    "measuredAt": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "captureId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "uncertaintyMeters": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "operatorVerified": {
+                      "type": "boolean"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "measuredAt",
+                    "captureId",
+                    "uncertaintyMeters",
+                    "operatorVerified",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "role",
+                "nativeTransform",
+                "dimensionsMeters",
+                "provenance"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "requiresOperatorReview": {
+            "type": "boolean",
+            "const": true
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "captureId",
+          "capturedAt",
+          "source",
+          "coordinateFrame",
+          "tracking",
+          "alignment",
+          "floorBoundary",
+          "objects",
+          "requiresOperatorReview"
+        ],
+        "additionalProperties": false
+      },
+      "ar-path-export": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "flowblock-native-companion/1.0"
+          },
+          "planId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "planSchemaVersion": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "exportedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          "coordinateFrame": {
+            "type": "string",
+            "const": "flowblock-y-up-meters"
+          },
+          "alignment": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "unconfirmed",
+                  "aligned",
+                  "lost"
+                ]
+              },
+              "nativeToPlan": {
+                "type": "object",
+                "properties": {
+                  "matrix": {
+                    "minItems": 16,
+                    "maxItems": 16,
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "order": {
+                    "type": "string",
+                    "const": "column-major"
+                  },
+                  "convention": {
+                    "type": "string",
+                    "const": "planPoint = nativeToPlan * nativePoint"
+                  },
+                  "scale": {
+                    "type": "number",
+                    "const": 1
+                  }
+                },
+                "required": [
+                  "matrix",
+                  "order",
+                  "convention",
+                  "scale"
+                ],
+                "additionalProperties": false
+              },
+              "referencePoints": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "native": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "plan": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "z"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "native",
+                    "plan"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "horizontalUncertaintyMeters": {
+                "type": "number",
+                "minimum": 0
+              },
+              "verticalUncertaintyMeters": {
+                "type": "number",
+                "minimum": 0
+              },
+              "headingUncertaintyDegrees": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 180
+              },
+              "confirmedAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "confirmedBy": {
+                "type": "string",
+                "enum": [
+                  "operator",
+                  "unconfirmed"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "nativeToPlan",
+              "referencePoints",
+              "horizontalUncertaintyMeters",
+              "verticalUncertaintyMeters",
+              "headingUncertaintyDegrees",
+              "confirmedAt",
+              "confirmedBy"
+            ],
+            "additionalProperties": false
+          },
+          "tracking": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "normal"
+                  }
+                },
+                "required": [
+                  "state"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "limited"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "initializing",
+                      "excessive-motion",
+                      "insufficient-features",
+                      "relocalizing",
+                      "unknown"
+                    ]
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "const": "unavailable"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "modeledGeometryValid": {
+            "type": "boolean"
+          },
+          "durationSeconds": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "samples": {
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timeSeconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "camera": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "z": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "target": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "z": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "operator": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "z": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z"
+                  ],
+                  "additionalProperties": false
+                },
+                "cameraEnvelopeRadius": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "operatorEnvelopeRadius": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "timeSeconds",
+                "camera",
+                "target",
+                "operator",
+                "cameraEnvelopeRadius",
+                "operatorEnvelopeRadius"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "displayPolicy": {
+            "type": "object",
+            "properties": {
+              "hideWorldAnchoredPathWhenTrackingLimited": {
+                "type": "boolean",
+                "const": true
+              },
+              "hideWorldAnchoredPathWhenAlignmentLost": {
+                "type": "boolean",
+                "const": true
+              },
+              "hideWorldAnchoredPathWhenModeledGeometryInvalid": {
+                "type": "boolean",
+                "const": true
+              },
+              "requireOperatorReconfirmationAfterRelocalization": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "required": [
+              "hideWorldAnchoredPathWhenTrackingLimited",
+              "hideWorldAnchoredPathWhenAlignmentLost",
+              "hideWorldAnchoredPathWhenModeledGeometryInvalid",
+              "requireOperatorReconfirmationAfterRelocalization"
+            ],
+            "additionalProperties": false
+          },
+          "limitations": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "planId",
+          "planSchemaVersion",
+          "exportedAt",
+          "coordinateFrame",
+          "alignment",
+          "tracking",
+          "modeledGeometryValid",
+          "durationSeconds",
+          "samples",
+          "displayPolicy",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "recording-crop-metadata": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "activeSensorWidthMm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "activeSensorHeightMm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "recordingWidthPixels": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "recordingHeightPixels": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "stabilizationCropFactor": {
+            "type": "number",
+            "minimum": 1
+          },
+          "anamorphicDesqueeze": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "roomplan",
+                  "measured-device",
+                  "assumed"
+                ]
+              },
+              "measuredAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "captureId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "uncertaintyMeters": {
+                "type": "number",
+                "minimum": 0
+              },
+              "operatorVerified": {
+                "type": "boolean"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "measuredAt",
+              "captureId",
+              "uncertaintyMeters",
+              "operatorVerified",
+              "note"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "activeSensorWidthMm",
+          "activeSensorHeightMm",
+          "recordingWidthPixels",
+          "recordingHeightPixels",
+          "stabilizationCropFactor",
+          "anamorphicDesqueeze",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "recipe-review-metadata": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "implementation-only",
+              "programmatic-tests-only",
+              "human-reviewed"
+            ]
+          },
+          "reviewer": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reviewedAt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "recipeId",
+          "status",
+          "reviewer",
+          "reviewedAt",
+          "evidence",
+          "scope"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

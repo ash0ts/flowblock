@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "brief": {
+      "default": "A controlled product hero shot",
+      "type": "string",
+      "maxLength": 4000
+    },
+    "durationSeconds": {
+      "type": "number",
+      "minimum": 2,
+      "maximum": 60
+    },
+    "framing": {
+      "type": "string",
+      "enum": [
+        "wide",
+        "medium",
+        "close"
+      ]
+    },
+    "motion": {
+      "type": "string",
+      "enum": [
+        "subtle",
+        "balanced",
+        "dynamic"
+      ]
+    },
+    "cameraHeight": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 5
+    },
+    "framingTargets": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "end": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "brief",
+    "durationSeconds",
+    "framing",
+    "motion",
+    "cameraHeight"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/intent.json"
+}

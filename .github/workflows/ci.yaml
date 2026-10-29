@@ -1,0 +1,70 @@
+name: Validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://flowblock:ci-only@127.0.0.1:5432/flowblock
+      FLOWBLOCK_LOCAL_MODE: '1'
+      APP_URL: http://127.0.0.1:3037
+      AUTH_SECRET: disposable-ci-only-secret-not-used-outside-this-job
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: flowblock
+          POSTGRES_DB: flowblock
+          POSTGRES_PASSWORD: ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U flowblock"
+          --health-interval 2s --health-timeout 2s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: bun install --frozen-lockfile
+      - run: bun run db:migrate
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun run test
+      - run: bun run build
+      - name: Verify external dependencies without the development checkout
+        run: >-
+          docker run --rm -v "$PWD/.next/standalone:/app:ro" -w /app
+          node:24-bookworm-slim node --input-type=module
+          -e 'await import("weave"); await import("pg");'
+      - uses: astral-sh/setup-uv@v6
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: uv --no-config run --no-project --python 3.12 --with Pillow==11.0.0 python worker/tests/generate_synthetic.py worker/artifacts/synthetic
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run test:e2e
+        env:
+          PLAYWRIGHT_PWA_TEST: '1'
+  measurements:
+    runs-on: ubuntu-latest
+    env:
+      FLOWBLOCK_TEST_DATABASE_URL: postgresql://flowblock:ci-only@127.0.0.1:5432/flowblock
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: flowblock
+          POSTGRES_DB: flowblock
+          POSTGRES_PASSWORD: ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U flowblock"
+          --health-interval 2s --health-timeout 2s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: uv --no-config run --project worker --frozen --group dev pytest worker/tests

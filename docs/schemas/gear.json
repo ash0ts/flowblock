@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "lens": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "physical"
+            },
+            "focalLengthMm": {
+              "type": "number",
+              "minimum": 4,
+              "maximum": 600
+            },
+            "sensorWidthMm": {
+              "type": "number",
+              "minimum": 2,
+              "maximum": 100
+            },
+            "sensorHeightMm": {
+              "type": "number",
+              "minimum": 2,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "kind",
+            "focalLengthMm",
+            "sensorWidthMm",
+            "sensorHeightMm"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "equivalent"
+            },
+            "focalLengthMm": {
+              "type": "number",
+              "minimum": 4,
+              "maximum": 600
+            }
+          },
+          "required": [
+            "kind",
+            "focalLengthMm"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "aspectRatio": {
+      "type": "string",
+      "enum": [
+        "landscape",
+        "portrait",
+        "square"
+      ]
+    },
+    "stabilizer": {
+      "type": "string",
+      "enum": [
+        "handheld",
+        "gimbal",
+        "tripod",
+        "slider"
+      ]
+    },
+    "gimbalMode": {
+      "type": "string",
+      "enum": [
+        "follow",
+        "lock",
+        "pov"
+      ]
+    },
+    "cameraRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "operatorRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "operatorOffset": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "uncertaintyMargin": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "minHeight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "maxHeight": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 5
+    },
+    "maxSpeed": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 5
+    }
+  },
+  "required": [
+    "lens",
+    "aspectRatio",
+    "stabilizer",
+    "gimbalMode",
+    "cameraRadius",
+    "operatorRadius",
+    "operatorOffset",
+    "uncertaintyMargin",
+    "minHeight",
+    "maxHeight",
+    "maxSpeed"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/gear.json"
+}

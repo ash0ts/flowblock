@@ -1,0 +1,47 @@
+{
+  "name": "flowblock",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3037",
+    "build": "next build && tsx scripts/check-build.ts",
+    "start": "node --env-file-if-exists=.env.local scripts/start-local.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "jobs": "tsx scripts/jobs.ts",
+    "evaluate": "tsx scripts/evaluate.ts",
+    "schemas": "tsx scripts/schemas.ts",
+    "setup:local": "tsx scripts/setup-local.ts",
+    "cleanup": "tsx scripts/cleanup.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1159.0",
+    "@aws-sdk/s3-request-presigner": "3.1159.0",
+    "idb-keyval": "6.3.0",
+    "lucide-react": "1.64.0",
+    "next": "16.4.3",
+    "next-auth": "5.0.0-beta.32",
+    "pg": "8.23.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "weave": "0.16.10",
+    "zod": "4.6.7",
+    "zustand": "5.0.16"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.4.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  },
+  "type": "module"
+}

@@ -1,0 +1,28 @@
+{
+  "experiment": "flowblock-sft-v1",
+  "question": "Does a small solver-labeled SFT run improve the bounded planner's action execution and intent fit on held-out synthetic scenes?",
+  "decision": "Keep the baseline until a matched candidate comparison supports a change.",
+  "unit": "One planner run for one intent on one frozen scene; intents sharing scene geometry are dependent observations.",
+  "arms": ["deterministic recipe library", "openai/gpt-oss-20b baseline", "meta-llama/Llama-3.1-8B-Instruct before training", "exact SFT checkpoint after training"],
+  "qualification": "First 12 test tasks, two scenes, one occurrence per task and arm. This is qualification, not a claim of general model quality.",
+  "fullCampaign": "72 test tasks across 12 held-out scenes; not claimed unless all planned occurrences are recorded.",
+  "frozenInputs": "frozen/manifest.json contains file hashes, task counts and qualification IDs.",
+  "actorSettings": {"temperature": 0.1, "maxTokens": 1600, "maxActions": 6, "maxRepairs": 2, "deadlineMs": 30000},
+  "trainingBudget": {"maxRuns": 1, "maxExamples": 400, "epochs": 1},
+  "labels": "Deterministic family-constrained recipe search and geometry validation, not human cinematic quality ratings.",
+  "metrics": {
+    "success": "At least one final validated candidate matches the explicitly requested family, or the model explicitly abstains where the fixed oracle search found no candidate. Numerator successes; denominator available task occurrences.",
+    "geometryValidity": "Valid final candidates divided by returned candidates. Model library fallback is not credited.",
+    "schemaValidity": "Schema-valid raw model replies divided by all raw replies, including malformed responses before a tool event. Checker v2 adds this raw-reply denominator; the earlier library-only v1 attempt is preserved.",
+    "invalidCandidateRate": "Compiled invalid candidates divided by compile actions.",
+    "latency": "End-to-end client wall time per task including tool and telemetry work.",
+    "usage": "Reported provider prompt and completion token totals. Missing or unreported usage is not a verified zero-dollar cost."
+  },
+  "missingness": "Infrastructure failures, actor failures and unattempted tasks remain separate. Report available and requested denominators. Stop an arm after two consecutive infrastructure failures.",
+  "retryPolicy": "One attempt per task. No automatic training POST retries. Unknown training outcomes require job readback before another write.",
+  "comparison": "Matched before/after requires a real untrained base endpoint and positive trained checkpoint. No invented step-zero adapter.",
+  "privacy": "Only synthetic fixture text and allowlisted receipts are persisted. API keys remain in the environment and are redacted from exception text.",
+  "sources": ["https://art.openpipe.ai/fundamentals/sft-training/", "https://art.openpipe.ai/fundamentals/art-backend/", "https://art.openpipe.ai/resources/models/"],
+  "sourceAccessDate": "2026-10-29",
+  "reproduction": ["npx tsx training/prepare.ts", "node --env-file-if-exists=.env.local --import tsx scripts/evaluate.ts --arm library", "training/.venv/bin/python training/train.py --train", "node --env-file-if-exists=.env.local --import tsx scripts/evaluate.ts --arm candidate"]
+}

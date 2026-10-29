@@ -1,0 +1,20 @@
+{
+  "attempt": "2026-10-29T09-55-47-916Z-baseline-9b8ab274",
+  "readAt": "2026-10-29T09:59:20.599Z",
+  "readbacks": [
+    {
+      "fixtureId": "test-scene-01-hold",
+      "conversationId": "0aa7228e-4f76-4b39-b14e-c952c1ab99e7",
+      "status": 200,
+      "totalTurns": 1,
+      "turns": [
+        {
+          "traceId": "6127e3a686b98c05e1ab300c85f1a5c5",
+          "rootSpanName": "FlowBlock planner"
+        }
+      ],
+      "verified": true,
+      "projectUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave"
+    }
+  ]
+}

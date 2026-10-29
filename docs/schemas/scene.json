@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "boundary": {
+      "minItems": 3,
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "z": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "x",
+          "z"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "center": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": -1000,
+              "maximum": 1000
+            },
+            "z": {
+              "type": "number",
+              "minimum": -1000,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "x",
+            "z"
+          ],
+          "additionalProperties": false
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 100
+        },
+        "depth": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 100
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 20
+        },
+        "baseHeight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "yawDeg": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "center",
+        "width",
+        "depth",
+        "height",
+        "baseHeight",
+        "yawDeg"
+      ],
+      "additionalProperties": false
+    },
+    "obstacles": {
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "center": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "z": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "x",
+              "z"
+            ],
+            "additionalProperties": false
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          },
+          "depth": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 20
+          },
+          "baseHeight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "yawDeg": {
+            "type": "number",
+            "minimum": -360,
+            "maximum": 360
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "center",
+          "width",
+          "depth",
+          "height",
+          "baseHeight",
+          "yawDeg"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "lights": {
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "position": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "y": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "z": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "z"
+            ],
+            "additionalProperties": false
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position",
+          "intensity"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "measurementUncertainty": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "boundary",
+    "subject",
+    "obstacles",
+    "lights",
+    "measurementUncertainty"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/scene.json"
+}

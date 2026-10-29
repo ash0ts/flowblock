@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "activeSensorWidthMm": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "activeSensorHeightMm": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "recordingWidthPixels": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "recordingHeightPixels": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "stabilizationCropFactor": {
+      "type": "number",
+      "minimum": 1
+    },
+    "anamorphicDesqueeze": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "manual",
+            "roomplan",
+            "measured-device",
+            "assumed"
+          ]
+        },
+        "measuredAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "captureId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uncertaintyMeters": {
+          "type": "number",
+          "minimum": 0
+        },
+        "operatorVerified": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "measuredAt",
+        "captureId",
+        "uncertaintyMeters",
+        "operatorVerified",
+        "note"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "activeSensorWidthMm",
+    "activeSensorHeightMm",
+    "recordingWidthPixels",
+    "recordingHeightPixels",
+    "stabilizationCropFactor",
+    "anamorphicDesqueeze",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "$id": "https://flowblock.local/schemas/1.0/recording-crop-metadata.json"
+}

@@ -1,0 +1,37 @@
+{
+  "fixtureVersion": "flowblock-fixtures-v1",
+  "schemaVersion": "1.0",
+  "plannerVersion": "flowblock-planner-v1",
+  "splitUnit": "scene geometry",
+  "counts": {
+    "trainScenes": 24,
+    "devScenes": 6,
+    "testScenes": 12,
+    "trainTasks": 144,
+    "devTasks": 36,
+    "testTasks": 72,
+    "trainingRows": 238
+  },
+  "files": {
+    "fixtures.json": "27a8fe2e04d23fcbfac4f71e3f1f41c23c9cc981042bec810473a165be399689",
+    "train.jsonl": "fa6ae6381720cdc086d1fb5560ad806b3f5dd1becd9dda517e4dad73fe839343",
+    "labels.json": "fc18aabbc5bc5b5eb8a9b6e4b2d5ba3bbd0809b303df4a2f000f860760315649",
+    "system-prompt.txt": "f13d2f0d1a652058c8a24d97faee039586cb103fb52fec4d478204b48d5711b4"
+  },
+  "systemPromptSha256": "235da5cb921edd4bc432d0ec8b1bb6d8d53bdb0faf5321ceb0ed4d5f58000ddf",
+  "qualificationTaskIds": [
+    "test-scene-00-hold",
+    "test-scene-00-push-in",
+    "test-scene-00-pull-out",
+    "test-scene-00-lateral",
+    "test-scene-00-orbit",
+    "test-scene-00-reveal",
+    "test-scene-01-hold",
+    "test-scene-01-push-in",
+    "test-scene-01-pull-out",
+    "test-scene-01-lateral",
+    "test-scene-01-orbit",
+    "test-scene-01-reveal"
+  ],
+  "disclosure": "Synthetic fixtures and solver-selected labels. Test geometry groups are disjoint from train/dev. No measured training outcome is implied."
+}
