@@ -59,8 +59,13 @@ test("shot edits survive switching recipes and a page reload", async ({
 test("canvas playback, obstacle controls, and invalid-path rehearsal recovery work", async ({
   page,
 }) => {
+  const browserErrors: string[] = [];
+  page.on("pageerror", (error) => browserErrors.push(error.message));
   await page.goto(origin);
   await page.getByRole("button", { name: "Play preview", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "Pause preview", exact: true }),
+  ).toBeVisible();
   await expect
     .poll(async () =>
       Number(
@@ -96,6 +101,40 @@ test("canvas playback, obstacle controls, and invalid-path rehearsal recovery wo
     .getByRole("button", { name: "Hero hold Locked composition", exact: true })
     .click();
   await expect(page.getByText("Walk the path", { exact: true })).toBeVisible();
+  expect(browserErrors).toEqual([]);
+});
+
+test("playback tolerates a first frame timestamp before the effect starts", async ({
+  page,
+}) => {
+  const browserErrors: string[] = [];
+  page.on("pageerror", (error) => browserErrors.push(error.message));
+  await page.goto(origin);
+  await expect(page.getByText("Saved on this device")).toBeVisible();
+  await page.evaluate(() => {
+    const requestFrame = window.requestAnimationFrame.bind(window);
+    const firstFrameTime = performance.now() - 1;
+    let first = true;
+    window.requestAnimationFrame = (callback) =>
+      requestFrame((timestamp) => {
+        // The frame clock can precede performance.now() sampled by an effect.
+        if (first) {
+          first = false;
+          callback(firstFrameTime);
+        } else {
+          callback(timestamp);
+        }
+      });
+    document.querySelector<HTMLButtonElement>(".play-button")!.click();
+  });
+  await expect
+    .poll(async () =>
+      Number(
+        await page.getByRole("slider", { name: "Shot time" }).inputValue(),
+      ),
+    )
+    .toBeGreaterThan(0.02);
+  expect(browserErrors).toEqual([]);
 });
 
 test("offline generation offers only computed candidates and no invented analysis", async ({

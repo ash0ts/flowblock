@@ -182,9 +182,11 @@ export default function WorkspacePage() {
   }
   useEffect(() => {
     if (!playing) return;
-    let last = performance.now();
+    let last: number | undefined;
     let frame: number;
     const tick = (now: number) => {
+      // Use the frame clock throughout; its first timestamp can precede performance.now().
+      last ??= now;
       const delta = (now - last) / 1000 / plan.durationSeconds;
       last = now;
       setProgress((p) => {
