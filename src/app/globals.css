@@ -162,7 +162,6 @@ a svg {
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 11px;
   white-space: nowrap;
 }
 .project-crumb > span:first-child {
@@ -191,8 +190,6 @@ a svg {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
-  color: #8a917f;
   white-space: nowrap;
 }
 .status-dot {
@@ -213,7 +210,6 @@ a svg {
   border-radius: 5px;
   padding: 9px 13px;
   background: #fafbf5;
-  font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
   transition:
@@ -286,7 +282,6 @@ a svg {
   font-size: 9px;
   letter-spacing: 1.55px;
   font-weight: 600;
-  color: #929a85;
   line-height: 1.6;
 }
 .project-card {
@@ -315,13 +310,10 @@ a svg {
   display: block;
 }
 .project-card strong {
-  font-size: 11px;
   font-weight: 600;
   line-height: 1.6;
 }
 .project-card div > span {
-  font-size: 9px;
-  color: #8b947f;
   margin-top: 3px;
 }
 .sidebar-section-heading {
@@ -417,11 +409,8 @@ a svg {
 }
 .recipe-copy strong {
   font-weight: 500;
-  font-size: 11px;
 }
 .recipe-copy > span {
-  font-size: 8.7px;
-  color: #9b9f90;
   white-space: nowrap;
 }
 .active-indicator {
@@ -444,8 +433,6 @@ a svg {
   gap: 9px;
   text-align: left;
   padding: 9px 0;
-  color: #7d8871;
-  font-size: 10px;
 }
 .sidebar-bottom > button > span,
 .sidebar-bottom > button > svg:last-child:not(:first-child) {
@@ -461,8 +448,6 @@ a svg {
   border-top: 1px solid var(--line);
   padding-top: 17px;
   margin-top: 15px;
-  color: #a1a691;
-  font-size: 8px;
 }
 .connection-dot {
   height: 5px;
@@ -492,14 +477,9 @@ a svg {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
-  color: #9aa18f;
   position: relative;
   padding: 0 0 1px;
   white-space: nowrap;
-}
-.workflow-tabs > button.active {
-  color: #36543b;
 }
 .workflow-tabs > button.active:after {
   content: "";
@@ -536,7 +516,6 @@ a svg {
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 11px;
-  color: #b0b49f;
   margin-left: auto;
   white-space: nowrap;
 }
@@ -572,8 +551,6 @@ h1 {
   color: #b87d59;
 }
 .shot-heading p {
-  font-size: 10px;
-  color: #999f8e;
   max-width: 450px;
   line-height: 1.6;
   margin-top: 4px;
@@ -590,7 +567,6 @@ h1 {
   gap: 5px;
   background: #eff3e5;
   color: #6e8459;
-  font-size: 8px;
   border: 1px solid #dfe7cf;
   border-radius: 20px;
   padding: 6px 8px;
@@ -624,9 +600,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 7px;
   letter-spacing: 1px;
-  color: #929c84;
 }
 .tiny-dot {
   width: 2px;
@@ -639,10 +613,6 @@ h1 {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.canvas-scale {
-  font-size: 8px;
-  color: #9da58f;
 }
 .canvas-stage {
   position: relative;
@@ -692,8 +662,6 @@ h1 {
   align-items: center;
   gap: 17px;
   padding: 9px 17px 13px;
-  color: #889579;
-  font-size: 7.5px;
   min-height: 39px;
 }
 .canvas-legend > span {
@@ -725,8 +693,6 @@ h1 {
 }
 .canvas-instruction {
   margin-left: auto !important;
-  font-size: 7px;
-  color: #a6ad99;
 }
 .playback-panel {
   display: flex;
@@ -760,8 +726,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 9px;
-  color: #7d896e;
   margin-bottom: 4px;
 }
 .mono {
@@ -800,8 +764,6 @@ h1 {
 .track-ticks {
   display: flex;
   justify-content: space-between;
-  color: #a6ae99;
-  font-size: 6.5px;
   margin-top: 3px;
 }
 .path-metric {
@@ -823,10 +785,6 @@ h1 {
   font-family: var(--font);
   font-size: 10px;
   color: #9ca78d;
-}
-.path-metric > small {
-  font-size: 7px;
-  color: #a4ad98;
 }
 .intent-panel {
   background: #f1f2e9;
@@ -851,19 +809,13 @@ h1 {
   border-radius: 5px;
 }
 .intent-heading h2 {
-  font-size: 11px;
   font-weight: 500;
-  color: #64734e;
 }
 .intent-heading p {
-  font-size: 8px;
-  color: #a3ab94;
   margin-top: 3px;
 }
 .source-label {
-  font-size: 6px;
   letter-spacing: 1px;
-  color: #a7ae98;
   margin-left: auto;
   white-space: nowrap;
 }
@@ -883,17 +835,14 @@ h1 {
   resize: vertical;
   flex: 1;
   min-width: 0;
-  font-size: 10px;
   line-height: 1.6;
   min-height: 32px;
   padding: 1px;
-  color: #79866b;
 }
 .intent-input textarea::placeholder {
   color: #b2bba1;
 }
 .intent-input .button {
-  font-size: 9px;
   padding: 9px 10px;
   gap: 6px;
   min-height: 33px;
@@ -907,8 +856,6 @@ h1 {
   justify-content: space-between;
   gap: 8px;
   margin-top: 14px;
-  font-size: 7.5px;
-  color: #a4ac96;
 }
 .validation-details details {
   flex: 1;
@@ -960,16 +907,11 @@ h1 {
   gap: 6px;
   height: 67px;
   position: relative;
-  font-size: 9px;
-  color: #a1aa91;
   padding: 0 1px;
   white-space: nowrap;
 }
 .inspector-tabs button svg {
   width: 12px;
-}
-.inspector-tabs button.active {
-  color: #657a4f;
 }
 .inspector-tabs button.active:after {
   content: "";
@@ -993,18 +935,14 @@ h1 {
   color: #a8b095;
 }
 .section-heading h3 {
-  font-size: 10px;
-  color: #74835f;
   font-weight: 500;
 }
 .section-heading svg {
   width: 13px;
 }
 .tiny-label {
-  font-size: 6.5px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: #a7b094;
 }
 .field {
   display: flex;
@@ -1012,10 +950,6 @@ h1 {
   gap: 7px;
   margin-top: 13px;
   min-width: 0;
-}
-.field > span {
-  font-size: 8px;
-  color: #929e7e;
 }
 .field input:not([type="checkbox"]),
 .field select,
@@ -1027,8 +961,6 @@ h1 {
   border: 1px solid #dce3cd;
   border-radius: 4px;
   padding: 6px 8px;
-  font-size: 10px;
-  color: #72835b;
   outline-offset: 2px;
 }
 .field select {
@@ -1050,11 +982,8 @@ h1 {
   background: transparent !important;
   flex: 1;
   width: 100%;
-  font-size: 10px;
 }
 .number-input > span {
-  font-size: 7px;
-  color: #a6b293;
   padding-left: 4px;
 }
 .number-input input::-webkit-inner-spin-button {
@@ -1076,19 +1005,14 @@ h1 {
 }
 .segmented button {
   flex: 1;
-  font-size: 8px;
-  color: #a6b194;
   border-radius: 3px;
   padding: 4px;
 }
 .segmented button.selected {
   background: #e7edd7;
-  color: #7d925d;
   box-shadow: 0 0 0 1px #dce5cb;
 }
 .help-text {
-  font-size: 8px;
-  color: #a1ad8c;
   line-height: 1.7;
   margin-top: 11px;
 }
@@ -1142,7 +1066,6 @@ h1 {
     #ad7653 100%
   );
   box-shadow: 7px 5px 16px #7c68452e;
-  min-width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1160,7 +1083,7 @@ h1 {
 }
 .preview-cap {
   position: absolute;
-  top: -9%;
+  top: 0;
   height: 11%;
   width: 72%;
   left: 14%;
@@ -1262,7 +1185,6 @@ h1 {
   text-align: left;
   gap: 8px;
   width: 100%;
-  font-size: 9px;
   padding: 10px 7px;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -1291,7 +1213,6 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 9px;
   color: #77905c;
   cursor: pointer;
 }
@@ -1350,14 +1271,10 @@ h1 {
   font-size: 19px;
 }
 .rehearsal-step strong {
-  font-size: 10px;
   font-weight: 500;
-  color: #778b5d;
 }
 .rehearsal-step p {
-  font-size: 8px;
   margin-top: 5px;
-  color: #9ba88a;
   line-height: 1.6;
 }
 .export-wrap {
@@ -1696,7 +1613,6 @@ h1 {
   line-height: 1.5;
   letter-spacing: -0.4px;
   margin-top: 7px;
-  color: #718c57;
 }
 .review-steps {
   padding: 0;
@@ -1730,13 +1646,9 @@ h1 {
   color: #8aa668;
 }
 .review-steps strong {
-  font-size: 10px;
   font-weight: 500;
-  color: #7a9460;
 }
 .review-steps p {
-  font-size: 9px;
-  color: #a7b494;
   line-height: 1.7;
   margin-top: 4px;
 }
@@ -1752,8 +1664,6 @@ h1 {
 }
 .analysis-action > p,
 .revision-action > p {
-  font-size: 9px;
-  color: #a3b192;
   line-height: 1.8;
   margin: 10px 0 16px;
 }
@@ -1762,9 +1672,7 @@ h1 {
   align-items: flex-start;
   gap: 7px;
   margin: 17px 0;
-  font-size: 8px;
   line-height: 1.6;
-  color: #a3b38f;
 }
 .consent-checkbox input {
   margin: 2px 0 0;
@@ -1773,12 +1681,10 @@ h1 {
   height: 12px;
 }
 .analysis-action .connection-note {
-  font-size: 8px;
   background: #ecefe1;
   padding: 10px 11px;
   border: 1px solid #dfe5cf;
   border-radius: 4px;
-  color: #9ba581;
   line-height: 1.7;
   margin: 14px 0 0;
 }
@@ -2115,21 +2021,12 @@ h1 {
   .recipe-item {
     min-height: 58px;
   }
-  .recipe-copy strong {
-    font-size: 12px;
-  }
-  .recipe-copy > span {
-    font-size: 9px;
-  }
   .shot-heading {
     padding-top: 31px;
     padding-bottom: 26px;
   }
   .shot-heading h1 {
     font-size: 36px;
-  }
-  .shot-heading p {
-    font-size: 11px;
   }
   .intent-panel {
     padding: 19px;
@@ -2166,12 +2063,6 @@ h1 {
     padding-left: 9px;
     padding-right: 9px;
   }
-  .recipe-copy strong {
-    font-size: 10px;
-  }
-  .recipe-copy > span {
-    font-size: 8px;
-  }
   .recipe-icon {
     width: 28px;
     height: 28px;
@@ -2194,14 +2085,10 @@ h1 {
   }
   .validation-chip {
     margin-top: 5px;
-    font-size: 7px;
     padding: 5px 6px;
   }
   .shot-heading h1 {
     font-size: 29px;
-  }
-  .shot-heading p {
-    font-size: 9px;
   }
   .canvas-stage {
     height: 360px;
@@ -2210,7 +2097,6 @@ h1 {
   }
   .canvas-legend {
     gap: 11px;
-    font-size: 7px;
     padding-left: 13px;
     padding-right: 13px;
   }
@@ -2224,17 +2110,10 @@ h1 {
     gap: 6px;
   }
   .inspector-tabs button {
-    font-size: 8px;
     gap: 4px;
   }
   .inspector-tabs button svg {
     width: 11px;
-  }
-  .intent-heading h2 {
-    font-size: 10px;
-  }
-  .intent-heading p {
-    font-size: 7px;
   }
   .source-label {
     display: none;
@@ -2242,11 +2121,7 @@ h1 {
   .intent-input {
     padding-left: 9px;
   }
-  .intent-input textarea {
-    font-size: 9px;
-  }
   .intent-input .button {
-    font-size: 8px;
     padding: 8px;
     gap: 5px;
   }
@@ -2309,7 +2184,6 @@ h1 {
   }
   .project-crumb {
     gap: 10px;
-    font-size: 10px;
   }
   .sidebar {
     padding: 20px 7px 12px;
@@ -2317,12 +2191,6 @@ h1 {
   .project-card {
     padding: 10px 8px;
     gap: 7px;
-  }
-  .project-card strong {
-    font-size: 10px;
-  }
-  .project-card div > span {
-    font-size: 8px;
   }
   .project-icon {
     width: 25px;
@@ -2342,9 +2210,6 @@ h1 {
     padding-top: 7px;
     padding-bottom: 7px;
   }
-  .recipe-copy strong {
-    font-size: 9px;
-  }
   .recipe-icon {
     width: 26px;
     height: 26px;
@@ -2354,11 +2219,7 @@ h1 {
     padding-right: 4px;
   }
   .sidebar-bottom > button {
-    font-size: 8px;
     gap: 7px;
-  }
-  .local-note {
-    font-size: 6px;
   }
   .main-workspace {
     padding-left: 18px;
@@ -2378,7 +2239,6 @@ h1 {
     font-size: 7px;
   }
   .shot-heading p {
-    font-size: 8px;
     max-width: 260px;
   }
   .shot-heading-actions {
@@ -2387,7 +2247,6 @@ h1 {
     right: 0;
   }
   .validation-chip {
-    font-size: 0;
     background: none;
     border: none;
     padding: 0;
@@ -2404,11 +2263,7 @@ h1 {
     padding: 0 11px;
   }
   .canvas-toolbar > span {
-    font-size: 6px;
     gap: 4px;
-  }
-  .canvas-scale {
-    font-size: 6px;
   }
   .legend-footprint {
     display: none !important;
@@ -2431,25 +2286,14 @@ h1 {
   .intent-input textarea {
     width: 100%;
     min-height: 32px;
-    font-size: 10px;
     resize: none;
   }
   .intent-input .button {
     align-self: flex-end;
-    font-size: 9px;
     padding: 7px 10px;
-  }
-  .intent-heading h2 {
-    font-size: 9px;
-  }
-  .intent-heading p {
-    font-size: 7px;
   }
   .inspector {
     padding: 0 12px;
-  }
-  .inspector-tabs button {
-    font-size: 7px;
   }
   .framing-preview {
     height: 120px;
@@ -2457,18 +2301,11 @@ h1 {
   .inspector-section {
     padding: 20px 0;
   }
-  .field > span {
-    font-size: 8px;
-  }
-  .help-text {
-    font-size: 7.5px;
-  }
   .rehearsal-guide {
     grid-template-columns: 1fr;
   }
   .rehearsal-step p {
     margin-top: 3px;
-    font-size: 9px;
   }
   .review-columns {
     grid-template-columns: minmax(0, 1fr) 230px;
@@ -2575,9 +2412,6 @@ h1 {
   .sidebar-bottom {
     padding-bottom: 13px;
   }
-  .sidebar-bottom > button {
-    font-size: 7.5px;
-  }
   .sidebar-bottom > button svg {
     width: 12px;
   }
@@ -2593,7 +2427,6 @@ h1 {
   }
   .workflow-tabs > button {
     height: 58px;
-    font-size: 10px;
   }
   .shot-heading {
     min-height: 127px;
@@ -2603,7 +2436,6 @@ h1 {
     font-size: 31px;
   }
   .shot-heading p {
-    font-size: 10px;
     max-width: 380px;
   }
   .shot-heading .eyebrow {
@@ -2613,7 +2445,6 @@ h1 {
     top: 22px;
   }
   .validation-chip {
-    font-size: 7px;
     padding: 4px 7px;
     border: 1px solid #dfe7cf;
     background: #eff3e5;
@@ -2625,7 +2456,6 @@ h1 {
   .canvas-legend {
     justify-content: flex-start;
     padding-left: 18px;
-    font-size: 8px;
   }
   .legend-footprint {
     display: flex !important;
@@ -2634,11 +2464,7 @@ h1 {
     padding: 0 16px;
   }
   .canvas-toolbar > span {
-    font-size: 7px;
     gap: 6px;
-  }
-  .canvas-scale {
-    font-size: 7px;
   }
   .intent-input {
     flex-direction: row;
@@ -2646,15 +2472,6 @@ h1 {
   }
   .intent-input .button {
     align-self: center;
-  }
-  .intent-heading h2 {
-    font-size: 11px;
-  }
-  .intent-heading p {
-    font-size: 8px;
-  }
-  .intent-input textarea {
-    font-size: 10px;
   }
   .inspector {
     grid-column: 2;
@@ -2671,7 +2488,6 @@ h1 {
   }
   .inspector-tabs button {
     height: 52px;
-    font-size: 10px;
     gap: 8px;
   }
   .inspector-tabs button svg {
@@ -2690,12 +2506,6 @@ h1 {
     grid-row: 2;
     padding-top: 17px;
   }
-  .section-heading h3 {
-    font-size: 11px;
-  }
-  .field > span {
-    font-size: 9px;
-  }
   .field select,
   .field input,
   .number-input input {
@@ -2711,12 +2521,6 @@ h1 {
   }
   .segmented {
     height: 35px;
-  }
-  .segmented button {
-    font-size: 9px;
-  }
-  .help-text {
-    font-size: 9px;
   }
   .framing-preview {
     height: 135px;
@@ -2783,9 +2587,6 @@ h1 {
   }
   .rehearsal-step {
     gap: 8px;
-  }
-  .rehearsal-step p {
-    font-size: 8px;
   }
   .toast {
     max-width: calc(100vw - 30px);
@@ -2863,14 +2664,12 @@ h1 {
     border: 1px solid #e0e6d3;
     background: #f8faf1;
     padding: 6px 10px 6px 6px;
-    min-height: 36px;
     border-radius: 5px;
   }
   .recipe-item.active {
     border-color: #c8d7ae;
   }
   .recipe-copy strong {
-    font-size: 9px;
     white-space: nowrap;
   }
   .recipe-icon {
@@ -2904,7 +2703,6 @@ h1 {
   }
   .workflow-tabs > button {
     height: 52px;
-    font-size: 10px;
     gap: 7px;
   }
   .step-number {
@@ -2914,7 +2712,6 @@ h1 {
   .shot-heading {
     order: 3;
     padding: 22px 18px 18px;
-    min-height: 126px;
   }
   .shot-heading .eyebrow {
     font-size: 7px;
@@ -2926,7 +2723,6 @@ h1 {
     margin-top: 8px;
   }
   .shot-heading p {
-    font-size: 9px;
     max-width: 300px;
     margin-top: 6px;
   }
@@ -2935,7 +2731,6 @@ h1 {
     right: 18px;
   }
   .validation-chip {
-    font-size: 7px;
     padding: 4px 6px;
     gap: 4px;
   }
@@ -2955,12 +2750,6 @@ h1 {
     padding: 0 12px;
     height: 35px;
   }
-  .canvas-toolbar > span {
-    font-size: 6px;
-  }
-  .canvas-scale {
-    font-size: 6px;
-  }
   .canvas-toolbar .icon-button {
     width: 25px;
     height: 25px;
@@ -2971,7 +2760,6 @@ h1 {
   }
   .canvas-legend {
     padding: 9px 13px 13px;
-    font-size: 7px;
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
@@ -2989,21 +2777,12 @@ h1 {
     height: 34px;
     width: 34px;
   }
-  .track-labels {
-    font-size: 9px;
-  }
-  .track-ticks {
-    font-size: 6px;
-  }
   .path-metric {
     padding-left: 10px;
     min-width: 60px;
   }
   .path-metric > span {
     font-size: 16px;
-  }
-  .path-metric > small {
-    font-size: 7px;
   }
   .intent-panel {
     order: 6;
@@ -3014,25 +2793,17 @@ h1 {
     gap: 9px;
     margin-bottom: 12px;
   }
-  .intent-heading h2 {
-    font-size: 11px;
-  }
-  .intent-heading p {
-    font-size: 8px;
-  }
   .intent-input {
     padding: 8px 9px;
     gap: 8px;
     align-items: flex-end;
   }
   .intent-input textarea {
-    font-size: 10px;
     line-height: 1.7;
     min-height: 35px;
     max-height: 110px;
   }
   .intent-input .button {
-    font-size: 8px;
     padding: 8px 9px;
     align-self: center;
   }
@@ -3042,7 +2813,6 @@ h1 {
   .validation-details {
     order: 7;
     margin: 12px 18px 20px;
-    font-size: 7px;
   }
   .validation-details summary {
     gap: 5px;
@@ -3063,7 +2833,6 @@ h1 {
   }
   .inspector-tabs button {
     height: 55px;
-    font-size: 11px;
   }
   .inspector-scroll {
     display: grid;
@@ -3077,9 +2846,6 @@ h1 {
     margin-bottom: 17px;
     gap: 6px;
   }
-  .section-heading h3 {
-    font-size: 10px;
-  }
   .section-heading .tiny-label {
     font-size: 6px;
     letter-spacing: 0.5px;
@@ -3088,7 +2854,6 @@ h1 {
     gap: 0 9px;
   }
   .field > span {
-    font-size: 8px;
     white-space: nowrap;
   }
   .field select,
@@ -3111,20 +2876,13 @@ h1 {
   .number-input input {
     height: 31px !important;
   }
-  .number-input > span {
-    font-size: 6px;
-  }
   .segmented {
     height: 33px;
     padding: 3px;
     gap: 1px;
   }
   .segmented button {
-    font-size: 7px;
     padding: 4px 2px;
-  }
-  .help-text {
-    font-size: 8px;
   }
   .framing-preview {
     height: 110px;
@@ -3136,7 +2894,6 @@ h1 {
     height: 150px;
   }
   .object-row {
-    font-size: 9px;
     padding: 9px 6px;
   }
   .inspector-scroll > .inspector-section:nth-child(3):not(.framing-section) {
@@ -3151,12 +2908,6 @@ h1 {
   }
   .rehearsal-step {
     gap: 11px;
-  }
-  .rehearsal-step strong {
-    font-size: 11px;
-  }
-  .rehearsal-step p {
-    font-size: 9px;
   }
   .rehearsal-overlay {
     width: 125px;
@@ -3188,7 +2939,6 @@ h1 {
   }
   .review-workspace .shot-heading p {
     max-width: 310px;
-    font-size: 9px;
   }
   .review-columns {
     gap: 21px;
@@ -3226,12 +2976,6 @@ h1 {
   .review-inspector .eyebrow {
     font-size: 8px;
   }
-  .review-steps strong {
-    font-size: 11px;
-  }
-  .review-steps p {
-    font-size: 10px;
-  }
   .review-steps {
     gap: 17px;
   }
@@ -3251,16 +2995,10 @@ h1 {
   .review-inspector .number-input {
     height: 35px;
   }
-  .analysis-action > p,
-  .revision-action > p {
-    font-size: 10px;
-  }
   .consent-checkbox {
-    font-size: 9px;
     margin: 18px 0;
   }
   .analysis-action .connection-note {
-    font-size: 9px;
     padding: 12px;
   }
   .review-inspector .button {
@@ -3416,7 +3154,6 @@ h1 {
     padding: 20px;
   }
   .canvas-legend {
-    font-size: 12px;
     padding: 15px;
   }
   .print-summary {

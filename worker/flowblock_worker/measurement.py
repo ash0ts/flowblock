@@ -195,17 +195,18 @@ def assess(tracks: list[dict], manifest: dict, duration: float) -> dict:
         phase_frames = [
             t for t in measured if phase_at(manifest, t["timestamp"], duration) == phase
         ]
-        # Require >=3 sampled frames and >=20% of a measured phase, not a single noisy mask.
-        if len(evidence) < 3 or len(evidence) / max(len(phase_frames), 1) < 0.2:
+        # Repeated CFR samples of one source frame are not independent evidence.
+        if (
+            len({track["timestamp"] for track, _ in evidence}) < 3
+            or len(evidence) / max(len(phase_frames), 1) < 0.2
+        ):
             continue
         best, severity = max(evidence, key=lambda pair: pair[1])
-        timestamps = sorted(
-            {
-                round(evidence[0][0]["timestamp"], 4),
-                round(best["timestamp"], 4),
-                round(evidence[-1][0]["timestamp"], 4),
-            }
+        evidence_frames = sorted(
+            {t["frameIndex"]: t for t in (evidence[0][0], best, evidence[-1][0])}.values(),
+            key=lambda t: t["frameIndex"],
         )
+        timestamps = [round(t["timestamp"], 4) for t in evidence_frames]
         timestamp = best["timestamp"]
         target = target_at(manifest, timestamp, duration)
         count_detail = f"{len(evidence)} of {len(phase_frames)} reliable {phase} frames crossed the rule threshold."
@@ -254,6 +255,7 @@ def assess(tracks: list[dict], manifest: dict, duration: float) -> dict:
                 "detail": detail,
                 "measurement": measurement,
                 "evidenceTimestamps": timestamps,
+                "_evidenceFrameIndices": [t["frameIndex"] for t in evidence_frames],
                 "affectedFrames": len(evidence),
                 "measuredPhaseFrames": len(phase_frames),
                 "severity": severity,
@@ -268,6 +270,7 @@ def assess(tracks: list[dict], manifest: dict, duration: float) -> dict:
     if isinstance(planned_duration, (int, float)) and planned_duration > 0:
         difference = duration - planned_duration
         if abs(difference) > max(0.5, planned_duration * 0.1):
+            timestamp = tracks[-1]["timestamp"] if tracks else max(0, duration - 1 / 15)
             findings.append(
                 {
                     "kind": "duration",
@@ -280,9 +283,10 @@ def assess(tracks: list[dict], manifest: dict, duration: float) -> dict:
                         "target": planned_duration,
                         "delta": difference,
                         "unit": "seconds",
-                        "timestamp": max(0, duration - 1 / 15),
+                        "timestamp": timestamp,
                     },
-                    "evidenceTimestamps": [round(max(0, duration - 1 / 15), 4)],
+                    "evidenceTimestamps": [round(timestamp, 4)],
+                    "_evidenceFrameIndices": [tracks[-1]["frameIndex"]] if tracks else [],
                     "affectedFrames": len(tracks),
                     "measuredPhaseFrames": len(tracks),
                     "severity": abs(difference) / planned_duration,

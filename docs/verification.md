@@ -2,7 +2,7 @@
 
 Recorded on 2026-10-29. These are implementation checks and synthetic demonstrations. The proposed creator-study and held-out video-accuracy thresholds have not been measured.
 
-## Executed checks
+## Initial build checks (`22ad314`)
 
 | Check | Observed result |
 | --- | --- |
@@ -15,6 +15,16 @@ Recorded on 2026-10-29. These are implementation checks and synthetic demonstrat
 | Live local services | Web app, PostgreSQL, private file storage, and MPS worker reported available |
 
 The browser checks use desktop Chromium and a narrow portrait viewport. They are not tests on physical iPhone or Android devices. Several UI error/recovery cases intercept API responses; the separate HTTP smoke below exercises the real services.
+
+## Code review checks
+
+The review passed 278 TypeScript/domain/API tests and 61 Python worker tests, including actual PostgreSQL races and FFmpeg decoding. It added coverage for projection bounds, deadline and telemetry failures, revision provenance, deletion races, source timestamps, uncertain masks, decoded duration, persistence, and stale editor responses. All 19 production Chromium checks passed, including offline reload, cache isolation, delayed IndexedDB commits, retained storage failures, editable generated parameters, and take-operation races. The final desktop and mobile viewport checks played and sought a real local SAM analysis proxy, loaded its timestamped JPEG, and reported no JavaScript errors or horizontal overflow. The ignored local browser receipt is `.data/reviewed-ui-evidence.json`. Formatting, TypeScript, ESLint, and the standalone production build passed. The initial build counts above remain the historical baseline.
+
+The CSS cleanup removed 163 superseded declarations. Desktop (1440×1000) and mobile (390×1608) renders and computed styles matched before and after that cleanup. The ignored local receipt is `.data/css-visual-comparison.json`.
+
+[The review receipt](verification-review.json) records a fresh local run of the real SAM checkpoint on the same synthetic clip, using engine v1.1 and framing rules v1.1. All 75 sampled frames yielded usable measurements; the five-second clip produced a duration finding against an eight-second plan. A manually specified five-second revision passed validation and acceptance. Playback returned HTTP 206 for a range request. This review smoke did not call an external language model or run training, and it does not establish accuracy on creator footage.
+
+The original evaluation runtime, domain engine, fixture generator, and checker now execute from a separate hash-verified source archive. A regression makes live modules unavailable and verifies that historical compilation, grading, and fixture generation still work. The original 238 dataset examples were reproduced byte for byte. Historical result receipts remain unchanged.
 
 ## Plan, take, revision, second take
 
@@ -30,7 +40,7 @@ Private take identifiers and media keys remain in `.data/smoke-loop.json`; the c
 
 [The training record](../training/results/README.md) includes a real completed SFT job, a positive checkpoint readback, four evaluation arms, and an independently read-back Weave conversation. The candidate was not promoted. It produced no useful matching plans in the qualification; its aggregate gains were abstentions.
 
-The qualification used 12 tasks from two held-out synthetic scene groups, with one occurrence per task and arm. The 72-task full campaign was not executed. The exact evaluated v1 runtime is frozen. The product’s v1.1 deadline fix is a later runtime change and is not presented as part of the matched training effect.
+The qualification used 12 tasks from two held-out synthetic scene groups, with one occurrence per task and arm. The 72-task full campaign was not executed. The exact evaluated v1 runtime is frozen. The current product uses engine v1.1, planner v1.2, and revision coordinator v1.1. These later changes are not presented as part of the matched training effect.
 
 ## Open acceptance work
 

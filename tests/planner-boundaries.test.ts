@@ -12,6 +12,47 @@ const reply = (action: unknown): ChatResult => ({
   usage: { inputTokens: 10, outputTokens: 10 },
 });
 describe("planner execution boundary", () => {
+  for (const finishNormally of [true, false])
+    it(`returns one option per recipe when finish=${finishNormally}`, async () => {
+      const first = compilePlan(
+        defaultScene,
+        defaultGear,
+        defaultIntent,
+        "hero-hold",
+        { bearingDeg: 0 },
+      );
+      const second = compilePlan(
+        defaultScene,
+        defaultGear,
+        defaultIntent,
+        "hero-hold",
+        { bearingDeg: 10 },
+      );
+      expect(first.validation.valid && second.validation.valid).toBe(true);
+      let calls = 0;
+      const result = await runPlanner(input, {
+        trace: false,
+        chat: async () =>
+          reply(
+            calls++ < 2
+              ? {
+                  action: "compile_candidate",
+                  recipeId: "hero-hold",
+                  overrides: { bearingDeg: calls === 1 ? 0 : 10 },
+                }
+              : finishNormally
+                ? {
+                    action: "finish",
+                    candidateIds: [first.id, first.id, second.id],
+                    explanation: "Compiled variants.",
+                  }
+                : { action: "list_recipes" },
+          ),
+      });
+      expect(result.source).toBe("forge");
+      expect(result.plans).toHaveLength(1);
+      expect(result.plans[0].id).toBe(first.id);
+    });
   it("cannot mutate scene facts or run an unknown action", async () => {
     let calls = 0;
     const result = await runPlanner(input, {

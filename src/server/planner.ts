@@ -2,17 +2,24 @@ import { createHash, randomUUID } from "node:crypto";
 import { z } from "zod";
 import * as weave from "weave";
 import {
+  beforeDeadline,
+  boundedTelemetry,
+  createDeadline,
+  trace,
+} from "./coordinator-runtime";
+import {
   AgentActionSchema,
   SceneSchema,
   GearSchema,
   IntentSchema,
+  RecipeIdSchema,
+  OverridesSchema,
   compilePlan,
   planShots,
   recipes,
   type PlanVersion,
-  type Overrides,
 } from "@/domain";
-export const plannerVersion = "flowblock-planner-v1.1";
+export const plannerVersion = "flowblock-planner-v1.2";
 export const PlanningInputSchema = z
   .object({
     scene: SceneSchema,
@@ -59,6 +66,7 @@ export async function telemetry() {
     await telemetryInit;
     return true;
   } catch {
+    telemetryInit = undefined;
     return false;
   }
 }
@@ -66,6 +74,15 @@ export type ChatResult = {
   content: string;
   usage: { inputTokens: number; outputTokens: number };
 };
+function distinctRecipePlans(candidates: Iterable<PlanVersion>): PlanVersion[] {
+  const selected = new Map<string, PlanVersion>();
+  for (const plan of candidates) {
+    if (plan.validation.valid && !selected.has(plan.recipeId))
+      selected.set(plan.recipeId, plan);
+    if (selected.size === 3) break;
+  }
+  return [...selected.values()];
+}
 export async function chat(
   messages: PlannerMessage[],
   model: string,
@@ -100,46 +117,6 @@ export async function chat(
     },
   };
 }
-function beforeDeadline<T>(
-  operation: Promise<T>,
-  signal: AbortSignal,
-): Promise<T> {
-  if (signal.aborted) {
-    void operation.catch(() => {});
-    return Promise.reject(signal.reason);
-  }
-  return new Promise<T>((resolve, reject) => {
-    const abort = () => {
-      signal.removeEventListener("abort", abort);
-      reject(signal.reason);
-    };
-    signal.addEventListener("abort", abort, { once: true });
-    operation
-      .then(resolve, reject)
-      .finally(() => signal.removeEventListener("abort", abort));
-  });
-}
-async function boundedTelemetry(
-  operation: Promise<unknown>,
-  signal: AbortSignal,
-): Promise<boolean> {
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  try {
-    return await beforeDeadline(
-      Promise.race([
-        operation.then((value) => !!value).catch(() => false),
-        new Promise<boolean>((resolve) => {
-          timer = setTimeout(() => resolve(false), 1000);
-        }),
-      ]),
-      signal,
-    );
-  } catch {
-    return false;
-  } finally {
-    if (timer) clearTimeout(timer);
-  }
-}
 export async function runPlanner(
   raw: PlanningInput,
   options: {
@@ -150,25 +127,12 @@ export async function runPlanner(
   } = {},
 ): Promise<PlanningResult> {
   const started = Date.now();
-  const deadlineMs = options.deadlineMs ?? 30000;
-  if (
-    !Number.isInteger(deadlineMs) ||
-    deadlineMs < 1 ||
-    deadlineMs > 2147483647
-  )
-    throw new Error(
-      "Planning deadline must be a positive integer number of milliseconds.",
-    );
   const input = PlanningInputSchema.parse(raw);
   const inputHash = createHash("sha256")
     .update(JSON.stringify(input))
     .digest("hex");
-  const controller = new AbortController();
-  const deadline = controller.signal;
-  const timer = setTimeout(
-    () => controller.abort(new Error("Planning deadline reached")),
-    Math.max(0, deadlineMs - (Date.now() - started)),
-  );
+  const scope = createDeadline(options.deadlineMs, started);
+  const deadline = scope.signal;
   const base = {
     inputHash,
     plannerVersion,
@@ -198,21 +162,24 @@ export async function runPlanner(
     const model =
       options.model || process.env.FLOWBLOCK_MODEL || "openai/gpt-oss-20b";
     traced =
-      options.trace !== false &&
-      (await boundedTelemetry(telemetry(), deadline));
+      options.trace !== false && (await boundedTelemetry(telemetry, deadline));
     if (deadline.aborted) throw deadline.reason;
     conversation = traced
-      ? weave.startConversation({
-          agentName: "FlowBlock planner",
-          agentVersion: plannerVersion,
-          model,
-          conversationId: randomUUID(),
-          attributes: { inputHash },
-        })
+      ? trace(() =>
+          weave.startConversation({
+            agentName: "FlowBlock planner",
+            agentVersion: plannerVersion,
+            model,
+            conversationId: randomUUID(),
+            attributes: { inputHash },
+          }),
+        )
       : undefined;
-    turn = conversation?.startTurn({
-      userMessage: input.prompt || input.intent.brief,
-    });
+    turn = trace(() =>
+      conversation?.startTurn({
+        userMessage: input.prompt || input.intent.brief,
+      }),
+    );
     const candidates = new Map<string, PlanVersion>();
     let repairs = 0;
     let message = "";
@@ -232,18 +199,24 @@ export async function runPlanner(
     ];
     for (let i = 0; i < 6; i++) {
       if (deadline.aborted) throw deadline.reason;
-      const llm = turn?.startLLM({ model, providerName: "coreweave" });
+      const llm = trace(() =>
+        turn?.startLLM({ model, providerName: "coreweave" }),
+      );
       let response: ChatResult;
       try {
-        if (llm) llm.inputMessages = messages;
+        trace(() => {
+          if (llm) llm.inputMessages = messages;
+        });
         response = await beforeDeadline(
-          (options.chat || chat)(messages, model, deadline),
+          () => (options.chat || chat)(messages, model, deadline),
           deadline,
         );
-        llm?.output(response.content);
-        llm?.record({ usage: response.usage });
+        trace(() => {
+          llm?.output(response.content);
+          llm?.record({ usage: response.usage });
+        });
       } finally {
-        llm?.end();
+        trace(() => llm?.end());
       }
       base.usage.inputTokens += response.usage.inputTokens;
       base.usage.outputTokens += response.usage.outputTokens;
@@ -260,10 +233,9 @@ export async function runPlanner(
         });
         continue;
       }
-      const tool = turn?.startTool({
-        name: action.action,
-        args: JSON.stringify(action),
-      });
+      const tool = trace(() =>
+        turn?.startTool({ name: action.action, args: JSON.stringify(action) }),
+      );
       let observation: unknown;
       try {
         switch (action.action) {
@@ -310,10 +282,9 @@ export async function runPlanner(
             };
             break;
           case "finish": {
-            const plans = action.candidateIds
-              .map((id) => candidates.get(id))
-              .filter((p): p is PlanVersion => !!p && p.validation.valid)
-              .slice(0, 3);
+            const plans = distinctRecipePlans(
+              action.candidateIds.flatMap((id) => candidates.get(id) ?? []),
+            );
             if (
               action.candidateIds.some(
                 (id) => !candidates.get(id)?.validation.valid,
@@ -332,7 +303,7 @@ export async function runPlanner(
               observation,
               elapsedMs: Date.now() - started,
             });
-            tool?.end({ result: JSON.stringify(observation) });
+            trace(() => tool?.end({ result: JSON.stringify(observation) }));
             return {
               ...base,
               plans,
@@ -349,18 +320,18 @@ export async function runPlanner(
           observation,
           elapsedMs: Date.now() - started,
         });
-        tool?.end({ result: JSON.stringify(observation) });
+        trace(() => tool?.end({ result: JSON.stringify(observation) }));
       } catch (error) {
-        tool?.end({
-          error: error instanceof Error ? error : new Error("Tool failed"),
-        });
+        trace(() =>
+          tool?.end({
+            error: error instanceof Error ? error : new Error("Tool failed"),
+          }),
+        );
         throw error;
       }
       messages.push({ role: "user", content: JSON.stringify({ observation }) });
     }
-    const plans = [...candidates.values()]
-      .filter((p) => p.validation.valid)
-      .slice(0, 3);
+    const plans = distinctRecipePlans(candidates.values());
     if (plans.length)
       return {
         ...base,
@@ -384,23 +355,22 @@ export async function runPlanner(
       "Planner failure:",
       error instanceof Error ? error.message : "Unknown error",
     );
-    turn?.recordError(
-      error instanceof Error ? error : new Error("Planner failed"),
+    trace(() =>
+      turn?.recordError(
+        error instanceof Error ? error : new Error("Planner failed"),
+      ),
     );
     result = fallback(
       "Forge generation could not finish. Your setup is preserved; these options come from the local recipe library.",
     );
   } finally {
     try {
-      turn?.end();
-      conversation?.end();
+      trace(() => turn?.end());
+      trace(() => conversation?.end());
       if (traced && !deadline.aborted)
-        await boundedTelemetry(
-          weave.flushOTel().then(() => true),
-          deadline,
-        );
+        await boundedTelemetry(() => weave.flushOTel(), deadline);
     } finally {
-      clearTimeout(timer);
+      scope.close();
     }
   }
   result.latencyMs = Date.now() - started;
@@ -412,13 +382,8 @@ export function recompilePlan(raw: unknown): PlanVersion {
       scene: SceneSchema,
       gear: GearSchema,
       intent: IntentSchema,
-      recipeId: z.enum(
-        recipes.map((r) => r.id) as [
-          (typeof recipes)[number]["id"],
-          ...(typeof recipes)[number]["id"][],
-        ],
-      ),
-      overrides: z.record(z.string(), z.unknown()).optional(),
+      recipeId: RecipeIdSchema,
+      overrides: OverridesSchema.optional(),
     })
     .passthrough()
     .parse(raw);
@@ -427,6 +392,6 @@ export function recompilePlan(raw: unknown): PlanVersion {
     source.gear,
     source.intent,
     source.recipeId,
-    source.overrides as Overrides | undefined,
+    source.overrides,
   );
 }

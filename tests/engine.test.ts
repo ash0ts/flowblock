@@ -4,6 +4,7 @@ import {
   GearSchema,
   IntentSchema,
   OverridesSchema,
+  PlanVersionSchema,
   SceneSchema,
   compilePlan,
   defaultGear,
@@ -121,6 +122,42 @@ describe("108 deterministic recipe, framing and duration scenarios", () => {
 });
 
 describe("schema boundaries", () => {
+  it("serializes invalid previews beyond the input coordinate bounds", () => {
+    for (const coordinate of [-999, 999]) {
+      const scene = openScene();
+      scene.subject.center = { x: coordinate, z: coordinate };
+      scene.boundary =
+        coordinate > 0
+          ? [
+              { x: 990, z: 990 },
+              { x: 1000, z: 990 },
+              { x: 1000, z: 1000 },
+              { x: 990, z: 1000 },
+            ]
+          : [
+              { x: -1000, z: -1000 },
+              { x: -990, z: -1000 },
+              { x: -990, z: -990 },
+              { x: -1000, z: -990 },
+            ];
+      for (const recipe of recipes) {
+        const plan = compilePlan(scene, defaultGear, defaultIntent, recipe.id, {
+          distance: 2,
+          bearingDeg: coordinate > 0 ? 0 : 180,
+        });
+        expect(plan.validation.valid).toBe(false);
+        expect(
+          PlanVersionSchema.safeParse(JSON.parse(JSON.stringify(plan))).success,
+        ).toBe(true);
+      }
+    }
+    expect(
+      SceneSchema.safeParse({
+        ...defaultScene,
+        subject: { ...defaultScene.subject, center: { x: 1001, z: 0 } },
+      }).success,
+    ).toBe(false);
+  });
   for (const bad of [NaN, Infinity, -Infinity]) {
     it(`rejects ${String(bad)} in scene, gear, intent and overrides`, () => {
       expect(
@@ -221,6 +258,44 @@ describe("schema boundaries", () => {
 });
 
 describe("lens projection and playback", () => {
+  it("rejects product clipping even when coverage is within the requested band", () => {
+    const scene = openScene();
+    scene.subject = {
+      ...scene.subject,
+      width: 0.2,
+      height: 0.4,
+      depth: 0.1,
+      yawDeg: 25,
+      baseHeight: 0,
+    };
+    scene.measurementUncertainty = 0;
+    const gear = {
+      ...defaultGear,
+      lens: { kind: "equivalent" as const, focalLengthMm: 4 },
+      cameraRadius: 0,
+      operatorRadius: 0,
+      operatorOffset: 0,
+      uncertaintyMargin: 0,
+      minHeight: 0,
+      maxHeight: 5,
+    };
+    const plan = compilePlan(
+      scene,
+      gear,
+      { ...defaultIntent, cameraHeight: 0.1, framing: "close" },
+      "hero-hold",
+    );
+    const frame = plan.keyframes[0];
+    expect(frame.coverage).toBeGreaterThan(0.55);
+    expect(frame.coverage).toBeLessThan(0.82);
+    expect(
+      frame.framingBox.centerY + frame.framingBox.height / 2,
+    ).toBeGreaterThan(1);
+    expect(plan.validation.valid).toBe(false);
+    expect(
+      plan.validation.violations.some((v) => v.code === "framing_clipped"),
+    ).toBe(true);
+  });
   it("derives physical FOV and equivalent lens FOV consistently", () => {
     const equivalent = deriveFov(defaultGear);
     const physical = deriveFov({

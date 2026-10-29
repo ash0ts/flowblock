@@ -5,6 +5,7 @@ import {
   RecipeIdSchema,
   SceneSchema,
   schemaVersion,
+  engineVersion,
   type AnalyticPath,
   type FramingBox,
   type Gear,
@@ -460,10 +461,19 @@ function validateGeometry(plan: PlanVersion): ValidationReport {
       message:
         "The path turns the camera toward the product. A locked gimbal requires manual aiming or a different mode.",
     });
-  for (let i = 0; i <= 40; i++) {
-    const t = i / 40,
-      sample = sampleUnchecked(plan, t);
-    const band = targetAtTime(plan, t * plan.durationSeconds).coverageBand;
+  for (const sample of plan.keyframes) {
+    const band = [
+      lerp(
+        plan.framing.temporalStart[0],
+        plan.framing.temporalEnd[0],
+        sample.t,
+      ),
+      lerp(
+        plan.framing.temporalStart[1],
+        plan.framing.temporalEnd[1],
+        sample.t,
+      ),
+    ];
     if (!sample.projectionValid)
       add({
         code: "invalid_projection",
@@ -481,6 +491,21 @@ function validateGeometry(plan: PlanVersion): ValidationReport {
         severity: "error",
         message:
           "Projected product coverage leaves the requested temporal framing band.",
+        timeSeconds: sample.timeSeconds,
+      });
+    const box = sample.framingBox;
+    if (
+      sample.projectionValid &&
+      (box.centerX - box.width / 2 < -EPS ||
+        box.centerX + box.width / 2 > 1 + EPS ||
+        box.centerY - box.height / 2 < -EPS ||
+        box.centerY + box.height / 2 > 1 + EPS)
+    )
+      add({
+        code: "framing_clipped",
+        severity: "error",
+        message:
+          "The projected product extends outside the image. Increase distance or adjust the camera height or lens.",
         timeSeconds: sample.timeSeconds,
       });
   }
@@ -605,7 +630,8 @@ export function compilePlan(
       : distance(path.start, path.end);
   const plan: PlanVersion = {
     schemaVersion,
-    id: `plan-${hash({ schemaVersion, scene, gear, intent, recipeId, overrides })}`,
+    engineVersion,
+    id: `plan-${hash({ schemaVersion, engineVersion, scene, gear, intent, recipeId, overrides })}`,
     recipeId,
     family: recipe.family,
     name: recipe.name,

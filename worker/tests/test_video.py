@@ -84,3 +84,37 @@ def test_invalid_media_fails_cleanly(tmp_path):
 def test_nearest_timestamp_bounds_and_vfr_mapping():
     assert nearest_timestamp([0.0, 0.04, 0.13, 0.5], 0.1) == 0.13
     assert nearest_timestamp([0.0, 0.04, 0.13, 0.5], 1) == 0.5
+
+
+def test_longer_audio_track_cannot_inflate_video_duration_or_coverage(tmp_path):
+    original, mixed = tmp_path / "video.mkv", tmp_path / "long-audio.mkv"
+    fixture_video(original, codec="ffv1")
+    subprocess.run(
+        [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-y",
+            "-i",
+            str(original),
+            "-f",
+            "lavfi",
+            "-t",
+            "10",
+            "-i",
+            "anullsrc=r=8000:cl=mono",
+            "-map",
+            "0:v:0",
+            "-map",
+            "1:a:0",
+            "-c:v",
+            "copy",
+            "-c:a",
+            "pcm_s16le",
+            str(mixed),
+        ],
+        check=True,
+    )
+    assert probe(mixed)["durationSeconds"] == 10
+    with pytest.raises(ValueError, match="Decoded video duration differs"):
+        prepare_video(mixed, tmp_path / "output")

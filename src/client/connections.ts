@@ -1,10 +1,7 @@
 import { create } from "zustand";
-import {
-  persist,
-  createJSONStorage,
-  type StateStorage,
-} from "zustand/middleware";
-import { get, set, del } from "idb-keyval";
+import { persist, createJSONStorage } from "zustand/middleware";
+import { z } from "zod";
+import { validatedStorage } from "./storage";
 
 export type ShareLink = {
   token: string;
@@ -14,26 +11,24 @@ export type ShareLink = {
   createdAt: string;
 };
 export type ProjectBinding = { projectId: string; versionId: string };
-const storage: StateStorage = {
-  getItem: async (name) => {
-    try {
-      return (await get<string>(name)) ?? null;
-    } catch {
-      return null;
-    }
-  },
-  setItem: async (name, value) => {
-    try {
-      await set(name, value);
-    } catch {
-      if (typeof window !== "undefined")
-        window.dispatchEvent(new Event("flowblock-storage-error"));
-    }
-  },
-  removeItem: async (name) => {
-    await del(name);
-  },
-};
+const storage = validatedStorage(
+  z.object({
+    shares: z.array(
+      z.object({
+        token: z.string(),
+        url: z.string(),
+        planId: z.string(),
+        name: z.string(),
+        createdAt: z.string(),
+      }),
+    ),
+    bindings: z.record(
+      z.string(),
+      z.object({ projectId: z.string(), versionId: z.string() }),
+    ),
+  }),
+);
+
 type Connections = {
   shares: ShareLink[];
   bindings: Record<string, ProjectBinding>;
@@ -61,6 +56,7 @@ export const useConnections = create<Connections>()(
       name: "flowblock-connections-v1",
       storage: createJSONStorage(() => storage),
       skipHydration: true,
+      partialize: ({ shares, bindings }) => ({ shares, bindings }),
     },
   ),
 );

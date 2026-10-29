@@ -31,7 +31,7 @@ Planning executes within its bounded coordinator and stores a job result. Analys
 
 Job states are `queued`, `running`, `needs_review`, `succeeded`, `failed`, and `cancelled`. Cancelled or deleted work cannot publish a successful result. Failed planning jobs preserve the source draft; retry them with a new idempotency key. Reusing an existing key with changed inputs returns 409. Concurrent identical requests consume quota once.
 
-The allowances per account are 30 planning jobs, 20 uploads, and 30 analysis jobs in a rolling 24-hour window. They are pilot limits, not a subscription system. Local recipe selection remains available when model quotas or connectivity prevent generation.
+The allowances per account are 30 planning jobs, 20 uploads, 30 analysis jobs, and 30 revision proposals in a rolling 24-hour window. They are pilot limits, not a subscription system. Local recipe selection remains available when model quotas or connectivity prevent generation.
 
 If inference fails, the UI identifies recipe-library fallback. If tracking is inadequate, the job returns partial evidence or needs review. If the worker is down, uploaded media remains available and can be analyzed after recovery. Check the worker readiness and log before resubmitting an expensive job.
 
@@ -39,7 +39,7 @@ If inference fails, the UI identifies recipe-library fallback. If tracking is in
 
 Uploaded media and derivatives expire after 30 days. The running web server sweeps expired and deleted takes at startup and every five minutes. Expired media is denied immediately by request and worker ownership checks even before the sweep removes its bytes. A stopped local application cannot run retention; it catches up on restart.
 
-The creator’s Delete uploaded media action cancels jobs, removes originals and derivatives, clears analysis results and annotations, and scrubs the file name and take’s plan copy. Opaque tombstones remain for retry cleanup if a process stopped during publication. Saved project versions and local files the creator selected are separate from uploaded media.
+The creator’s Delete uploaded media action cancels jobs, removes originals and derivatives, clears analysis results and annotations, removes revision records containing copied evidence, and scrubs the file name and take’s plan copy. Opaque tombstones remain for retry cleanup if a process stopped during publication. Deletion can be retried. A storage failure on one take does not stop the sweep from attempting the others. Revision creation and acceptance lock the live source take, so deleting or expiring evidence prevents later acceptance. Saved project versions and local files the creator selected are separate from uploaded media.
 
 Run cleanup manually when recovering a stopped app:
 

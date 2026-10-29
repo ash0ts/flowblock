@@ -97,6 +97,25 @@ def test_single_frame_drift_does_not_produce_finding(manifest):
     assert assess(frames, manifest, 5)["findings"] == []
 
 
+def test_repeated_samples_do_not_turn_one_source_frame_into_persistent_drift(manifest):
+    frames = [{**track(i, x=0.6), "timestamp": 0.0} for i in range(10)]
+    assert assess(frames, manifest, 5)["findings"] == []
+    frames[8]["timestamp"] = 0.5
+    assert assess(frames, manifest, 5)["findings"] == []
+    frames[9]["timestamp"] = 0.6
+    assert assess(frames, manifest, 5)["findings"][0]["kind"] == "framing"
+
+
+def test_duration_evidence_uses_the_last_sampled_source_timestamp(manifest):
+    manifest["plannedDurationSeconds"] = 8
+    frames = [track(i) for i in range(75)]
+    frames[-1]["timestamp"] = 4.875
+    finding = assess(frames, manifest, 5)["findings"][0]
+    assert finding["evidenceTimestamps"] == [4.875]
+    assert finding["measurement"]["timestamp"] == 4.875
+    assert finding["_evidenceFrameIndices"] == [74]
+
+
 def test_duration_difference_is_explicit_not_inferred_speed(manifest):
     manifest["plannedDurationSeconds"] = 8
     result = assess([track(i) for i in range(75)], manifest, 5)

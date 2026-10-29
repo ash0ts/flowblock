@@ -1,6 +1,6 @@
 # Shot geometry and plan contracts
 
-`contracts.ts` defines the version 1.0 JSON inputs and plan output. `engine.ts` compiles one recipe, validates its geometry, and samples its motion. `defaults.ts` contains the example studio and twelve authored recipes. `take-analysis.ts` defines the independent video-tracking result contract. The native companion wire formats live in `native-companion.ts`; they have no capture, transform-import or AR-rendering implementation.
+`contracts.ts` defines the version 1.0 JSON inputs and plan output. The current compiler is `flowblock-engine-v1.1`. `engine.ts` compiles one recipe, validates its geometry, and samples its motion. `defaults.ts` contains the example studio and twelve authored recipes. `take-analysis.ts` defines the independent video-tracking result contract. The native companion wire formats live in `native-companion.ts`; they have no capture, transform-import or AR-rendering implementation.
 
 ## Coordinate frame
 
@@ -14,7 +14,7 @@ A physical lens uses its focal length and supplied sensor dimensions. An equival
 
 Framing projects all eight corners of the rotated product box through the camera basis. The normalized image origin is top-left. The framing box stores center, width and height; coverage is the greater of projected width and height. A corner behind the camera or a degenerate view produces `projectionValid: false`; its zero-size placeholder is only a serializable preview value, not an observed small product.
 
-The default coverage bands are wide 0.15–0.30, medium 0.30–0.55 and close 0.55–0.82. Optional start and end bands interpolate linearly in time. The distance solver searches for the midpoint target using actual projected box dimensions. Framing checks sample 41 times with a 0.005 coverage tolerance. This is a sampled framing check; it is separate from the continuous geometric envelope check.
+The default coverage bands are wide 0.15–0.30, medium 0.30–0.55 and close 0.55–0.82. Optional start and end bands interpolate linearly in time. The distance solver searches for the midpoint target using actual projected box dimensions. Framing checks sample 41 times with a 0.005 coverage tolerance. They also reject any projected product extent outside the image: coverage alone does not guarantee the whole product is visible. Intentional product cropping is not supported. This is a sampled framing check; it is separate from the continuous geometric envelope check.
 
 The current engine does not apply stabilization crops, custom recording aspect ratios, lens distortion, focus breathing, anamorphic desqueeze, sensor-window modes or camera calibration. `RecordingCropMetadataSchema` reserves those measured facts for a future adapter; creating metadata does not make the compiler consume it.
 
@@ -40,7 +40,9 @@ Gear checks include camera height, maximum translational speed, translating path
 
 ## Immutable versions and external capture
 
-Compilation validates strict finite-number inputs, clones them, derives a deterministic version ID and freezes the result recursively. Requested dimensions and overrides are not silently corrected. Validation reports unused recipe overrides. Revalidation recompiles the source snapshot instead of trusting a persisted path or validity flag. Runtime plans include their source scene, gear, intent and overrides.
+Compilation validates strict finite-number inputs, clones them, derives a deterministic version ID and freezes the result recursively. The ID includes the engine version as well as the source inputs. Legacy snapshots without an engine version remain readable, but recompilation assigns a new ID; analysis tied to the old ID cannot authorize a revision of the new plan. Requested dimensions and overrides are not silently corrected. Validation reports unused recipe overrides. Revalidation recompiles the source snapshot instead of trusting a persisted path or validity flag. Runtime plans include their source scene, gear, intent and overrides.
+
+Input coordinates are bounded to ±1000 m. Computed path and sample coordinates need only be finite, so an invalid draft that extends beyond those input bounds can still be serialized and inspected. This does not relax boundary or obstacle validation.
 
 The current `Scene` has one aggregate measurement-uncertainty scalar. It does not preserve per-object measurement source, capture timestamp, sensor tracking state or alignment provenance. Native companion contracts keep those fields separately and require operator review before an import could become scene facts. `nativeToPlan` is a column-major, meter-scale transform with the explicit convention `planPoint = nativeToPlan × nativePoint`. An aligned record requires an operator-confirmation flag, timestamp and at least two reference points. It does not identify the operator, solve the alignment or verify that the transform is rigid.
 

@@ -73,6 +73,11 @@ export function SceneCanvas({
     });
   };
   const onKey = (e: KeyboardEvent<SVGGElement>, id: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onSelect(id);
+      return;
+    }
     const amount = e.shiftKey ? 0.25 : 0.05;
     const direction: Record<string, [number, number]> = {
       ArrowLeft: [-amount, 0],
@@ -91,6 +96,7 @@ export function SceneCanvas({
         key={box.id}
         role="button"
         tabIndex={0}
+        aria-pressed={selected === box.id}
         aria-label={`${box.name}. Use arrow keys to move, shift for larger steps.`}
         onKeyDown={(e) => onKey(e, box.id)}
         onClick={(e) => {
@@ -331,18 +337,19 @@ export function FramingPreview({
 }) {
   const sample = samplePlan(plan, progress);
   const subject = plan.scene.subject;
-  const height = Math.max(8, Math.min(125, sample.coverage * 100));
-  const width = Math.max(
-    12,
-    Math.min(
-      75,
-      ((height * subject.width) / subject.height) *
-        (plan.gear.aspectRatio === "portrait" ? 1.77 : 0.56),
-    ),
-  );
+  const box = sample.framingBox;
   return (
     <div
       className={`framing-preview ${plan.gear.aspectRatio}`}
+      style={{
+        aspectRatio:
+          plan.gear.aspectRatio === "portrait"
+            ? "9 / 16"
+            : plan.gear.aspectRatio === "square"
+              ? "1"
+              : "16 / 9",
+        height: "auto",
+      }}
       aria-label={`Approximate framing at ${(progress * plan.durationSeconds).toFixed(1)} seconds`}
     >
       <div className="preview-horizon" />
@@ -350,8 +357,11 @@ export function FramingPreview({
       <div
         className="preview-subject"
         style={{
-          height: `${height.toFixed(3)}%`,
-          width: `${width.toFixed(3)}%`,
+          height: `${(box.height * 100).toFixed(3)}%`,
+          width: `${(box.width * 100).toFixed(3)}%`,
+          left: `${(box.centerX * 100).toFixed(3)}%`,
+          top: `${(box.centerY * 100).toFixed(3)}%`,
+          visibility: sample.projectionValid ? "visible" : "hidden",
         }}
       >
         <div className="preview-cap" />

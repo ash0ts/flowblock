@@ -48,7 +48,9 @@ export function VersionsDialog({
   } | null>(null);
   const [revoking, setRevoking] = useState<string | null>(null);
   const fetchProjects = async () => {
-    const response = await fetch("/api/projects");
+    const response = await fetch("/api/projects", {
+      signal: AbortSignal.timeout(15_000),
+    });
     const result = await response.json();
     if (!response.ok)
       throw new Error(
@@ -61,7 +63,6 @@ export function VersionsDialog({
   };
   useEffect(() => {
     let active = true;
-    void useConnections.persist.rehydrate();
     fetchProjects()
       .then((projects) => {
         if (active) setRemote(projects);
@@ -99,6 +100,7 @@ export function VersionsDialog({
     try {
       const current = binding ?? connections.bindings[draft.recipeId];
       const response = await fetch("/api/projects", {
+        signal: AbortSignal.timeout(15_000),
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -151,8 +153,8 @@ export function VersionsDialog({
       projectId: project.id,
       versionId: project.current_version_id,
     });
-    onOpen(project.plan);
     onNotice("Server copy opened. Your previous draft is in Saved versions.");
+    onOpen(project.plan);
   };
   const revoke = async (token: string) => {
     setRevoking(token);
@@ -160,6 +162,7 @@ export function VersionsDialog({
     try {
       const response = await fetch(`/api/shares/${encodeURIComponent(token)}`, {
         method: "DELETE",
+        signal: AbortSignal.timeout(15_000),
       });
       if (!response.ok) {
         const body = await response.json();

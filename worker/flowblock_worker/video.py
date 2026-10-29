@@ -164,6 +164,8 @@ def prepare_video(source: Path, directory: Path) -> dict:
     files = sorted(frames.glob("*.jpg"))
     if not 74 <= len(files) <= 227:
         raise ValueError("Decoded frame count does not match a 5 to 15 second clip")
+    if abs(len(files) / FPS - metadata["durationSeconds"]) > 0.1:
+        raise ValueError("Decoded video duration differs from its metadata; trim or remux the clip")
     proxy = directory / "proxy.mp4"
     run(
         [

@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-29T11:00:01.719Z",
+  "label": "Post-review local synthetic replay; not creator footage",
+  "planEngineVersion": "flowblock-engine-v1.1",
+  "rulesVersion": "framing-v1.1",
+  "device": "mps",
+  "realInference": true,
+  "analysisStatus": "succeeded",
+  "coverage": {
+    "expectedFrames": 75,
+    "measuredFrames": 75,
+    "missingFrames": 0,
+    "uncertainFrames": 0,
+    "intentionallyHiddenFrames": 0,
+    "measuredFraction": 1,
+    "needsReview": false
+  },
+  "findingKinds": [
+    "duration"
+  ],
+  "proxyRangeStatus": 206,
+  "revision": {
+    "source": "manual",
+    "oldDuration": 8,
+    "newDuration": 5,
+    "accepted": true,
+    "geometryValid": true
+  },
+  "limitations": [
+    "Synthetic footage only. No claim of improved filming.",
+    "The revision was supplied explicitly; this check did not call a language model."
+  ]
+}

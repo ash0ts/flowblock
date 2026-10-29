@@ -51,7 +51,7 @@ def process(
             "checkpointSha256": segmenter.provenance["checkpoint"]["sha256"],
             "device": segmenter.device,
             "realInference": True,
-            "rulesVersion": "framing-v1",
+            "rulesVersion": "framing-v1.1",
             "targetTimeBasis": manifest.get(
                 "targetTimeBasis",
                 "normalized-phase" if manifest.get("target") else "absolute-seconds",
@@ -80,12 +80,11 @@ def write_evidence(result: dict, directory: Path, prefix: str) -> None:
 
     evidence_dir = directory / "evidence"
     evidence_dir.mkdir()
-    tracks = result["tracks"]
+    tracks = {track["frameIndex"]: track for track in result["tracks"]}
     for finding in result["findings"]:
         finding["evidence"] = []
-        for timestamp in finding["evidenceTimestamps"]:
-            track = min(tracks, key=lambda t: abs(t["timestamp"] - timestamp))
-            index = track["frameIndex"]
+        for index in finding.pop("_evidenceFrameIndices"):
+            track = tracks[index]
             filename = f"frame-{index:05d}.jpg"
             with Image.open(directory / "frames" / f"{index:05d}.jpg") as original:
                 image = original.convert("RGB")

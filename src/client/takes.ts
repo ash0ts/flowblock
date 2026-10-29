@@ -1,10 +1,9 @@
 import { create } from "zustand";
-import {
-  persist,
-  createJSONStorage,
-  type StateStorage,
-} from "zustand/middleware";
-import { get, set, del } from "idb-keyval";
+import { persist, createJSONStorage } from "zustand/middleware";
+import { z } from "zod";
+import { validatedStorage } from "./storage";
+import { PlanVersionSchema } from "@/domain/contracts";
+import { TakeAnalysisSchema } from "@/domain/take-analysis";
 import type { PlanVersion } from "@/domain/contracts";
 import type { TakeAnalysis } from "@/domain/take-analysis";
 
@@ -28,26 +27,40 @@ export type SavedAttempt = {
   expectedEnd: number;
   revised: boolean;
 };
-const storage: StateStorage = {
-  getItem: async (name) => {
-    try {
-      return (await get<string>(name)) ?? null;
-    } catch {
-      return null;
-    }
-  },
-  setItem: async (name, value) => {
-    try {
-      await set(name, value);
-    } catch {
-      if (typeof window !== "undefined")
-        window.dispatchEvent(new Event("flowblock-storage-error"));
-    }
-  },
-  removeItem: async (name) => {
-    await del(name);
-  },
-};
+const annotationSchema = z.object({
+  timeSeconds: z.number().finite().min(0).max(60),
+  box: z.object({
+    x: z.number().min(0).max(1),
+    y: z.number().min(0).max(1),
+    width: z.number().positive().max(1),
+    height: z.number().positive().max(1),
+  }),
+});
+const storage = validatedStorage(
+  z.object({
+    attempts: z
+      .array(
+        z.object({
+          id: z.string().min(1),
+          name: z.string(),
+          createdAt: z.string(),
+          plan: PlanVersionSchema,
+          takeId: z.string().nullable(),
+          duration: z.number().finite().nonnegative(),
+          ratio: z.number().positive(),
+          uploadComplete: z.boolean().optional(),
+          analysis: TakeAnalysisSchema.nullable(),
+          seed: annotationSchema.nullable(),
+          corrections: z.array(annotationSchema).max(4),
+          expectedStart: z.number().finite().nonnegative(),
+          expectedEnd: z.number().finite().nonnegative(),
+          revised: z.boolean(),
+        }),
+      )
+      .max(12),
+  }),
+);
+
 type TakeHistory = {
   attempts: SavedAttempt[];
   save: (attempt: SavedAttempt) => void;
@@ -75,6 +88,7 @@ export const useTakeHistory = create<TakeHistory>()(
       name: "flowblock-takes-v1",
       storage: createJSONStorage(() => storage),
       skipHydration: true,
+      partialize: ({ attempts }) => ({ attempts }),
     },
   ),
 );

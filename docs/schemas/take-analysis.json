@@ -52,7 +52,10 @@
         },
         "rulesVersion": {
           "type": "string",
-          "const": "framing-v1"
+          "enum": [
+            "framing-v1",
+            "framing-v1.1"
+          ]
         },
         "generatedAt": {
           "type": "string"

@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { defaultGear, defaultIntent, defaultScene } from "../src/domain";
+import { plan, analysis } from "./fixtures/revision";
 
 const mocks = vi.hoisted(() => ({
   init: vi.fn(),
@@ -47,6 +48,95 @@ describe("planner total deadline", () => {
   afterEach(() => {
     vi.useRealTimers();
     vi.unstubAllEnvs();
+  });
+
+  it("bounds revision inference and ignores a proposal delivered after the deadline", async () => {
+    const { proposeRevision } = await import("../src/server/revision-planner");
+    let calls = 0;
+    let lateReply: ((value: typeof finish) => void) | undefined;
+    const pending = proposeRevision(plan, analysis, {
+      trace: false,
+      deadlineMs: 100,
+      chat: async () => {
+        if (calls++ === 0)
+          return {
+            ...finish,
+            content: JSON.stringify({ action: "read_take_findings" }),
+          };
+        return new Promise((resolve) => {
+          lateReply = resolve;
+        });
+      },
+    });
+    await vi.advanceTimersByTimeAsync(100);
+    const result = await pending;
+    expect(result.source).toBe("library");
+    expect(result.events).toHaveLength(1);
+    lateReply?.({
+      ...finish,
+      content: JSON.stringify({
+        action: "propose_revision",
+        overrides: { durationSeconds: 6 },
+        findingIds: ["duration:whole:0"],
+        reason: "Late reply",
+      }),
+    });
+    await vi.advanceTimersByTimeAsync(0);
+    expect(result.events).toHaveLength(1);
+    expect(result.plan.durationSeconds).toBe(5);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it("preserves a plan and revision when telemetry methods and final flush throw", async () => {
+    const fail = () => {
+      throw new Error("Telemetry failure fixture");
+    };
+    mocks.start.mockImplementation(() => ({
+      conversationId: "failed-trace",
+      end: fail,
+      startTurn: () => ({
+        end: fail,
+        recordError: fail,
+        startLLM: () => ({ output: fail, record: fail, end: fail }),
+        startTool: () => ({ end: fail }),
+      }),
+    }));
+    mocks.flush.mockImplementation(fail);
+    const { runPlanner } = await import("../src/server/planner");
+    const planned = await runPlanner(input, { chat: async () => finish });
+    expect(planned.source).toBe("forge");
+    const { proposeRevision } = await import("../src/server/revision-planner");
+    let calls = 0;
+    const revision = await proposeRevision(plan, analysis, {
+      chat: async () => ({
+        ...finish,
+        content: JSON.stringify(
+          calls++ === 0
+            ? { action: "read_take_findings" }
+            : {
+                action: "propose_revision",
+                overrides: { durationSeconds: 5 },
+                findingIds: ["duration:whole:0"],
+                reason: "Match duration",
+              },
+        ),
+      }),
+    });
+    expect(revision.source).toBe("forge");
+    expect(revision.plan.durationSeconds).toBe(5);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it("can initialize telemetry again after a transient setup failure", async () => {
+    const { runPlanner } = await import("../src/server/planner");
+    mocks.init.mockRejectedValueOnce(new Error("Temporary setup failure"));
+    const first = await runPlanner(input, { chat: async () => finish });
+    const second = await runPlanner(input, { chat: async () => finish });
+    expect(first.source).toBe("forge");
+    expect(second.source).toBe("forge");
+    expect(mocks.init).toHaveBeenCalledTimes(2);
+    expect(mocks.start).toHaveBeenCalledOnce();
+    expect(vi.getTimerCount()).toBe(0);
   });
 
   it("returns at the deadline when telemetry initialization never settles", async () => {
@@ -133,7 +223,7 @@ describe("planner total deadline", () => {
     await vi.advanceTimersByTimeAsync(25);
     const result = await pending;
     expect(result.latencyMs).toBe(25);
-    expect(result.plannerVersion).toBe("flowblock-planner-v1.1");
+    expect(result.plannerVersion).toBe("flowblock-planner-v1.2");
     expect(vi.getTimerCount()).toBe(0);
   });
 });

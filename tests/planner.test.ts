@@ -41,7 +41,7 @@ describe("frozen training and evaluation contract", () => {
     expect(frozen.sourceSha256).toBe(
       "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
     );
-    expect(plannerVersion).toBe("flowblock-planner-v1.1");
+    expect(plannerVersion).toBe("flowblock-planner-v1.2");
     expect(frozen.runtime.systemPrompt).toBe(systemPrompt);
   });
   it("uses disjoint scene geometry across train, dev and test", () => {
@@ -80,11 +80,12 @@ describe("frozen training and evaluation contract", () => {
       expect("tools" in row).toBe(false);
     }
   });
-  it("independently recompiles every solver-approved training label", () => {
+  it("independently recompiles every solver-approved training label", async () => {
+    const { domain } = await loadEvaluationRuntime("frozen-v1");
     for (const fixture of fixtures.filter(
       (f) => f.split === "train" && f.oracle.feasible,
     )) {
-      const plan = compilePlan(
+      const plan = domain.compilePlan(
         fixture.input.scene,
         fixture.input.gear,
         fixture.input.intent,

@@ -2,6 +2,7 @@
 
 import os
 import uuid
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import psycopg
 import pytest
@@ -68,6 +69,24 @@ def test_claim_is_exclusive_and_expired_lease_is_reclaimed(queue):
     assert queue.renew(second)
 
 
+def test_expired_worker_cannot_requeue_or_fail_a_job(queue):
+    enqueue(queue)
+    stale = queue.claim()
+    with queue.connect() as connection:
+        connection.execute("UPDATE jobs SET lease_expires_at=now()-interval '1 second'")
+    queue.fail(stale, "stale failure", retryable=True)
+    with queue.connect() as connection:
+        row = connection.execute("SELECT status,error FROM jobs").fetchone()
+        assert row == {"status": "running", "error": None}
+    current = queue.claim()
+    queue.fail(stale, "superseded failure", retryable=False)
+    assert queue.renew(current)
+    queue.fail(current, "current failure", retryable=True)
+    with queue.connect() as connection:
+        row = connection.execute("SELECT status,error FROM jobs").fetchone()
+        assert row == {"status": "queued", "error": "current failure"}
+
+
 @pytest.mark.parametrize("change", ["cancel", "delete", "expire", "owner", "object"])
 def test_changed_take_or_cancelled_job_blocks_publication(queue, change):
     enqueue(queue)
@@ -97,6 +116,20 @@ def test_review_needed_result_and_worker_health(queue):
     queue.worker_heartbeat("test-worker", health)
     with queue.connect() as connection:
         assert connection.execute("SELECT ready FROM worker_health").fetchone()["ready"] is True
+
+
+def test_publication_readback_waits_for_an_in_progress_commit(queue):
+    enqueue(queue)
+    job = queue.claim()
+    with queue.connect() as connection, ThreadPoolExecutor(max_workers=1) as executor:
+        connection.execute("UPDATE jobs SET status='succeeded', result='{}'::jsonb")
+        readback = executor.submit(queue.published, job)
+        try:
+            with pytest.raises(TimeoutError):
+                readback.result(timeout=0.1)
+        finally:
+            connection.commit()
+        assert readback.result(timeout=2)
 
 
 def test_retry_limit_terminates_expired_work(queue):
@@ -180,3 +213,51 @@ def test_failed_partial_upload_is_removed(queue, tmp_path, monkeypatch):
                 prefix,
             )
     assert not store.local_path(prefix).exists()
+
+
+@pytest.mark.parametrize("outcome", ["before-commit", "after-commit", "readback-unavailable"])
+def test_publication_connection_failure_does_not_delete_committed_evidence(
+    queue, tmp_path, monkeypatch, outcome
+):
+    enqueue(queue)
+    job = queue.claim()
+    monkeypatch.setenv("FLOWBLOCK_STORAGE_DIR", str(tmp_path / "private"))
+    monkeypatch.delenv("S3_BUCKET", raising=False)
+    monkeypatch.delenv("FLOWBLOCK_S3_BUCKET", raising=False)
+    store = ObjectStore()
+    source = tmp_path / "artifact.txt"
+    source.write_text("commit-acknowledgement-fixture")
+    prefix = "fixture/analysis/commit-attempt"
+    key = f"{prefix}/evidence.txt"
+    finish = queue.finish
+
+    def failed_acknowledgement(job, result):
+        if outcome != "before-commit":
+            assert finish(job, result)
+        raise ConnectionError("injected commit acknowledgement failure")
+
+    def unavailable_readback(job):
+        raise ConnectionError("injected database outage")
+
+    monkeypatch.setattr(queue, "finish", failed_acknowledgement)
+    if outcome == "readback-unavailable":
+        monkeypatch.setattr(queue, "published", unavailable_readback)
+    with Lease(queue, job) as lease:
+        args = (
+            queue,
+            job,
+            {"coverage": {"needsReview": False}},
+            [(source, key, "text/plain")],
+            store,
+            lease,
+            prefix,
+        )
+        if outcome == "after-commit":
+            publish_result(*args)
+        else:
+            with pytest.raises(ConnectionError, match="acknowledgement"):
+                publish_result(*args)
+    assert store.local_path(key).exists() == (outcome != "before-commit")
+    with queue.connect() as connection:
+        status = connection.execute("SELECT status FROM jobs").fetchone()["status"]
+        assert status == ("running" if outcome == "before-commit" else "succeeded")

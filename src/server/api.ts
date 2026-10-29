@@ -8,7 +8,6 @@ import {
   saveLocalUpload,
   objectSize,
   mediaResponse,
-  deletePrefix,
 } from "./storage";
 import {
   PlanningInputSchema,
@@ -21,9 +20,11 @@ import {
   TakeAnalysisSchema,
   type PlanVersion,
 } from "@/domain";
-import { proposeRevision } from "./revision-planner";
+import { proposeRevision, revisionVersion } from "./revision-planner";
 import { AnalyzeSchema, UploadSchema, ProjectSchema } from "./api-contracts";
 import { readTrainingSummary } from "./showcase";
+import { idempotencyKey, reserveJob, workerReady } from "./jobs";
+import { getTake as take, takePrefix as prefix, deleteTake } from "./takes";
 const uuid = z.string().uuid();
 const json = (body: unknown, status = 200) =>
   Response.json(body, {
@@ -33,119 +34,6 @@ const json = (body: unknown, status = 200) =>
       "X-Content-Type-Options": "nosniff",
     },
   });
-const prefix = (ownerId: string, takeId: string) =>
-  `owners/${ownerId}/takes/${takeId}/`;
-async function take(id: string, ownerId: string) {
-  uuid.parse(id);
-  const r = await db().query(
-    "SELECT * FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now()",
-    [id, ownerId],
-  );
-  if (!r.rows[0]) throw new HttpError(404, "Take not found.");
-  return r.rows[0];
-}
-async function workerReady() {
-  try {
-    const r = await db().query(
-      "SELECT EXISTS(SELECT 1 FROM worker_health WHERE ready AND heartbeat_at>now()-interval '90 seconds') AS ready",
-    );
-    return !!r.rows[0]?.ready;
-  } catch {
-    return false;
-  }
-}
-function idempotencyKey(request: Request) {
-  const value = request.headers.get("Idempotency-Key");
-  return value === null ? null : z.string().min(1).max(200).parse(value);
-}
-async function reserveJob(
-  ownerId: string,
-  key: string | null,
-  inputHash: string,
-  kind: "plan" | "analysis",
-  payload: Record<string, unknown>,
-  jobId: string,
-  takeId?: string,
-) {
-  return transaction(async (client) => {
-    if (key) {
-      await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", [
-        `idempotency:${ownerId}:${key}`,
-      ]);
-      const existing = (
-        await client.query(
-          "SELECT * FROM jobs WHERE owner_id=$1 AND idempotency_key=$2",
-          [ownerId, key],
-        )
-      ).rows[0];
-      if (existing) {
-        if (existing.kind !== kind || existing.payload.inputHash !== inputHash)
-          throw new HttpError(
-            409,
-            "Idempotency key was already used with different inputs.",
-          );
-        return { job: existing, created: false };
-      }
-    }
-    if (kind === "analysis") {
-      const ready = (
-        await client.query(
-          "SELECT EXISTS(SELECT 1 FROM worker_health WHERE ready AND heartbeat_at>now()-interval '90 seconds') AS ready",
-        )
-      ).rows[0]?.ready;
-      if (!ready)
-        throw new HttpError(
-          503,
-          "The analysis worker is unavailable. Your uploaded take is saved; retry when the worker is ready.",
-        );
-    }
-    if (takeId) {
-      const live = (
-        await client.query(
-          "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() AND status='uploaded' FOR UPDATE",
-          [takeId, ownerId],
-        )
-      ).rows[0];
-      if (!live)
-        throw new HttpError(
-          409,
-          "The take changed before analysis could be queued.",
-        );
-    }
-    await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", [
-      `${ownerId}:${kind}`,
-    ]);
-    const usage = (
-      await client.query(
-        "SELECT count(*) FROM usage_events WHERE owner_id=$1 AND kind=$2 AND created_at>now()-interval '1 day'",
-        [ownerId, kind],
-      )
-    ).rows[0];
-    if (Number(usage.count) >= 30)
-      throw new HttpError(
-        429,
-        `Daily ${kind === "plan" ? "planning" : "analysis"} allowance reached.`,
-      );
-    await client.query(
-      "INSERT INTO usage_events(owner_id,kind) VALUES($1,$2)",
-      [ownerId, kind],
-    );
-    const job = (
-      await client.query(
-        "INSERT INTO jobs(id,owner_id,kind,status,payload,idempotency_key) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
-        [
-          jobId,
-          ownerId,
-          kind,
-          kind === "plan" ? "running" : "queued",
-          { ...payload, inputHash },
-          key,
-        ],
-      )
-    ).rows[0];
-    return { job, created: true };
-  });
-}
 export async function handleApi(request: Request): Promise<Response> {
   try {
     sameOrigin(request);
@@ -230,7 +118,7 @@ export async function handleApi(request: Request): Promise<Response> {
                   source: result.source,
                   model: result.model || null,
                   plannerVersion: result.plannerVersion,
-                  engineVersion: plan.validation.model,
+                  engineVersion: plan.engineVersion,
                   promptHash: createHash("sha256")
                     .update(systemPrompt)
                     .digest("hex"),
@@ -404,18 +292,38 @@ export async function handleApi(request: Request): Promise<Response> {
       uuid.parse(match[1]);
       const row = (
         await db().query(
-          "SELECT id,status,result,error,kind,created_at FROM jobs WHERE id=$1 AND owner_id=$2",
+          "SELECT id,status,result,error,kind,created_at,payload->>'takeId' AS take_id FROM jobs WHERE id=$1 AND owner_id=$2",
           [match[1], ownerId],
         )
       ).rows[0];
       if (!row) throw new HttpError(404, "Job not found.");
-      if (method === "GET") return json(row);
+      if (method === "GET") {
+        if (row.kind === "analysis" && row.result)
+          await take(row.take_id, ownerId);
+        const { take_id: _takeId, ...publicJob } = row;
+        void _takeId;
+        return json(publicJob);
+      }
       if (method === "DELETE") {
-        await db().query(
-          "UPDATE jobs SET status='cancelled',cancelled_at=now(),lease_token=NULL,updated_at=now() WHERE id=$1 AND status IN ('queued','running')",
-          [row.id],
-        );
-        return json({ cancelled: true });
+        const result = await transaction(async (client) => {
+          const current = (
+            await client.query(
+              "SELECT status FROM jobs WHERE id=$1 AND owner_id=$2 FOR UPDATE",
+              [row.id, ownerId],
+            )
+          ).rows[0];
+          if (!["queued", "running"].includes(current.status))
+            return {
+              cancelled: current.status === "cancelled",
+              status: current.status,
+            };
+          await client.query(
+            "UPDATE jobs SET status='cancelled',cancelled_at=now(),lease_token=NULL,updated_at=now() WHERE id=$1",
+            [row.id],
+          );
+          return { cancelled: true, status: "cancelled" };
+        });
+        return json(result);
       }
     }
     if (
@@ -425,7 +333,7 @@ export async function handleApi(request: Request): Promise<Response> {
       const row = await take(match[1], ownerId);
       const artifact = url.searchParams.get("artifact");
       if (!artifact || artifact === "original")
-        return mediaResponse(row.object_key, row.mime_type, request);
+        return await mediaResponse(row.object_key, row.mime_type, request);
       const jobs = await db().query(
         "SELECT result FROM jobs WHERE owner_id=$1 AND kind='analysis' AND payload->>'takeId'=$2 AND status IN ('succeeded','needs_review') ORDER BY created_at DESC",
         [ownerId, row.id],
@@ -443,7 +351,7 @@ export async function handleApi(request: Request): Promise<Response> {
         const key =
           artifact === "proxy" ? analysis.artifacts.proxyObjectKey : artifact;
         if (allowed.includes(key) && key.startsWith(prefix(ownerId, row.id)))
-          return mediaResponse(
+          return await mediaResponse(
             key,
             key.endsWith(".mp4") ? "video/mp4" : "image/jpeg",
             request,
@@ -452,18 +360,7 @@ export async function handleApi(request: Request): Promise<Response> {
       throw new HttpError(404, "Media artifact not found.");
     }
     if ((match = pathname.match(/^takes\/([^/]+)$/)) && method === "DELETE") {
-      const row = await take(match[1], ownerId);
-      await transaction(async (client) => {
-        await client.query(
-          "UPDATE takes SET deleted_at=now(),file_name='deleted',plan='{}'::jsonb,training_consent=false WHERE id=$1",
-          [row.id],
-        );
-        await client.query(
-          "UPDATE jobs SET status='cancelled',cancelled_at=now(),lease_token=NULL,result=NULL,error=NULL,payload=jsonb_build_object('takeId',$2::text,'deleted',true),updated_at=now() WHERE owner_id=$1 AND payload->>'takeId'=$2",
-          [ownerId, row.id],
-        );
-      });
-      await deletePrefix(prefix(ownerId, row.id));
+      await deleteTake(match[1], ownerId);
       return json({ deleted: true });
     }
     if (pathname === "revisions" && method === "POST") {
@@ -496,6 +393,8 @@ export async function handleApi(request: Request): Promise<Response> {
         );
       if (!analysis.findings.length)
         throw new HttpError(422, "There is no measured finding to revise.");
+      if (!(await consumeQuota(ownerId, "revision", 30)))
+        throw new HttpError(429, "Daily revision allowance reached.");
       let proposal;
       try {
         proposal = await proposeRevision(plan, analysis, {
@@ -511,26 +410,37 @@ export async function handleApi(request: Request): Promise<Response> {
         );
       }
       const revisionId = randomUUID();
-      await db().query(
-        "INSERT INTO revisions(id,owner_id,parent_plan_id,plan,finding_ids,reason,provenance) VALUES($1,$2,$3,$4,$5,$6,$7)",
-        [
-          revisionId,
-          ownerId,
-          plan.id,
-          proposal.plan,
-          JSON.stringify(proposal.findingIds),
-          proposal.reason,
-          {
-            source: proposal.source,
-            model: proposal.model || null,
-            traceId: proposal.traceId || null,
-            analysisJobId: analysis.jobId,
-            engineVersion: proposal.plan.validation.model,
-            revisionVersion: "revision-v1",
-            events: proposal.events,
-          },
-        ],
-      );
+      await transaction(async (client) => {
+        const live = await client.query(
+          "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() FOR UPDATE",
+          [sourceTake.id, ownerId],
+        );
+        if (!live.rowCount)
+          throw new HttpError(
+            410,
+            "The take was deleted or expired while its revision was being prepared.",
+          );
+        await client.query(
+          "INSERT INTO revisions(id,owner_id,parent_plan_id,plan,finding_ids,reason,provenance) VALUES($1,$2,$3,$4,$5,$6,$7)",
+          [
+            revisionId,
+            ownerId,
+            plan.id,
+            proposal.plan,
+            JSON.stringify(proposal.findingIds),
+            proposal.reason,
+            {
+              source: proposal.source,
+              model: proposal.model || null,
+              traceId: proposal.traceId || null,
+              analysisJobId: analysis.jobId,
+              engineVersion: proposal.plan.engineVersion,
+              revisionVersion,
+              events: proposal.events,
+            },
+          ],
+        );
+      });
       return json({ ...proposal, revisionId, parentPlanId: plan.id });
     }
     if (
@@ -541,22 +451,45 @@ export async function handleApi(request: Request): Promise<Response> {
       const body = z
         .object({ currentPlanId: z.string() })
         .parse(await jsonBody(request));
-      const row = (
-        await db().query(
-          "SELECT * FROM revisions WHERE id=$1 AND owner_id=$2",
-          [match[1], ownerId],
-        )
-      ).rows[0];
-      if (!row) throw new HttpError(404, "Revision not found.");
-      if (row.parent_plan_id !== body.currentPlanId)
-        throw new HttpError(
-          409,
-          "The plan changed after this revision was proposed.",
+      const revisionId = match[1];
+      const acceptedPlan = await transaction(async (client) => {
+        const row = (
+          await client.query(
+            "SELECT * FROM revisions WHERE id=$1 AND owner_id=$2",
+            [revisionId, ownerId],
+          )
+        ).rows[0];
+        if (!row) throw new HttpError(404, "Revision not found.");
+        if (row.parent_plan_id !== body.currentPlanId)
+          throw new HttpError(
+            409,
+            "The plan changed after this revision was proposed.",
+          );
+        const analysisJobId = uuid.safeParse(row.provenance.analysisJobId);
+        if (!analysisJobId.success)
+          throw new HttpError(
+            409,
+            "The source evidence for this revision is unavailable.",
+          );
+        // Use the same take-before-revision lock order as deletion. Acceptance
+        // cannot return a cached revision after its evidence has been removed.
+        const live = await client.query(
+          "SELECT t.id FROM takes t JOIN jobs j ON j.payload->>'takeId'=t.id::text WHERE j.id=$1 AND j.owner_id=$2 AND t.owner_id=$2 AND t.deleted_at IS NULL AND t.expires_at>now() AND j.status IN ('succeeded','needs_review') FOR UPDATE OF t",
+          [analysisJobId.data, ownerId],
         );
-      await db().query("UPDATE revisions SET accepted_at=now() WHERE id=$1", [
-        row.id,
-      ]);
-      return json({ plan: row.plan, accepted: true });
+        if (!live.rowCount)
+          throw new HttpError(
+            409,
+            "The take was deleted or expired. This revision can no longer be accepted.",
+          );
+        const accepted = await client.query(
+          "UPDATE revisions SET accepted_at=COALESCE(accepted_at,now()) WHERE id=$1 AND owner_id=$2 RETURNING plan",
+          [row.id, ownerId],
+        );
+        if (!accepted.rowCount) throw new HttpError(404, "Revision not found.");
+        return accepted.rows[0].plan;
+      });
+      return json({ plan: acceptedPlan, accepted: true });
     }
     if (pathname === "shares" && method === "POST") {
       const body = z
@@ -615,8 +548,8 @@ export async function handleApi(request: Request): Promise<Response> {
           [versionId, projectId, ownerId, body.expectedVersionId || null, plan],
         );
         await client.query(
-          "UPDATE projects SET current_version_id=$2,updated_at=now() WHERE id=$1",
-          [projectId, versionId],
+          "UPDATE projects SET current_version_id=$2,name=$3,updated_at=now() WHERE id=$1",
+          [projectId, versionId, body.name],
         );
       });
       return json({ projectId, versionId });

@@ -18,7 +18,7 @@ export const TakeAnalysisSchema = z.object({
     checkpointSha256: z.string(),
     device: z.enum(["cuda", "mps", "cpu"]),
     realInference: z.literal(true),
-    rulesVersion: z.literal("framing-v1"),
+    rulesVersion: z.enum(["framing-v1", "framing-v1.1"]),
     generatedAt: z.string(),
     targetTimeBasis: z
       .enum(["absolute-seconds", "normalized-phase"])

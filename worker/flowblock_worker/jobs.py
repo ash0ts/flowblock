@@ -27,7 +27,6 @@ class Queue:
         import psycopg
         from psycopg.rows import dict_row
 
-        self.dsn = dsn
         self.connect = lambda: psycopg.connect(dsn, row_factory=dict_row, connect_timeout=10)
 
     def ping(self):
@@ -114,9 +113,19 @@ class Queue:
         status = "queued" if retryable and job["attempt"] < 3 else "failed"
         with self.connect() as connection:
             connection.execute(
-                "UPDATE jobs SET status=%s, error=%s, lease_expires_at=NULL, updated_at=now() WHERE id=%s AND lease_token=%s AND status='running' AND cancelled_at IS NULL",
+                "UPDATE jobs SET status=%s, error=%s, lease_expires_at=NULL, updated_at=now() WHERE id=%s AND lease_token=%s AND status='running' AND cancelled_at IS NULL AND lease_expires_at > now()",
                 (status, message[:2000], job["id"], job["lease_token"]),
             )
+
+    def published(self, job: dict) -> bool:
+        """Resolve an uncertain commit acknowledgement without trusting cached job state."""
+        with self.connect() as connection:
+            connection.execute("SET LOCAL statement_timeout = '10s'")
+            row = connection.execute(
+                "SELECT status, result IS NOT NULL AS has_result FROM jobs WHERE id=%s AND lease_token=%s FOR UPDATE",
+                (job["id"], job["lease_token"]),
+            ).fetchone()
+        return bool(row and row["status"] in ("succeeded", "needs_review") and row["has_result"])
 
 
 class Lease:
@@ -166,6 +175,7 @@ def publish_result(
     """Publish only under a live lease; reclaim even a partially written last object."""
     uploaded = []
     committed = False
+    cleanup_allowed = True
     try:
         for path, key, content_type in files:
             lease.check()
@@ -174,11 +184,22 @@ def publish_result(
             uploaded.append(key)
             store.upload(path, key, content_type)
         lease.check()
-        committed = queue.finish(job, result)
+        try:
+            committed = queue.finish(job, result)
+        except Exception:
+            try:
+                committed = queue.published(job)
+            except Exception:
+                cleanup_allowed = False
+                LOG.exception(
+                    "Publication outcome unknown; retaining private attempt for retention"
+                )
+            if not committed:
+                raise
         if not committed:
             raise LeaseLost("Result publication rejected because the lease or take changed")
     finally:
-        if not committed:
+        if not committed and cleanup_allowed:
             for key in uploaded:
                 try:
                     store.delete(key)

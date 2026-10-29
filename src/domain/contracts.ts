@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const schemaVersion = "1.0" as const;
+export const engineVersion = "flowblock-engine-v1.1" as const;
 const finite = z.number().finite();
 const positive = finite.positive();
 const nonnegative = finite.nonnegative();
@@ -198,6 +199,7 @@ export type PlanSample = {
 };
 export type PlanVersion = {
   schemaVersion: typeof schemaVersion;
+  engineVersion?: typeof engineVersion;
   id: string;
   recipeId: RecipeId;
   family: Family;
@@ -222,12 +224,17 @@ export type PlanVersion = {
   score: number;
 };
 export type Plan = PlanVersion;
+// Computed previews may extend outside the bounded input scene; they remain valid JSON even when geometry validation fails.
+const DerivedPointSchema = z.object({ x: finite, z: finite }).strict();
+const DerivedVector3Schema = z
+  .object({ x: finite, y: finite, z: finite })
+  .strict();
 export const AnalyticPathSchema = z
   .object({
     kind: z.enum(["hold", "line", "arc"]),
-    start: PointSchema,
-    end: PointSchema,
-    center: PointSchema,
+    start: DerivedPointSchema,
+    end: DerivedPointSchema,
+    center: DerivedPointSchema,
     radius: nonnegative,
     startAngle: finite,
     sweepAngle: finite,
@@ -264,9 +271,9 @@ export const PlanSampleSchema = z
   .object({
     t: finite.min(0).max(1),
     timeSeconds: nonnegative,
-    position: Vector3Schema,
-    operator: PointSchema,
-    target: Vector3Schema,
+    position: DerivedVector3Schema,
+    operator: DerivedPointSchema,
+    target: DerivedVector3Schema,
     yawDeg: finite,
     pitchDeg: finite,
     distance: nonnegative,
@@ -279,6 +286,8 @@ export const PlanSampleSchema = z
 export const PlanVersionSchema = z
   .object({
     schemaVersion: z.literal(schemaVersion),
+    // Legacy snapshots remain readable; recompilation assigns the current engine and a new ID.
+    engineVersion: z.literal(engineVersion).optional(),
     id: z.string().min(1),
     recipeId: RecipeIdSchema,
     family: FamilySchema,

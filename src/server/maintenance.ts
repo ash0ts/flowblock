@@ -1,29 +1,33 @@
-import { db, transaction } from "./db";
-import { deletePrefix } from "./storage";
+import { db } from "./db";
+import { deleteTake } from "./takes";
 
 export async function cleanupMedia(): Promise<number> {
   const expired = await db().query(
     "SELECT id,owner_id FROM takes WHERE expires_at<=now() OR deleted_at IS NOT NULL ORDER BY COALESCE(cleanup_checked_at,'epoch'::timestamptz) LIMIT 500",
   );
+  const failures: unknown[] = [];
   for (const take of expired.rows) {
-    await transaction(async (client) => {
-      await client.query(
-        "UPDATE takes SET deleted_at=COALESCE(deleted_at,now()),file_name='[deleted]',plan='{}'::jsonb,training_consent=false WHERE id=$1",
+    try {
+      await deleteTake(take.id, take.owner_id);
+    } catch (error) {
+      failures.push(error);
+    } finally {
+      // Rotate attempted tombstones even when storage fails, so one broken
+      // prefix cannot starve later expired takes in a bounded sweep.
+      await db().query(
+        "UPDATE takes SET cleanup_checked_at=now() WHERE id=$1",
         [take.id],
       );
-      await client.query(
-        "UPDATE jobs SET status='cancelled',cancelled_at=COALESCE(cancelled_at,now()),lease_token=NULL,result=NULL,payload=jsonb_build_object('takeId',$2::text,'deleted',true),updated_at=now() WHERE owner_id=$1 AND payload->>'takeId'=$2",
-        [take.owner_id, take.id],
-      );
-    });
-    await deletePrefix(`owners/${take.owner_id}/takes/${take.id}/`);
-    await db().query("UPDATE takes SET cleanup_checked_at=now() WHERE id=$1", [
-      take.id,
-    ]);
+    }
   }
   await db().query(
     "UPDATE jobs SET status='failed',error='The application stopped before planning completed. Your local draft is preserved.',updated_at=now() WHERE kind='plan' AND status='running' AND updated_at<now()-interval '2 minutes'",
   );
+  if (failures.length)
+    throw new AggregateError(
+      failures,
+      "Some media could not be removed; cleanup will retry.",
+    );
   return expired.rowCount || 0;
 }
 

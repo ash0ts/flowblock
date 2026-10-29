@@ -206,13 +206,11 @@ export function Inspector({
                 />
                 <NumberField
                   label="Camera height"
-                  value={intent.cameraHeight}
+                  value={plan.cameraHeight}
                   min={0.1}
                   max={5}
                   step={0.05}
-                  onChange={(v) =>
-                    s.updateIntent({ ...intent, cameraHeight: v })
-                  }
+                  onChange={(v) => s.updateShot({ height: v })}
                 />
               </div>
               {gear.lens.kind === "physical" && (
@@ -311,13 +309,11 @@ export function Inspector({
                 <NumberField
                   label="Duration"
                   unit="sec"
-                  value={intent.durationSeconds}
+                  value={plan.durationSeconds}
                   min={2}
                   max={60}
                   step={1}
-                  onChange={(v) =>
-                    s.updateIntent({ ...intent, durationSeconds: v })
-                  }
+                  onChange={(v) => s.updateShot({ durationSeconds: v })}
                 />
                 <label className="field">
                   <span>Framing</span>

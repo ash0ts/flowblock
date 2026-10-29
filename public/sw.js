@@ -1,4 +1,4 @@
-const CACHE = "flowblock-shell-v2";
+const CACHE = "flowblock-shell-v3";
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -29,15 +29,16 @@ self.addEventListener("install", (event) => {
 });
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(
-          keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)),
-        ),
-      ),
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys
+          .filter((key) => key.startsWith("flowblock-shell-") && key !== CACHE)
+          .map((key) => caches.delete(key)),
+      );
+      await self.clients.claim();
+    })(),
   );
-  self.clients.claim();
 });
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
@@ -62,12 +63,16 @@ self.addEventListener("fetch", (event) => {
       .then((response) => {
         if (response.ok && response.type === "basic") {
           const copy = response.clone();
-          caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+          event.waitUntil(
+            caches.open(CACHE).then((cache) => cache.put(event.request, copy)),
+          );
         }
         return response;
       })
       .catch(
-        async () => (await caches.match(event.request)) || Response.error(),
+        async () =>
+          (await (await caches.open(CACHE)).match(event.request)) ||
+          Response.error(),
       ),
   );
 });

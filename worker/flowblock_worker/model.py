@@ -165,6 +165,7 @@ def describe_mask(logits, width: int, height: int) -> dict:
     import cv2
     import numpy as np
 
+    reasons = ["non-finite-mask-logits"] if not np.isfinite(logits).all() else []
     mask = (logits > 0).astype(np.uint8)
     ys, xs = np.nonzero(mask)
     if len(xs) == 0:
@@ -174,7 +175,7 @@ def describe_mask(logits, width: int, height: int) -> dict:
             "boundary": [],
             "maskArea": 0.0,
             "touchesBorder": False,
-            "uncertaintyReasons": [],
+            "uncertaintyReasons": reasons,
         }
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contour = max(contours, key=cv2.contourArea)
@@ -184,7 +185,6 @@ def describe_mask(logits, width: int, height: int) -> dict:
     if len(approximation) > 128:
         approximation = approximation[np.linspace(0, len(approximation) - 1, 128).astype(int)]
     components, _, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
-    reasons = []
     if components > 2 and max(stats[1:, cv2.CC_STAT_AREA]) / len(xs) < 0.6:
         reasons.append("fragmented-mask")
     if float(np.count_nonzero(np.abs(logits[mask.astype(bool)]) < 1)) / len(xs) > 0.4:

@@ -3,7 +3,8 @@ import Google from "next-auth/providers/google";
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
   trustHost:
-    !!process.env.AUTH_TRUST_HOST || process.env.FLOWBLOCK_LOCAL_MODE === "1",
+    process.env.AUTH_TRUST_HOST === "true" ||
+    process.env.FLOWBLOCK_LOCAL_MODE === "1",
   providers:
     process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET
       ? [

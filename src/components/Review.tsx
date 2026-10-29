@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { samplePlan } from "@/domain";
-import type { PlanVersion } from "@/domain/contracts";
+import { PlanVersionSchema, type PlanVersion } from "@/domain/contracts";
 import { TakeAnalysisSchema, type TakeAnalysis } from "@/domain/take-analysis";
 import { NumberField } from "./Inspector";
 import { useTakeHistory, type SavedAttempt } from "@/client/takes";
@@ -71,6 +71,8 @@ export function Review({
   const [analysis, setAnalysis] = useState<TakeAnalysis | null>(null);
   const [revising, setRevising] = useState(false);
   const [revised, setRevised] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const locked = busy || revising || deleting;
   const [uploadPercent, setUploadPercent] = useState<number | null>(null);
   const [takeId, setTakeId] = useState<string | null>(null);
   const [jobId, setJobId] = useState<string | null>(null);
@@ -80,7 +82,6 @@ export function Review({
     revisionId: string;
   } | null>(null);
   useEffect(() => {
-    void useTakeHistory.persist.rehydrate();
     const requests = jobGeneration;
     return () => {
       requests.current++;
@@ -97,7 +98,7 @@ export function Review({
   }, [active]);
   const chooseFile = (next: File | undefined) => {
     if (!next) return;
-    if (busy || revising) {
+    if (locked) {
       onNotice(
         "Finish or cancel the current operation before replacing the take.",
       );
@@ -151,6 +152,8 @@ export function Review({
     setUploadComplete(false);
     setJobId(null);
     setProposal(null);
+    setExpectedStart(0);
+    setExpectedEnd(8);
   };
   const remember = (patch: Partial<SavedAttempt>) => {
     if (!attemptId) return;
@@ -172,9 +175,29 @@ export function Review({
         ...patch,
       });
   };
+  const updateAnnotations = (
+    patch: Partial<
+      Pick<
+        SavedAttempt,
+        "seed" | "corrections" | "expectedStart" | "expectedEnd"
+      >
+    >,
+  ) => {
+    if (locked) return;
+    if ("seed" in patch) setSeed(patch.seed ?? null);
+    if (patch.corrections) setCorrections(patch.corrections);
+    if (patch.expectedStart !== undefined)
+      setExpectedStart(patch.expectedStart);
+    if (patch.expectedEnd !== undefined) setExpectedEnd(patch.expectedEnd);
+    setAnalysis(null);
+    setProposal(null);
+    remember({ ...patch, analysis: null });
+  };
   const openAttempt = (saved: SavedAttempt) => {
-    if (busy) {
-      onNotice("Cancel the current analysis before switching takes.");
+    if (locked) {
+      onNotice(
+        "Finish or cancel the current operation before switching takes.",
+      );
       return;
     }
     jobGeneration.current++;
@@ -232,7 +255,7 @@ export function Review({
     };
   };
   const startBox = (event: PointerEvent<HTMLDivElement>) => {
-    if (!drawing) return;
+    if (!drawing || locked) return;
     video.current?.pause();
     drag.current = point(event);
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -268,7 +291,9 @@ export function Review({
     setRect(r);
     setError("");
     if (!seed) {
-      setSeed({ timeSeconds: video.current?.currentTime ?? time, box: r });
+      updateAnnotations({
+        seed: { timeSeconds: video.current?.currentTime ?? time, box: r },
+      });
       setDrawing(false);
     }
   };
@@ -288,6 +313,13 @@ export function Review({
     new Promise<void>((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, target);
+      xhr.timeout = 180_000;
+      xhr.ontimeout = () =>
+        reject(
+          new Error(
+            "Upload timed out. Your local clip is still available; try again when connected.",
+          ),
+        );
       Object.entries(headers).forEach(([k, v]) => xhr.setRequestHeader(k, v));
       xhr.upload.onprogress = (event) => {
         if (event.lengthComputable)
@@ -306,7 +338,8 @@ export function Review({
       xhr.send(body);
     });
   const analyze = async () => {
-    if ((!file && !takeId) || !seed || duration < 5 || duration > 15) return;
+    if (locked || (!file && !takeId) || !seed || duration < 5 || duration > 15)
+      return;
     setError("");
     setBusy(true);
     setAnalysis(null);
@@ -317,6 +350,7 @@ export function Review({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
+        signal: AbortSignal.timeout(45_000),
       });
       const result = await response.json();
       if (!response.ok)
@@ -402,6 +436,7 @@ export function Review({
         await new Promise((resolve) => setTimeout(resolve, 2000));
         const response = await fetch(
           `/api/jobs/${encodeURIComponent(job.jobId)}`,
+          { signal: AbortSignal.timeout(15_000) },
         );
         const state = await response.json();
         if (!response.ok)
@@ -457,7 +492,8 @@ export function Review({
     }
   };
   const revise = async () => {
-    if (!analysis || revised) return;
+    if (!analysis || revised || locked) return;
+    const generation = jobGeneration.current;
     setRevising(true);
     setError("");
     try {
@@ -465,26 +501,32 @@ export function Review({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ plan, analysis: { jobId: analysis.jobId } }),
+        signal: AbortSignal.timeout(45_000),
       });
       const result = await response.json();
       if (!response.ok)
         throw new Error(
           result.error || result.message || "Revision could not be created.",
         );
-      if (!result.plan) throw new Error("The revision did not include a plan.");
+      const parsedPlan = PlanVersionSchema.safeParse(result.plan);
+      if (!parsedPlan.success || typeof result.revisionId !== "string")
+        throw new Error("The revision did not include a valid plan.");
+      if (generation !== jobGeneration.current) return;
       setProposal({
-        plan: result.plan,
+        plan: parsedPlan.data,
         reason: result.reason,
         revisionId: result.revisionId,
       });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Revision unavailable.");
+      if (generation === jobGeneration.current)
+        setError(err instanceof Error ? err.message : "Revision unavailable.");
     } finally {
-      setRevising(false);
+      if (generation === jobGeneration.current) setRevising(false);
     }
   };
   const acceptRevision = async () => {
-    if (!proposal) return;
+    if (!proposal || locked) return;
+    const generation = jobGeneration.current;
     setRevising(true);
     try {
       const response = await fetch(
@@ -493,42 +535,52 @@ export function Review({
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ currentPlanId: plan.id }),
+          signal: AbortSignal.timeout(15_000),
         },
       );
       const result = await response.json();
       if (!response.ok)
         throw new Error(result.error || "Could not apply this revision.");
+      if (generation !== jobGeneration.current) return;
       setRevised(true);
       remember({ revised: true });
       onRevision(proposal.plan, plan);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Could not apply revision.",
-      );
+      if (generation === jobGeneration.current)
+        setError(
+          err instanceof Error ? err.message : "Could not apply revision.",
+        );
     } finally {
-      setRevising(false);
+      if (generation === jobGeneration.current) setRevising(false);
     }
   };
   const cancelJob = async () => {
-    jobGeneration.current++;
-    setBusy(false);
-    setPhase("Analysis canceled");
-    if (jobId) {
-      try {
+    const generation = ++jobGeneration.current;
+    setPhase("Canceling analysis");
+    try {
+      if (jobId) {
         const response = await fetch(`/api/jobs/${encodeURIComponent(jobId)}`, {
           method: "DELETE",
+          signal: AbortSignal.timeout(15_000),
         });
         if (!response.ok) throw new Error();
-      } catch {
-        setError("Could not cancel the server job. Check service status.");
       }
+      if (generation === jobGeneration.current) setPhase("Analysis canceled");
+    } catch {
+      if (generation === jobGeneration.current)
+        setError("Could not cancel the server job. Check service status.");
+    } finally {
+      if (generation === jobGeneration.current) setBusy(false);
     }
   };
   const deleteTake = async () => {
-    if (!takeId) return;
+    if (!takeId || locked) return;
+    setDeleting(true);
+    setError("");
     try {
       const response = await fetch(`/api/takes/${encodeURIComponent(takeId)}`, {
         method: "DELETE",
+        signal: AbortSignal.timeout(15_000),
       });
       if (!response.ok) throw new Error();
       jobGeneration.current++;
@@ -545,6 +597,8 @@ export function Review({
       );
     } catch {
       setError("Could not delete uploaded media. Try again when connected.");
+    } finally {
+      setDeleting(false);
     }
   };
   const nearest = analysis?.tracks.reduce(
@@ -592,7 +646,7 @@ export function Review({
                 <button
                   key={saved.id}
                   className={saved.id === attemptId ? "active" : ""}
-                  disabled={busy}
+                  disabled={locked}
                   onClick={() => openAttempt(saved)}
                 >
                   <span>Take {i + 1}</span>
@@ -610,7 +664,7 @@ export function Review({
                 <input
                   type="file"
                   accept="video/*"
-                  disabled={busy || revising}
+                  disabled={locked}
                   aria-label="Choose another take"
                   onChange={(e) => chooseFile(e.target.files?.[0])}
                 />
@@ -672,7 +726,7 @@ export function Review({
                     <input
                       type="file"
                       accept="video/*"
-                      disabled={busy || revising}
+                      disabled={locked}
                       className="sr-only"
                       onChange={(e) => chooseFile(e.target.files?.[0])}
                     />
@@ -694,13 +748,15 @@ export function Review({
                     onLoadedMetadata={(e) => {
                       const v = e.currentTarget;
                       setDuration(v.duration);
-                      if (!seed && !analysis)
-                        setExpectedEnd(
-                          Number(Math.min(15, v.duration).toFixed(2)),
-                        );
+                      const end =
+                        !seed && !analysis
+                          ? Number(Math.min(15, v.duration).toFixed(2))
+                          : expectedEnd;
+                      if (Number.isFinite(end)) setExpectedEnd(end);
                       setRatio(v.videoWidth / v.videoHeight || 16 / 9);
                       remember({
-                        duration: v.duration,
+                        duration: Number.isFinite(v.duration) ? v.duration : 0,
+                        expectedEnd: Number.isFinite(end) ? end : expectedEnd,
                         ratio: v.videoWidth / v.videoHeight || 16 / 9,
                       });
                       if (
@@ -746,7 +802,7 @@ export function Review({
                           ? nearest?.visibility === "visible"
                             ? "Tracked product"
                             : nearest?.visibility
-                          : "Your product"}
+                          : "Marked box"}
                       </span>
                     </div>
                   )}
@@ -756,7 +812,7 @@ export function Review({
                     </span>
                   )}
                 </div>
-                <div className="annotation-toolbar">
+                <div className="annotation-toolbar" inert={locked}>
                   <button
                     className={`button ${drawing ? "primary" : ""}`}
                     onClick={() => {
@@ -779,10 +835,8 @@ export function Review({
                       aria-label="Clear product annotations"
                       title="Clear product annotations"
                       onClick={() => {
-                        setSeed(null);
                         setRect(null);
-                        setCorrections([]);
-                        setAnalysis(null);
+                        updateAnnotations({ seed: null, corrections: [] });
                       }}
                     >
                       <RotateCcw size={14} />
@@ -989,7 +1043,7 @@ export function Review({
           )}
         </div>
         <aside className="review-inspector">
-          <section>
+          <section inert={locked}>
             <span className="eyebrow">SET UP THE REVIEW</span>
             <h2>Give tracking a clear start.</h2>
             <ol className="review-steps">
@@ -1083,11 +1137,9 @@ export function Review({
                       timeSeconds: time,
                       box: rect ?? { x: 0.35, y: 0.2, width: 0.3, height: 0.6 },
                     };
-                    setSeed(marked);
                     setRect(marked.box);
                     setDrawing(false);
-                    setAnalysis(null);
-                    remember({ seed: marked, analysis: null });
+                    updateAnnotations({ seed: marked });
                   }}
                 >
                   Use box at this frame
@@ -1102,7 +1154,9 @@ export function Review({
                 min={0}
                 max={Math.max(0, expectedEnd - 0.01)}
                 step={0.1}
-                onChange={setExpectedStart}
+                onChange={(value) =>
+                  updateAnnotations({ expectedStart: value })
+                }
               />
               <NumberField
                 label="Visible until"
@@ -1111,7 +1165,7 @@ export function Review({
                 min={expectedStart + 0.01}
                 max={duration || 15}
                 step={0.1}
-                onChange={setExpectedEnd}
+                onChange={(value) => updateAnnotations({ expectedEnd: value })}
               />
             </div>
             {seed && (
@@ -1121,10 +1175,12 @@ export function Review({
                   disabled={!rect || corrections.length >= 4}
                   onClick={() => {
                     if (rect) {
-                      setCorrections([
-                        ...corrections,
-                        { timeSeconds: time, box: rect },
-                      ]);
+                      updateAnnotations({
+                        corrections: [
+                          ...corrections,
+                          { timeSeconds: time, box: rect },
+                        ],
+                      });
                       setDrawing(false);
                       onNotice(
                         `Correction saved at ${time.toFixed(2)} seconds.`,
@@ -1146,7 +1202,9 @@ export function Review({
                     <button
                       aria-label={`Remove correction ${i + 1}`}
                       onClick={() =>
-                        setCorrections(corrections.filter((_, j) => i !== j))
+                        updateAnnotations({
+                          corrections: corrections.filter((_, j) => i !== j),
+                        })
                       }
                     >
                       <X size={12} />
@@ -1182,7 +1240,7 @@ export function Review({
                 !connected ||
                 !seed ||
                 (!file && !takeId) ||
-                busy ||
+                locked ||
                 duration < 5 ||
                 duration > 15
               }
@@ -1222,7 +1280,11 @@ export function Review({
               </button>
             )}
             {takeId && !busy && (
-              <button className="text-button job-cancel" onClick={deleteTake}>
+              <button
+                className="text-button job-cancel"
+                disabled={locked}
+                onClick={deleteTake}
+              >
                 Delete uploaded media
               </button>
             )}
@@ -1254,13 +1316,14 @@ export function Review({
                   </p>
                   <button
                     className="button primary wide"
-                    disabled={revising || revised}
+                    disabled={locked || revised}
                     onClick={acceptRevision}
                   >
                     Apply this revision <ArrowRight size={14} />
                   </button>
                   <button
                     className="text-button"
+                    disabled={locked}
                     onClick={() => setProposal(null)}
                   >
                     Keep original plan
@@ -1272,7 +1335,7 @@ export function Review({
                   className="button primary wide"
                   disabled={
                     analysis.coverage.needsReview ||
-                    revising ||
+                    locked ||
                     revised ||
                     !analysis.findings.length
                   }

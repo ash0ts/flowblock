@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from flowblock_worker.model import describe_mask
+from flowblock_worker.measurement import annotate_tracks
 from flowblock_worker.storage import ObjectStore, validate_key
 
 
@@ -49,3 +50,18 @@ def test_empty_and_weak_masks_are_distinct():
     weak = describe_mask(np.full((10, 10), 0.2), 10, 10)
     assert weak["box"] is not None
     assert "weak-mask-logits" in weak["uncertaintyReasons"]
+
+
+@pytest.mark.parametrize("value", [np.nan, np.inf, -np.inf])
+def test_nonfinite_model_output_is_uncertain_even_when_a_mask_exists(value):
+    logits = np.full((100, 100), -10.0)
+    logits[30:60, 30:60] = 10
+    logits[40, 40] = value
+    result = describe_mask(logits, 100, 100)
+    assert result["box"] is not None
+    frames = annotate_tracks(
+        [{**result, "timestamp": 0}],
+        {"expectedVisible": {"startSeconds": 0, "endSeconds": 5}},
+    )
+    assert frames[0]["visibility"] == "uncertain"
+    assert "non-finite-mask-logits" in frames[0]["uncertaintyReasons"]

@@ -4,75 +4,113 @@ import {
   defaultGear,
   defaultIntent,
   compilePlan,
-  type TakeAnalysis,
 } from "../src/domain";
 import {
   proposeRevision,
   validateRevision,
 } from "../src/server/revision-planner";
-const plan = compilePlan(defaultScene, defaultGear, defaultIntent, "hero-hold");
-const analysis: TakeAnalysis = {
-  schemaVersion: "1.0",
-  analysisSpace: "upright-normalized-image",
-  jobId: "synthetic-unit-job",
-  takeId: "synthetic-unit-take",
-  planId: plan.id,
-  planVersion: "1.0",
-  summary: "Synthetic rule fixture, not an actual inference result.",
-  provenance: {
-    model: "SAM 2.1 Small",
-    repositoryCommit: "fixture",
-    checkpointSha256: "fixture",
-    device: "cpu",
-    realInference: true,
-    rulesVersion: "framing-v1",
-    generatedAt: "2026-10-29T00:00:00Z",
-  },
-  video: {
-    durationSeconds: 5,
-    sourceWidth: 640,
-    sourceHeight: 360,
-    rotationDegrees: 0,
-    width: 640,
-    height: 360,
-    codec: "h264",
-    fps: 15,
-    sampledFrames: 75,
-    sourceStartPtsSeconds: 0,
-    timestampMapping: "nearest-source-presentation-timestamp",
-    timeMap: [],
-  },
-  tracks: [],
-  coverage: {
-    expectedFrames: 75,
-    measuredFrames: 75,
-    missingFrames: 0,
-    uncertainFrames: 0,
-    intentionallyHiddenFrames: 0,
-    measuredFraction: 1,
-    needsReview: false,
-  },
-  findings: [
-    {
-      kind: "duration",
-      phase: "whole",
-      title: "Timing differs",
-      detail: "The clip is 5 seconds; the plan is 8 seconds.",
-      evidenceTimestamps: [4.9],
-      affectedFrames: 75,
-      measuredPhaseFrames: 75,
-      suggestion: "Try the measured duration.",
-    },
-  ],
-  artifacts: {
-    proxyObjectKey: "fixture/proxy",
-    timestampsObjectKey: "fixture/timestamps",
-    analysisObjectKey: "fixture/analysis",
-  },
-  limitations: ["Unit-test evidence only."],
-};
+import { plan, analysis } from "./fixtures/revision";
+import { PlanVersionSchema, TakeAnalysisSchema } from "../src/domain";
+import { loadEvaluationRuntime } from "../training/runtime";
 const ids = ["duration:whole:0"];
 describe("evidence-linked revisions", () => {
+  it("keeps legacy plans readable but changes identity when recompiling under a new engine", async () => {
+    const frozen = await loadEvaluationRuntime("frozen-v1");
+    const legacy = frozen.domain.compilePlan(
+      defaultScene,
+      defaultGear,
+      defaultIntent,
+      "hero-hold",
+    );
+    expect(PlanVersionSchema.safeParse(legacy).success).toBe(true);
+    expect(plan.engineVersion).toBe("flowblock-engine-v1.1");
+    expect(plan.id).not.toBe(legacy.id);
+    expect(() =>
+      validateRevision(
+        plan,
+        { ...analysis, planId: legacy.id },
+        { durationSeconds: 5 },
+        ["duration:whole:0"],
+      ),
+    ).toThrow("another plan");
+  });
+  it("accepts both archived and corrected worker measurement rule versions", () => {
+    for (const rulesVersion of ["framing-v1", "framing-v1.1"])
+      expect(
+        TakeAnalysisSchema.safeParse({
+          ...analysis,
+          provenance: { ...analysis.provenance, rulesVersion },
+        }).success,
+      ).toBe(true);
+    expect(
+      TakeAnalysisSchema.safeParse({
+        ...analysis,
+        provenance: { ...analysis.provenance, rulesVersion: "unknown" },
+      }).success,
+    ).toBe(false);
+  });
+  const offline = async () => {
+    throw new Error("Offline regression fixture");
+  };
+  it("keeps the direction of an already-reversed orbit when reducing its sweep", async () => {
+    const orbit = compilePlan(
+      defaultScene,
+      defaultGear,
+      defaultIntent,
+      "quarter-orbit",
+      { reverse: true },
+    );
+    const findings = [
+      {
+        ...analysis.findings[0],
+        kind: "framing" as const,
+        title: "Framing drift",
+      },
+    ];
+    const result = await proposeRevision(
+      orbit,
+      { ...analysis, planId: orbit.id, findings },
+      { trace: false, chat: offline },
+    );
+    expect(result.source).toBe("library");
+    expect(result.plan.path.sweepAngle).toBeCloseTo(
+      orbit.path.sweepAngle * 0.8,
+    );
+    expect(result.plan.overrides.reverse).toBe(true);
+  });
+  it("does not offer a duration change as a correction for spatial framing", async () => {
+    const findings = [
+      {
+        ...analysis.findings[0],
+        kind: "framing" as const,
+        title: "Framing drift",
+      },
+    ];
+    await expect(
+      proposeRevision(
+        plan,
+        { ...analysis, findings },
+        { trace: false, chat: offline },
+      ),
+    ).rejects.toThrow("No single feasible parameter change");
+  });
+  it("rejects another plan before invoking a model", async () => {
+    let invoked = false;
+    await expect(
+      proposeRevision(
+        plan,
+        { ...analysis, planId: "another-plan" },
+        {
+          trace: false,
+          chat: async () => {
+            invoked = true;
+            return offline();
+          },
+        },
+      ),
+    ).rejects.toThrow("another plan");
+    expect(invoked).toBe(false);
+  });
   it("requires a citation to this take and exactly one changed parameter", () => {
     expect(() =>
       validateRevision(plan, analysis, { durationSeconds: 5 }, ["invented"]),

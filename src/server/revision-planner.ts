@@ -1,6 +1,12 @@
 import { randomUUID } from "node:crypto";
 import * as weave from "weave";
 import {
+  beforeDeadline,
+  boundedTelemetry,
+  createDeadline,
+  trace,
+} from "./coordinator-runtime";
+import {
   AgentActionSchema,
   compilePlan,
   type Overrides,
@@ -23,6 +29,7 @@ export type RevisionProposal = {
   model?: string;
   events: PlannerEvent[];
 };
+export const revisionVersion = "revision-v1.1";
 export const findingId = (
   finding: TakeAnalysis["findings"][number],
   index: number,
@@ -153,19 +160,18 @@ function deterministicAdjustment(
       return [
         {
           overrides: {
-            orbitDegrees: ((plan.path.sweepAngle * 180) / Math.PI) * 0.8,
+            orbitDegrees:
+              ((plan.path.sweepAngle *
+                (plan.overrides.reverse ? -1 : 1) *
+                180) /
+                Math.PI) *
+              0.8,
           },
           findingIds,
         },
       ];
-    return [
-      {
-        overrides: {
-          durationSeconds: Math.min(15, plan.durationSeconds * 1.2),
-        },
-        findingIds,
-      },
-    ];
+    // Changing duration cannot correct a phase-aligned spatial framing mismatch.
+    return [];
   });
 }
 
@@ -183,8 +189,8 @@ export async function proposeRevision(
 ): Promise<RevisionProposal> {
   const events: PlannerEvent[] = [];
   const started = Date.now();
-  const deadlineAt = started + (options.deadlineMs || 30000);
-  const deadline = AbortSignal.timeout(options.deadlineMs || 30000);
+  if (analysis.planId !== plan.id)
+    throw new Error("The take belongs to another plan version.");
   const findings = analysis.findings.map((f, index) => ({
     id: findingId(f, index),
     kind: f.kind,
@@ -194,6 +200,7 @@ export async function proposeRevision(
     timestamps: f.evidenceTimestamps,
     affectedFrames: f.affectedFrames,
     measuredPhaseFrames: f.measuredPhaseFrames,
+    measurement: f.measurement,
   }));
   if (!findings.length || analysis.coverage.needsReview)
     throw new Error(
@@ -236,24 +243,26 @@ export async function proposeRevision(
   if (!process.env.WANDB_API_KEY && !options.chat) return fallback();
   const model =
     options.model || process.env.FLOWBLOCK_MODEL || "openai/gpt-oss-20b";
+  const scope = createDeadline(options.deadlineMs, started),
+    deadline = scope.signal;
   const traced =
-    options.trace !== false &&
-    (await boundedTelemetry(
-      telemetry(),
-      Math.min(1000, deadlineAt - Date.now()),
-    ));
+    options.trace !== false && (await boundedTelemetry(telemetry, deadline));
   const conversation = traced
-    ? weave.startConversation({
-        agentName: "FlowBlock revision",
-        agentVersion: "revision-v1",
-        model,
-        conversationId: randomUUID(),
-        attributes: { parentPlanId: plan.id, jobId: analysis.jobId },
-      })
+    ? trace(() =>
+        weave.startConversation({
+          agentName: "FlowBlock revision",
+          agentVersion: revisionVersion,
+          model,
+          conversationId: randomUUID(),
+          attributes: { parentPlanId: plan.id, jobId: analysis.jobId },
+        }),
+      )
     : undefined;
-  const turn = conversation?.startTurn({
-    userMessage: "Propose one measured, feasible next-take experiment.",
-  });
+  const turn = trace(() =>
+    conversation?.startTurn({
+      userMessage: "Propose one measured, feasible next-take experiment.",
+    }),
+  );
   const messages: PlannerMessage[] = [
     {
       role: "system",
@@ -283,25 +292,36 @@ export async function proposeRevision(
   try {
     for (let i = 0; i < 6; i++) {
       if (deadline.aborted) throw new Error("Revision deadline reached");
-      const llm = turn?.startLLM({ model, providerName: "coreweave" });
+      const llm = trace(() =>
+        turn?.startLLM({ model, providerName: "coreweave" }),
+      );
       let content: string;
       try {
-        if (llm) llm.inputMessages = messages;
-        const result = await (options.chat || chat)(messages, model, deadline);
+        trace(() => {
+          if (llm) llm.inputMessages = messages;
+        });
+        const result = await beforeDeadline(
+          () => (options.chat || chat)(messages, model, deadline),
+          deadline,
+        );
         content = result.content;
-        llm?.output(content);
-        llm?.record({ usage: result.usage });
+        trace(() => {
+          llm?.output(content);
+          llm?.record({ usage: result.usage });
+        });
       } finally {
-        llm?.end();
+        trace(() => llm?.end());
       }
       messages.push({ role: "assistant", content });
       let observation: unknown;
       try {
         const action = AgentActionSchema.parse(JSON.parse(content));
-        const tool = turn?.startTool({
-          name: action.action,
-          args: JSON.stringify(action),
-        });
+        const tool = trace(() =>
+          turn?.startTool({
+            name: action.action,
+            args: JSON.stringify(action),
+          }),
+        );
         try {
           if (action.action === "read_take_findings") {
             read = true;
@@ -322,19 +342,21 @@ export async function proposeRevision(
               observation,
               elapsedMs: Date.now() - started,
             });
-            tool?.end({ result: JSON.stringify(observation) });
+            trace(() => tool?.end({ result: JSON.stringify(observation) }));
             return { ...result, traceId: conversation?.conversationId, model };
           } else
             throw new Error(
               "Read findings, then propose one parameter change with one finding ID.",
             );
-          tool?.end({ result: JSON.stringify(observation) });
+          trace(() => tool?.end({ result: JSON.stringify(observation) }));
           events.push({ action, observation, elapsedMs: Date.now() - started });
         } catch (error) {
-          tool?.end({
-            error:
-              error instanceof Error ? error : new Error("Invalid proposal"),
-          });
+          trace(() =>
+            tool?.end({
+              error:
+                error instanceof Error ? error : new Error("Invalid proposal"),
+            }),
+          );
           throw error;
         }
       } catch (error) {
@@ -345,36 +367,21 @@ export async function proposeRevision(
       }
       messages.push({ role: "user", content: JSON.stringify({ observation }) });
     }
-    return fallback();
   } catch (error) {
-    turn?.recordError(
-      error instanceof Error ? error : new Error("Revision failed"),
+    trace(() =>
+      turn?.recordError(
+        error instanceof Error ? error : new Error("Revision failed"),
+      ),
     );
-    return fallback();
   } finally {
-    turn?.end();
-    conversation?.end();
-    if (traced)
-      await boundedTelemetry(
-        weave.flushOTel().then(() => true),
-        Math.max(0, deadlineAt - Date.now()),
-      );
+    try {
+      trace(() => turn?.end());
+      trace(() => conversation?.end());
+      if (traced && !deadline.aborted)
+        await boundedTelemetry(() => weave.flushOTel(), deadline);
+    } finally {
+      scope.close();
+    }
   }
-}
-
-async function boundedTelemetry(
-  operation: Promise<unknown>,
-  milliseconds: number,
-): Promise<boolean> {
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  try {
-    return await Promise.race([
-      operation.then((value) => !!value).catch(() => false),
-      new Promise<boolean>((resolve) => {
-        timer = setTimeout(() => resolve(false), milliseconds);
-      }),
-    ]);
-  } finally {
-    if (timer) clearTimeout(timer);
-  }
+  return fallback();
 }

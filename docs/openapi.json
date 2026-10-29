@@ -1357,6 +1357,10 @@
             "type": "string",
             "const": "1.0"
           },
+          "engineVersion": {
+            "type": "string",
+            "const": "flowblock-engine-v1.1"
+          },
           "id": {
             "type": "string",
             "minLength": 1
@@ -1925,14 +1929,10 @@
                 "type": "object",
                 "properties": {
                   "x": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   },
                   "z": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -1945,14 +1945,10 @@
                 "type": "object",
                 "properties": {
                   "x": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   },
                   "z": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -1965,14 +1961,10 @@
                 "type": "object",
                 "properties": {
                   "x": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   },
                   "z": {
-                    "type": "number",
-                    "minimum": -1000,
-                    "maximum": 1000
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -2176,19 +2168,13 @@
                   "type": "object",
                   "properties": {
                     "x": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     },
                     "y": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     },
                     "z": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -2202,14 +2188,10 @@
                   "type": "object",
                   "properties": {
                     "x": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     },
                     "z": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -2222,19 +2204,13 @@
                   "type": "object",
                   "properties": {
                     "x": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     },
                     "y": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     },
                     "z": {
-                      "type": "number",
-                      "minimum": -1000,
-                      "maximum": 1000
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -2837,7 +2813,10 @@
               },
               "rulesVersion": {
                 "type": "string",
-                "const": "framing-v1"
+                "enum": [
+                  "framing-v1",
+                  "framing-v1.1"
+                ]
               },
               "generatedAt": {
                 "type": "string"
@@ -4147,6 +4126,10 @@
                 "type": "string",
                 "const": "1.0"
               },
+              "engineVersion": {
+                "type": "string",
+                "const": "flowblock-engine-v1.1"
+              },
               "id": {
                 "type": "string",
                 "minLength": 1
@@ -4715,14 +4698,10 @@
                     "type": "object",
                     "properties": {
                       "x": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       },
                       "z": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       }
                     },
                     "required": [
@@ -4735,14 +4714,10 @@
                     "type": "object",
                     "properties": {
                       "x": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       },
                       "z": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       }
                     },
                     "required": [
@@ -4755,14 +4730,10 @@
                     "type": "object",
                     "properties": {
                       "x": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       },
                       "z": {
-                        "type": "number",
-                        "minimum": -1000,
-                        "maximum": 1000
+                        "type": "number"
                       }
                     },
                     "required": [
@@ -4966,19 +4937,13 @@
                       "type": "object",
                       "properties": {
                         "x": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         },
                         "y": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         },
                         "z": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         }
                       },
                       "required": [
@@ -4992,14 +4957,10 @@
                       "type": "object",
                       "properties": {
                         "x": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         },
                         "z": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         }
                       },
                       "required": [
@@ -5012,19 +4973,13 @@
                       "type": "object",
                       "properties": {
                         "x": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         },
                         "y": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         },
                         "z": {
-                          "type": "number",
-                          "minimum": -1000,
-                          "maximum": 1000
+                          "type": "number"
                         }
                       },
                       "required": [

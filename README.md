@@ -66,7 +66,7 @@ Read [the training procedure](training/README.md), [recorded results](training/r
 | Persistence | [migrations/001_initial.sql](migrations/001_initial.sql) | Immutable versions, ownership, attempt records, leases |
 | Native interfaces | [src/domain/native-companion.ts](src/domain/native-companion.ts) | Future room-scan import and AR alignment contracts |
 
-[Generated JSON schemas](docs/schemas) and the [OpenAPI reference](docs/openapi.json) describe the public data and operations. Regenerate them with `bun run schemas`. See [operating instructions](docs/operations.md) for retention, recovery, authentication, and rollback.
+[Generated JSON schemas](docs/schemas) and the [OpenAPI reference](docs/openapi.json) describe the public data and operations. Regenerate them with `bun run schemas`. See [architecture](docs/architecture.md) and [operating instructions](docs/operations.md) for retention, recovery, authentication, and rollback.
 
 ## What has and has not been established
 

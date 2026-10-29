@@ -36,7 +36,9 @@ import {
   X,
 } from "lucide-react";
 import { recipes, samplePlan, planShots } from "@/domain";
-import type { Family } from "@/domain/contracts";
+import { PlanVersionSchema, type Family } from "@/domain/contracts";
+import { useTakeHistory } from "@/client/takes";
+import { getPendingWrites, subscribeStorage } from "@/client/storage";
 import { selectedPlan, useWorkspace } from "@/client/store";
 import { Inspector } from "@/components/Inspector";
 import { FramingPreview, SceneCanvas } from "@/components/SceneCanvas";
@@ -103,6 +105,11 @@ function MoveGlyph({
 
 export default function WorkspacePage() {
   const s = useWorkspace();
+  const pendingWrites = useSyncExternalStore(
+    subscribeStorage,
+    getPendingWrites,
+    () => 0,
+  );
   const plan = useMemo(() => selectedPlan(s), [s]);
   const [tab, setTab] = useState<Tab>("plan");
   const [progress, setProgress] = useState(0);
@@ -133,10 +140,6 @@ export default function WorkspacePage() {
     }
   }, []);
   useEffect(() => {
-    void useConnections.persist.rehydrate();
-    Promise.resolve(useWorkspace.persist.rehydrate()).then(() =>
-      useWorkspace.getState().markHydrated(),
-    );
     let active = true;
     const failedStorage = () => {
       setStorageFailed(true);
@@ -144,7 +147,17 @@ export default function WorkspacePage() {
         "Browser storage is unavailable. Export your plan before closing this tab.",
       );
     };
+    const recoveredStorage = () =>
+      setNotice(
+        "Some saved browser data could not be opened. A fresh workspace is available; other saved data is unchanged.",
+      );
     window.addEventListener("flowblock-storage-error", failedStorage);
+    window.addEventListener("flowblock-storage-recovered", recoveredStorage);
+    Promise.all([
+      useWorkspace.persist.rehydrate(),
+      useConnections.persist.rehydrate(),
+      useTakeHistory.persist.rehydrate(),
+    ]).then(() => useWorkspace.getState().markHydrated());
     fetch("/api/status")
       .then((response) => (response.ok ? response.json() : null))
       .then((result) => {
@@ -156,6 +169,10 @@ export default function WorkspacePage() {
     return () => {
       active = false;
       window.removeEventListener("flowblock-storage-error", failedStorage);
+      window.removeEventListener(
+        "flowblock-storage-recovered",
+        recoveredStorage,
+      );
     };
   }, []);
   if (playbackPlanId !== plan.id) {
@@ -196,6 +213,8 @@ export default function WorkspacePage() {
       scene: s.scene,
       gear: s.gear,
       intent,
+      prompt: s.prompt,
+      recipeId: s.recipeId,
     });
     const isCurrent = () => {
       const current = useWorkspace.getState();
@@ -204,6 +223,8 @@ export default function WorkspacePage() {
           scene: current.scene,
           gear: current.gear,
           intent: current.intent,
+          prompt: current.prompt,
+          recipeId: current.recipeId,
         }) === inputSnapshot
       );
     };
@@ -221,7 +242,10 @@ export default function WorkspacePage() {
         signal: AbortSignal.timeout(45000),
       });
       const result = await response.json();
-      if (!response.ok || !Array.isArray(result.plans))
+      const parsedPlans = PlanVersionSchema.array()
+        .max(12)
+        .safeParse(result.plans);
+      if (!response.ok || !parsedPlans.success)
         throw new Error(
           result.error || "The planner returned an invalid response",
         );
@@ -238,7 +262,11 @@ export default function WorkspacePage() {
             : result.plans.length
               ? `${result.plans.length} moves compiled and checked against your space.`
               : "No camera move fits this brief with the current space and gear. Adjust the scene or direction and try again.";
-        s.setPlans(result.plans.slice(0, 3), result.source, message);
+        s.setPlans(
+          parsedPlans.data.slice(0, 3),
+          result.source === "forge" ? "forge" : "library",
+          message,
+        );
         setNotice(message);
       }
     } catch {
@@ -323,15 +351,13 @@ export default function WorkspacePage() {
       if (!response.ok)
         throw new Error(body.error || "Sharing requires connected storage.");
       const shareUrl = new URL(body.url, location.origin).href;
-      useConnections
-        .getState()
-        .addShare({
-          token: body.token,
-          url: shareUrl,
-          planId: plan.id,
-          name: plan.name,
-          createdAt: new Date().toISOString(),
-        });
+      useConnections.getState().addShare({
+        token: body.token,
+        url: shareUrl,
+        planId: plan.id,
+        name: plan.name,
+        createdAt: new Date().toISOString(),
+      });
       try {
         await navigator.clipboard.writeText(shareUrl);
         setNotice(
@@ -359,7 +385,7 @@ export default function WorkspacePage() {
     (r) => family === "all" || r.family === family,
   );
   return (
-    <div className="app-shell">
+    <div className="app-shell" inert={!s.hydrated} aria-busy={!s.hydrated}>
       <header className="app-header">
         <Link href="/" className="brand" aria-label="FlowBlock home">
           <span className="brand-mark">
@@ -382,11 +408,13 @@ export default function WorkspacePage() {
             {offline ? <WifiOff size={12} /> : <span className="status-dot" />}
             {storageFailed
               ? "Storage unavailable"
-              : offline
-                ? "Offline · local workspace"
-                : s.hydrated
-                  ? "Saved on this device"
-                  : "Opening workspace"}
+              : !s.hydrated
+                ? "Opening workspace"
+                : pendingWrites > 0
+                  ? "Saving on this device…"
+                  : offline
+                    ? "Offline · local workspace"
+                    : "Saved on this device"}
           </span>
           <div className="export-wrap">
             <button
@@ -1022,6 +1050,10 @@ export default function WorkspacePage() {
           onClose={() => setHistoryOpen(false)}
           onOpen={(version) => {
             s.restore(version);
+            if (selectedPlan(useWorkspace.getState()).id !== version.id)
+              setNotice(
+                "This shot was rechecked with the current planner. Its saved version is unchanged.",
+              );
             setHistoryOpen(false);
             setTab("plan");
           }}
@@ -1079,19 +1111,27 @@ export default function WorkspacePage() {
           </section>
         </div>
       )}
-      <DialogKeys
-        close={() => {
-          setStatusOpen(false);
-          setHelpOpen(false);
-          setHistoryOpen(false);
-          setExportsOpen(false);
-        }}
-      />
+      {(statusOpen || helpOpen || historyOpen || exportsOpen) && (
+        <DialogKeys
+          close={() => {
+            setStatusOpen(false);
+            setHelpOpen(false);
+            setHistoryOpen(false);
+            setExportsOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 }
 
 function DialogKeys({ close }: { close: () => void }) {
+  useEffect(() => {
+    const opener = document.activeElement;
+    return () => {
+      if (opener instanceof HTMLElement && opener.isConnected) opener.focus();
+    };
+  }, []);
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -1102,6 +1142,10 @@ function DialogKeys({ close }: { close: () => void }) {
           dialog.querySelectorAll<HTMLElement>(
             'button,a,input,select,textarea,summary,[tabindex="0"]',
           ),
+        ).filter(
+          (element) =>
+            !element.matches(":disabled") &&
+            element.getClientRects().length > 0,
         );
         const first = targets[0],
           last = targets[targets.length - 1];
