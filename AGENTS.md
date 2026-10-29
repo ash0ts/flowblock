@@ -13,9 +13,11 @@ This is an independent repository. Read [README.md](README.md), the [domain cont
 
 ## Checks
 
-Run `bun run typecheck`, `bun run lint`, `bun run test`, and `bun run build` after relevant changes. The database integration tests use isolated schemas when `FLOWBLOCK_TEST_DATABASE_URL` or `DATABASE_URL` is present. `node --env-file=.env.local node_modules/vitest/vitest.mjs run` includes those tests locally.
+Run `bun run format:check`, `bun run typecheck`, `bun run lint`, `bun run test`, and `bun run build` after relevant changes. The database integration tests use isolated schemas when `FLOWBLOCK_TEST_DATABASE_URL` or `DATABASE_URL` is present. `node --env-file=.env.local node_modules/vitest/vitest.mjs run` includes those tests locally.
 
 Use `bun run test:e2e` against the production server for browser regression checks. Set `PLAYWRIGHT_PWA_TEST=1` for offline cache/reload validation. Worker checks run with `uv --no-config run --project worker --env-file .env.local --group dev pytest worker/tests`; the CI workflow also supplies PostgreSQL and FFmpeg.
+
+Use `bun run format` for live TypeScript, React, and CSS. Never format or edit `training/frozen/` or historical `training/results/` receipts.
 
 Regenerate `docs/schemas` and `docs/openapi.json` with `bun run schemas` after contract changes. Review `.github/CODEOWNERS` for new areas. No tests belong in Git hooks.
 

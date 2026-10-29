@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.data/
+training/frozen/
+training/results/
+training/artifacts/
+docs/schemas/
+docs/openapi.json
+worker/
+*.lock

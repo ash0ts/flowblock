@@ -1,0 +1,108 @@
+{
+  "version": "flowblock-evaluation-sources/1.0",
+  "runtimeVersion": "flowblock-planner-v1",
+  "originalRuntimeManifest": "training/frozen/runtime-manifest.json",
+  "scope": "Preserved source graph for the completed qualification. Copies differ only by listed reversible import specifiers; original receipts, runtime snapshot, runtime manifest, and dataset are unchanged.",
+  "files": [
+    {
+      "originalPath": "training/frozen/runtime.ts",
+      "evaluatedPath": "src/server/planner.ts",
+      "originalSha256": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+      "snapshotPath": "training/frozen/sources/planner.ts",
+      "snapshotSha256": "6cbc55ec0e394601672ab3da20889fe2f4197b144297e3331a17ea778a9e7d1b",
+      "importRewrites": [
+        {
+          "from": "'@/domain'",
+          "to": "'./domain'",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "src/domain/contracts.ts",
+      "evaluatedPath": "src/domain/contracts.ts",
+      "originalSha256": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+      "snapshotPath": "training/frozen/sources/domain/contracts.ts",
+      "snapshotSha256": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "src/domain/defaults.ts",
+      "evaluatedPath": "src/domain/defaults.ts",
+      "originalSha256": "79076d8bb3c4197124e0612673f28585b373e9e9279dd1c726b4b60173ec7773",
+      "snapshotPath": "training/frozen/sources/domain/defaults.ts",
+      "snapshotSha256": "79076d8bb3c4197124e0612673f28585b373e9e9279dd1c726b4b60173ec7773",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "src/domain/geometry.ts",
+      "evaluatedPath": "src/domain/geometry.ts",
+      "originalSha256": "d85324b0adef37d3f5178963aafcdcf645d3054e6bc4f036b3f6671c32ea7884",
+      "snapshotPath": "training/frozen/sources/domain/geometry.ts",
+      "snapshotSha256": "d85324b0adef37d3f5178963aafcdcf645d3054e6bc4f036b3f6671c32ea7884",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "src/domain/engine.ts",
+      "evaluatedPath": "src/domain/engine.ts",
+      "originalSha256": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+      "snapshotPath": "training/frozen/sources/domain/engine.ts",
+      "snapshotSha256": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "src/domain/index.ts",
+      "evaluatedPath": "src/domain/index.ts",
+      "originalSha256": "67db24806717da71e96b8e5104c85eb8b7b7757971b908f6ff286b433def968e",
+      "snapshotPath": "training/frozen/sources/domain/index.ts",
+      "snapshotSha256": "67db24806717da71e96b8e5104c85eb8b7b7757971b908f6ff286b433def968e",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "src/domain/take-analysis.ts",
+      "evaluatedPath": "src/domain/take-analysis.ts",
+      "originalSha256": "2716ae2e24014740a5796b8b9c4ac6a03e25efd5bfb7dfad5d66bcf954ad67ae",
+      "snapshotPath": "training/frozen/sources/domain/take-analysis.ts",
+      "snapshotSha256": "2716ae2e24014740a5796b8b9c4ac6a03e25efd5bfb7dfad5d66bcf954ad67ae",
+      "importRewrites": []
+    },
+    {
+      "originalPath": "training/fixtures.ts",
+      "evaluatedPath": "training/fixtures.ts",
+      "originalSha256": "a469fb20428c1ad314b144522eaa71533c1e478fe36a4cd5f0153cc47345afb6",
+      "snapshotPath": "training/frozen/sources/fixtures.ts",
+      "snapshotSha256": "715782011d830fe0addb6176996dbfc0ae7e8b12bf20b22ab6f51707c3ecc462",
+      "importRewrites": [
+        {
+          "from": "'../src/domain'",
+          "to": "'./domain'",
+          "count": 1
+        },
+        {
+          "from": "'../src/server/planner'",
+          "to": "'./planner'",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "training/evaluation.ts",
+      "evaluatedPath": "training/evaluation.ts",
+      "originalSha256": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee",
+      "snapshotPath": "training/frozen/sources/evaluation.ts",
+      "snapshotSha256": "2eac1da42fd5070aa36dd0a1e6b4d01c3b7272939d966b2c9b8e358b28116eb3",
+      "importRewrites": [
+        {
+          "from": "'../src/domain'",
+          "to": "'./domain'",
+          "count": 1
+        },
+        {
+          "from": "'../src/server/planner'",
+          "to": "'./planner'",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,8 @@ The planner keeps geometry in a deterministic compiler. The model chooses an all
 
 The completed campaign used planner v1. Its exact evaluated source is preserved in [`frozen/runtime.ts`](frozen/runtime.ts), with source and dependency hashes in [`frozen/runtime-manifest.json`](frozen/runtime-manifest.json). Product planner v1.1 was changed afterward to include telemetry initialization, inference and final telemetry flush in one deadline. Optional telemetry initialization and flush each wait at most one second, within the remaining total budget. A late model reply cannot execute actions after the deadline. This fix has deterministic deadline tests; it has no new model evaluation result. Historical receipts remain unchanged.
 
+Historical reproduction now loads an isolated copy of the planner, domain engine, fixture generator, and checker from `frozen/sources/`. The additive `frozen/sources-manifest.json` records original hashes and reversible import rewrites. The loader verifies that the archived files reconstruct the original source bytes. Preparation and evaluation select that complete archived graph, so changes to product code cannot alter historical results. The original snapshots, dataset, manifests, and receipts remain unchanged.
+
 Install the client environment and generate data with:
 
 ```sh
