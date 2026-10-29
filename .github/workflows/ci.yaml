@@ -47,8 +47,16 @@ jobs:
       - run: uv --no-config run --no-project --python 3.12 --with Pillow==11.0.0 python worker/tests/generate_synthetic.py worker/artifacts/synthetic
       - run: bunx playwright install --with-deps chromium
       - run: bun run test:e2e
+        id: browser-tests
         env:
           PLAYWRIGHT_PWA_TEST: '1'
+      - name: Preserve browser failure evidence
+        if: failure() && steps.browser-tests.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: browser-failure-evidence
+          path: test-results/
+          retention-days: 7
   measurements:
     runs-on: ubuntu-latest
     env:
