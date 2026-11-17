@@ -69,10 +69,9 @@ export async function signedUpload(
   type: string,
   size: number,
   takeId: string,
-  origin: string,
 ) {
   validateMediaKey(key);
-  if (localStorage()) return `${origin}/api/takes/${takeId}/upload`;
+  if (localStorage()) return `/api/takes/${takeId}/upload`;
   return getSignedUrl(
     s3(),
     new PutObjectCommand({

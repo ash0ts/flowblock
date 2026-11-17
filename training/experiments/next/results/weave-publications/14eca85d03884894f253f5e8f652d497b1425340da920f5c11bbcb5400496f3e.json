@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "14eca85d03884894f253f5e8f652d497b1425340da920f5c11bbcb5400496f3e",
+  "experimentId": "flowblock-objectron-development-repeat-20261030",
+  "attemptId": "field-validation-20261030",
+  "verifiedAt": "2026-10-30T21:56:16.060Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "live-read",
+    "verifiedAt": "2026-10-30T21:53:31.990Z",
+    "apiBase": "https://api.forge.coreweave.com"
+  },
+  "modelsApiBase": "https://api.forge.coreweave.com",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "61173b354f2a1529cf7962666f46a77915b2d539e99d2ea0dda7483856e1e5f6",
+    "tasks": "52c156e2f4b167812e34d7b4906fece126d300747324f19631258179b77c0c34",
+    "results": "3abd71d02a7b7fce084faa51a61427a9922be543c4fc7bbd3744428dd7885cd0"
+  },
+  "evaluationCallId": "01a18ecd-e40d-775b-a817-1a570fc3c840",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-field-validation-20261030-14eca85d03:7UXK4cS9Hb7AHc8y6V0VxBwbK1alADiRuo7EK55SQ5c",
+  "modelRef": "weave:///wandb/flowblock/object/SAM-2_1-Small-Objectron-development-repeat-ba8da6aa6ea817e8:q8zViOUYLo4LgCU4AxOToUuWxcv0ttYXOGL0r9l7qI4",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-objectron-repeat-development-52c156e2f4b1:JlPBHdNq0TmfX85ASgJAYYyOVhjeXgz9tCqdAyRZak0",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18ecd-e40d-775b-a817-1a570fc3c840",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 10,
+  "observedRows": 10,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 10,
+      "mean": 0.8,
+      "sum": 8,
+      "true_count": 8,
+      "false_count": 2,
+      "true_fraction": 0.8
+    },
+    "available": {
+      "count": 10,
+      "mean": 0.8,
+      "sum": 8,
+      "true_count": 8,
+      "false_count": 2,
+      "true_fraction": 0.8
+    },
+    "evaluationSamplesExcludingSeed": {
+      "count": 8,
+      "mean": 74,
+      "sum": 592
+    },
+    "maskCenterInsideProjectedBoxFraction": {
+      "count": 8,
+      "mean": 1,
+      "sum": 8
+    },
+    "maskCentroidToProjected3dCenterFrameDiagonalDiscrepancy": {
+      "count": 8,
+      "mean": 0.03324154280249709,
+      "sum": 0.2659323424199767
+    },
+    "maskHeightToProjectedBoxHeightRatio": {
+      "count": 8,
+      "mean": 0.9294060102210251,
+      "sum": 7.435248081768201
+    },
+    "maskWidthToProjectedBoxWidthRatio": {
+      "count": 8,
+      "mean": 0.8768252934630749,
+      "sum": 7.014602347704599
+    },
+    "processingSeconds": {
+      "count": 8,
+      "mean": 108.85270039062016,
+      "sum": 870.8216031249613
+    },
+    "usableFraction": {
+      "count": 8,
+      "mean": 0.9983108108108107,
+      "sum": 7.986486486486486
+    },
+    "usableSamples": {
+      "count": 8,
+      "mean": 73.875,
+      "sum": 591
+    },
+    "task_counts": {
+      "requested": 10,
+      "published": 10
+    },
+    "recorded_summary": {
+      "metrics": {
+        "cohort/original_selected_recordings": 10,
+        "cohort/executed_recordings": 8,
+        "cohort/excluded_recordings": 2,
+        "tracking/evaluation_samples_excluding_seed": 592,
+        "tracking/usable_samples": 591,
+        "tracking/usable_fraction": 0.9983108108108109,
+        "processing/total_seconds": 870.8216031249613,
+        "processing/mean_seconds_per_clip": 108.85270039062016,
+        "projection/equal_video_mean_maskCenterInsideProjectedBoxFraction": 1,
+        "projection/equal_video_mean_maskCentroidToProjected3dCenterFrameDiagonalDiscrepancy": 0.03324154280249709,
+        "projection/equal_video_mean_maskHeightToProjectedBoxHeightRatio": 0.9294060102210251,
+        "projection/equal_video_mean_maskWidthToProjectedBoxWidthRatio": 0.8768252934630749
+      },
+      "counts": {
+        "completed": 8,
+        "excluded": 2
+      },
+      "evidenceScope": {
+        "evidence_kind": "public-dataset-tracking",
+        "cohort_exposure": "previously-inspected-development",
+        "reference_kind": "projected-3d-cuboid",
+        "authored_flowblock_take": false,
+        "creator_outcome_measured": false,
+        "visible_mask_accuracy_measured": false
+      },
+      "unitOfAnalysis": "one public recording; frames are dependent",
+      "freshHeldOutEvidence": false
+    }
+  }
+}

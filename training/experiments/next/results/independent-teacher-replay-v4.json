@@ -1,0 +1,9 @@
+{
+  "checkerVersion": "flowblock-brief-checker-v4",
+  "checkerSha256": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c",
+  "frozenTrainingActionsSha256": "f830e2f4a209298f0c0bb176d98585271acff1a779d5b5c9c9083399be74e193",
+  "checkedPositiveCompileTargets": 468,
+  "failedTargets": [],
+  "counterexampleNowProductive": true,
+  "scope": "Training-row replay only; no confirmation plans compiled or scored"
+}

@@ -1,0 +1,312 @@
+{
+  "version": "flowblock-unauthenticated-connection-probe-v1",
+  "recordedAt": "2026-10-29T23:15:20.822Z",
+  "results": [
+    {
+      "index": 0,
+      "mode": "default",
+      "receipt": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "completed",
+        "startedAt": "2026-10-29T23:14:56.788Z",
+        "endedAt": "2026-10-29T23:14:57.967Z",
+        "monotonicElapsedMs": 1181.067542,
+        "wallElapsedMs": 1179,
+        "timeoutMs": 65000,
+        "killGraceMs": 250,
+        "pid": 4312,
+        "exitCode": 0,
+        "signal": null,
+        "processExitObserved": true,
+        "signals": [],
+        "stdout": "{\"version\":\"flowblock-unauthenticated-connection-probe-v1\",\"event\":\"worker-start\",\"mode\":\"default\",\"authenticated\":false,\"method\":\"GET\",\"url\":\"https://forge.coreweave.com/api/training/v1/models\",\"node\":\"v24.18.0\"}\n{\"event\":\"request-start\",\"request\":0,\"startedAt\":\"2026-10-29T23:14:56.921Z\"}\n{\"event\":\"request-result\",\"request\":0,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":466.265791,\"wallElapsedMs\":466,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":null}\n{\"event\":\"request-start\",\"request\":1,\"startedAt\":\"2026-10-29T23:14:57.387Z\"}\n{\"event\":\"request-result\",\"request\":1,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":550.1197080000001,\"wallElapsedMs\":550,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":null}\n",
+        "stderr": "",
+        "stdoutBytes": 777,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 777,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 64000,
+        "outputTruncated": false,
+        "responseStatus": "uninspected",
+        "remoteCancellation": "not_attempted"
+      },
+      "events": [
+        {
+          "version": "flowblock-unauthenticated-connection-probe-v1",
+          "event": "worker-start",
+          "mode": "default",
+          "authenticated": false,
+          "method": "GET",
+          "url": "https://forge.coreweave.com/api/training/v1/models",
+          "node": "v24.18.0"
+        },
+        {
+          "event": "request-start",
+          "request": 0,
+          "startedAt": "2026-10-29T23:14:56.921Z"
+        },
+        {
+          "event": "request-result",
+          "request": 0,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 466.265791,
+          "wallElapsedMs": 466,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": null
+        },
+        {
+          "event": "request-start",
+          "request": 1,
+          "startedAt": "2026-10-29T23:14:57.387Z"
+        },
+        {
+          "event": "request-result",
+          "request": 1,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 550.1197080000001,
+          "wallElapsedMs": 550,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": null
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "mode": "extended",
+      "receipt": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "completed",
+        "startedAt": "2026-10-29T23:14:57.970Z",
+        "endedAt": "2026-10-29T23:14:58.740Z",
+        "monotonicElapsedMs": 769.8872920000001,
+        "wallElapsedMs": 770,
+        "timeoutMs": 65000,
+        "killGraceMs": 250,
+        "pid": 4358,
+        "exitCode": 0,
+        "signal": null,
+        "processExitObserved": true,
+        "signals": [],
+        "stdout": "{\"version\":\"flowblock-unauthenticated-connection-probe-v1\",\"event\":\"worker-start\",\"mode\":\"extended\",\"authenticated\":false,\"method\":\"GET\",\"url\":\"https://forge.coreweave.com/api/training/v1/models\",\"node\":\"v24.18.0\"}\n{\"event\":\"request-start\",\"request\":0,\"startedAt\":\"2026-10-29T23:14:58.112Z\"}\n{\"event\":\"request-result\",\"request\":0,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":532.250875,\"wallElapsedMs\":533,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":1}\n{\"event\":\"request-start\",\"request\":1,\"startedAt\":\"2026-10-29T23:14:58.645Z\"}\n{\"event\":\"request-result\",\"request\":1,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":66.585417,\"wallElapsedMs\":66,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":1}\n",
+        "stderr": "",
+        "stdoutBytes": 763,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 763,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 64000,
+        "outputTruncated": false,
+        "responseStatus": "uninspected",
+        "remoteCancellation": "not_attempted"
+      },
+      "events": [
+        {
+          "version": "flowblock-unauthenticated-connection-probe-v1",
+          "event": "worker-start",
+          "mode": "extended",
+          "authenticated": false,
+          "method": "GET",
+          "url": "https://forge.coreweave.com/api/training/v1/models",
+          "node": "v24.18.0"
+        },
+        {
+          "event": "request-start",
+          "request": 0,
+          "startedAt": "2026-10-29T23:14:58.112Z"
+        },
+        {
+          "event": "request-result",
+          "request": 0,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 532.250875,
+          "wallElapsedMs": 533,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": 1
+        },
+        {
+          "event": "request-start",
+          "request": 1,
+          "startedAt": "2026-10-29T23:14:58.645Z"
+        },
+        {
+          "event": "request-result",
+          "request": 1,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 66.585417,
+          "wallElapsedMs": 66,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": 1
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "mode": "extended",
+      "receipt": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "completed",
+        "startedAt": "2026-10-29T23:14:58.740Z",
+        "endedAt": "2026-10-29T23:14:59.673Z",
+        "monotonicElapsedMs": 932.951125,
+        "wallElapsedMs": 933,
+        "timeoutMs": 65000,
+        "killGraceMs": 250,
+        "pid": 4374,
+        "exitCode": 0,
+        "signal": null,
+        "processExitObserved": true,
+        "signals": [],
+        "stdout": "{\"version\":\"flowblock-unauthenticated-connection-probe-v1\",\"event\":\"worker-start\",\"mode\":\"extended\",\"authenticated\":false,\"method\":\"GET\",\"url\":\"https://forge.coreweave.com/api/training/v1/models\",\"node\":\"v24.18.0\"}\n{\"event\":\"request-start\",\"request\":0,\"startedAt\":\"2026-10-29T23:14:58.886Z\"}\n{\"event\":\"request-result\",\"request\":0,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":644.7470000000001,\"wallElapsedMs\":644,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":1}\n{\"event\":\"request-start\",\"request\":1,\"startedAt\":\"2026-10-29T23:14:59.530Z\"}\n{\"event\":\"request-result\",\"request\":1,\"status\":\"http-response\",\"httpStatus\":404,\"monotonicElapsedMs\":112.30654200000004,\"wallElapsedMs\":113,\"bytes\":22,\"connectionHeader\":\"keep-alive\",\"connectionsOpened\":1}\n",
+        "stderr": "",
+        "stdoutBytes": 780,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 780,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 64000,
+        "outputTruncated": false,
+        "responseStatus": "uninspected",
+        "remoteCancellation": "not_attempted"
+      },
+      "events": [
+        {
+          "version": "flowblock-unauthenticated-connection-probe-v1",
+          "event": "worker-start",
+          "mode": "extended",
+          "authenticated": false,
+          "method": "GET",
+          "url": "https://forge.coreweave.com/api/training/v1/models",
+          "node": "v24.18.0"
+        },
+        {
+          "event": "request-start",
+          "request": 0,
+          "startedAt": "2026-10-29T23:14:58.886Z"
+        },
+        {
+          "event": "request-result",
+          "request": 0,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 644.7470000000001,
+          "wallElapsedMs": 644,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": 1
+        },
+        {
+          "event": "request-start",
+          "request": 1,
+          "startedAt": "2026-10-29T23:14:59.530Z"
+        },
+        {
+          "event": "request-result",
+          "request": 1,
+          "status": "http-response",
+          "httpStatus": 404,
+          "monotonicElapsedMs": 112.30654200000004,
+          "wallElapsedMs": 113,
+          "bytes": 22,
+          "connectionHeader": "keep-alive",
+          "connectionsOpened": 1
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "mode": "default",
+      "receipt": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "completed",
+        "startedAt": "2026-10-29T23:14:59.674Z",
+        "endedAt": "2026-10-29T23:15:20.821Z",
+        "monotonicElapsedMs": 21147.381,
+        "wallElapsedMs": 21147,
+        "timeoutMs": 65000,
+        "killGraceMs": 250,
+        "pid": 4376,
+        "exitCode": 0,
+        "signal": null,
+        "processExitObserved": true,
+        "signals": [],
+        "stdout": "{\"version\":\"flowblock-unauthenticated-connection-probe-v1\",\"event\":\"worker-start\",\"mode\":\"default\",\"authenticated\":false,\"method\":\"GET\",\"url\":\"https://forge.coreweave.com/api/training/v1/models\",\"node\":\"v24.18.0\"}\n{\"event\":\"request-start\",\"request\":0,\"startedAt\":\"2026-10-29T23:14:59.804Z\"}\n{\"event\":\"request-result\",\"request\":0,\"status\":\"failed\",\"errors\":[{\"name\":\"TypeError\"},{\"name\":\"ConnectTimeoutError\",\"code\":\"UND_ERR_CONNECT_TIMEOUT\"}],\"monotonicElapsedMs\":10510.898666,\"wallElapsedMs\":10511,\"connectionsOpened\":null}\n{\"event\":\"request-start\",\"request\":1,\"startedAt\":\"2026-10-29T23:15:10.315Z\"}\n{\"event\":\"request-result\",\"request\":1,\"status\":\"failed\",\"errors\":[{\"name\":\"TypeError\"},{\"name\":\"ConnectTimeoutError\",\"code\":\"UND_ERR_CONNECT_TIMEOUT\"}],\"monotonicElapsedMs\":10500.945958999999,\"wallElapsedMs\":10501,\"connectionsOpened\":null}\n",
+        "stderr": "",
+        "stdoutBytes": 842,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 842,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 64000,
+        "outputTruncated": false,
+        "responseStatus": "uninspected",
+        "remoteCancellation": "not_attempted"
+      },
+      "events": [
+        {
+          "version": "flowblock-unauthenticated-connection-probe-v1",
+          "event": "worker-start",
+          "mode": "default",
+          "authenticated": false,
+          "method": "GET",
+          "url": "https://forge.coreweave.com/api/training/v1/models",
+          "node": "v24.18.0"
+        },
+        {
+          "event": "request-start",
+          "request": 0,
+          "startedAt": "2026-10-29T23:14:59.804Z"
+        },
+        {
+          "event": "request-result",
+          "request": 0,
+          "status": "failed",
+          "errors": [
+            {
+              "name": "TypeError"
+            },
+            {
+              "name": "ConnectTimeoutError",
+              "code": "UND_ERR_CONNECT_TIMEOUT"
+            }
+          ],
+          "monotonicElapsedMs": 10510.898666,
+          "wallElapsedMs": 10511,
+          "connectionsOpened": null
+        },
+        {
+          "event": "request-start",
+          "request": 1,
+          "startedAt": "2026-10-29T23:15:10.315Z"
+        },
+        {
+          "event": "request-result",
+          "request": 1,
+          "status": "failed",
+          "errors": [
+            {
+              "name": "TypeError"
+            },
+            {
+              "name": "ConnectTimeoutError",
+              "code": "UND_ERR_CONNECT_TIMEOUT"
+            }
+          ],
+          "monotonicElapsedMs": 10500.945958999999,
+          "wallElapsedMs": 10501,
+          "connectionsOpened": null
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Four process trials are a connectivity diagnostic, not an estimate of service reliability.",
+    "Unauthenticated GET /models may take a different handler path from authenticated inference POST.",
+    "No paid requests were issued or retried; the frozen experiment and its outcomes were not modified.",
+    "Host sleep or a blocked parent can delay the external watchdog."
+  ]
+}

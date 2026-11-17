@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "evaluationCallId": "01a1883e-8169-7519-9d2b-c921b34f92d5",
+  "predictionCallId": "01a1883e-8722-7b2f-8998-f86d8313080a",
+  "fixtureId": "test-scene-00-hold",
+  "feedbackId": "9cb4f1b1-0fc5-4c54-b5c6-4c77258a9c42",
+  "note": "Correction to recorded-evaluation-v1 metadata: this request was unavailable. Its recorded_grade is null and no quality scorer ran. The recomputed-with-frozen-checker label does not apply to this row. Scores and coverage are unchanged. Future imports use the corrected v2 metadata.",
+  "unchangedScores": true,
+  "readAt": "2026-10-29T15:37:39.701Z",
+  "callUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1883e-8722-7b2f-8998-f86d8313080a"
+}

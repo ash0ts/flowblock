@@ -1,0 +1,5162 @@
+[
+  {
+    "taskId": "train-000-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-000-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-000-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-001-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-001-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-002-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-002-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-002-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-002-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-002-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-002-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-002-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-002-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-003-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-003-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-005-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-005-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-006-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-006-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-007-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-007-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-008-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-008-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-010-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-010-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-011-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-011-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-012-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-012-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-013-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-013-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-015-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-015-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-016-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-016-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-017-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-017-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-018-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-018-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-019-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-019-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-020-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-020-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-022-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-022-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-023-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-023-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-023-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-023-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-023-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-023-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-023-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-023-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-023-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-023-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-024-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-024-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-025-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-025-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-026-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-026-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-027-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-027-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-028-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-028-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-029-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-029-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-030-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-030-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-031-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-031-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-033-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-033-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-035-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-035-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-036-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-036-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-038-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-038-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-039-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-039-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-040-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-040-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-041-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-041-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-042-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-042-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-043-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-043-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-044-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-044-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-045-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-045-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-047-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-047-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-047-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-047-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-047-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-047-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-047-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-047-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-047-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-047-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-049-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-049-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-050-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-050-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-052-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-052-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-053-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-053-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-055-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-055-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-055-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-055-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-055-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-055-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-055-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-055-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-055-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-055-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-056-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-056-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-057-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-057-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-058-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-058-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-059-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-059-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-060-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-060-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-061-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-061-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-hold",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-hold",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-hold",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-hold",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-push-in",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-push-in",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-push-in",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-push-in",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-pull-out",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-pull-out",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-pull-out",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-pull-out",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-lateral",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-lateral",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-lateral",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-lateral",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-orbit",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-orbit",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-orbit",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-orbit",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-reveal",
+    "type": "productive-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-reveal",
+    "type": "productive-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-062-reveal",
+    "type": "failed-compile-repair",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-062-reveal",
+    "type": "repair-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-063-push-in",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-063-push-in",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-063-pull-out",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-063-pull-out",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-063-lateral",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-063-lateral",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-063-orbit",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-063-orbit",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  },
+  {
+    "taskId": "train-063-reveal",
+    "type": "checked-constraint-initial",
+    "target": "compile_candidate"
+  },
+  {
+    "taskId": "train-063-reveal",
+    "type": "checked-constraint-finish",
+    "target": "finish"
+  }
+]

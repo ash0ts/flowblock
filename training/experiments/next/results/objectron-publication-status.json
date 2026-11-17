@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-objectron-projection-diagnostic-v1",
+  "recordedAt": "2026-10-29T18:26:52.433Z",
+  "localExecution": "completed",
+  "nativeModelsPublication": "failed",
+  "datasetRunId": "dataset-6f88242a4b783333f96a92e4",
+  "benchmarkRunId": "benchmark-d32fcfb2e9e2b04594edff4e",
+  "datasetRunUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-6f88242a4b783333f96a92e4",
+  "resultDashboardVerified": false,
+  "apiBase": "https://api.wandb.ai",
+  "manifestSha256": "6f88242a4b783333f96a92e4cb5d2109bf445277d4097470e786b109626aebed",
+  "evidenceSha256": "d32fcfb2e9e2b04594edff4ee7f9d2c39d14bb0367d3d9e2c77a7a53e17f6878",
+  "attempts": [
+    {
+      "path": "training/artifacts/next-publications/benchmark-d32fcfb2e9e2b04594edff4e.json",
+      "sha256": "4a22ab3a128ccd5655723d19f26cc24bcdd0eb8b814f6bd2e0625b7c6d08f8e0",
+      "status": "publication-outcome-unknown",
+      "startedAt": "2026-10-29T16:59:26.027094+00:00",
+      "errorType": "CommError",
+      "apiBase": "https://api.wandb.ai"
+    },
+    {
+      "path": "training/artifacts/objectron-diagnostic-v1/models-recovery/benchmark-d32fcfb2e9e2b04594edff4e.json",
+      "sha256": "7c8677971faad52017496543ef0b49829e77aa0703dd334a9fbc5a4e3759a720",
+      "status": "publication-outcome-unknown",
+      "startedAt": "2026-10-29T17:05:58.061757+00:00",
+      "errorType": "AuthenticationError",
+      "apiBase": "https://api.wandb.ai"
+    },
+    {
+      "path": "training/artifacts/objectron-diagnostic-v1/models-producer-resume/dataset-6f88242a4b783333f96a92e4.json",
+      "sha256": "8f4c7d03186d5d715c77ad722177e8d8419bdaef7e4db747aba5d3793321c712",
+      "status": "publication-outcome-unknown",
+      "startedAt": "2026-10-29T18:09:13.572386+00:00",
+      "errorType": "AuthenticationError",
+      "apiBase": "https://api.wandb.ai"
+    }
+  ],
+  "lastIndependentPresenceReadback": {
+    "mode": "read-only",
+    "startedAt": "2026-10-29T18:23:43.284178+00:00",
+    "apiBase": "https://api.wandb.ai",
+    "producer": {
+      "id": "dataset-6f88242a4b783333f96a92e4",
+      "state": "failed",
+      "manifestSha256": "6f88242a4b783333f96a92e4cb5d2109bf445277d4097470e786b109626aebed",
+      "artifacts": []
+    },
+    "benchmark": null,
+    "verificationErrorType": "ValueError",
+    "finishedAt": "2026-10-29T18:23:45.852059+00:00"
+  },
+  "limitations": [
+    "Final independent readback after the resume confirms the Models producer failed with zero logged artifacts and no benchmark consumer. There is no Objectron Models results dashboard.",
+    "The separately verified native Weave evaluation imports measurements from the completed local MPS execution; it does not represent remote GPU inference.",
+    "Original unknown/failed receipts and the interrupted initial Weave import are preserved; the verified Weave recovery explicitly references that import.",
+    "No raw footage, frames or pixel annotations were included in publication payloads."
+  ],
+  "nextAction": "No further service writes in this pass. Any future Models recovery must preserve identities and verify exact artifact bytes before publishing the result consumer.",
+  "lastIndependentPresenceReadbackPath": "training/artifacts/objectron-diagnostic-v1/models-final-shared-readback.json",
+  "lastIndependentPresenceReadbackSha256": "2305a0aaf2ee607af69a0cc3581e70bf08f736eb6c24f0d7e8e0d804b4af88a5",
+  "nativeWeavePublication": {
+    "status": "verified",
+    "receiptPath": "training/experiments/next/results/weave-publications/fe81860e3c760bb61819103089bfa04d8d39b66803dfcb45948c9dd24d49c49f.json",
+    "receiptSha256": "99688901e61c67367f10d15a5efd123609a9d32bceae8c90494eb4605b62d136",
+    "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a188e4-5291-75e8-be9f-642127d8a0f1",
+    "verifiedAt": "2026-10-29T18:26:52.433Z",
+    "exactRowsVerified": 10,
+    "datasetMatches": true,
+    "configurationMatches": true,
+    "summaryMatches": true,
+    "importOnly": true,
+    "executionDevice": "local MPS"
+  }
+}

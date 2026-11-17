@@ -53,6 +53,8 @@ The committed experiment trained `meta-llama/Llama-3.1-8B-Instruct` on 238 solve
 
 Read [the training procedure](training/README.md), [recorded results](training/results/README.md), and [machine-readable summary](training/results/summary.json). These results cover two synthetic scene groups. They do not establish creator benefit, cinematic quality, or general model performance.
 
+[Forge integration](docs/forge-integration.md) maps W&B Inference, Agent Lens, native Weave evaluations, Models, and Serverless Training to their responsibilities, dashboard links, and verification receipts. The recorded Models history contains all 30 optimizer steps; the candidate's negative result remains visible.
+
 ## Implementation
 
 | Area | Entry point | Responsibility |
@@ -67,6 +69,8 @@ Read [the training procedure](training/README.md), [recorded results](training/r
 | Native interfaces | [src/domain/native-companion.ts](src/domain/native-companion.ts) | Future room-scan import and AR alignment contracts |
 
 [Generated JSON schemas](docs/schemas) and the [OpenAPI reference](docs/openapi.json) describe the public data and operations. Regenerate them with `bun run schemas`. See [architecture](docs/architecture.md) and [operating instructions](docs/operations.md) for retention, recovery, authentication, and rollback.
+
+[Agent decisions and evidence](docs/agent-workflow.md) explains how planning and revision use tool feedback, what the recorded Agent Lens failures changed, and which usefulness claims still need evaluation.
 
 ## What has and has not been established
 

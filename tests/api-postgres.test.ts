@@ -74,7 +74,7 @@ suite("API transactions against disposable PostgreSQL schema", () => {
   });
   beforeEach(async () => {
     await pool.query(
-      "TRUNCATE jobs,takes,usage_events,plan_versions,worker_health,projects,revisions,shares CASCADE",
+      "TRUNCATE workflow_attempts,workflows,jobs,takes,usage_events,plan_versions,worker_health,projects,revisions,shares CASCADE",
     );
     await pool.query(
       "INSERT INTO worker_health(worker_id,device,model,ready) VALUES('test-health','cpu','health-fixture-only',true)",
@@ -638,5 +638,160 @@ suite("API transactions against disposable PostgreSQL schema", () => {
       error: null,
       status: "cancelled",
     });
+  });
+  it("keeps one owned workflow through plan, upload, analysis, revision and acceptance", async () => {
+    const planned = await (
+      await handleApi(request("plans", input, "workflow-plan"))
+    ).json();
+    expect(planned.workflowId).toMatch(/^[0-9a-f-]{36}$/);
+    const duplicate = await (
+      await handleApi(request("plans", input, "workflow-plan"))
+    ).json();
+    expect(duplicate.workflowId).toBe(planned.workflowId);
+    expect(
+      (await pool.query("SELECT * FROM workflow_attempts")).rows,
+    ).toHaveLength(1);
+    const uploaded = await (
+      await handleApi(
+        request("uploads", {
+          fileName: "clip.mp4",
+          contentType: "video/mp4",
+          sizeBytes: 10,
+          plan,
+          workflowId: planned.workflowId,
+        }),
+      )
+    ).json();
+    expect(uploaded.workflowId).toBe(planned.workflowId);
+    await pool.query("UPDATE takes SET status='uploaded' WHERE id=$1", [
+      uploaded.takeId,
+    ]);
+    const queued = await (
+      await handleApi(
+        request(
+          `takes/${uploaded.takeId}/analyze`,
+          annotation,
+          "workflow-analysis",
+        ),
+      )
+    ).json();
+    expect(queued.workflowId).toBe(planned.workflowId);
+    // Queuing cannot fabricate an executed worker attempt.
+    expect(
+      (await pool.query("SELECT * FROM workflow_attempts")).rows,
+    ).toHaveLength(1);
+    const analysis = await completedAnalysis(uploaded.takeId);
+    vi.spyOn(revisionPlanner, "proposeRevision").mockImplementation(
+      async (_plan, _analysis, options) => {
+        expect(options?.workflowTrace?.workflowId).toBe(planned.workflowId);
+        return {
+          plan,
+          findingIds: ["duration:whole:0"],
+          reason: "Fixture only",
+          source: "forge",
+          events: [],
+        };
+      },
+    );
+    const proposedResponse = await handleApi(
+      request("revisions", { plan, analysis: { jobId: analysis.jobId } }),
+    );
+    expect(proposedResponse.status).toBe(200);
+    const proposed = await proposedResponse.json();
+    expect(proposed.workflowId).toBe(planned.workflowId);
+    const accepted = await (
+      await handleApi(
+        request(`revisions/${proposed.revisionId}/accept`, {
+          currentPlanId: plan.id,
+        }),
+      )
+    ).json();
+    expect(accepted.workflowId).toBe(planned.workflowId);
+    await handleApi(
+      request(`revisions/${proposed.revisionId}/accept`, {
+        currentPlanId: plan.id,
+      }),
+    );
+    const workflow = await (
+      await handleApi(
+        new Request(
+          `http://localhost:3037/api/workflows/${planned.workflowId}`,
+        ),
+      )
+    ).json();
+    expect(workflow.attempts.map((a: { stage: string }) => a.stage)).toEqual([
+      "planning",
+      "revision",
+      "acceptance",
+    ]);
+    expect(workflow.attempts[2].parent_attempt_id).toBe(
+      workflow.attempts[1].id,
+    );
+    expect(workflow.attempts[2].status).toBe("succeeded");
+    await handleApi(
+      new Request(`http://localhost:3037/api/takes/${uploaded.takeId}`, {
+        method: "DELETE",
+      }),
+    );
+    expect(
+      (await pool.query("SELECT stage FROM workflow_attempts")).rows,
+    ).toEqual([{ stage: "planning" }]);
+  });
+  it("does not disclose or attach another owner's workflow", async () => {
+    const id = randomUUID();
+    await pool.query(
+      "INSERT INTO workflows(id,owner_id) VALUES($1,'someone-else')",
+      [id],
+    );
+    expect(
+      (
+        await handleApi(
+          new Request(`http://localhost:3037/api/workflows/${id}`),
+        )
+      ).status,
+    ).toBe(404);
+    expect(
+      (
+        await handleApi(
+          request("uploads", {
+            fileName: "clip.mp4",
+            contentType: "video/mp4",
+            sizeBytes: 10,
+            plan,
+            workflowId: id,
+          }),
+        )
+      ).status,
+    ).toBe(404);
+    expect((await pool.query("SELECT * FROM takes")).rows).toHaveLength(0);
+  });
+  it("returns explicit model abstention without storing a substitute revision", async () => {
+    const source = await take();
+    const analysis = await completedAnalysis(source.id);
+    vi.spyOn(revisionPlanner, "proposeRevision").mockRejectedValue(
+      new revisionPlanner.RevisionAbstainedError({
+        reason: "No supported change",
+        findingIds: ["duration:whole:0"],
+        model: "fixture",
+        events: [],
+      }),
+    );
+    const response = await handleApi(
+      request("revisions", { plan, analysis: { jobId: analysis.jobId } }),
+    );
+    expect(response.status).toBe(422);
+    const body = await response.json();
+    expect(body).toMatchObject({ outcome: "abstained", source: "forge" });
+    expect(body.plan).toBeUndefined();
+    expect((await pool.query("SELECT * FROM revisions")).rows).toHaveLength(0);
+    const attempts = (
+      await pool.query("SELECT status,summary FROM workflow_attempts")
+    ).rows;
+    expect(attempts).toEqual([
+      {
+        status: "needs_review",
+        summary: { status: "needs_review", source: "forge" },
+      },
+    ]);
   });
 });

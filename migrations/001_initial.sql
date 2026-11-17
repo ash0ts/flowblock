@@ -45,3 +45,18 @@ CREATE TABLE IF NOT EXISTS worker_health (
  worker_id TEXT PRIMARY KEY, device TEXT NOT NULL, model TEXT NOT NULL, ready BOOLEAN NOT NULL,
  heartbeat_at TIMESTAMPTZ NOT NULL DEFAULT now(), details JSONB NOT NULL DEFAULT '{}'
 );
+CREATE TABLE IF NOT EXISTS workflows (
+ id UUID PRIMARY KEY, owner_id TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS workflows_owner_idx ON workflows(owner_id,created_at DESC);
+ALTER TABLE takes ADD COLUMN IF NOT EXISTS workflow_id UUID REFERENCES workflows(id);
+CREATE TABLE IF NOT EXISTS workflow_attempts (
+ id UUID PRIMARY KEY, workflow_id UUID NOT NULL REFERENCES workflows(id) ON DELETE CASCADE,
+ stage TEXT NOT NULL CHECK(stage IN ('planning','analysis','revision','acceptance','replay')),
+ attempt INTEGER NOT NULL CHECK(attempt > 0), parent_attempt_id UUID,
+ job_id UUID, plan_id TEXT, take_id UUID,
+ status TEXT NOT NULL DEFAULT 'running' CHECK(status IN ('running','succeeded','needs_review','failed','cancelled')),
+ started_at TIMESTAMPTZ NOT NULL DEFAULT now(), ended_at TIMESTAMPTZ,
+ summary JSONB NOT NULL DEFAULT '{}'
+);
+CREATE INDEX IF NOT EXISTS workflow_attempts_workflow_idx ON workflow_attempts(workflow_id,started_at);

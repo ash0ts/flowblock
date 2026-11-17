@@ -28,6 +28,10 @@ def queue():
     )
     with queue.connect() as connection:
         connection.execute("""
+            CREATE TABLE workflows(id uuid PRIMARY KEY,owner_id text,created_at timestamptz DEFAULT now());
+            CREATE TABLE workflow_attempts(id uuid PRIMARY KEY,workflow_id uuid REFERENCES workflows(id),stage text,
+                attempt int,parent_attempt_id uuid,job_id uuid,plan_id text,take_id uuid,status text,
+                started_at timestamptz DEFAULT now(),ended_at timestamptz,summary jsonb DEFAULT '{}'::jsonb);
             CREATE TABLE takes(id uuid PRIMARY KEY,owner_id text,object_key text,deleted_at timestamptz,expires_at timestamptz);
             CREATE TABLE jobs(id uuid PRIMARY KEY, owner_id text, kind text,status text,payload jsonb,result jsonb,error text,
                 attempt int DEFAULT 0,lease_token uuid,lease_expires_at timestamptz,heartbeat_at timestamptz,
@@ -41,16 +45,32 @@ def queue():
             connection.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
 
 
-def enqueue(queue):
+def enqueue(queue, workflow=False):
     take_id, job_id = str(uuid.uuid4()), str(uuid.uuid4())
     with queue.connect() as connection:
+        payload = {"takeId": take_id, "videoObjectKey": "private/video"}
+        if workflow:
+            workflow_id = str(uuid.uuid4())
+            connection.execute(
+                "INSERT INTO workflows(id,owner_id) VALUES(%s,'fixture-owner')", (workflow_id,)
+            )
+            payload["workflowTrace"] = {
+                "schemaVersion": "1.0",
+                "workflowId": workflow_id,
+                "stage": "analysis",
+                "attemptId": str(uuid.uuid4()),
+                "attempt": 1,
+                "parentAttemptId": str(uuid.uuid4()),
+                "takeId": take_id,
+                "planId": "plan-fixture",
+            }
         connection.execute(
             "INSERT INTO takes VALUES(%s,'fixture-owner','private/video',NULL,now()+interval '1 hour')",
             (take_id,),
         )
         connection.execute(
             "INSERT INTO jobs(id,owner_id,kind,status,payload) VALUES(%s,'fixture-owner','analysis','queued',%s)",
-            (job_id, Jsonb({"takeId": take_id, "videoObjectKey": "private/video"})),
+            (job_id, Jsonb(payload)),
         )
     return take_id, job_id
 
@@ -141,6 +161,90 @@ def test_retry_limit_terminates_expired_work(queue):
     assert queue.claim() is None
     with queue.connect() as connection:
         assert connection.execute("SELECT status FROM jobs").fetchone()["status"] == "failed"
+
+
+def test_workflow_attempt_is_created_at_claim_and_committed_with_result(queue):
+    take_id, job_id = enqueue(queue, workflow=True)
+    with queue.connect() as connection:
+        assert (
+            connection.execute("SELECT count(*) AS n FROM workflow_attempts").fetchone()["n"] == 0
+        )
+    job = queue.claim()
+    with queue.connect() as connection:
+        attempt = connection.execute("SELECT * FROM workflow_attempts").fetchone()
+        assert str(attempt["id"]) == str(job["lease_token"])
+        assert str(attempt["job_id"]) == job_id and str(attempt["take_id"]) == take_id
+        assert attempt["status"] == "running" and attempt["ended_at"] is None
+    assert queue.finish(
+        job,
+        {
+            "coverage": {"needsReview": True, "measuredFrames": 40, "expectedFrames": 75},
+            "findings": [],
+        },
+    )
+    with queue.connect() as connection:
+        attempt = connection.execute("SELECT * FROM workflow_attempts").fetchone()
+        assert attempt["status"] == "needs_review" and attempt["ended_at"] is not None
+        assert attempt["summary"]["measuredFrames"] == 40
+
+
+def test_reclaimed_workflow_keeps_expired_attempt_and_stale_writer_cannot_close_retry(queue):
+    enqueue(queue, workflow=True)
+    first = queue.claim()
+    with queue.connect() as connection:
+        connection.execute("UPDATE jobs SET lease_expires_at=now()-interval '1 second'")
+    second = queue.claim()
+    queue.fail(first, "stale error", retryable=True)
+    queue.record_attempt_loss(first)
+    with queue.connect() as connection:
+        attempts = connection.execute("SELECT * FROM workflow_attempts ORDER BY attempt").fetchall()
+        assert len(attempts) == 2
+        assert (
+            attempts[0]["status"] == "failed"
+            and attempts[0]["summary"]["reason"] == "lease_expired"
+        )
+        assert attempts[1]["status"] == "running" and attempts[1]["ended_at"] is None
+        assert attempts[0]["id"] != attempts[1]["id"]
+        assert attempts[0]["workflow_id"] == attempts[1]["workflow_id"]
+    assert queue.finish(second, {"coverage": {"needsReview": False}})
+
+
+def test_cancelled_workflow_attempt_cannot_publish_success(queue):
+    enqueue(queue, workflow=True)
+    job = queue.claim()
+    with queue.connect() as connection:
+        connection.execute("UPDATE jobs SET status='cancelled', cancelled_at=now()")
+    assert not queue.finish(job, {"coverage": {"needsReview": False}})
+    assert queue.record_attempt_loss(job) == "cancelled"
+    with queue.connect() as connection:
+        assert (
+            connection.execute("SELECT status FROM workflow_attempts").fetchone()["status"]
+            == "cancelled"
+        )
+
+
+def test_foreign_workflow_is_not_traced_or_modified(queue):
+    enqueue(queue, workflow=True)
+    with queue.connect() as connection:
+        connection.execute("UPDATE workflows SET owner_id='another-owner'")
+    job = queue.claim()
+    assert "workflowTrace" not in job["payload"]
+    assert queue.finish(job, {"coverage": {"needsReview": False}})
+    with queue.connect() as connection:
+        assert (
+            connection.execute("SELECT count(*) AS n FROM workflow_attempts").fetchone()["n"] == 0
+        )
+
+
+def test_retryable_failure_preserves_attempt_before_requeue(queue):
+    enqueue(queue, workflow=True)
+    first = queue.claim()
+    assert queue.fail(first, "temporary failure", retryable=True)
+    with queue.connect() as connection:
+        attempt = connection.execute("SELECT * FROM workflow_attempts").fetchone()
+        assert attempt["status"] == "failed" and attempt["summary"]["reason"] == "retryable_failure"
+    second = queue.claim()
+    assert second["attempt"] == 2
 
 
 @pytest.mark.parametrize("delete_after_upload", [1, 2])

@@ -1,0 +1,58 @@
+{
+  "status": "verified",
+  "publicationVersion": "recorded-evaluation-v1",
+  "publicationId": "e6076d82e0a0de14aa0f239baad6ff69ed2b6e26e20da3f90b25dcea25597632",
+  "attempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+  "readAt": "2026-10-29T15:34:26.836Z",
+  "importedHistoricalResults": true,
+  "evaluationCallId": "01a18842-8e60-78f1-b005-f11e02634449",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-recorded-base-e6076d82e0:YRTSDj3zPhU3TBr3RsGxpsqHf5oSfraaOGJweWY8J44",
+  "modelRef": "weave:///wandb/flowblock/object/flowblock-base-v1:lXCaqCqFF1xYp4bgIYJp8yBBCYrFmqhWumdwyIVX1vc",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18842-8e60-78f1-b005-f11e02634449",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "observedPredictionCount": 12,
+  "expectedPredictionCount": 12,
+  "allFinished": true,
+  "predictionScoresMatch": true,
+  "summaryMatches": true,
+  "summary": {
+    "available": {
+      "true_count": 12,
+      "true_fraction": 1
+    },
+    "productive_plan": {
+      "true_count": 0,
+      "true_fraction": 0
+    },
+    "accepted_abstention": {
+      "true_count": 0,
+      "true_fraction": 0
+    },
+    "coverage": {
+      "requested": 12,
+      "attempted": 12,
+      "available": 12,
+      "unavailable": 0,
+      "unattempted": 0
+    },
+    "recorded_latency_ms": {
+      "mean": 2699.1666666666665
+    }
+  },
+  "sourceFileHashes": {
+    "manifest.json": "80a2ae705d96485f4142baca69919cb525bcb9e90a92e1920439bd9285a6bb9f",
+    "results.jsonl": "85beddb582542aaf652e5083051e254f3389030043d8d87e7a91b61be8fa3c8b",
+    "test-scene-00-hold.json": "e3570229e43856419ca88b8067d7584566692b7a4b4cd3909160866abed16fe5",
+    "test-scene-00-push-in.json": "604b71563b4dc50c922741b4383404756dd8bf6ba4b6c54bf7b2a538aa82fc2c",
+    "test-scene-00-pull-out.json": "ebada12df497bde59c439d1a78953e4a2aad618c07cce62636907f9c8950812d",
+    "test-scene-00-lateral.json": "7f469faaeeba934b1e7939114b1f420e27dd40075553b0a750bd453a6cc67eb1",
+    "test-scene-00-orbit.json": "e97757f796282fa8c52ff5fd5227bad366aa38caa06d55a47a489dc4e32461ea",
+    "test-scene-00-reveal.json": "034683abdcac12a39ec7a7e06d1a045393d1bcfeb4ee0822fa9a83d9a0b0f1dd",
+    "test-scene-01-hold.json": "2da31117e4e4dbcaaa387b7d39de449f2e7ddf766b1482d21387bcebc38a3592",
+    "test-scene-01-push-in.json": "efa7762b74c385cdf782da46779e301f6b2de4d19ebd5949feffed3384cea1cb",
+    "test-scene-01-pull-out.json": "7a21783ba896732a588a1f5e8e224e37d0e729257242e6f660fef3ad1a645a89",
+    "test-scene-01-lateral.json": "17562569377867dd6942f9091253305fd2c130411c61073accb5852b5cf90afc",
+    "test-scene-01-orbit.json": "bbcd3f2182262068986b577319a192e3bf5de2af4cb79b396ddffc8e79dad942",
+    "test-scene-01-reveal.json": "44b595af1a217cec75809bf39cfd2e512bc548e7e0cb05124b52a6ad7c20b316"
+  }
+}

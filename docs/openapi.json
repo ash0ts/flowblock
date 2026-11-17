@@ -308,6 +308,54 @@
         }
       }
     },
+    "/api/workflows/{id}": {
+      "get": {
+        "operationId": "readOwnedWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation; server-derived plan and validation fields are authoritative."
+          },
+          "202": {
+            "description": "Job accepted or already running. Poll GET /api/jobs/{id}."
+          },
+          "400": {
+            "description": "Malformed JSON or contract validation failed."
+          },
+          "401": {
+            "description": "Sign-in required outside explicit loopback local mode."
+          },
+          "403": {
+            "description": "Cross-origin write rejected."
+          },
+          "404": {
+            "description": "Resource not found for this owner."
+          },
+          "409": {
+            "description": "Stale version, upload state, or idempotency input conflict."
+          },
+          "422": {
+            "description": "Geometry or evidence does not permit this operation."
+          },
+          "429": {
+            "description": "Daily account quota reached."
+          },
+          "503": {
+            "description": "Required local service is unavailable; keep the draft and retry."
+          }
+        }
+      }
+    },
     "/api/jobs/{id}": {
       "get": {
         "operationId": "readJob",
@@ -3815,6 +3863,11 @@
           "trainingConsent": {
             "default": false,
             "type": "boolean"
+          },
+          "workflowId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
           }
         },
         "required": [

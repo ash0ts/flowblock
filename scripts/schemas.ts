@@ -179,6 +179,9 @@ const openapi = {
         responses,
       },
     },
+    "/api/workflows/{id}": {
+      get: { operationId: "readOwnedWorkflow", parameters: [id], responses },
+    },
     "/api/jobs/{id}": {
       get: { operationId: "readJob", parameters: [id], responses },
       delete: { operationId: "cancelJob", parameters: [id], responses },

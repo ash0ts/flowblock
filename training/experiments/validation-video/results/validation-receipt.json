@@ -1,0 +1,55 @@
+{
+  "frozen_manifest_sha256": "1fc2572631b5cad21e3f215e37bbddce433ad7d0f2dbe323a340833b454596d1",
+  "protocol_sha256": "bae30651c8abb3a20c8940dd5b594a65997ac49834a07bf70ef6147efaaacc9c",
+  "benchmark_sha256": "8d440008026c2bccd00f7d6d5c7c9a47fd8f75e2e741a6def6dd3141889e4429",
+  "worker_source_hashes_match_at_completion": true,
+  "model_checkpoint_sha256": "6d1aa6f30de5c92224f8172114de081d104bbd23dd9dc5c58996f0cad5dc4d38",
+  "source_manifest_sha256_matches_run": true,
+  "tests": {
+    "dedicated_pytest": "4 passed",
+    "ruff": "all checks passed"
+  },
+  "figure_review": "Inspected selected-frames.png; column labels, frames and reported IoU/status match selected-frame records. Synthetic target visible area differs from amodal/full product; truth is visible silhouette.",
+  "results": {
+    "boundary-exit-reentry-metrics.json": "15e577ce32a3119fb98fe20ad03194bea8e74f735a073c6d79d2421073e70589",
+    "environment.json": "5f91c0c8c18e901aee397345d9491bac3bc9fba88e03d0348c013db171b22c4a",
+    "figure-provenance.json": "6b7916863349d767355aa1822df41953635836a8faf833372ff0c25f23292adb",
+    "frame-metrics.csv": "abf5c8b1168c48d6be02149c6b4ca7d90afc9249d7333a7bc4fbf52a58763f61",
+    "frozen-manifest.json": "1fc2572631b5cad21e3f215e37bbddce433ad7d0f2dbe323a340833b454596d1",
+    "gradual-scale-metrics.json": "7f794f81bf97c5a7aa89a81d2edcc53a31591f4211419779fa16c8d54063b9da",
+    "occlusion-recovery-metrics.json": "32d7123a151d93a7304ee1bc3bc53ae20acc2af49930a626d626fe9b67b61c3a",
+    "report.md": "b06532610ec477ef02d3a2192892d54006e0f6cd084797296a2c07256db1f1bd",
+    "selected-frames.png": "92c0abfbd1caa878675771dc7b8c4c5b189ae5acac6c33f5ba13f515fc4fbcac",
+    "similar-object-crossing-metrics.json": "1b0a5f5ee27d6992601550867d567da031409d977489374116ea7c7d19b1ecb5",
+    "summary.json": "bc700ace1a670f78a611934949b811f30382dd558bb570adfdffe456a382007e",
+    "textured-translation-metrics.json": "eae3207b721a396dcf779ce97fdcc8f1d5d8fd072f60823ef2a3942596208d5c",
+    "textureless-translation-metrics.json": "3d20b7eb11990c698663e1253147fb165b0593ea9484d7ea8dcf5090b7c35c31"
+  },
+  "raw_predictions": {
+    "textured-translation": {
+      "predicted-masks.npz": "a816bb6f7480f6600b7cf30defd37d6f720b4013b58b52ccdfd5e3c2385e67df",
+      "worker/analysis.json": "398ef0ac228652e05edeaa54c0c96694695a0c7cc5516185781d851993ae7d3d"
+    },
+    "textureless-translation": {
+      "predicted-masks.npz": "a9c8a895e11d92896e74ea269b75dfe3595da5a317a6952c114483fc08b3224b",
+      "worker/analysis.json": "34677ef9ed621d1f9bff1839e28f08071a302b3b6a677a3c7618def4994d961b"
+    },
+    "gradual-scale": {
+      "predicted-masks.npz": "9cbb5b8e168c1754074870f92bf56b0f28a98566f6162669a8696923f95f9910",
+      "worker/analysis.json": "6b62512bfd2a03cca86ec69a6fd2688861d55628c970f97097e190bee79f0b1f"
+    },
+    "boundary-exit-reentry": {
+      "predicted-masks.npz": "59fa99da04f799a5922d61c119fdda23d80063471729e1a808d25493ffb93953",
+      "worker/analysis.json": "d931147b4b7f18fcbe9b599a44edc21c50f8c1b3835e7bf16abeca320f9aa725"
+    },
+    "occlusion-recovery": {
+      "predicted-masks.npz": "b687299c3ccf1db007d7da4aa8ffe3da86555cc3661bd801c461f20630da4673",
+      "worker/analysis.json": "f97fbcd50bc69d5568ff6511a76f574f8dd31c8235186172f3ff1f3ffdf13dd6"
+    },
+    "similar-object-crossing": {
+      "predicted-masks.npz": "2fa4e1d04e16d0496e6c96df04349428d394304e978cf5ce2f47a0a590856f66",
+      "worker/analysis.json": "00e91f54f1b6d4eadbf7c2ee37a8825c151509df222612ae09490e1a19ddf4f6"
+    }
+  },
+  "interpretation": "Development diagnostic only. Twenty bad masks admitted in one authored crossing clip; frames are dependent observations. No creator benefit or real-product generalization claim."
+}

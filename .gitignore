@@ -15,7 +15,13 @@ checkpoints/
 .DS_Store
 wandb/
 .art/
+weaveErrors.log
 
 worker/vendor/
 worker/checkpoints/
 worker/.cache/
+
+# Keep source manifests in Git; publish materialized data through verified Models artifacts.
+training/experiments/next/data/*/tasks.json
+training/experiments/next/data/*/actions.jsonl
+training/experiments/next/data/*/runtime.json

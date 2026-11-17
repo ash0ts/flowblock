@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-29T20:52:49.618633+00:00",
+  "mode": "read-only-local-diagnosis",
+  "taskId": "confirmation-010-push-in",
+  "attemptId": "2026-10-29T19-04-22-864Z-llama-base-e6285a4d",
+  "configuredDeadlineMs": 30000,
+  "observed": {
+    "plannerWallClockLatencyMs": 1024372,
+    "entryWallClockLatencyMs": 1024374,
+    "callCount": 1,
+    "firstCallStartedAt": "2026-10-29T19:07:46.552Z",
+    "callOutcome": "outcome-unknown",
+    "responseReceiptPresent": false,
+    "errorLatencyMs": 1024372,
+    "errorWasWrittenAfterTaskSealed": true,
+    "recordedErrorMessage": "Coordinator deadline aborted the request; no automatic retry.",
+    "termination": "deadline",
+    "status": "operational-failure",
+    "available": false,
+    "grade": null,
+    "usage": null,
+    "eventsRecorded": 0,
+    "nextTaskFirstCallStartedAt": "2026-10-29T19:24:51.054Z"
+  },
+  "interpretation": [
+    "The configured 30-second timer did not bound the observed wall-clock task duration: this task recorded 1,024.372 seconds.",
+    "The first model request has no response receipt and no reported usage. Its sealed outcome is unknown; the later error receipt says the coordinator deadline aborted it.",
+    "No planning tool event preceded this overrun. The durable receipts localize the gap to the first outstanding model call and deadline handling, without proving when the remote provider processed or stopped the request.",
+    "The deadline uses a JavaScript setTimeout callback and AbortSignal; reported durations use Date.now. Node does not guarantee exact timer callback timing.",
+    "No monotonic-clock comparison, event-loop-delay sample, or operating-system sleep/wake record was collected. The evidence cannot distinguish an event-loop pause, machine suspension, wall-clock adjustment, or another timing failure. No cause is established.",
+    "The task remains an unavailable operational failure, with null quality scores and unknown token usage. It was not rerun, and frozen runtime or outcome files were not changed."
+  ],
+  "proposedFollowUp": [
+    "For a new protocol, record monotonic elapsed time alongside wall-clock timestamps, event-loop delay, and observed abort callback time.",
+    "Enforce a separately monitored process lifetime for long provider work if a host wall-time bound is required; document that local timeout does not establish remote cancellation.",
+    "Retain the original outlier and evaluate the revised timeout behavior separately."
+  ],
+  "reference": {
+    "title": "Node.js timers API",
+    "url": "https://nodejs.org/api/timers.html"
+  },
+  "sources": [
+    {
+      "path": "training/artifacts/v2-runs/confirmation-llama-base/manifest.json",
+      "sha256": "9943438ad4ced3d41f8fb97dc473fc1e010b9fa0d38e6b00abd5bb3c2f4cc650"
+    },
+    {
+      "path": "training/artifacts/v2-runs/confirmation-llama-base/confirmation-010-push-in.json",
+      "sha256": "2bb3557d85e0e3488b5f00b866b8f4618726b25b5037b148fa1ab0296a69d1b2"
+    },
+    {
+      "path": "training/artifacts/v2-runs/confirmation-llama-base/calls/confirmation-010-push-in/0-request.json",
+      "sha256": "1c8f411a4fa1d89455fe36f00ec1dbb2a45c2abd45a14864c9469356b6ccb542"
+    },
+    {
+      "path": "training/artifacts/v2-runs/confirmation-llama-base/calls/confirmation-010-push-in/0-error.json",
+      "sha256": "a3e77cafcef8328a0f077c5137c9a5ff50652782a2aeeb517fdfc20cabfa6b57"
+    },
+    {
+      "path": "training/artifacts/v2-runs/confirmation-llama-base/confirmation-010-pull-out.json",
+      "sha256": "bf82c8929db7e2ac57450c68145661072fdbbfd0aeea5edc878c7fda5e6dd59e"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "path": "src/server/coordinator-runtime.ts",
+      "recordedSha256": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c",
+      "observedSha256": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c",
+      "matchesEvaluatedSource": true
+    },
+    {
+      "path": "training/experiments/next/planner.ts",
+      "recordedSha256": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+      "observedSha256": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+      "matchesEvaluatedSource": true
+    },
+    {
+      "path": "training/experiments/next/run.ts",
+      "recordedSha256": "9635bcbe245dea505da1ba3f17fc328940748f6a24ac907933b2b06386eb3d0c",
+      "observedSha256": "9635bcbe245dea505da1ba3f17fc328940748f6a24ac907933b2b06386eb3d0c",
+      "matchesEvaluatedSource": true
+    }
+  ]
+}

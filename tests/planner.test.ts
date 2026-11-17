@@ -41,8 +41,8 @@ describe("frozen training and evaluation contract", () => {
     expect(frozen.sourceSha256).toBe(
       "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
     );
-    expect(plannerVersion).toBe("flowblock-planner-v1.2");
-    expect(frozen.runtime.systemPrompt).toBe(systemPrompt);
+    expect(plannerVersion).toBe("flowblock-planner-v1.5");
+    expect(frozen.runtime.systemPrompt).not.toBe(systemPrompt);
   });
   it("uses disjoint scene geometry across train, dev and test", () => {
     const splits = ["train", "dev", "test"].map(
@@ -58,10 +58,13 @@ describe("frozen training and evaluation contract", () => {
           [],
         );
   });
-  it("preserves exact content and runtime prompt hashes", () => {
+  it("preserves exact content and the evaluated prompt independently of product edits", async () => {
     for (const [name, sha] of Object.entries(manifest.files))
       expect(digest(readFileSync(`training/frozen/${name}`, "utf8"))).toBe(sha);
-    expect(digest(systemPrompt)).toBe(manifest.systemPromptSha256);
+    const frozen = await loadEvaluationRuntime("frozen-v1");
+    expect(digest(frozen.runtime.systemPrompt)).toBe(
+      manifest.systemPromptSha256,
+    );
   });
   it("stays within the authorized example budget and plain-message action contract", () => {
     expect(rows.length).toBeLessThanOrEqual(400);

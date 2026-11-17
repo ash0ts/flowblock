@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-planner-v2",
+  "recordedAt": "2026-10-29T20:51:06.900496+00:00",
+  "project": "wandb/flowblock",
+  "access": "private",
+  "analysis": {
+    "path": "training/artifacts/v2-analysis-final/report.json",
+    "sha256": "fb955fb958d7074979be811af18d91370b1d97da04c78edb7228f508fc17bb26"
+  },
+  "results": [
+    {
+      "attemptId": "2026-10-29T18-11-58-321Z-library-75823d38",
+      "label": "Deterministic library",
+      "cohort": "development",
+      "scheduled": 72,
+      "attempted": 72,
+      "available": 72,
+      "productive": 58,
+      "sceneGroups": 12,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T18-20-24-724Z-llama-base-b8620514",
+      "label": "Llama 3.1 8B base",
+      "cohort": "development",
+      "scheduled": 72,
+      "attempted": 72,
+      "available": 72,
+      "productive": 17,
+      "sceneGroups": 12,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T18-34-17-513Z-gpt-oss-94f32993",
+      "label": "GPT-OSS 20B product coordinator",
+      "cohort": "development",
+      "scheduled": 72,
+      "attempted": 72,
+      "available": 72,
+      "productive": 12,
+      "sceneGroups": 12,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T18-56-34-864Z-llama-sft-1c6b56a4",
+      "label": "Llama 3.1 8B trained",
+      "cohort": "development",
+      "scheduled": 72,
+      "attempted": 72,
+      "available": 72,
+      "productive": 36,
+      "sceneGroups": 12,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T19-04-21-481Z-library-c7203722",
+      "label": "Deterministic library",
+      "cohort": "confirmation",
+      "scheduled": 180,
+      "attempted": 180,
+      "available": 180,
+      "productive": 103,
+      "sceneGroups": 30,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T19-04-22-864Z-llama-base-e6285a4d",
+      "label": "Llama 3.1 8B base",
+      "cohort": "confirmation",
+      "scheduled": 180,
+      "attempted": 64,
+      "available": 61,
+      "productive": 13,
+      "sceneGroups": 30,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T20-21-26-229Z-llama-sft-2bd7dfb0",
+      "label": "Llama 3.1 8B trained",
+      "cohort": "confirmation",
+      "scheduled": 180,
+      "attempted": 180,
+      "available": 180,
+      "productive": 66,
+      "sceneGroups": 30,
+      "invalidAdmissions": 0
+    },
+    {
+      "attemptId": "2026-10-29T20-29-38-701Z-gpt-oss-1ff2c4ac",
+      "label": "GPT-OSS 20B product coordinator",
+      "cohort": "confirmation",
+      "scheduled": 180,
+      "attempted": 0,
+      "available": 0,
+      "productive": 0,
+      "sceneGroups": 30,
+      "invalidAdmissions": 0
+    }
+  ],
+  "omittedAttempts": {
+    "initialPilot": 1,
+    "zeroCallTransport": 5
+  },
+  "matchedComparisons": [
+    {
+      "cohort": "development",
+      "baseAttemptId": "2026-10-29T18-20-24-724Z-llama-base-b8620514",
+      "trainedAttemptId": "2026-10-29T18-56-34-864Z-llama-sft-1c6b56a4",
+      "pairedAvailable": 72,
+      "baseProductive": 17,
+      "trainedProductive": 36,
+      "sceneGroups": 12,
+      "difference": 0.2638888888888889,
+      "interval95": [
+        0.125,
+        0.4166666666666667
+      ],
+      "iterations": 10000,
+      "seed": 20261029
+    },
+    {
+      "cohort": "confirmation",
+      "baseAttemptId": "2026-10-29T19-04-22-864Z-llama-base-e6285a4d",
+      "trainedAttemptId": "2026-10-29T20-21-26-229Z-llama-sft-2bd7dfb0",
+      "pairedAvailable": 61,
+      "baseProductive": 13,
+      "trainedProductive": 24,
+      "sceneGroups": 11,
+      "difference": 0.18032786885245902,
+      "interval95": [
+        0.04918032786885246,
+        0.3285763209393346
+      ],
+      "iterations": 10000,
+      "seed": 20261029
+    }
+  ],
+  "training": {
+    "state": "trained",
+    "recordedAt": "2026-10-29T18:56:31.459498+00:00",
+    "examples": 1032,
+    "plannedSteps": 129,
+    "completedSteps": 129,
+    "completionSource": {
+      "path": "training/artifacts/next-training/flowblock-v2-20261029/registration-recovery-4ada4cc527bb/independent-job-2026-10-29T18-56-31.460459+00-00.json",
+      "sha256": "ee8398c22e208bd2a3c7ae642c67f142129f17f548416c51200e375f89af13f5"
+    },
+    "jobId": "f88b7f0a-cb42-4c66-9b37-3823203885ad",
+    "source": {
+      "path": "training/artifacts/next-training/flowblock-v2-20261029/registration-recovery-4ada4cc527bb/attempt.json",
+      "sha256": "bb4e41b8b5a36186a56618775601039e6a295c84dabdfd7e3016d6fd645d8526"
+    }
+  },
+  "confirmation": {
+    "state": "completed",
+    "tasks": 180,
+    "sceneGroups": 30,
+    "source": {
+      "path": "training/experiments/next/data/confirmation/tasks.json",
+      "sha256": "9d1efa65f5bee77f950bb4a3757e2243cedf6b428c4b2091d38a0839a2295ee8"
+    },
+    "executionSource": {
+      "path": "training/experiments/next/data/execution-runtime-v6.json",
+      "sha256": "7787b67aaa55f48a3f87b2ffd4a7a7e0b7383964aa2564d6e26466d47f808f4e"
+    }
+  },
+  "creatorStudy": {
+    "state": "not-started",
+    "participants": 0
+  },
+  "objectron": {
+    "selected": 10,
+    "completed": 8,
+    "nonSeedSamples": 592,
+    "heuristicAcceptedSamples": 592,
+    "meanProjectionDiscrepancy": 0.03306591939243314,
+    "modelsPublication": "failed",
+    "source": {
+      "path": "training/experiments/next/results/objectron-diagnostic.json",
+      "sha256": "fcbcf5980ba62f32fe05c0897162f8d8642898aa023caf3a851c769674467c26"
+    }
+  },
+  "evidence": [
+    {
+      "label": "Objectron tracking \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a188e4-5291-75e8-be9f-642127d8a0f1",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/fe81860e3c760bb61819103089bfa04d8d39b66803dfcb45948c9dd24d49c49f.json",
+        "sha256": "99688901e61c67367f10d15a5efd123609a9d32bceae8c90494eb4605b62d136"
+      }
+    },
+    {
+      "label": "Solver-checked training dataset \u2014 W&B Models",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-b208f09c74df9dd36df81b06",
+      "status": "verified",
+      "receipt": {
+        "path": "training/artifacts/next-publications/recoveries/train-final-resume-1809Z/dataset-b208f09c74df9dd36df81b06.json",
+        "sha256": "7d101864cffededcb9a7c3597ac83830d6fd0af102020a2750faabc937a2bd93"
+      }
+    },
+    {
+      "label": "SFT optimizer history and checkpoint \u2014 W&B Models",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/flowblock-v2-20261029-sft",
+      "status": "verified",
+      "receipt": {
+        "path": "training/artifacts/next-training/flowblock-v2-20261029/native-models-independent-reconciliation.json",
+        "sha256": "6f011e60031533eb46840cddce1f6ac2e8ed2a743e8f15a859ec648aef3d94c8"
+      }
+    },
+    {
+      "label": "Base Llama development \u2014 W&B Models",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-0a8b369afba595d3fa96f344",
+      "status": "verified",
+      "receipt": {
+        "path": "training/artifacts/v2-runs/development-llama-base-connected/models-metric-recovery/receipt.json",
+        "sha256": "8a22c9bcf66166a75c5e71419db4f5bd71561f4c4735ad3b664e2acabf3704d3"
+      }
+    },
+    {
+      "label": "Base Llama development \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a188f8-5c07-7c9d-9a73-00449931dbdd",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/e27f9481a7e4b4267ab46c304cd8a37a70f55e1942265a9bfebe9ab392659494.json",
+        "sha256": "81de32337f16e1a3fcd233a5b4b69cef2184ebf6abcbed614f4552b1f8c16d2e"
+      }
+    },
+    {
+      "label": "GPT-OSS development \u2014 W&B Models",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-45613265409bc847d764d262",
+      "status": "verified",
+      "receipt": {
+        "path": "training/artifacts/next-publications/benchmark-45613265409bc847d764d262.json",
+        "sha256": "1fb5ffd0da2a31245ef058a16cabbb75cb8535189d9271c1a0bb5171549dba47"
+      }
+    },
+    {
+      "label": "GPT-OSS development \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18954-d4ae-74ad-b063-498a3674cba4",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/b5d549f8890ccdc864d2b6bc82ce076027d5b40a79de407d8c2416507447cd0c.json",
+        "sha256": "63ccfce47cc8b4d4ff9d070e81bc2b4c613a55a28d07de5bac990107367a5a38"
+      }
+    },
+    {
+      "label": "Trained Llama development \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18955-d3c3-7b93-bdb9-ac4abf2bae8c",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/698c8b176fd80e853c15979faf23fd1b78079115342ce542b06a3430a7bc9135.json",
+        "sha256": "d51d10da265df46e7bb342ab12bc7b8b6643987b5ba07f7c1cb585b928ad1476"
+      }
+    },
+    {
+      "label": "Trained Llama development \u2014 W&B Models",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-80d736fb442998b9852223ed",
+      "status": "verified",
+      "receipt": {
+        "path": "training/artifacts/v2-runs/development-llama-sft/models-final-readback/receipt.json",
+        "sha256": "5478656b90c0fe775e58e29d207538c3a9cd3f30febb9df96fb5a5214f468bdc"
+      }
+    },
+    {
+      "label": "Base Llama confirmation \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895b-f49b-7c7b-baf0-64d3a849c47b",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/ace405ff2b5008dc71f0b960024aadbe5b244e43714cc61c9a4bfed797b3e35f.json",
+        "sha256": "1a57678b9589cff000683b5a15d3faae538ce1a6fb8312164bcdde51fab7521a"
+      }
+    },
+    {
+      "label": "GPT-OSS confirmation \u2014 Weave coverage only",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895e-c6a3-70b1-af6c-1b7e27ecee03",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/19901ba87618123f8f6649967a10a0542179c0bc26f19844b20258bc6ddbd342.json",
+        "sha256": "a1da814e787110d6e06e5e8a5a9c12df95e5ef9c1d1eff206228d94825fdbf19"
+      }
+    },
+    {
+      "label": "Deterministic library confirmation \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895b-f121-7f64-8b66-b896c0d30393",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/a56246fa98136d9e65ae1a3e31f2836158ec1c4956fc14fca143e49560fd0018.json",
+        "sha256": "502b44d97e983aaa752bf1c51d66138fe9a0364093a1f52ebfcda43d6e425dfd"
+      }
+    },
+    {
+      "label": "Trained Llama confirmation \u2014 Weave evaluation",
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895d-6064-78c9-9d7a-c4cc2716aa61",
+      "status": "verified",
+      "receipt": {
+        "path": "training/experiments/next/results/weave-publications/9ed02d14788b4c067d5da7f7b6463849f8111f5203dd4ec44c74e7709fba3f69.json",
+        "sha256": "567a47fc18f1fe128f1ef217299dd4bd7eaac801a8b9b2a41c1d2491e51e2318"
+      }
+    }
+  ]
+}

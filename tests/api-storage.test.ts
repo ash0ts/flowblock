@@ -17,6 +17,7 @@ import {
   mediaResponse,
   objectSize,
   saveLocalUpload,
+  signedUpload,
   validateMediaKey,
 } from "../src/server/storage";
 let directory: string;
@@ -35,6 +36,46 @@ const upload = (body: string) =>
   new Request("http://localhost:3037/api/upload", { method: "PUT", body });
 
 describe("private media storage", () => {
+  it("keeps local uploads on the browser origin when the server uses another loopback hostname", async () => {
+    const takeId = "eeb002a6-e026-467c-98c3-f80ce11bcc38";
+    const uploadUrl = await signedUpload(
+      `owners/local-developer/takes/${takeId}/original`,
+      "video/mp4",
+      10,
+      takeId,
+    );
+    for (const browserUrl of [
+      "http://127.0.0.1:3051/review",
+      "http://localhost:3037/review",
+      "http://[::1]:3037/review",
+    ]) {
+      const resolved = new URL(uploadUrl, browserUrl);
+      expect(resolved.origin).toBe(new URL(browserUrl).origin);
+      expect(resolved.pathname).toBe(`/api/takes/${takeId}/upload`);
+    }
+  });
+  it("retains an absolute signed S3 upload URL when a bucket is configured", async () => {
+    vi.stubEnv("S3_BUCKET", "flowblock-test");
+    vi.stubEnv("S3_ENDPOINT", "https://storage.example.test");
+    vi.stubEnv("AWS_REGION", "us-east-1");
+    vi.stubEnv("AWS_ACCESS_KEY_ID", "test-access-key");
+    vi.stubEnv("AWS_SECRET_ACCESS_KEY", "test-secret-key");
+    vi.stubEnv("AWS_SESSION_TOKEN", "");
+    vi.stubEnv("AWS_PROFILE", "");
+    const uploadUrl = await signedUpload(
+      "owners/test/takes/test-take/original",
+      "video/mp4",
+      10,
+      "test-take",
+    );
+    const resolved = new URL(uploadUrl, "http://127.0.0.1:3051/review");
+    expect(resolved.origin).toBe("https://flowblock-test.storage.example.test");
+    expect(resolved.pathname).toBe("/owners/test/takes/test-take/original");
+    expect(resolved.searchParams.get("X-Amz-Expires")).toBe("900");
+    expect(resolved.searchParams.get("X-Amz-Signature")).toMatch(
+      /^[a-f0-9]{64}$/,
+    );
+  });
   it("serves bounded, open-ended and suffix ranges without exposing other bytes", async () => {
     await writeFile(path.join(directory, "video"), "0123456789");
     for (const [range, expected, contentRange] of [

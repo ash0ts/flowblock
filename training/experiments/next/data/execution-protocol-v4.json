@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-v2",
+  "createdAt": "2026-10-29T16:37:35.432Z",
+  "datasetVersion": "flowblock-scenes-v2",
+  "sourceHashes": {
+    "training/experiments/next/run.ts": "6281229f512b97c3e375de2b8710260f8f027d6bfcc52987eb0953def4255bd1",
+    "training/experiments/next/budget.ts": "159f724149db6a1f353bc3fab191b41b830ba973543e84d48e42e4d9be09f6a5",
+    "training/experiments/next/transport.ts": "70755a62c3cf23f87f638466dc9b941d12c64340c1ba82bfe05f7997f53d1619",
+    "package.json": "130c08c265a686b13ae379d7d56601302ab161c0487c6de84114fb10646ea23b",
+    "bun.lock": "d321c30edfa99ccabed921ecf31d39430e739a9f6ab0bc82f07e898fd1a70f79",
+    "training/experiments/next/planner.ts": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+    "training/experiments/next/search.ts": "0dff81f3b3fb78bf9124787f2006e9a160a7625fbf2c89deac0cc266734090dc",
+    "training/experiments/next/grade.ts": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c",
+    "training/experiments/next/fixtures.ts": "58fe83212a16df6a67e2f468cf8a5791fbe7b4334cc69849f70c27fa97d64cae",
+    "src/domain/engine.ts": "0b675fbde5c466479b3da5ac96d6a8af463789660fbb71eede5763ca7aede070",
+    "src/domain/contracts.ts": "b08ae3dbf39d78ef56299bf2c1f29b2f0c9906149e5a3c94708741254dcad240",
+    "src/domain/geometry.ts": "364fd365ba00937c5f5607cdc5514f42ef9f3e760fcf82d7bf54ee38844c813d",
+    "src/domain/defaults.ts": "1afce5d125a058eade903a070a4bb79e76cc6a3ded663585cfc32112d5e77807",
+    "src/server/planner.ts": "92b516981eef1d0606821c1da1847b4deac0655b7d520f5d417d721986a83aef",
+    "src/server/coordinator-runtime.ts": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c"
+  },
+  "splits": {
+    "train": {
+      "groups": 64,
+      "seed": 2026102901
+    },
+    "development": {
+      "groups": 12,
+      "seed": 2026102902
+    },
+    "confirmation": {
+      "groups": 30,
+      "seed": 2026102903
+    }
+  },
+  "grouping": "Six dependent movement tasks per independently generated scene. Uncertainty resamples scene groups, never treats six tasks as independent creators.",
+  "arms": [
+    "library",
+    "gpt-oss",
+    "llama-base",
+    "llama-sft"
+  ],
+  "controls": {
+    "toolActions": 6,
+    "repairs": 2,
+    "deadlineMs": 30000,
+    "maxOutputTokens": 1600,
+    "temperature": 0.1,
+    "concurrency": 2,
+    "deterministicSearchCandidates": 128
+  },
+  "endpoints": {
+    "primary": "One valid returned plan preserves source inputs, family, requested direction, nonzero travel, duration, height and sampled framing.",
+    "secondary": [
+      "Admitted invalid plans",
+      "Protocol completion",
+      "Checked hard-constraint abstention",
+      "False abstention on a known witness",
+      "Availability",
+      "Latency",
+      "Reported token usage"
+    ]
+  },
+  "selection": "One SFT candidate, one epoch, fixed final positive checkpoint. Development is diagnostic and used for a deploy/no-deploy decision. No checkpoint shopping or confirmation-driven changes.",
+  "confirmation": "Run once per arm after the selection receipt freezes model, prompt, runtime and fixture hashes. Preserve failed requests and unattempted tasks. No rerun to improve the score.",
+  "budget": {
+    "authorizedUsd": 200,
+    "maxTrainingRuns": 1,
+    "maxTrainingExamples": 1600,
+    "maxInferenceRequests": 10000,
+    "inferenceReserveUsd": 20,
+    "trainingReserveUsd": 170,
+    "otherReserveUsd": 10
+  },
+  "pricing": {
+    "observedAt": "2026-10-29",
+    "inputOutputUsdPerMillion": {
+      "openai/gpt-oss-20b": [
+        0.03,
+        0.13
+      ],
+      "meta-llama/Llama-3.1-8B-Instruct": [
+        0.22,
+        0.22
+      ]
+    },
+    "sftUsdPerActiveGpuHour": 2.7,
+    "sources": [
+      "https://www.coreweave.com/forge-pricing/inference-agents",
+      "https://www.coreweave.com/forge-pricing/post-training"
+    ],
+    "billingCaveat": "Token estimates and published training rates are not an invoice. A client timeout does not cancel a server job."
+  },
+  "limitations": [
+    "Authored synthetic scenes, not measured rooms or human cinematography ratings.",
+    "All splits share a generator and engine; new geometry is not a new real-world population.",
+    "The deterministic baseline receives the structured movement family and filters against the brief checker; it is a privileged upper reference, not a natural-language parser.",
+    "A finite search without a witness is unresolved, not proof of infeasibility.",
+    "The product GPT-OSS baseline uses its existing coordinator. Only base and trained Llama share the research prompt/tools for a training-effect comparison.",
+    "Public video measurements cannot establish whether creators get a usable take faster."
+  ],
+  "executionVersion": "flowblock-execution-v4",
+  "frozenAt": "2026-10-29T17:03:34.423Z",
+  "generationProtocolSha256": "4c98f40517cdf2989de48dff83a3eeb8773c6b459f21eb8c02fdf8524fd06fae",
+  "amendments": [
+    "Before any confirmation, checker v4 removes an undisclosed five-percent apparent-size threshold; positive change with numeric tolerance now matches the written brief. Frozen SFT examples and task inputs remain unchanged.",
+    "Checked abstention requires an executed compile before finish for all arms; explanation correctness is not graded.",
+    "Separate coordinator deadline failures from transport failures. New attempts use two read-only warmed inference connections and outside-task telemetry initialization. Warmup time is recorded separately.",
+    "Dependency undici 7.28.0 was added after dataset generation; executed source/dependency hashes are recorded here. Original generation sources are archived in generation-runtime.json."
+  ]
+}

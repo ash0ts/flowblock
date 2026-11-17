@@ -1,0 +1,28 @@
+{
+  "status": "blocked-before-publication",
+  "runId": "sft-telemetry-a99f6a6471b2591d80a8",
+  "evidenceSha256": "a99f6a6471b2591d80a8bd0b4ebc84ec887c51f34a72655a43b680ec0aa1889f",
+  "remoteMutationAttempted": false,
+  "reason": "The pinned W&B SDK normalizes the Forge proxy URL to api.forge.coreweave.com, which timed out during authentication preflight. No run or artifact was created.",
+  "attempt": {
+    "checkedAt": "2026-10-29T15:18:15.861047+00:00",
+    "status": "failed-before-mutation",
+    "phase": "wandb.Api authentication preflight",
+    "errorType": "AuthenticationError",
+    "publicationRunAbsent": true,
+    "originalRun": {
+      "name": "flowblock-sft-v1-20261029-095244",
+      "state": "failed"
+    }
+  },
+  "nativeModelsEvidence": {
+    "receipt": "models-native-readback.json",
+    "runUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/flowblock-sft-v1-20261029-095244",
+    "verifiedOptimizerRows": 30,
+    "verifiedMetricsPerRow": 8
+  },
+  "pending": [
+    "Recovered dataset artifact output",
+    "Dedicated recorded telemetry run and evidence artifact"
+  ]
+}

@@ -1,0 +1,1451 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-controlled-validation-v1",
+  "frozenAt": "2026-10-29T23:10:28.126Z",
+  "question": "Does the existing trained planner preserve a supported brief across new synthetic topology instances, wording changes and geometry perturbations, compared with its matched base?",
+  "intendedDecision": "Identify remaining failure mechanisms and whether a larger field-oriented confirmation is justified; no automatic promotion.",
+  "scope": "Controlled synthetic stress evaluation; solver-selected positive tasks; not natural task prevalence or creator benefit.",
+  "suiteSha256": "fc87f72b85ba7736743eb45ea9a040e300e056bb79bd70df33d9824859bac66c",
+  "sourceHashes": {
+    "bun.lock": "d321c30edfa99ccabed921ecf31d39430e739a9f6ab0bc82f07e898fd1a70f79",
+    "package.json": "130c08c265a686b13ae379d7d56601302ab161c0487c6de84114fb10646ea23b",
+    "src/domain/contracts.ts": "b08ae3dbf39d78ef56299bf2c1f29b2f0c9906149e5a3c94708741254dcad240",
+    "src/domain/defaults.ts": "1afce5d125a058eade903a070a4bb79e76cc6a3ded663585cfc32112d5e77807",
+    "src/domain/engine.ts": "0b675fbde5c466479b3da5ac96d6a8af463789660fbb71eede5763ca7aede070",
+    "src/domain/geometry.ts": "364fd365ba00937c5f5607cdc5514f42ef9f3e760fcf82d7bf54ee38844c813d",
+    "src/domain/index.ts": "ca3255f8b5c214fc006cc089a3e18a46479b2313ec6fbbafe4ddfc7cc3490c53",
+    "src/domain/native-companion.ts": "1cefc69514f8bdaae2e8573cfb22cc406a1ef1ce9eb07fcbeaffebc31dce5138",
+    "src/domain/take-analysis.ts": "d65fef139cbac5815a4e55e1dad27ab6239b41163a89d9ba04b1271a6e15a4e0",
+    "src/server/coordinator-runtime.ts": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c",
+    "src/server/planner.ts": "92b516981eef1d0606821c1da1847b4deac0655b7d520f5d417d721986a83aef",
+    "training/experiments/next/analyze.ts": "ba9dc23e50b4d506d2ad734af7b8b6a4812f515cd76826882f26290b9c0aa893",
+    "training/experiments/next/budget.ts": "ed90a60bc57e078f4fbc77894ebfd1c0fed0b2bbeffb0f29b9d4acb9487eb7a4",
+    "training/experiments/next/confirmation.ts": "aaffceb056aa90376dd761bd7b491f08094040c52990645e1ba7239a25c36973",
+    "training/experiments/next/fixtures.ts": "58fe83212a16df6a67e2f468cf8a5791fbe7b4334cc69849f70c27fa97d64cae",
+    "training/experiments/next/grade.ts": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c",
+    "training/experiments/next/planner.ts": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+    "training/experiments/next/run.ts": "9635bcbe245dea505da1ba3f17fc328940748f6a24ac907933b2b06386eb3d0c",
+    "training/experiments/next/search.ts": "0dff81f3b3fb78bf9124787f2006e9a160a7625fbf2c89deac0cc266734090dc",
+    "training/experiments/next/transport.ts": "c664c1248782203a1cee8c6b4e58ba6300206d05a57a91664a219e6a0395963d",
+    "training/experiments/validation-planner/analyze.ts": "55aec52ea5b4616df2599d289e92c61d8fd65d7e65ccb07f2fffefbf79cf290c",
+    "training/experiments/validation-planner/child.ts": "100633409df591d2ef8e5799dad2609b5b5271d9499ab5e3156c44047e4d4e11",
+    "training/experiments/validation-planner/fixtures.ts": "6d66c5f3ab8289b9a1b14544d91b486a883d00e9d25de67e3f652163342f794f",
+    "training/experiments/validation-planner/freeze.ts": "aae7eef5056ecb7a5874e932224f8831fe35f5e2bea891869f077fb54c7465d2",
+    "training/experiments/validation-planner/run.ts": "fab75404d8d5850c910ae5c98b44bb80674b47a6c3a041b7fbf3b07dea937765",
+    "training/experiments/validation-planner/watchdog-probe.ts": "606b63e2d1ad076dc9fe187f3fab702c5b19b29154acabec0dee6768753c94d3",
+    "training/experiments/validation-planner/watchdog.ts": "e6588f7fb19c00c9962429ce68028021bfe9c8a09c3338cea061c071db63921e"
+  },
+  "promptSha256": "6cec0fa85ff93f99fa0a9a37fe4ddc92ffa2f13e2ed1dbb044d2dfd6cff58662",
+  "endpoint": "https://forge.coreweave.com/api/training/v1",
+  "models": {
+    "llama-base": "meta-llama/Llama-3.1-8B-Instruct",
+    "llama-sft": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+  },
+  "checkpointEvidence": {
+    "path": "training/artifacts/next-training/flowblock-v2-20261029/native-models-independent-reconciliation.json",
+    "sha256": "6f011e60031533eb46840cddce1f6ac2e8ed2a743e8f15a859ec648aef3d94c8",
+    "artifactVersion": "v1",
+    "artifactDigest": "1bea2d2f93b6cc19eab7ffed97ea98bb"
+  },
+  "settings": {
+    "actions": 6,
+    "repairs": 2,
+    "coordinatorDeadlineMs": 30000,
+    "externalWatchdogMs": 35000,
+    "temperature": 0.1,
+    "maxTokens": 1600,
+    "repetitions": 2,
+    "concurrency": 1,
+    "tracing": false
+  },
+  "initialNanodollars": 758021270,
+  "budget": {
+    "existingAuthorizedTotalUsd": 200,
+    "newInferenceMaximumUsd": 2,
+    "existingCumulativeInferenceMaximumUsd": 20,
+    "existingTrainingReservationUsd": 170,
+    "newTrainingJobs": 0,
+    "invoiceKnown": false,
+    "ledgerPredecessor": "training/artifacts/v2-budget.json",
+    "ledgerPredecessorSha256": "ad5647dfa50b5a42b6b9f9e792ba4dd02cddb8effe01aede3013818267754206",
+    "priceSource": "https://www.coreweave.com/forge-pricing/inference-agents",
+    "pricingCheckedOn": "2026-10-29",
+    "llamaInputOutputUsdPerMillion": [
+      0.22,
+      0.22
+    ]
+  },
+  "scheduleSeed": 2026103001,
+  "schedule": [
+    {
+      "id": "validation-02-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-02-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-02-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-unsupported-trial0-llama-sft",
+      "taskId": "validation-08-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-unsupported-trial0-llama-base",
+      "taskId": "validation-08-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-11-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-11-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-07-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-07-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-original-trial0-llama-base",
+      "taskId": "validation-01-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-original-trial0-llama-sft",
+      "taskId": "validation-01-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-05-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-05-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-11-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-11-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-unsupported-trial1-llama-sft",
+      "taskId": "validation-07-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-unsupported-trial1-llama-base",
+      "taskId": "validation-07-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-unsupported-trial1-llama-base",
+      "taskId": "validation-10-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-unsupported-trial1-llama-sft",
+      "taskId": "validation-10-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-unsupported-trial0-llama-sft",
+      "taskId": "validation-03-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-unsupported-trial0-llama-base",
+      "taskId": "validation-03-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-paraphrase-trial1-llama-base",
+      "taskId": "validation-07-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-paraphrase-trial1-llama-sft",
+      "taskId": "validation-07-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-unsupported-trial1-llama-sft",
+      "taskId": "validation-02-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-unsupported-trial1-llama-base",
+      "taskId": "validation-02-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-07-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-07-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-original-trial1-llama-sft",
+      "taskId": "validation-04-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-original-trial1-llama-base",
+      "taskId": "validation-04-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-paraphrase-trial0-llama-base",
+      "taskId": "validation-05-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-paraphrase-trial0-llama-sft",
+      "taskId": "validation-05-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-unsupported-trial1-llama-sft",
+      "taskId": "validation-03-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-unsupported-trial1-llama-base",
+      "taskId": "validation-03-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-original-trial0-llama-base",
+      "taskId": "validation-02-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-original-trial0-llama-sft",
+      "taskId": "validation-02-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-original-trial0-llama-sft",
+      "taskId": "validation-08-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-original-trial0-llama-base",
+      "taskId": "validation-08-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-03-original-trial1-llama-base",
+      "taskId": "validation-03-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-03-original-trial1-llama-sft",
+      "taskId": "validation-03-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-paraphrase-trial0-llama-sft",
+      "taskId": "validation-07-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-paraphrase-trial0-llama-base",
+      "taskId": "validation-07-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-unsupported-trial0-llama-base",
+      "taskId": "validation-00-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-unsupported-trial0-llama-sft",
+      "taskId": "validation-00-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-original-trial1-llama-sft",
+      "taskId": "validation-11-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-original-trial1-llama-base",
+      "taskId": "validation-11-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-unsupported-trial0-llama-base",
+      "taskId": "validation-07-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-07-unsupported-trial0-llama-sft",
+      "taskId": "validation-07-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-paraphrase-trial1-llama-sft",
+      "taskId": "validation-10-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-paraphrase-trial1-llama-base",
+      "taskId": "validation-10-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-paraphrase-trial0-llama-base",
+      "taskId": "validation-11-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-paraphrase-trial0-llama-sft",
+      "taskId": "validation-11-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-00-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-00-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-unsupported-trial1-llama-base",
+      "taskId": "validation-01-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-unsupported-trial1-llama-sft",
+      "taskId": "validation-01-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-03-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-03-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-paraphrase-trial1-llama-base",
+      "taskId": "validation-11-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-11-paraphrase-trial1-llama-sft",
+      "taskId": "validation-11-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-original-trial1-llama-sft",
+      "taskId": "validation-05-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-original-trial1-llama-base",
+      "taskId": "validation-05-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-original-trial1-llama-base",
+      "taskId": "validation-00-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-original-trial1-llama-sft",
+      "taskId": "validation-00-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-original-trial0-llama-sft",
+      "taskId": "validation-07-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-original-trial0-llama-base",
+      "taskId": "validation-07-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-unsupported-trial0-llama-base",
+      "taskId": "validation-04-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-unsupported-trial0-llama-sft",
+      "taskId": "validation-04-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-original-trial1-llama-sft",
+      "taskId": "validation-02-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-original-trial1-llama-base",
+      "taskId": "validation-02-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-original-trial1-llama-base",
+      "taskId": "validation-10-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-original-trial1-llama-sft",
+      "taskId": "validation-10-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-original-trial0-llama-sft",
+      "taskId": "validation-03-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-original-trial0-llama-base",
+      "taskId": "validation-03-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-05-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-05-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-unsupported-trial1-llama-sft",
+      "taskId": "validation-09-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-unsupported-trial1-llama-base",
+      "taskId": "validation-09-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-original-trial0-llama-base",
+      "taskId": "validation-06-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-original-trial0-llama-sft",
+      "taskId": "validation-06-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-original-trial0-llama-sft",
+      "taskId": "validation-05-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-original-trial0-llama-base",
+      "taskId": "validation-05-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-original-trial1-llama-base",
+      "taskId": "validation-09-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-original-trial1-llama-sft",
+      "taskId": "validation-09-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-09-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-09-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-paraphrase-trial0-llama-base",
+      "taskId": "validation-10-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-paraphrase-trial0-llama-sft",
+      "taskId": "validation-10-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-original-trial0-llama-sft",
+      "taskId": "validation-10-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-original-trial0-llama-base",
+      "taskId": "validation-10-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-original-trial0-llama-base",
+      "taskId": "validation-09-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-original-trial0-llama-sft",
+      "taskId": "validation-09-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-paraphrase-trial0-llama-sft",
+      "taskId": "validation-03-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-paraphrase-trial0-llama-base",
+      "taskId": "validation-03-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-06-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-06-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-original-trial1-llama-sft",
+      "taskId": "validation-07-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-07-original-trial1-llama-base",
+      "taskId": "validation-07-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-paraphrase-trial1-llama-base",
+      "taskId": "validation-02-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-paraphrase-trial1-llama-sft",
+      "taskId": "validation-02-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-unsupported-trial1-llama-sft",
+      "taskId": "validation-08-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-unsupported-trial1-llama-base",
+      "taskId": "validation-08-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-unsupported-trial1-llama-base",
+      "taskId": "validation-06-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-unsupported-trial1-llama-sft",
+      "taskId": "validation-06-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-paraphrase-trial0-llama-sft",
+      "taskId": "validation-02-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-paraphrase-trial0-llama-base",
+      "taskId": "validation-02-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-paraphrase-trial0-llama-base",
+      "taskId": "validation-06-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-paraphrase-trial0-llama-sft",
+      "taskId": "validation-06-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-01-unsupported-trial0-llama-sft",
+      "taskId": "validation-01-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-01-unsupported-trial0-llama-base",
+      "taskId": "validation-01-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-original-trial1-llama-base",
+      "taskId": "validation-08-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-original-trial1-llama-sft",
+      "taskId": "validation-08-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-00-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-00-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-04-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-04-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-original-trial0-llama-sft",
+      "taskId": "validation-04-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-original-trial0-llama-base",
+      "taskId": "validation-04-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-paraphrase-trial0-llama-base",
+      "taskId": "validation-04-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-paraphrase-trial0-llama-sft",
+      "taskId": "validation-04-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-paraphrase-trial1-llama-sft",
+      "taskId": "validation-09-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-paraphrase-trial1-llama-base",
+      "taskId": "validation-09-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-paraphrase-trial1-llama-base",
+      "taskId": "validation-06-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-paraphrase-trial1-llama-sft",
+      "taskId": "validation-06-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-09-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-09-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-unsupported-trial1-llama-base",
+      "taskId": "validation-04-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-unsupported-trial1-llama-sft",
+      "taskId": "validation-04-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-paraphrase-trial0-llama-sft",
+      "taskId": "validation-00-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-paraphrase-trial0-llama-base",
+      "taskId": "validation-00-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-original-trial1-llama-base",
+      "taskId": "validation-01-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-original-trial1-llama-sft",
+      "taskId": "validation-01-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-08-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-08-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-04-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-04-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-04-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-08-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-08-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-08-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-06-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-06-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-original-trial0-llama-sft",
+      "taskId": "validation-00-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-original-trial0-llama-base",
+      "taskId": "validation-00-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-01-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-01-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-01-paraphrase-trial1-llama-sft",
+      "taskId": "validation-01-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-01-paraphrase-trial1-llama-base",
+      "taskId": "validation-01-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-unsupported-trial0-llama-base",
+      "taskId": "validation-02-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-02-unsupported-trial0-llama-sft",
+      "taskId": "validation-02-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-unsupported-trial0-llama-sft",
+      "taskId": "validation-11-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-unsupported-trial0-llama-base",
+      "taskId": "validation-11-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-unsupported-trial1-llama-base",
+      "taskId": "validation-05-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-unsupported-trial1-llama-sft",
+      "taskId": "validation-05-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-06-unsupported-trial0-llama-sft",
+      "taskId": "validation-06-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-06-unsupported-trial0-llama-base",
+      "taskId": "validation-06-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-original-trial1-llama-base",
+      "taskId": "validation-06-original",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-06-original-trial1-llama-sft",
+      "taskId": "validation-06-original",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-paraphrase-trial0-llama-sft",
+      "taskId": "validation-09-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-09-paraphrase-trial0-llama-base",
+      "taskId": "validation-09-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-01-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-01-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-unsupported-trial0-llama-sft",
+      "taskId": "validation-10-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-unsupported-trial0-llama-base",
+      "taskId": "validation-10-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-paraphrase-trial0-llama-base",
+      "taskId": "validation-01-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-01-paraphrase-trial0-llama-sft",
+      "taskId": "validation-01-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-unsupported-trial1-llama-sft",
+      "taskId": "validation-11-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-unsupported-trial1-llama-base",
+      "taskId": "validation-11-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-paraphrase-trial1-llama-base",
+      "taskId": "validation-05-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-05-paraphrase-trial1-llama-sft",
+      "taskId": "validation-05-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-paraphrase-trial1-llama-sft",
+      "taskId": "validation-00-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-00-paraphrase-trial1-llama-base",
+      "taskId": "validation-00-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-10-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-10-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-10-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-unsupported-trial0-llama-sft",
+      "taskId": "validation-05-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-05-unsupported-trial0-llama-base",
+      "taskId": "validation-05-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-paraphrase-trial0-llama-base",
+      "taskId": "validation-08-paraphrase",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-paraphrase-trial0-llama-sft",
+      "taskId": "validation-08-paraphrase",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-geometry-perturbation-trial1-llama-sft",
+      "taskId": "validation-10-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-10-geometry-perturbation-trial1-llama-base",
+      "taskId": "validation-10-geometry-perturbation",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-unsupported-trial0-llama-base",
+      "taskId": "validation-09-unsupported",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-09-unsupported-trial0-llama-sft",
+      "taskId": "validation-09-unsupported",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-original-trial0-llama-sft",
+      "taskId": "validation-11-original",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-11-original-trial0-llama-base",
+      "taskId": "validation-11-original",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-03-paraphrase-trial1-llama-base",
+      "taskId": "validation-03-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-03-paraphrase-trial1-llama-sft",
+      "taskId": "validation-03-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-03-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-03-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-03-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-paraphrase-trial1-llama-base",
+      "taskId": "validation-08-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-08-paraphrase-trial1-llama-sft",
+      "taskId": "validation-08-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-geometry-perturbation-trial0-llama-sft",
+      "taskId": "validation-02-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-02-geometry-perturbation-trial0-llama-base",
+      "taskId": "validation-02-geometry-perturbation",
+      "trial": 0,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-unsupported-trial1-llama-base",
+      "taskId": "validation-00-unsupported",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "id": "validation-00-unsupported-trial1-llama-sft",
+      "taskId": "validation-00-unsupported",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-paraphrase-trial1-llama-sft",
+      "taskId": "validation-04-paraphrase",
+      "trial": 1,
+      "arm": "llama-sft",
+      "model": "wandb-artifact:///wandb/flowblock/flowblock-v2-20261029-sft:v1"
+    },
+    {
+      "id": "validation-04-paraphrase-trial1-llama-base",
+      "taskId": "validation-04-paraphrase",
+      "trial": 1,
+      "arm": "llama-base",
+      "model": "meta-llama/Llama-3.1-8B-Instruct"
+    }
+  ],
+  "stopRule": "No paid-request retries. Complete the second arm of each pair unless budget stops. Stop after two consecutive pairs with neither outcome available; preserve every remaining scheduled occurrence as unattempted. Never retry this frozen execution under a new directory.",
+  "analysis": {
+    "primary": "Paired difference in brief-preserving plan rate on known-positive tasks, per occurrence, with whole-scene-group bootstrap retaining conditions and repeats.",
+    "secondary": [
+      "Correct checked abstention on explicit unsupported tasks, kept separate from productive plans",
+      "Wording consistency within scene and trial",
+      "Geometry perturbation sensitivity",
+      "Repeat consistency",
+      "Availability and operational delivered-plan rate",
+      "Invalid returned plans, schema errors, repairs",
+      "Parent monotonic and wall elapsed time; child event-loop delay; complete and unknown token usage"
+    ],
+    "missingness": "Unavailable outcomes have no quality grade. Scheduled operational delivery and paired-available quality are separate. Intervals do not correct missingness.",
+    "bootstrapSeed": 2026103002,
+    "bootstrapIterations": 10000
+  },
+  "privacy": "Authored geometry and model actions only; no creator footage or credentials. Publication uses scored metadata to the existing private Forge project.",
+  "limitations": [
+    "Two repetitions do not establish generation stability.",
+    "Twelve authored groups are not a population of real rooms.",
+    "Geometry/checker share the product engine; independent physical validity is unproven.",
+    "Parent watchdog cannot defeat host suspension and does not cancel provider computation.",
+    "Model artifact lineage is verified from recorded service metadata, not weight-byte access.",
+    "This test does not isolate which training example category caused a difference."
+  ],
+  "reproduce": "node --env-file=.env.local --import tsx training/experiments/validation-planner/run.ts training/artifacts/controlled-validation-v1"
+}

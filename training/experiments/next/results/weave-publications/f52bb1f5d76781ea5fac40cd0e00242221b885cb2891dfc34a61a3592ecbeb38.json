@@ -1,0 +1,111 @@
+{
+  "status": "needs-review",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "f52bb1f5d76781ea5fac40cd0e00242221b885cb2891dfc34a61a3592ecbeb38",
+  "experimentId": "flowblock-objectron-projection-diagnostic-v1",
+  "attemptId": "recorded-local-mps-development-v1",
+  "verifiedAt": "2026-10-29T17:08:30.479Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "cached-same-session-read",
+    "proofSha256": "6ffa962f2e99d70ff092514e6b8935a938b6ad9e39d4ae896ee9426e6a84f167",
+    "verifiedAt": "2026-10-29T16:57:10.369907+00:00",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "69deb9bdd35bd298d903c9a7f1973435ed1e8ef3446c1a34a738a651296f58f6",
+    "tasks": "361e0b93aa64d866ddb557afea8310beaa6c9defbbd149ce02efbb210c8bc421",
+    "results": "1a10590164dd59ef24236725b138ff9398b485f8cb847e8bdfe7590fba490b36"
+  },
+  "evaluationCallId": "01a1889c-b582-75a7-8763-571b5c7ef2e2",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-recorded-local-mps-development-v1-f52bb1f5d7:MLqxGmx0bJY15vI9lr2TuSnFD264jTRzgx0S3KX6pXE",
+  "modelRef": "weave:///wandb/flowblock/object/SAM-2_1-Small-Objectron-development-cdea33179c3a21d3:TZCmIYJMx9gRGTm7Fc8fNisugnx3ti2QNwlkxUYSU80",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-objectron-development-weave-361e0b93aa64:i9SSencRBXXg4jql1TzPozrFyjHatatQMy0SzY4r3gQ",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1889c-b582-75a7-8763-571b5c7ef2e2",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 10,
+  "observedRows": 0,
+  "rowsMatch": false,
+  "summaryMatches": false,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 10,
+      "mean": 0.8,
+      "sum": 8,
+      "true_count": 8,
+      "false_count": 2,
+      "true_fraction": 0.8
+    },
+    "available": {
+      "count": 10,
+      "mean": 0.8,
+      "sum": 8,
+      "true_count": 8,
+      "false_count": 2,
+      "true_fraction": 0.8
+    },
+    "evaluationSamplesExcludingSeed": {
+      "count": 8,
+      "mean": 74,
+      "sum": 592
+    },
+    "maskCenterInsideProjectedBoxFraction": {
+      "count": 8,
+      "mean": 1,
+      "sum": 8
+    },
+    "maskCentroidToProjected3dCenterFrameDiagonalDiscrepancy": {
+      "count": 8,
+      "mean": 0.03306591939243314,
+      "sum": 0.2645273551394651
+    },
+    "maskHeightToProjectedBoxHeightRatio": {
+      "count": 8,
+      "mean": 0.9277735950764026,
+      "sum": 7.4221887606112205
+    },
+    "maskWidthToProjectedBoxWidthRatio": {
+      "count": 8,
+      "mean": 0.8714801363995679,
+      "sum": 6.971841091196543
+    },
+    "processingSeconds": {
+      "count": 8,
+      "mean": 71.95159805237745,
+      "sum": 575.6127844190196
+    },
+    "usableFraction": {
+      "count": 8,
+      "mean": 1,
+      "sum": 8
+    },
+    "usableSamples": {
+      "count": 8,
+      "mean": 74,
+      "sum": 592
+    },
+    "task_counts": {
+      "requested": 10,
+      "published": 10
+    },
+    "recorded_summary": {
+      "cohort/requested_sequences": 10,
+      "cohort/eligible_sequences": 8,
+      "cohort/excluded_sequences": 2,
+      "execution/completed_sequences": 8,
+      "measurements/evaluated_nonseed_samples": 592,
+      "measurements/heuristic_usable_samples": 592,
+      "measurements/mean_sequence_heuristic_usable_fraction": 1,
+      "execution/mean_processing_seconds": 71.95159805237745,
+      "execution/total_processing_seconds": 575.6127844190196,
+      "projection_proxy/mean_sequence_mask_center_inside_projected_box": 1,
+      "projection_proxy/mean_sequence_mask_centroid_to_projected_3d_center_frame_diagonal_discrepancy": 0.03306591939243314,
+      "projection_proxy/mean_sequence_mask_width_to_projected_box_width_ratio": 0.8714801363995679,
+      "projection_proxy/mean_sequence_mask_height_to_projected_box_height_ratio": 0.9277735950764026
+    }
+  }
+}

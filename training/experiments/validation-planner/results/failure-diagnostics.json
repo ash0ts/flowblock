@@ -1,0 +1,3008 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-29T23:29:48.559176+00:00",
+  "mode": "read-only recorded-results diagnostic; no inference, regrading or model changes",
+  "experimentId": "flowblock-controlled-validation-v1",
+  "interpretation": {
+    "independentCheck": "The stored independentDisagreements field counts failed composite checks. It does not mean disagreement with the primary checker or geometric failure. All six trained failures are also rejected by the primary brief checker; sampled geometry passes.",
+    "wording": "Nineteen paired-available original/paraphrase occurrences contain six discordances, split equally between original-only and paraphrase-only success. This shows outcome instability under wording changes and sampled generation, not a measured directional paraphrase penalty. Group 02 reverses which wording succeeds between trials.",
+    "geometry": "Nine of 21 available perturbation occurrences return a brief-preserving plan. Eleven exhaust the repair budget; ten repeat an identical rejected compile three times. One returned plan moves in the wrong orbit direction.",
+    "paired": "The 21/46 trained and 10/46 base comparison reconciles to recorded occurrence pairs. All 21 trained productive results pass the independent composite diagnostic. Missingness remains uncorrected; the scene-group interval is 0 to 48 percentage points."
+  },
+  "independentDiagnostics": {
+    "llama-base": {
+      "returnedPlans": 23,
+      "failedIndependentComposite": 12,
+      "failedIndependentSampledGeometry": 0,
+      "engineInvalidReturnedPlans": 0,
+      "failureCounts": {
+        "family": 10,
+        "direction": 3,
+        "motion": 2
+      },
+      "rows": [
+        {
+          "occurrenceId": "validation-11-geometry-perturbation-trial1-llama-base",
+          "taskId": "validation-11-geometry-perturbation",
+          "condition": "geometry-perturbation",
+          "planId": "plan-619c0155e9f2db9f4d5c7057cf2e9ff9",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-05-paraphrase-trial0-llama-base",
+          "taskId": "validation-05-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-00b0611ede75a111f8baa3e12177024a",
+          "recipeId": "context-pull",
+          "requestedFamily": "pull-out",
+          "returnedFamily": "pull-out",
+          "requestedDirection": "either",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-original-trial0-llama-base",
+          "taskId": "validation-08-original",
+          "condition": "original",
+          "planId": "plan-1bdd6274f7aca7798dc5d954f2261028",
+          "recipeId": "left-slide",
+          "requestedFamily": "orbit",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family",
+            "motion"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family",
+            "motion"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-11-original-trial1-llama-base",
+          "taskId": "validation-11-original",
+          "condition": "original",
+          "planId": "plan-789eb5ebed898aa95da6f01c24c749f4",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-11-paraphrase-trial0-llama-base",
+          "taskId": "validation-11-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-695c2476b883a89a49cb9780995ab12b",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-11-paraphrase-trial1-llama-base",
+          "taskId": "validation-11-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-695c2476b883a89a49cb9780995ab12b",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-10-original-trial1-llama-base",
+          "taskId": "validation-10-original",
+          "condition": "original",
+          "planId": "plan-2e75f4b5b8ef9b0dadd3eb63e04fc0fa",
+          "recipeId": "left-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-10-original-trial0-llama-base",
+          "taskId": "validation-10-original",
+          "condition": "original",
+          "planId": "plan-b9f8eb9cc24c0954416142cba5104d24",
+          "recipeId": "left-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-original-trial1-llama-base",
+          "taskId": "validation-08-original",
+          "condition": "original",
+          "planId": "plan-e975b713d9d260f4447a2ce4feb0ae4d",
+          "recipeId": "left-slide",
+          "requestedFamily": "orbit",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family",
+            "motion"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family",
+            "motion"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-geometry-perturbation-trial1-llama-base",
+          "taskId": "validation-08-geometry-perturbation",
+          "condition": "geometry-perturbation",
+          "planId": "plan-16f894b86b703d56e36c610b798dfe86",
+          "recipeId": "quarter-orbit",
+          "requestedFamily": "orbit",
+          "returnedFamily": "orbit",
+          "requestedDirection": "left",
+          "orbitDegrees": 20.0,
+          "independentFailedChecks": [
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-10-geometry-perturbation-trial1-llama-base",
+          "taskId": "validation-10-geometry-perturbation",
+          "condition": "geometry-perturbation",
+          "planId": "plan-01e14dd4647f98dacfd066a640b4d599",
+          "recipeId": "left-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family",
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family",
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-11-original-trial0-llama-base",
+          "taskId": "validation-11-original",
+          "condition": "original",
+          "planId": "plan-789eb5ebed898aa95da6f01c24c749f4",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        }
+      ]
+    },
+    "llama-sft": {
+      "returnedPlans": 36,
+      "failedIndependentComposite": 6,
+      "failedIndependentSampledGeometry": 0,
+      "engineInvalidReturnedPlans": 0,
+      "failureCounts": {
+        "family": 3,
+        "direction": 3
+      },
+      "rows": [
+        {
+          "occurrenceId": "validation-11-paraphrase-trial0-llama-sft",
+          "taskId": "validation-11-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-a706e8b96b1a11e1d9aad26f513ce1ca",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-11-paraphrase-trial1-llama-sft",
+          "taskId": "validation-11-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-a706e8b96b1a11e1d9aad26f513ce1ca",
+          "recipeId": "right-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "right",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-10-paraphrase-trial0-llama-sft",
+          "taskId": "validation-10-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-06fcbb9ea65083416035c38fb38335fe",
+          "recipeId": "left-slide",
+          "requestedFamily": "reveal",
+          "returnedFamily": "lateral",
+          "requestedDirection": "left",
+          "orbitDegrees": 0.0,
+          "independentFailedChecks": [
+            "family"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "family"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-geometry-perturbation-trial0-llama-sft",
+          "taskId": "validation-08-geometry-perturbation",
+          "condition": "geometry-perturbation",
+          "planId": "plan-16da8eb8f6b6ff458da14285bb7fd488",
+          "recipeId": "quarter-orbit",
+          "requestedFamily": "orbit",
+          "returnedFamily": "orbit",
+          "requestedDirection": "left",
+          "orbitDegrees": 21.9375,
+          "independentFailedChecks": [
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-paraphrase-trial0-llama-sft",
+          "taskId": "validation-08-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-cf19880f664e430d6db6c9867c775b9b",
+          "recipeId": "quarter-orbit",
+          "requestedFamily": "orbit",
+          "returnedFamily": "orbit",
+          "requestedDirection": "left",
+          "orbitDegrees": 21.9375,
+          "independentFailedChecks": [
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        },
+        {
+          "occurrenceId": "validation-08-paraphrase-trial1-llama-sft",
+          "taskId": "validation-08-paraphrase",
+          "condition": "paraphrase",
+          "planId": "plan-20a1186713a270e555ec1b5cb4135c0f",
+          "recipeId": "quarter-orbit",
+          "requestedFamily": "orbit",
+          "returnedFamily": "orbit",
+          "requestedDirection": "left",
+          "orbitDegrees": 21.9375,
+          "independentFailedChecks": [
+            "direction"
+          ],
+          "independentGeometryFailedChecks": [],
+          "primaryFailedChecks": [
+            "direction"
+          ],
+          "engineGeometryValid": true,
+          "primaryProductive": false
+        }
+      ]
+    }
+  },
+  "trainedWording": {
+    "scheduledPairs": 24,
+    "counts": {
+      "both-productive": 7,
+      "original-only": 3,
+      "paraphrase-only": 3,
+      "unavailable": 5,
+      "both-fail": 6
+    },
+    "discordantPairs": [
+      {
+        "sceneGroup": "validation-02",
+        "trial": 0,
+        "available": true,
+        "kind": "original-only",
+        "original": {
+          "occurrenceId": "validation-02-original-trial0-llama-sft",
+          "taskId": "validation-02-original",
+          "sceneGroup": "validation-02",
+          "trial": 0,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-5ed30bd3d60be88d3b02b83a0c809f95",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-5ed30bd3d60be88d3b02b83a0c809f95"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-5ed30bd3d60be88d3b02b83a0c809f95"
+              ]
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-02-paraphrase-trial0-llama-sft",
+          "taskId": "validation-02-paraphrase",
+          "sceneGroup": "validation-02",
+          "trial": 0,
+          "available": true,
+          "productive": false,
+          "termination": "repair-budget",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-8132877a6dda9e0b2f7735eb42664d3d",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-8132877a6dda9e0b2f7735eb42664d3d",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-8132877a6dda9e0b2f7735eb42664d3d",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            }
+          ]
+        }
+      },
+      {
+        "sceneGroup": "validation-08",
+        "trial": 0,
+        "available": true,
+        "kind": "original-only",
+        "original": {
+          "occurrenceId": "validation-08-original-trial0-llama-sft",
+          "taskId": "validation-08-original",
+          "sceneGroup": "validation-08",
+          "trial": 0,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "quarter-orbit",
+                "overrides": {
+                  "bearingDeg": 90,
+                  "orbitDegrees": 21.9375,
+                  "height": 1.204
+                }
+              },
+              "candidateId": "plan-0087f8449f1df41626731be6db610764",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "reverse-orbit",
+                "overrides": {
+                  "bearingDeg": 35,
+                  "orbitDegrees": -21.9375,
+                  "height": 1.204
+                }
+              },
+              "candidateId": "plan-f52041870770764b01c04c6df0f35f0b",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-f52041870770764b01c04c6df0f35f0b"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-f52041870770764b01c04c6df0f35f0b"
+              ]
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-08-paraphrase-trial0-llama-sft",
+          "taskId": "validation-08-paraphrase",
+          "sceneGroup": "validation-08",
+          "trial": 0,
+          "available": true,
+          "productive": false,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "quarter-orbit",
+                "overrides": {
+                  "bearingDeg": -35,
+                  "orbitDegrees": 21.9375,
+                  "height": 1.204
+                }
+              },
+              "candidateId": "plan-cf19880f664e430d6db6c9867c775b9b",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-cf19880f664e430d6db6c9867c775b9b"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-cf19880f664e430d6db6c9867c775b9b"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sceneGroup": "validation-03",
+        "trial": 1,
+        "available": true,
+        "kind": "paraphrase-only",
+        "original": {
+          "occurrenceId": "validation-03-original-trial1-llama-sft",
+          "taskId": "validation-03-original",
+          "sceneGroup": "validation-03",
+          "trial": 1,
+          "available": true,
+          "productive": false,
+          "termination": "repair-budget",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-03-paraphrase-trial1-llama-sft",
+          "taskId": "validation-03-paraphrase",
+          "sceneGroup": "validation-03",
+          "trial": 1,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-d1cdd304421c18f407dcc1f7ca6d4e17",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-d1cdd304421c18f407dcc1f7ca6d4e17"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-d1cdd304421c18f407dcc1f7ca6d4e17"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sceneGroup": "validation-02",
+        "trial": 1,
+        "available": true,
+        "kind": "paraphrase-only",
+        "original": {
+          "occurrenceId": "validation-02-original-trial1-llama-sft",
+          "taskId": "validation-02-original",
+          "sceneGroup": "validation-02",
+          "trial": 1,
+          "available": true,
+          "productive": false,
+          "termination": "repair-budget",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-f19fd97dbddcc848b9306d344213b3d4",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-f19fd97dbddcc848b9306d344213b3d4",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 180,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-f19fd97dbddcc848b9306d344213b3d4",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-02-paraphrase-trial1-llama-sft",
+          "taskId": "validation-02-paraphrase",
+          "sceneGroup": "validation-02",
+          "trial": 1,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.148
+                }
+              },
+              "candidateId": "plan-d2bfffd07dc9e6644f3a01386c68cc03",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-d2bfffd07dc9e6644f3a01386c68cc03"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-d2bfffd07dc9e6644f3a01386c68cc03"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sceneGroup": "validation-03",
+        "trial": 0,
+        "available": true,
+        "kind": "paraphrase-only",
+        "original": {
+          "occurrenceId": "validation-03-original-trial0-llama-sft",
+          "taskId": "validation-03-original",
+          "sceneGroup": "validation-03",
+          "trial": 0,
+          "available": true,
+          "productive": false,
+          "termination": "repair-budget",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.35135135135135137,
+                  "bearingDeg": 0,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-54026545960f8266964324702187ff84",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "camera_boundary",
+                  "obstacleId": null
+                },
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-03-paraphrase-trial0-llama-sft",
+          "taskId": "validation-03-paraphrase",
+          "sceneGroup": "validation-03",
+          "trial": 0,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "gentle-push",
+                "overrides": {
+                  "travel": 0.3643513513513513,
+                  "bearingDeg": 180,
+                  "height": 1.154
+                }
+              },
+              "candidateId": "plan-b1b98af3f712e5bd78a1052a5a5dd57d",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-b1b98af3f712e5bd78a1052a5a5dd57d"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-b1b98af3f712e5bd78a1052a5a5dd57d"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sceneGroup": "validation-06",
+        "trial": 0,
+        "available": true,
+        "kind": "original-only",
+        "original": {
+          "occurrenceId": "validation-06-original-trial0-llama-sft",
+          "taskId": "validation-06-original",
+          "sceneGroup": "validation-06",
+          "trial": 0,
+          "available": true,
+          "productive": true,
+          "termination": "finished",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "left-slide",
+                "overrides": {
+                  "travel": 0.5063513513513515,
+                  "bearingDeg": 180,
+                  "height": 1.146
+                }
+              },
+              "candidateId": "plan-2cbc3e3f3c5f305bbc3d004e2cbd7722",
+              "geometryValid": true,
+              "violations": [],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "finish",
+                "candidateIds": [
+                  "plan-2cbc3e3f3c5f305bbc3d004e2cbd7722"
+                ],
+                "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+              },
+              "candidateId": null,
+              "geometryValid": null,
+              "violations": [],
+              "observationError": null,
+              "accepted": [
+                "plan-2cbc3e3f3c5f305bbc3d004e2cbd7722"
+              ]
+            }
+          ]
+        },
+        "paraphrase": {
+          "occurrenceId": "validation-06-paraphrase-trial0-llama-sft",
+          "taskId": "validation-06-paraphrase",
+          "sceneGroup": "validation-06",
+          "trial": 0,
+          "available": true,
+          "productive": false,
+          "termination": "repair-budget",
+          "events": [
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "left-slide",
+                "overrides": {
+                  "travel": 0.5063513513513515,
+                  "bearingDeg": 35,
+                  "height": 1.146
+                }
+              },
+              "candidateId": "plan-7954997f8b0af42606a15657e2b27153",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "left-slide",
+                "overrides": {
+                  "travel": 0.5063513513513515,
+                  "bearingDeg": 35,
+                  "height": 1.146
+                }
+              },
+              "candidateId": "plan-7954997f8b0af42606a15657e2b27153",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            },
+            {
+              "action": {
+                "action": "compile_candidate",
+                "recipeId": "left-slide",
+                "overrides": {
+                  "travel": 0.5063513513513515,
+                  "bearingDeg": 35,
+                  "height": 1.146
+                }
+              },
+              "candidateId": "plan-7954997f8b0af42606a15657e2b27153",
+              "geometryValid": false,
+              "violations": [
+                {
+                  "code": "operator_boundary",
+                  "obstacleId": null
+                }
+              ],
+              "observationError": null,
+              "accepted": null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "trainedGeometryPerturbation": {
+    "scheduled": 24,
+    "available": 21,
+    "productive": 9,
+    "unavailable": 3,
+    "repairBudgetFailures": 11,
+    "identicalFailedCompileLoops": 10,
+    "wrongDirectionReturned": 1,
+    "rows": [
+      {
+        "occurrenceId": "validation-02-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-02-geometry-perturbation",
+        "sceneGroup": "validation-02",
+        "trial": 1,
+        "available": false,
+        "productive": false,
+        "termination": "provider-error",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "unavailable",
+        "compileActions": [],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-11-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-11-geometry-perturbation",
+        "sceneGroup": "validation-11",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": -35,
+              "height": 1.17
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-07-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-07-geometry-perturbation",
+        "sceneGroup": "validation-07",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "camera_obstacle",
+          "operator_obstacle"
+        ]
+      },
+      {
+        "occurrenceId": "validation-05-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-05-geometry-perturbation",
+        "sceneGroup": "validation-05",
+        "trial": 1,
+        "available": false,
+        "productive": false,
+        "termination": "provider-error",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "unavailable",
+        "compileActions": [],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-11-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-11-geometry-perturbation",
+        "sceneGroup": "validation-11",
+        "trial": 1,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-reveal",
+            "overrides": {
+              "travel": 0.5063514653514654,
+              "bearingDeg": -35,
+              "height": 1.17
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-07-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-07-geometry-perturbation",
+        "sceneGroup": "validation-07",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.14
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-00-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-00-geometry-perturbation",
+        "sceneGroup": "validation-00",
+        "trial": 0,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-03-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-03-geometry-perturbation",
+        "sceneGroup": "validation-03",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "camera_obstacle",
+          "operator_obstacle"
+        ]
+      },
+      {
+        "occurrenceId": "validation-05-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-05-geometry-perturbation",
+        "sceneGroup": "validation-05",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 35,
+              "height": 1.153
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-09-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-09-geometry-perturbation",
+        "sceneGroup": "validation-09",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-06-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-06-geometry-perturbation",
+        "sceneGroup": "validation-06",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-slide",
+            "overrides": {
+              "travel": 0.5693513513513514,
+              "bearingDeg": 35,
+              "height": 1.146
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-slide",
+            "overrides": {
+              "travel": 0.5693513513513514,
+              "bearingDeg": 35,
+              "height": 1.146
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-slide",
+            "overrides": {
+              "travel": 0.5693513513513514,
+              "bearingDeg": 35,
+              "height": 1.146
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-00-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-00-geometry-perturbation",
+        "sceneGroup": "validation-00",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.142
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-04-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-04-geometry-perturbation",
+        "sceneGroup": "validation-04",
+        "trial": 1,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 0,
+              "height": 1.18
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-09-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-09-geometry-perturbation",
+        "sceneGroup": "validation-09",
+        "trial": 0,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 31.5,
+              "height": 1.166
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-08-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-08-geometry-perturbation",
+        "sceneGroup": "validation-08",
+        "trial": 0,
+        "available": true,
+        "productive": false,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "brief-violation",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 35,
+              "orbitDegrees": 21.9375,
+              "height": 1.204
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-04-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-04-geometry-perturbation",
+        "sceneGroup": "validation-04",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 0,
+              "height": 1.18
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-08-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-08-geometry-perturbation",
+        "sceneGroup": "validation-08",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 90,
+              "orbitDegrees": 21.9375,
+              "height": 1.204
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "reverse-orbit",
+            "overrides": {
+              "bearingDeg": 90,
+              "orbitDegrees": -21.9375,
+              "height": 1.204
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": 90,
+              "orbitDegrees": 21.9375,
+              "height": 1.204
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "camera_boundary",
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-06-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-06-geometry-perturbation",
+        "sceneGroup": "validation-06",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-slide",
+            "overrides": {
+              "travel": 0.5113513513513513,
+              "bearingDeg": 180,
+              "height": 1.146
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-01-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-01-geometry-perturbation",
+        "sceneGroup": "validation-01",
+        "trial": 1,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 0,
+              "height": 1.164
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-01-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-01-geometry-perturbation",
+        "sceneGroup": "validation-01",
+        "trial": 0,
+        "available": true,
+        "productive": true,
+        "termination": "finished",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "productive",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "bearingDeg": 35,
+              "height": 1.164
+            }
+          }
+        ],
+        "errorViolationCodes": []
+      },
+      {
+        "occurrenceId": "validation-10-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-10-geometry-perturbation",
+        "sceneGroup": "validation-10",
+        "trial": 0,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 90,
+              "height": 1.164
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 90,
+              "height": 1.164
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 90,
+              "height": 1.164
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_boundary"
+        ]
+      },
+      {
+        "occurrenceId": "validation-10-geometry-perturbation-trial1-llama-sft",
+        "taskId": "validation-10-geometry-perturbation",
+        "sceneGroup": "validation-10",
+        "trial": 1,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 35,
+              "height": 1.164
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 35,
+              "height": 1.164
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "left-reveal",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 35,
+              "height": 1.164
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "operator_obstacle"
+        ]
+      },
+      {
+        "occurrenceId": "validation-03-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-03-geometry-perturbation",
+        "sceneGroup": "validation-03",
+        "trial": 0,
+        "available": true,
+        "productive": false,
+        "termination": "repair-budget",
+        "repeatedIdenticalFailedCompile": true,
+        "reason": "repair-budget",
+        "compileActions": [
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          },
+          {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.35135135135135137,
+              "bearingDeg": 180,
+              "height": 1.154
+            }
+          }
+        ],
+        "errorViolationCodes": [
+          "camera_obstacle",
+          "operator_obstacle"
+        ]
+      },
+      {
+        "occurrenceId": "validation-02-geometry-perturbation-trial0-llama-sft",
+        "taskId": "validation-02-geometry-perturbation",
+        "sceneGroup": "validation-02",
+        "trial": 0,
+        "available": false,
+        "productive": false,
+        "termination": "provider-error",
+        "repeatedIdenticalFailedCompile": false,
+        "reason": "unavailable",
+        "compileActions": [],
+        "errorViolationCodes": []
+      }
+    ]
+  },
+  "pairedSupportedAudit": {
+    "counts": {
+      "availablePairs": 46,
+      "baseProductive": 10,
+      "trainedProductive": 21,
+      "gains": 14,
+      "losses": 3,
+      "bothProductive": 7,
+      "bothFail": 22
+    },
+    "rows": [
+      {
+        "taskId": "validation-11-geometry-perturbation",
+        "sceneGroup": "validation-11",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-11-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-11-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-05-paraphrase",
+        "sceneGroup": "validation-05",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-05-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-05-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-02-original",
+        "sceneGroup": "validation-02",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-02-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-02-original-trial0-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-08-original",
+        "sceneGroup": "validation-08",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-08-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-08-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-03-original",
+        "sceneGroup": "validation-03",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-03-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-03-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-10-paraphrase",
+        "sceneGroup": "validation-10",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-10-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-10-paraphrase-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-11-paraphrase",
+        "sceneGroup": "validation-11",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-11-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-11-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": false
+      },
+      {
+        "taskId": "validation-03-geometry-perturbation",
+        "sceneGroup": "validation-03",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-03-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-03-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-11-paraphrase",
+        "sceneGroup": "validation-11",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-11-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-11-paraphrase-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": false
+      },
+      {
+        "taskId": "validation-05-original",
+        "sceneGroup": "validation-05",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-05-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-05-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-00-original",
+        "sceneGroup": "validation-00",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-00-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-00-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-07-original",
+        "sceneGroup": "validation-07",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-07-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-07-original-trial0-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-02-original",
+        "sceneGroup": "validation-02",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-02-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-02-original-trial1-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-10-original",
+        "sceneGroup": "validation-10",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-10-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-10-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-03-original",
+        "sceneGroup": "validation-03",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-03-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-03-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-05-geometry-perturbation",
+        "sceneGroup": "validation-05",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-05-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-05-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-06-original",
+        "sceneGroup": "validation-06",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-06-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-06-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-05-original",
+        "sceneGroup": "validation-05",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-05-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-05-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-09-original",
+        "sceneGroup": "validation-09",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-09-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-09-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-09-geometry-perturbation",
+        "sceneGroup": "validation-09",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-09-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-09-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-10-paraphrase",
+        "sceneGroup": "validation-10",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-10-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-10-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": false
+      },
+      {
+        "taskId": "validation-10-original",
+        "sceneGroup": "validation-10",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-10-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-10-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-03-paraphrase",
+        "sceneGroup": "validation-03",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-03-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-03-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-06-geometry-perturbation",
+        "sceneGroup": "validation-06",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-06-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-06-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-07-original",
+        "sceneGroup": "validation-07",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-07-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-07-original-trial1-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-02-paraphrase",
+        "sceneGroup": "validation-02",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-02-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-02-paraphrase-trial0-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-08-original",
+        "sceneGroup": "validation-08",
+        "trial": 1,
+        "condition": "original",
+        "baseOccurrenceId": "validation-08-original-trial1-llama-base",
+        "trainedOccurrenceId": "validation-08-original-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-04-geometry-perturbation",
+        "sceneGroup": "validation-04",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-04-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-04-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-04-original",
+        "sceneGroup": "validation-04",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-04-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-04-original-trial0-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-04-paraphrase",
+        "sceneGroup": "validation-04",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-04-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-04-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-06-paraphrase",
+        "sceneGroup": "validation-06",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-06-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-06-paraphrase-trial1-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-09-geometry-perturbation",
+        "sceneGroup": "validation-09",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-09-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-09-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-00-paraphrase",
+        "sceneGroup": "validation-00",
+        "trial": 0,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-00-paraphrase-trial0-llama-base",
+        "trainedOccurrenceId": "validation-00-paraphrase-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-08-geometry-perturbation",
+        "sceneGroup": "validation-08",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-08-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-08-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": false
+      },
+      {
+        "taskId": "validation-04-geometry-perturbation",
+        "sceneGroup": "validation-04",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-04-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-04-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-08-geometry-perturbation",
+        "sceneGroup": "validation-08",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-08-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-08-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-06-geometry-perturbation",
+        "sceneGroup": "validation-06",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-06-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-06-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-00-original",
+        "sceneGroup": "validation-00",
+        "trial": 0,
+        "condition": "original",
+        "baseOccurrenceId": "validation-00-original-trial0-llama-base",
+        "trainedOccurrenceId": "validation-00-original-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-01-geometry-perturbation",
+        "sceneGroup": "validation-01",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-01-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-01-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-01-paraphrase",
+        "sceneGroup": "validation-01",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-01-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-01-paraphrase-trial1-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-01-geometry-perturbation",
+        "sceneGroup": "validation-01",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-01-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-01-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": true,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-05-paraphrase",
+        "sceneGroup": "validation-05",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-05-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-05-paraphrase-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      },
+      {
+        "taskId": "validation-10-geometry-perturbation",
+        "sceneGroup": "validation-10",
+        "trial": 0,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-10-geometry-perturbation-trial0-llama-base",
+        "trainedOccurrenceId": "validation-10-geometry-perturbation-trial0-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-10-geometry-perturbation",
+        "sceneGroup": "validation-10",
+        "trial": 1,
+        "condition": "geometry-perturbation",
+        "baseOccurrenceId": "validation-10-geometry-perturbation-trial1-llama-base",
+        "trainedOccurrenceId": "validation-10-geometry-perturbation-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": null
+      },
+      {
+        "taskId": "validation-08-paraphrase",
+        "sceneGroup": "validation-08",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-08-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-08-paraphrase-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": false,
+        "trainedIndependentPass": false
+      },
+      {
+        "taskId": "validation-04-paraphrase",
+        "sceneGroup": "validation-04",
+        "trial": 1,
+        "condition": "paraphrase",
+        "baseOccurrenceId": "validation-04-paraphrase-trial1-llama-base",
+        "trainedOccurrenceId": "validation-04-paraphrase-trial1-llama-sft",
+        "baseProductive": false,
+        "trainedProductive": true,
+        "trainedIndependentPass": true
+      }
+    ],
+    "agreesWithPublishedAnalysis": true
+  },
+  "representativeCases": [
+    {
+      "occurrenceId": "validation-07-geometry-perturbation-trial1-llama-sft",
+      "brief": "Move right as you face the product in a straight lateral slide. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "briefSpec": {
+        "family": "lateral",
+        "direction": "right",
+        "minimumTravel": 0.1,
+        "minimumOrbitDegrees": 0,
+        "requiresForegroundOcclusion": false
+      },
+      "termination": "repair-budget",
+      "returnedPlanIds": [],
+      "productive": false,
+      "primaryPlanGrades": [],
+      "independentChecks": [],
+      "callChain": [
+        {
+          "callIndex": 0,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/0-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/0-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": false,
+          "exactResponseContent": "{\"action\":\"compile_candidate\",\"recipeId\":\"right-slide\",\"overrides\":{\"travel\":0.5013513513513513,\"bearingDeg\":35,\"height\":1.14}}",
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          },
+          "candidateId": "plan-3d3f013120c7c96ff94d75a87f99891b",
+          "geometryValid": false,
+          "violations": [
+            {
+              "code": "camera_obstacle",
+              "obstacleId": "counterfactual-stand"
+            },
+            {
+              "code": "operator_obstacle",
+              "obstacleId": "counterfactual-stand"
+            }
+          ],
+          "observationError": null,
+          "accepted": null
+        },
+        {
+          "callIndex": 1,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/1-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/1-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": true,
+          "exactResponseContent": "{\"action\":\"compile_candidate\",\"recipeId\":\"right-slide\",\"overrides\":{\"travel\":0.5013513513513513,\"bearingDeg\":35,\"height\":1.14}}",
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          },
+          "candidateId": "plan-3d3f013120c7c96ff94d75a87f99891b",
+          "geometryValid": false,
+          "violations": [
+            {
+              "code": "camera_obstacle",
+              "obstacleId": "counterfactual-stand"
+            },
+            {
+              "code": "operator_obstacle",
+              "obstacleId": "counterfactual-stand"
+            }
+          ],
+          "observationError": null,
+          "accepted": null
+        },
+        {
+          "callIndex": 2,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/2-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/2-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": true,
+          "exactResponseContent": "{\"action\":\"compile_candidate\",\"recipeId\":\"right-slide\",\"overrides\":{\"travel\":0.5013513513513513,\"bearingDeg\":35,\"height\":1.14}}",
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5013513513513513,
+              "bearingDeg": 35,
+              "height": 1.14
+            }
+          },
+          "candidateId": "plan-3d3f013120c7c96ff94d75a87f99891b",
+          "geometryValid": false,
+          "violations": [
+            {
+              "code": "camera_obstacle",
+              "obstacleId": "counterfactual-stand"
+            },
+            {
+              "code": "operator_obstacle",
+              "obstacleId": "counterfactual-stand"
+            }
+          ],
+          "observationError": null,
+          "accepted": null
+        }
+      ]
+    },
+    {
+      "occurrenceId": "validation-08-paraphrase-trial0-llama-sft",
+      "brief": "Travel on a circular arc to your left around the product, covering 20 degrees or more. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "briefSpec": {
+        "family": "orbit",
+        "direction": "left",
+        "minimumTravel": 0.1,
+        "minimumOrbitDegrees": 20,
+        "requiresForegroundOcclusion": false
+      },
+      "termination": "finished",
+      "returnedPlanIds": [
+        "plan-cf19880f664e430d6db6c9867c775b9b"
+      ],
+      "productive": false,
+      "primaryPlanGrades": [
+        {
+          "planId": "plan-cf19880f664e430d6db6c9867c775b9b",
+          "productive": false,
+          "checks": {
+            "source_preserved": true,
+            "feasible": true,
+            "family": true,
+            "duration": true,
+            "height": true,
+            "supported_effect": true,
+            "motion": true,
+            "direction": false
+          },
+          "failedChecks": [
+            "direction"
+          ],
+          "minClearance": 0.4611695411078809,
+          "arcLength": 1.305863303888202,
+          "tangentTravel": 1.2979013509028525,
+          "radialChange": -4.440892098500626e-16,
+          "violationCodes": []
+        }
+      ],
+      "independentChecks": [
+        {
+          "valid": false,
+          "checks": {
+            "source": true,
+            "family": true,
+            "duration": true,
+            "height": true,
+            "endpoints": true,
+            "camera_boundary": true,
+            "operator_boundary": true,
+            "camera_obstacles": true,
+            "operator_obstacles": true,
+            "motion": true,
+            "direction": false,
+            "equipment": true
+          },
+          "sampledPositions": 201,
+          "sampledLength": 1.3058631044742832,
+          "limitations": "Independent arithmetic and polygon checks at 201 poses; no optics check or guarantee between poses."
+        }
+      ],
+      "callChain": [
+        {
+          "callIndex": 0,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/0-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/0-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": false,
+          "exactResponseContent": "{\"action\":\"compile_candidate\",\"recipeId\":\"quarter-orbit\",\"overrides\":{\"bearingDeg\":-35,\"orbitDegrees\":21.9375,\"height\":1.204}}",
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "bearingDeg": -35,
+              "orbitDegrees": 21.9375,
+              "height": 1.204
+            }
+          },
+          "candidateId": "plan-cf19880f664e430d6db6c9867c775b9b",
+          "geometryValid": true,
+          "violations": [],
+          "observationError": null,
+          "accepted": null
+        },
+        {
+          "callIndex": 1,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/1-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/1-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": true,
+          "exactResponseContent": "{\"action\":\"finish\",\"candidateIds\":[\"plan-cf19880f664e430d6db6c9867c775b9b\"],\"explanation\":\"This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location.\"}",
+          "action": {
+            "action": "finish",
+            "candidateIds": [
+              "plan-cf19880f664e430d6db6c9867c775b9b"
+            ],
+            "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+          },
+          "candidateId": null,
+          "geometryValid": null,
+          "violations": [],
+          "observationError": null,
+          "accepted": [
+            "plan-cf19880f664e430d6db6c9867c775b9b"
+          ]
+        }
+      ]
+    },
+    {
+      "occurrenceId": "validation-11-paraphrase-trial0-llama-sft",
+      "brief": "Enter the hero composition on a diagonal slide to your right. Keep the product visible throughout; do not use a foreground occluder. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "briefSpec": {
+        "family": "reveal",
+        "direction": "right",
+        "minimumTravel": 0.1,
+        "minimumOrbitDegrees": 0,
+        "requiresForegroundOcclusion": false
+      },
+      "termination": "finished",
+      "returnedPlanIds": [
+        "plan-a706e8b96b1a11e1d9aad26f513ce1ca"
+      ],
+      "productive": false,
+      "primaryPlanGrades": [
+        {
+          "planId": "plan-a706e8b96b1a11e1d9aad26f513ce1ca",
+          "productive": false,
+          "checks": {
+            "source_preserved": true,
+            "feasible": true,
+            "family": false,
+            "duration": true,
+            "height": true,
+            "supported_effect": true,
+            "motion": true,
+            "direction": true
+          },
+          "failedChecks": [
+            "family"
+          ],
+          "minClearance": 1.5056244377434862,
+          "arcLength": 0.5063513513513516,
+          "tangentTravel": 0.5063513513513516,
+          "radialChange": -4.440892098500626e-16,
+          "violationCodes": []
+        }
+      ],
+      "independentChecks": [
+        {
+          "valid": false,
+          "checks": {
+            "source": true,
+            "family": false,
+            "duration": true,
+            "height": true,
+            "endpoints": true,
+            "camera_boundary": true,
+            "operator_boundary": true,
+            "camera_obstacles": true,
+            "operator_obstacles": true,
+            "motion": true,
+            "direction": true,
+            "equipment": true
+          },
+          "sampledPositions": 201,
+          "sampledLength": 0.5063513513513503,
+          "limitations": "Independent arithmetic and polygon checks at 201 poses; no optics check or guarantee between poses."
+        }
+      ],
+      "callChain": [
+        {
+          "callIndex": 0,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/0-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/0-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": false,
+          "exactResponseContent": "{\"action\":\"compile_candidate\",\"recipeId\":\"right-slide\",\"overrides\":{\"travel\":0.5063513513513514,\"bearingDeg\":35,\"height\":1.17}}",
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.5063513513513515,
+              "bearingDeg": 35,
+              "height": 1.17
+            }
+          },
+          "candidateId": "plan-a706e8b96b1a11e1d9aad26f513ce1ca",
+          "geometryValid": true,
+          "violations": [],
+          "observationError": null,
+          "accepted": null
+        },
+        {
+          "callIndex": 1,
+          "request": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/1-request.json",
+          "response": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/1-response.json",
+          "responseActionMatchesEvent": true,
+          "previousToolObservationDelivered": true,
+          "exactResponseContent": "{\"action\":\"finish\",\"candidateIds\":[\"plan-a706e8b96b1a11e1d9aad26f513ce1ca\"],\"explanation\":\"This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location.\"}",
+          "action": {
+            "action": "finish",
+            "candidateIds": [
+              "plan-a706e8b96b1a11e1d9aad26f513ce1ca"
+            ],
+            "explanation": "This checked candidate preserves the requested movement, camera height, duration and framing against the supplied measurements. Confirm the framing and operator clearance on location."
+          },
+          "candidateId": null,
+          "geometryValid": null,
+          "violations": [],
+          "observationError": null,
+          "accepted": [
+            "plan-a706e8b96b1a11e1d9aad26f513ce1ca"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceHashes": [
+    {
+      "path": "../../../artifacts/controlled-validation-v1/entries.json",
+      "sha256": "35db6465df6aa7733f4621c8717ac11dc65530383f4ae0efd03f2ae88630ed71"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/suite.json",
+      "sha256": "fc87f72b85ba7736743eb45ea9a040e300e056bb79bd70df33d9824859bac66c"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/analysis.json",
+      "sha256": "11a23c4703b3a6514c68bc1607afaf485cff5d063afc0ffe2677749caabd1166"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/protocol.json",
+      "sha256": "f96424f4b6b4adc80bae8827e3b7b7ba33da7dcc1cd407b29bde93b43aef2256"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/runtime.json",
+      "sha256": "935d34f2aa5083bd93932c8da8d598ea657bec5aa19cd21573172db5bb2d0447"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "4705304c4977c1d1dcca85d9e53362b4af255ca93c96b24d46d08bcaf1ab9305"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/entry.json",
+      "sha256": "4d5f353a47fe7f10a501edc9b0efe84ce9364dc5eaf387a7f8e5faf5a2dbf20b"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/config.json",
+      "sha256": "d1ccc62e8394720677139e78d8368d1a2416a23d099bb8441978bdf4b69c480b"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/0-request.json",
+      "sha256": "d32d87c1bd2009a740bc6100a24e192c169b965733ef81fc48af8c2e538f39e4"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/0-response.json",
+      "sha256": "d55c473f456c7d8f51e308af2b60147db144f83acec7e9702d9e146c5d6b1d21"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/1-request.json",
+      "sha256": "3f82f32a927a5ca585fa54a22f3825acef0912f6a01a828a8234c33d352312f2"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/1-response.json",
+      "sha256": "5b540e6477961d5fc3b85e72b96e3b57768cc6e9023381a0b94c5aea778a9ffc"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/2-request.json",
+      "sha256": "5c0ca451155f21966aa7b5f5a7b24d9466b867e17c9758f7ae913cd826e4a5dd"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-07-geometry-perturbation-trial1-llama-sft/calls/2-response.json",
+      "sha256": "56df6195947c1d2d98fd7732ec453b258ddad3b676a158d1959e2fd075bc4707"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "156ecff202dd52e4f3a23c8e592182f90e459b1035b465d249b7ee6af7fcf535"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/entry.json",
+      "sha256": "b4732495ca8bbc173ae6ad92099b26f4edef593829a2b5336843e06ee37c0336"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/config.json",
+      "sha256": "427158b1f3b9b7aaa1d90901751602df7633a739b4c5321e79baa5b66a7eda57"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/0-request.json",
+      "sha256": "6a219dae97f04877b296988daa935c599e54d8579e3e286ca63966bf9a2b8c02"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/0-response.json",
+      "sha256": "88ca7e701bcb6620388540bd355027af2bf977042d3de46f6b4b7902e4e52260"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/1-request.json",
+      "sha256": "216428c3f5d012d76e65cad09ecaefdb1d1ebd2b86b28146f28d2a84fc0cb0b2"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial0-llama-sft/calls/1-response.json",
+      "sha256": "5b9a36bf5b4ef9e8ecead733ec929f3f0ddf68cd595781d8e12484c31d71f0a0"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "916149f1fe68cce04dc4c65902376c52cadf2c921f2d8be0daa07ba960002fdf"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/entry.json",
+      "sha256": "c27da537567eaa72546ede718e97ffcfdf3ebb277f8e64223e5e00cb94c6533c"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/config.json",
+      "sha256": "b2f64ce0d13c22175ac327e886cf8f2421f5c3d4883aba9b0eefa900dcedb9bc"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/0-request.json",
+      "sha256": "419cb90d351cefc1cdd859e1a13ea752b1033954291c317a6c4228622d94442d"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/0-response.json",
+      "sha256": "a2d807bd18dd6b55eb27727b3150e10c98e2c6424edbbe34f37892861b90ac02"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/1-request.json",
+      "sha256": "4df5f9bac0fee36102aca6ade5916260c22f0f53c0ebd4e3ce2545f7e7889ff8"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial0-llama-sft/calls/1-response.json",
+      "sha256": "dab328c5490ef363f17d87fb23f1d0e7f3c5239be20b935a565fe1e7dfa109fe"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-original-trial0-llama-sft/result.json",
+      "sha256": "723b7062fb0eb7839021dde7a67d6047b0f0cc0b4549469b50ec20cd1c91e5fe"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-paraphrase-trial1-llama-sft/result.json",
+      "sha256": "d3748cacecbe0b891ecd2552fdab1db62fecb266cc279b660d88c12a12802604"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "6965a75de956e432b3316356ee2fdbb1f6cdea079b08db5bea2677c279711194"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-geometry-perturbation-trial0-llama-sft/result.json",
+      "sha256": "3fd07ea72d84767e477a3c3f8b80d48a04c80307c3e059c37986aa84713a5a96"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "a4c395e3502fb3825133a06b8615db55fcce5df21dbbef44e57265f3c84f8297"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-06-original-trial0-llama-sft/result.json",
+      "sha256": "b61cb1917f881660f5588d0902c21654c89b068f309c09c6b5b8f6190fb9b027"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-geometry-perturbation-trial0-llama-sft/result.json",
+      "sha256": "406b371c85e4cf81a4453ed40578af9f2be12423f2451af45040186a18f6112f"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-09-geometry-perturbation-trial0-llama-sft/result.json",
+      "sha256": "d3d55731b70fad61c7209a2c6eb5ba70246c48e513e5e8f11fe16d5c1af24d8f"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-00-geometry-perturbation-trial0-llama-sft/result.json",
+      "sha256": "d2641fcd3c53f635272c97404023a96269011ed2c6218ab58542e122134365a7"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-10-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "31fbb8af2b8b350bfd2ec41abebd333dca6f4f8099f009191d11be0de3d5b695"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-09-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "ee2c4caf856d34b278578c00f3bfad824cf47952ced10cd1206dc22d003b69e9"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-02-original-trial0-llama-sft/result.json",
+      "sha256": "660a2ba1c0e94dbe875c30bfa01db193556c3565e0dc99178e31ad65c65730eb"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-02-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "dade8b3b7e7b1bab0b8b63d24a1623a690bb6628741abbaac0ce002fd7c1244f"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-10-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "3f68ba25cb147f39b3f8b43b3d948298ce6d03b59cefc11487e9d8063bb5c954"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "bfa03b7d123cc896686d1f423b6541c83f877bfcd89ef4a9cb9ee05b8b1bfae7"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-paraphrase-trial1-llama-sft/result.json",
+      "sha256": "bc8e422805c9f1f3260c5e5d2ab7eb6971ace534bd236902a70d8b841c3d5c1e"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-02-original-trial1-llama-sft/result.json",
+      "sha256": "f02a6f34d9223aeeb205857a736030384b3867d3f25e18cf4911afa96cc4d256"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-11-paraphrase-trial1-llama-sft/result.json",
+      "sha256": "5d19ba6efdbc1b1de41c6ada88e6159d2021ca88ea2f8085d2f86e0da8b9c8fa"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-10-geometry-perturbation-trial0-llama-sft/result.json",
+      "sha256": "db40921fd8f82c44cf8a27fe490e9979dd50a797b1b5b6798e234ec4e7321e4f"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-03-original-trial1-llama-sft/result.json",
+      "sha256": "066fd7054ebb6fe0904254b1039edb04e99e20fa16659a92343a6c04d6615c22"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-00-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "a4707aa5b7d7d706bfa9e0af92417def3842b34158c7d4bc7c8cdc533bf69d5d"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-02-paraphrase-trial1-llama-sft/result.json",
+      "sha256": "c76cb3f7ad4d1a96dc9d76900149c78d06d237f3497e2c4aab637458cddeca5e"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-06-paraphrase-trial0-llama-sft/result.json",
+      "sha256": "2b391e8b9f92156847a71317cbe22a92856b841381c1c4025a97dfb6cd1a05c8"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-08-original-trial0-llama-sft/result.json",
+      "sha256": "deef699ff222ef38f6509d8236333c83befe5031d780ff4dcae487cfb8acc1cc"
+    },
+    {
+      "path": "../../../artifacts/controlled-validation-v1/occurrences/validation-06-geometry-perturbation-trial1-llama-sft/result.json",
+      "sha256": "d8f45d12d9815f5dbc9563387d9dbc461bb78fc55e3ed7d093a372207141307a"
+    },
+    {
+      "path": "../fixtures.ts",
+      "sha256": "6d66c5f3ab8289b9a1b14544d91b486a883d00e9d25de67e3f652163342f794f"
+    },
+    {
+      "path": "../../next/grade.ts",
+      "sha256": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c"
+    },
+    {
+      "path": "../../next/planner.ts",
+      "sha256": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d"
+    },
+    {
+      "path": "../analyze.ts",
+      "sha256": "55aec52ea5b4616df2599d289e92c61d8fd65d7e65ccb07f2fffefbf79cf290c"
+    }
+  ],
+  "limitations": [
+    "A sampled independent geometry diagnostic does not prove continuous physical safety or validate optics.",
+    "The wording pairs include only jointly available outputs and two repetitions per task; neither sentence wording nor training-example type is isolated as a causal mechanism.",
+    "These are synthetic solver-selected tasks across 12 scene groups. Human cinematic quality and creator outcomes are unmeasured.",
+    "Call-chain numeric values use absolute tolerance 1e-12 for JSON floating-point serialization; string values, identities and request input membership match."
+  ],
+  "pathResolution": "Source and call-receipt paths resolve relative to this JSON file."
+}

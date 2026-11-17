@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "experiment": "objectron-current-worker-development-v1",
+  "attempt": "field-validation-20261030",
+  "recordedAt": "2026-10-30T21:49:32.311508+00:00",
+  "scope": {
+    "evidence_kind": "public-dataset-tracking",
+    "cohort_exposure": "previously-inspected-development",
+    "reference_kind": "projected-3d-cuboid",
+    "authored_flowblock_take": false,
+    "creator_outcome_measured": false,
+    "visible_mask_accuracy_measured": false
+  },
+  "sourceSummary": {
+    "path": "../../../artifacts/field-validation-20261030/summary.json",
+    "sha256": "bf6e59f00c6a71ea7698a71bb4182ccf74745fa201640cc03880b4f266c54f04"
+  },
+  "frozenInputs": {
+    "path": "../../../artifacts/field-validation-20261030/freeze.json",
+    "sha256": "687cca6a304b16166e9fce057303dec7383f19fa0c1f4004c4700216eb6c13f8"
+  },
+  "protocol": {
+    "path": "../research-contract.json",
+    "sha256": "a39fb9dae2d5cba5d27f8517964ecf506f65f4ec6a5ac30389d30c72e7baa3e5"
+  },
+  "counts": {
+    "completed": 8,
+    "excluded": 2
+  },
+  "selectedForExecution": 8,
+  "nonseedSamples": 592,
+  "heuristicUsableSamples": 591,
+  "heuristicUsableFraction": 0.9983108108108109,
+  "equalVideoMeanProjectionProxies": {
+    "mask_center_inside_projected_box": {
+      "mean": 1.0,
+      "contributing_videos": 8
+    },
+    "mask_centroid_to_projected_3d_center_frame_diagonal_discrepancy": {
+      "mean": 0.03324154280249709,
+      "contributing_videos": 8
+    },
+    "mask_height_to_projected_box_height_ratio": {
+      "mean": 0.9294060102210251,
+      "contributing_videos": 8
+    },
+    "mask_width_to_projected_box_width_ratio": {
+      "mean": 0.8768252934630749,
+      "contributing_videos": 8
+    }
+  },
+  "processingSecondsTotal": 870.8216031249613,
+  "wallSecondsIncludingModelSetup": 874.4556021249882,
+  "uncertainObservations": [
+    {
+      "sequence_id": "bottle/batch-40/29",
+      "worker_seconds": 3.666667,
+      "status": "uncertain",
+      "reasons": [
+        "weak-mask-logits"
+      ]
+    }
+  ],
+  "arithmeticReadback": {
+    "path": "../../../artifacts/field-validation-20261030/local-readback.json",
+    "sha256": "48145d3333f88af4a904faec11b1f533dd8a45a1f2d9d21c08cd6404959ab878"
+  },
+  "qualitativeInspection": {
+    "scope": "Assistant inspection of midpoint and final overlays for each of eight clips; not independent ground truth and not a scored criterion. Lime lines are predicted mask boundaries; pink boxes are dataset cuboid projections.",
+    "reviewedFrames": 16,
+    "observations": [
+      {
+        "sequence_id": "camera/batch-7/24",
+        "timestamp_seconds": 2.466667,
+        "observation": "The predicted boundary appears to extend onto the adjacent price card."
+      },
+      {
+        "sequence_id": "cup/batch-37/28",
+        "timestamp_seconds": 4.933333,
+        "observation": "The predicted boundary follows the red exterior and excludes the visible white interior."
+      },
+      {
+        "sequence_id": "laptop/batch-37/20",
+        "timestamp_seconds": 4.931667,
+        "observation": "The predicted boundary extends beyond the laptop body onto the adjacent table."
+      }
+    ],
+    "receipt": {
+      "path": "../../../artifacts/field-validation-20261030/qualitative-inspection.json",
+      "sha256": "8962cbc793067670495b3db731f045f332ff2856066f8aa92bc8c91e2498a4eb"
+    }
+  },
+  "models": {
+    "status": "verified",
+    "runUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-15a84f079fb00539cb9d7e94",
+    "datasetRunUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-61173b354f2a1529cf796266",
+    "datasetArtifactUri": "wandb-artifact:///wandb/flowblock/flowblock-objectron-repeat-development-field-validation-20261030:v0",
+    "resultsArtifact": {
+      "id": "QXJ0aWZhY3Q6NDI5NDI5NjgwMg==",
+      "name": "flowblock-objectron-development-repeat-20261030-15a84f079fb00539-results:v0",
+      "digest": "327f4571d03590818ecf53ceb3b1ad7f",
+      "verifiedFiles": 1
+    },
+    "metricsVerified": 12,
+    "tableRowsVerified": 10,
+    "tableColumnsVerified": 19,
+    "allTableCellsMatch": true,
+    "receipt": {
+      "path": "../../../artifacts/next-publications/benchmark-15a84f079fb00539cb9d7e94.json",
+      "sha256": "401dcb6e8a93da43de58066f4df01ed0594815bb0078aafc9d0838c25bfdb13f"
+    },
+    "tableReadback": {
+      "path": "../../../artifacts/field-validation-20261030/models-table-readback.json",
+      "sha256": "78b96775b9d3355ae02fcc1052cee39fb0799da29988424017731ec0e5391b88"
+    }
+  },
+  "weave": {
+    "status": "verified",
+    "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18ecd-e40d-775b-a817-1a570fc3c840",
+    "evaluationCallId": "01a18ecd-e40d-775b-a817-1a570fc3c840",
+    "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-objectron-repeat-development-52c156e2f4b1:JlPBHdNq0TmfX85ASgJAYYyOVhjeXgz9tCqdAyRZak0",
+    "modelRef": "weave:///wandb/flowblock/object/SAM-2_1-Small-Objectron-development-repeat-ba8da6aa6ea817e8:q8zViOUYLo4LgCU4AxOToUuWxcv0ttYXOGL0r9l7qI4",
+    "expectedRows": 10,
+    "observedRows": 10,
+    "rowsMatch": true,
+    "summaryMatches": true,
+    "datasetMatches": true,
+    "configurationMatches": true,
+    "importOnly": true,
+    "receipt": {
+      "path": "../../next/results/weave-publications/14eca85d03884894f253f5e8f652d497b1425340da920f5c11bbcb5400496f3e.json",
+      "sha256": "3094f25a54dcba304f818853e46f29a005d7cc72cb311613199aaa128cee1440"
+    }
+  },
+  "limitations": [
+    "Convenience sample from upstream test indices, not FlowBlock confirmation data",
+    "Projected 3D boxes are not visible silhouettes; metrics are discrepancy proxies, not mask accuracy",
+    "No creator treatment, usability judgment, calibrated confidence or camera-distance inference",
+    "These exact recordings have already been inspected; this run is not fresh held-out evidence.",
+    "MPS uses CPU fallback for unsupported operations; execution times are local observations, not a service promise.",
+    "591 heuristic-usable frames do not imply 591 accurate masks or usable filmed takes.",
+    "Assistant inspection of sampled overlays is qualitative, not independent silhouette ground truth.",
+    "No creator study or filming to an authored FlowBlock plan was performed.",
+    "Native Forge publication imports completed local runs; no remote inference or training was used."
+  ]
+}

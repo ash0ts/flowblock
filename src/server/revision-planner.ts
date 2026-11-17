@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { z } from "zod";
 import * as weave from "weave";
 import {
   beforeDeadline,
@@ -7,7 +8,7 @@ import {
   trace,
 } from "./coordinator-runtime";
 import {
-  AgentActionSchema,
+  OverridesSchema,
   compilePlan,
   type Overrides,
   type PlanVersion,
@@ -19,6 +20,23 @@ import {
   type PlannerMessage,
   type PlannerEvent,
 } from "./planner";
+import {
+  ReviewReadActionSchema,
+  RevisionActionSchema,
+} from "./planner-actions";
+import { parameterUnits } from "./planner-feedback";
+import {
+  revisionFindingId,
+  revisionEvidenceChoices,
+  revisionEvidenceActionSchema,
+  validateRevisionEvidence,
+  type RevisionAction,
+} from "./revision-actions";
+import {
+  workflowAgentName,
+  workflowAttributes,
+  type WorkflowTraceContext,
+} from "./workflow-telemetry";
 
 export type RevisionProposal = {
   plan: PlanVersion;
@@ -29,11 +47,34 @@ export type RevisionProposal = {
   model?: string;
   events: PlannerEvent[];
 };
-export const revisionVersion = "revision-v1.1";
-export const findingId = (
-  finding: TakeAnalysis["findings"][number],
-  index: number,
-) => `${finding.kind}:${finding.phase}:${index}`;
+export const revisionVersion = "revision-v1.4";
+export const findingId = revisionFindingId;
+
+export class RevisionAbstainedError extends Error {
+  readonly source = "forge" as const;
+  readonly reason: string;
+  readonly findingIds: string[];
+  readonly traceId?: string;
+  readonly model: string;
+  readonly events: PlannerEvent[];
+  constructor(details: {
+    reason: string;
+    findingIds: string[];
+    traceId?: string;
+    model: string;
+    events: PlannerEvent[];
+  }) {
+    super(
+      "The agent abstained from proposing a revision. Keep the original plan and review the cited evidence.",
+    );
+    this.name = "RevisionAbstainedError";
+    this.reason = details.reason;
+    this.findingIds = details.findingIds;
+    this.traceId = details.traceId;
+    this.model = details.model;
+    this.events = details.events;
+  }
+}
 
 function physicalSignature(plan: PlanVersion) {
   return JSON.stringify([plan.path, plan.durationSeconds, plan.cameraHeight]);
@@ -51,6 +92,7 @@ export function validateRevision(
     throw new Error(
       "Correct uncertain tracking before proposing a plan change.",
     );
+  overrides = OverridesSchema.parse(overrides);
   if (Object.keys(overrides).length !== 1)
     throw new Error("Propose exactly one parameter change.");
   if ("reverse" in overrides)
@@ -60,6 +102,17 @@ export function validateRevision(
   const known = analysis.findings.map(findingId);
   if (findingIds.length !== 1 || !known.includes(findingIds[0]))
     throw new Error("Cite one finding from this take.");
+  const finding = analysis.findings[known.indexOf(findingIds[0])];
+  if (
+    overrides.travel !== undefined &&
+    (plan.family === "hold" || plan.family === "orbit")
+  )
+    throw new Error(
+      "This recipe does not use travel. Choose a used parameter.",
+    );
+  if (overrides.orbitDegrees !== undefined && plan.family !== "orbit")
+    throw new Error("Only an orbit recipe uses orbitDegrees.");
+  validateRevisionEvidence(plan, finding, overrides);
   const revised = compilePlan(
     plan.scene,
     plan.gear,
@@ -69,6 +122,12 @@ export function validateRevision(
   );
   if (physicalSignature(revised) === physicalSignature(plan))
     throw new Error("This proposal does not change the shot.");
+  if (
+    (plan.arcLength > 0 && revised.arcLength === 0) ||
+    (plan.family === "orbit" &&
+      Math.sign(revised.path.sweepAngle) !== Math.sign(plan.path.sweepAngle))
+  )
+    throw new Error("Preserve the planned movement and its direction.");
   if (!revised.validation.valid)
     throw new Error(
       `The revised shot does not fit: ${revised.validation.violations
@@ -175,17 +234,28 @@ function deterministicAdjustment(
   });
 }
 
+type RevisionOptions = {
+  chat?: typeof chat;
+  trace?: boolean;
+  model?: string;
+  deadlineMs?: number;
+  overrides?: Overrides;
+  findingIds?: string[];
+  workflowTrace?: WorkflowTraceContext;
+};
 export async function proposeRevision(
   plan: PlanVersion,
   analysis: TakeAnalysis,
-  options: {
-    chat?: typeof chat;
-    trace?: boolean;
-    model?: string;
-    deadlineMs?: number;
-    overrides?: Overrides;
-    findingIds?: string[];
-  } = {},
+  options: RevisionOptions = {},
+): Promise<RevisionProposal> {
+  return weave.runIsolated(() =>
+    proposeRevisionIsolated(plan, analysis, options),
+  );
+}
+async function proposeRevisionIsolated(
+  plan: PlanVersion,
+  analysis: TakeAnalysis,
+  options: RevisionOptions,
 ): Promise<RevisionProposal> {
   const events: PlannerEvent[] = [];
   const started = Date.now();
@@ -250,11 +320,20 @@ export async function proposeRevision(
   const conversation = traced
     ? trace(() =>
         weave.startConversation({
-          agentName: "FlowBlock revision",
+          agentName: options.workflowTrace
+            ? workflowAgentName
+            : "FlowBlock revision",
           agentVersion: revisionVersion,
           model,
-          conversationId: randomUUID(),
-          attributes: { parentPlanId: plan.id, jobId: analysis.jobId },
+          conversationId: options.workflowTrace?.workflowId ?? randomUUID(),
+          attributes: {
+            parentPlanId: plan.id,
+            jobId: analysis.jobId,
+            "flowblock.telemetry_version": "agent-lens-v1",
+            ...(options.workflowTrace
+              ? workflowAttributes(options.workflowTrace)
+              : {}),
+          },
         }),
       )
     : undefined;
@@ -263,12 +342,17 @@ export async function proposeRevision(
       userMessage: "Propose one measured, feasible next-take experiment.",
     }),
   );
+  const choices = revisionEvidenceChoices(plan, analysis);
+  const evidenceSchema = revisionEvidenceActionSchema(plan, analysis);
+  const supportedParameters = [
+    ...new Set(choices.flatMap((choice) => choice.parameters)),
+  ];
+  const systemMessage = (hasRead: boolean): PlannerMessage => ({
+    role: "system",
+    content: `${hasRead ? "Choose one next-take experiment from the evidence-specific finding and parameter pairs, or explicitly abstain_revision with cited findings and a reason. The findings are already available; do not reread them. An empty object or an unchanged parameter is not abstention." : "Read the take findings before proposing any changes. Only read_take_findings is available for this step."} Return one JSON action, no markdown. Preserve the original brief. Do not modify the recipe, scene, gear, desired framing targets, or movement direction. Use only the listed parameter for the cited finding. Numeric values are your proposed experiment, subject to validation; a size ratio is not a calibrated distance multiplier. Never infer real walking distance, obstacle clearance, or physical shake from footage. Explain changes as experiments, not established physical causes. After rejection, change a relevant value or abstain; repeating a rejected proposal is not progress. Repair at most twice; six actions maximum. An uncertain track is not evidence of product disappearance. Available actions:\n${JSON.stringify(z.toJSONSchema(hasRead ? evidenceSchema : ReviewReadActionSchema))}`,
+  });
   const messages: PlannerMessage[] = [
-    {
-      role: "system",
-      content:
-        'You coordinate one next-take experiment for FlowBlock. Return one JSON action, no markdown. Read the take findings first using {"action":"read_take_findings"}. Then use {"action":"propose_revision","overrides":{ONE_PARAMETER:NUMBER},"findingIds":["one exact finding ID"],"reason":"hypothesis and tradeoff"}. Editable parameters: distance in meters, travel in meters, bearingDeg, orbitDegrees, height in meters, durationSeconds. Do not modify the recipe, scene, gear, or desired framing targets. Use only the measured evidence; never infer real walking distance, obstacle clearance, or physical shake. A timing mismatch can change duration; a framing mismatch can suggest a small feasible parameter experiment. Tool validation is authoritative. Repair at most twice; six actions maximum. An uncertain track is not evidence of product disappearance.',
-    },
+    systemMessage(false),
     {
       role: "user",
       content: JSON.stringify({
@@ -276,103 +360,276 @@ export async function proposeRevision(
           id: plan.id,
           recipeId: plan.recipeId,
           family: plan.family,
+          intent: plan.intent,
           overrides: plan.overrides,
           durationSeconds: plan.durationSeconds,
           radius: plan.path.radius,
           sweepDegrees: (plan.path.sweepAngle * 180) / Math.PI,
           arcLength: plan.arcLength,
           cameraHeight: plan.cameraHeight,
+          allowedOverrides: supportedParameters,
         },
+        parameterUnits: Object.fromEntries(
+          supportedParameters.map((parameter) => [
+            parameter,
+            parameterUnits[parameter],
+          ]),
+        ),
         analysisId: analysis.jobId,
       }),
     },
   ];
+  type StopReason =
+    | "completed"
+    | "provider_error"
+    | "deadline"
+    | "repair_budget"
+    | "action_budget"
+    | "unexpected_error"
+    | "model_abstention";
   let read = false,
     repairs = 0;
+  let stopReason: StopReason = "action_budget";
+  let providerFailed = false;
+  const rejectedProposals = new Set<string>();
+  const publishResult = (result: RevisionProposal): RevisionProposal => {
+    trace(() => {
+      turn?.record({
+        outputMessages: [{ role: "assistant", content: result.reason }],
+      });
+      turn?.setAttributes({
+        "flowblock.result_source": result.source,
+        "flowblock.revised_plan_id": result.plan.id,
+        "flowblock.outcome": result.source === "forge" ? "revised" : "fallback",
+        "flowblock.stop_reason": stopReason,
+        "flowblock.rejected_actions": repairs,
+      });
+    });
+    return { ...result, traceId: conversation?.conversationId, model };
+  };
   try {
-    for (let i = 0; i < 6; i++) {
-      if (deadline.aborted) throw new Error("Revision deadline reached");
-      const llm = trace(() =>
-        turn?.startLLM({ model, providerName: "coreweave" }),
-      );
-      let content: string;
-      try {
-        trace(() => {
-          if (llm) llm.inputMessages = messages;
-        });
-        const result = await beforeDeadline(
-          () => (options.chat || chat)(messages, model, deadline),
-          deadline,
+    try {
+      for (let i = 0; i < 6; i++) {
+        if (deadline.aborted) throw deadline.reason;
+        const llm = trace(() =>
+          turn?.startLLM({ model, providerName: "coreweave" }),
         );
-        content = result.content;
-        trace(() => {
-          llm?.output(content);
-          llm?.record({ usage: result.usage });
-        });
-      } finally {
-        trace(() => llm?.end());
-      }
-      messages.push({ role: "assistant", content });
-      let observation: unknown;
-      try {
-        const action = AgentActionSchema.parse(JSON.parse(content));
+        const requestMessages = messages.map((message) => ({ ...message }));
+        let content: string;
+        try {
+          trace(() => {
+            if (llm) llm.inputMessages = requestMessages;
+          });
+          const result = await beforeDeadline(
+            () => (options.chat || chat)(requestMessages, model, deadline),
+            deadline,
+          );
+          content = result.content;
+          trace(() => {
+            llm?.output(content);
+            llm?.record({ usage: result.usage });
+          });
+        } catch (error) {
+          providerFailed = !deadline.aborted;
+          trace(() => {
+            llm?.setAttributes({
+              "flowblock.stop_reason": deadline.aborted
+                ? "deadline"
+                : "provider_error",
+            });
+            llm?.recordError(
+              error instanceof Error ? error : new Error("Inference failed"),
+            );
+          });
+          throw error;
+        } finally {
+          trace(() => llm?.end());
+        }
+        messages.push({ role: "assistant", content });
+        let rawAction: unknown = { raw: content };
+        let action: RevisionAction | undefined;
+        let observation: unknown;
+        let proposal: RevisionProposal | undefined;
+        let rejection: string | undefined;
+        try {
+          rawAction = JSON.parse(content);
+          action = read
+            ? evidenceSchema.parse(rawAction)
+            : ReviewReadActionSchema.parse(rawAction);
+        } catch {
+          rejection = read
+            ? "Return one evidence-specific propose_revision action, or abstain_revision with a reason and listed finding IDs. An empty object is not an action."
+            : "Read the take findings before proposing or abstaining.";
+          const parsed = RevisionActionSchema.safeParse(rawAction);
+          if (
+            read &&
+            parsed.success &&
+            parsed.data.action === "read_take_findings"
+          )
+            rejection =
+              "Findings are already available. Propose one supported change or explicitly abstain.";
+          if (
+            read &&
+            parsed.success &&
+            parsed.data.action === "propose_revision"
+          ) {
+            const proposed = parsed.data;
+            const finding = analysis.findings.find(
+              (item, index) =>
+                findingId(item, index) === proposed.findingIds[0],
+            );
+            if (!finding) rejection = "Cite one finding ID from this take.";
+            else
+              try {
+                validateRevisionEvidence(plan, finding, parsed.data.overrides);
+              } catch (error) {
+                rejection =
+                  error instanceof Error
+                    ? error.message
+                    : "Unsupported evidence/parameter pair.";
+              }
+          }
+        }
         const tool = trace(() =>
           turn?.startTool({
-            name: action.action,
-            args: JSON.stringify(action),
+            name: action?.action ?? "validate_revision_action",
+            args: JSON.stringify(action ? rawAction : { received: rawAction }),
           }),
         );
         try {
-          if (action.action === "read_take_findings") {
+          if (action?.action === "read_take_findings") {
             read = true;
+            messages[0] = systemMessage(true);
             observation = {
               findings,
               coverage: analysis.coverage,
               measuredDurationSeconds: analysis.video.durationSeconds,
+              revisionChoices: choices,
+              nextActions: ["propose_revision", "abstain_revision"],
             };
-          } else if (action.action === "propose_revision" && read) {
-            const result = build(action.overrides, action.findingIds, "forge");
+          } else if (action?.action === "propose_revision") {
+            const fingerprint = JSON.stringify([
+              action.findingIds,
+              Object.entries(action.overrides).sort(([a], [b]) =>
+                a.localeCompare(b),
+              ),
+            ]);
+            if (rejectedProposals.has(fingerprint)) {
+              rejection =
+                "This exact proposal was already rejected. No new compile ran. Change a relevant value or explicitly abstain.";
+            } else
+              try {
+                proposal = build(action.overrides, action.findingIds, "forge");
+                observation = {
+                  candidateId: proposal.plan.id,
+                  validation: proposal.plan.validation,
+                  findingIds: proposal.findingIds,
+                };
+              } catch (error) {
+                rejectedProposals.add(fingerprint);
+                rejection =
+                  error instanceof Error ? error.message : "Invalid proposal";
+              }
+          } else if (action?.action === "abstain_revision") {
             observation = {
-              candidateId: result.plan.id,
-              validation: result.plan.validation,
-              findingIds: result.findingIds,
+              status: "abstained",
+              findingIds: action.findingIds,
+              reason: action.reason,
             };
-            events.push({
-              action,
-              observation,
-              elapsedMs: Date.now() - started,
-            });
-            trace(() => tool?.end({ result: JSON.stringify(observation) }));
-            return { ...result, traceId: conversation?.conversationId, model };
-          } else
-            throw new Error(
-              "Read findings, then propose one parameter change with one finding ID.",
-            );
-          trace(() => tool?.end({ result: JSON.stringify(observation) }));
-          events.push({ action, observation, elapsedMs: Date.now() - started });
-        } catch (error) {
+          }
+          if (rejection)
+            observation = {
+              status: "rejected",
+              error: rejection,
+              repairGuidance: read
+                ? {
+                    choices,
+                    nextActions: ["propose_revision", "abstain_revision"],
+                    instruction:
+                      "Choose one listed finding/parameter pair with a changed value, or explicitly abstain. Do not change unrelated facts or repeat the rejected action.",
+                  }
+                : { nextActions: ["read_take_findings"] },
+            };
+          events.push({
+            action: rawAction,
+            observation,
+            elapsedMs: Date.now() - started,
+          });
+        } finally {
+          // A rejected action is an observation the coordinator can repair.
           trace(() =>
-            tool?.end({
-              error:
-                error instanceof Error ? error : new Error("Invalid proposal"),
+            tool?.setAttributes({
+              "flowblock.action_outcome": rejection ? "rejected" : "accepted",
             }),
           );
-          throw error;
+          trace(() => tool?.end({ result: JSON.stringify(observation) }));
         }
-      } catch (error) {
-        if (++repairs > 2) throw error;
-        observation = {
-          error: error instanceof Error ? error.message : "Invalid JSON action",
-        };
+        if (action?.action === "abstain_revision") {
+          stopReason = "model_abstention";
+          const abstention = new RevisionAbstainedError({
+            ...action,
+            model,
+            traceId: conversation?.conversationId,
+            events,
+          });
+          trace(() => {
+            turn?.record({
+              outputMessages: [
+                { role: "assistant", content: abstention.message },
+              ],
+            });
+            turn?.setAttributes({
+              "flowblock.result_source": "forge",
+              "flowblock.outcome": "abstained",
+              "flowblock.stop_reason": stopReason,
+              "flowblock.rejected_actions": repairs,
+            });
+          });
+          throw abstention;
+        }
+        if (proposal) {
+          stopReason = "completed";
+          return publishResult(proposal);
+        }
+        messages.push({
+          role: "user",
+          content: JSON.stringify({ observation }),
+        });
+        if (rejection && ++repairs > 2) {
+          stopReason = "repair_budget";
+          break;
+        }
       }
-      messages.push({ role: "user", content: JSON.stringify({ observation }) });
+    } catch (error) {
+      if (error instanceof RevisionAbstainedError) throw error;
+      stopReason = deadline.aborted
+        ? "deadline"
+        : providerFailed
+          ? "provider_error"
+          : "unexpected_error";
+      trace(() =>
+        turn?.recordError(
+          error instanceof Error ? error : new Error("Revision failed"),
+        ),
+      );
     }
-  } catch (error) {
-    trace(() =>
-      turn?.recordError(
-        error instanceof Error ? error : new Error("Revision failed"),
-      ),
-    );
+    try {
+      return publishResult(fallback());
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "No revision found.";
+      trace(() => {
+        turn?.record({
+          outputMessages: [{ role: "assistant", content: message }],
+        });
+        turn?.setAttributes({
+          "flowblock.outcome": "abstained",
+          "flowblock.stop_reason": stopReason,
+          "flowblock.rejected_actions": repairs,
+        });
+      });
+      throw error;
+    }
   } finally {
     try {
       trace(() => turn?.end());
@@ -383,5 +640,4 @@ export async function proposeRevision(
       scope.close();
     }
   }
-  return fallback();
 }

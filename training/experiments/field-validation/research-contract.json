@@ -1,0 +1,24 @@
+{
+  "experiment": "objectron-current-worker-development-v1",
+  "question": "Does the current local SAM worker process the previously inspected real Objectron recordings and produce traceable image-space observations?",
+  "decision": "Identify current-worker regressions and remaining tracking limitations before collecting filmed FlowBlock takes or measuring creator benefit.",
+  "unit": "One first-five-second trim of one public mobile recording, one local MPS execution. Frames within a recording are dependent.",
+  "membership": "Freeze all eight eligible recordings from the retained ten-sequence Objectron convenience sample. Preserve the two original exclusions. Any subset must be declared before execution.",
+  "exposure": "These recordings were inspected in the earlier development diagnostic. A fresh execution is not fresh held-out evidence.",
+  "treatment": "Pinned SAM 2.1 Small, box prompt from the first projected 3D cuboid only; no later labels or corrected prompts supplied.",
+  "control": "No causal control or treatment comparison. Previous receipts are retained for inspection, not scored as an independent sample.",
+  "runtime": "Freeze hashes of executed adapter, worker pipeline/model/measurement/video modules, model manifest, runner and test/protocol; record installed ML package, Python and FFmpeg versions. Model initialization verifies source commit and checkpoint bytes. Job transport and telemetry modules are outside this direct-worker run.",
+  "timing": "Preserve source presentation-timestamp mappings from the reviewed prepared inputs. Analyze at 15 fps; exclude the seeded frame from aggregates.",
+  "measures": {
+    "completion": "Completed recordings / all recordings frozen for execution, with failed, unattempted, excluded and not-selected rows separate.",
+    "usable_fraction": "Worker-visible observations with proxy measurements / all non-seed observations in completed recordings. The worker's review heuristics are not calibrated confidence or an accuracy judge.",
+    "proxy_discrepancies": "Equal-video means of conditional per-video projected-center frame-diagonal discrepancy, centroid containment, and width/height ratios. Publish contributing-video counts. Projected cuboids are not visible silhouettes.",
+    "latency": "Per-video processing includes decode, segmentation, measurement and evidence writes; excludes model initialization and queue time. Full local wall time includes model construction. Desktop MPS with CPU fallback does not establish CUDA or deployed service performance."
+  },
+  "failures": "One attempt per selected sequence. Stop on an infrastructure exception, preserve partial artifacts and unattempted rows, and refuse reuse of an execution-started directory. Uncertain or empty tracks are observations and do not trigger a replacement clip.",
+  "stop_gate": "Reject input, executed-source, snapshot or installed-dependency drift before model initialization; flag drift after execution. No automatic retry, downloads, paid inference or remote deployment.",
+  "evidence_scope": "public-dataset-tracking only. No filmed FlowBlock plan execution, visible-mask ground truth, creator judgment, correction benefit or time-to-usable-take outcome is measured.",
+  "rights": "Retain Objectron C-UDA-1.0 agreement and attribution. Keep footage, annotations and rendered frames in ignored local artifacts; publish metadata-only summaries if requested.",
+  "reproduction": "worker/.venv/bin/python training/experiments/field-validation/validate_real_footage.py freeze --output training/artifacts/field-validation-NEW; then the same command with run after inspecting freeze.json",
+  "publication": "No remote publication by this runner. summary.json links per-video measurements and hashes the frozen inputs and executed implementation."
+}

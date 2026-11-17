@@ -1,0 +1,84 @@
+{
+  "version": "synthetic-visible-mask-stress-v1",
+  "phase": "development-diagnostic",
+  "created_at_unix": 1793315150.729666,
+  "width": 320,
+  "height": 180,
+  "fps": 15,
+  "frames_per_clip": 75,
+  "generator_sha256": "8d440008026c2bccd00f7d6d5c7c9a47fd8f75e2e741a6def6dd3141889e4429",
+  "protocol_sha256": "bae30651c8abb3a20c8940dd5b594a65997ac49834a07bf70ef6147efaaacc9c",
+  "worker_source_sha256": {
+    "__init__.py": "e2800c1b271ea8b30f3d7a71b389c669c95193f462c44ebe8981cd5351e6459e",
+    "cli.py": "87fb2d0cd8e2951d0fffce4da466a5a934fa4d3646719bc5c468ac9bede9f5e7",
+    "jobs.py": "e82447f20ed28d19a6899fff996301373f449583628ac44db5c129027c4b84c3",
+    "measurement.py": "c2e245eb3e3771ff2156ec2218ba85f74b023bf5fe4c596deb64a21822a4b502",
+    "model.py": "dcd3cf3ad5d747855ebe19051b02a49650e0092a6eb9bb7d8186a2d3dc9aa5c1",
+    "pipeline.py": "bd87273ceafb42f2ee34444b482547ba91fea4b559a24497a6ea4a3983400ff6",
+    "storage.py": "d35cc39706db6aa923f6cad060c8c5299f2ea3713e555b5747304dfc51118e40",
+    "video.py": "552a40e9aebc00199cd4a7cc2a217af024d6f4c20e96615694f1b295e1dc835e"
+  },
+  "model_manifest_sha256": "9b9579a88b395de1d1a61e6fcf16455dff433b01362b894974f1012bafe78189",
+  "cases": [
+    {
+      "case_id": "textured-translation",
+      "directory": "textured-translation",
+      "sha256": {
+        "clip.mp4": "839f14068237c305113262a674b3b3c90460d9a08a4e6c73254a8cf7c45de8c0",
+        "truth.npz": "af4088d9676674713397531477ef91540c7a88e4f365e73dd4daeb35a36d1628",
+        "truth-frames.json": "6c65fa0d74385ee35756043911c8e4c4e03d75d296b46c214f9ff79c4fdc3868",
+        "manifest.json": "b736c8e0d1800984f7cc5e5a7c8830d12e49c5561c9124fc0ac102fb709ecef8"
+      }
+    },
+    {
+      "case_id": "textureless-translation",
+      "directory": "textureless-translation",
+      "sha256": {
+        "clip.mp4": "f9b801e30204c68825bb30547a28002c6b348ec637845f348caa84d91510c236",
+        "truth.npz": "af4088d9676674713397531477ef91540c7a88e4f365e73dd4daeb35a36d1628",
+        "truth-frames.json": "6c65fa0d74385ee35756043911c8e4c4e03d75d296b46c214f9ff79c4fdc3868",
+        "manifest.json": "4a25a40094b807dd96d75105e04a866613e269803eb25f53acc1ff77f5456ddc"
+      }
+    },
+    {
+      "case_id": "gradual-scale",
+      "directory": "gradual-scale",
+      "sha256": {
+        "clip.mp4": "b8568ca4cc7a8c92ff02f4162bead497bb0a11f85488e98ec3b011c78f53d7ab",
+        "truth.npz": "9de38942a728e51a1c4b944eda95032e7a7eba2654a3d1bbdac3f44a16fe4b3f",
+        "truth-frames.json": "03eea311312911e925beefc940a68e4d22295cb4b5e8298deeaa478d04576375",
+        "manifest.json": "a44319890f1dd8b46d3dceaf8575d354f47485bffdf15c4ce8b6c6368b92fe85"
+      }
+    },
+    {
+      "case_id": "boundary-exit-reentry",
+      "directory": "boundary-exit-reentry",
+      "sha256": {
+        "clip.mp4": "5324d72fb2ed2c64c29d5468a2d0f255a6024ae866f23ec34ce79d7f94e55b71",
+        "truth.npz": "c57259b692f3bd657679a9d6adaf291837ab97b9792abb615f1258359c7657c4",
+        "truth-frames.json": "8f50bbf6536cb6707017933780df4aaf5c71ff0a05f9a6898e093b9b66aca63a",
+        "manifest.json": "2d4fff78487096615903effd45c88009693046459b0eb11807cabe748c068e39"
+      }
+    },
+    {
+      "case_id": "occlusion-recovery",
+      "directory": "occlusion-recovery",
+      "sha256": {
+        "clip.mp4": "353a50a6beafb302e0c0efdffc794c65327bcfe7fb437c5024b8316f9ac010ab",
+        "truth.npz": "5e90f2702e6e1cb8e0c9e8eff772aa43973293522dad37946b13ea1a0149ce10",
+        "truth-frames.json": "4697f06085b8143b519a3644be841e35bbc92df2b2a61048841f33e6e2780d8d",
+        "manifest.json": "3d2cc2d9887f6f895b30d5813da2197d23e483f7fbf5775f839071a8dbc749fb"
+      }
+    },
+    {
+      "case_id": "similar-object-crossing",
+      "directory": "similar-object-crossing",
+      "sha256": {
+        "clip.mp4": "378ba14075d98ddd2ec3b62ae95564c23551087ace4e3f372e33b687511b795d",
+        "truth.npz": "071498793c066b4561fb168b3a440cb05a4e22003d3c06486187a26fc80cda2b",
+        "truth-frames.json": "ecd3b769975f2869c8a192cff0a300a03201dc60961ac1e78b14fb73a8647c4b",
+        "manifest.json": "36c29cc811cd971b42b568c1c18754b46ea125b510677e6e86f61725319865a2"
+      }
+    }
+  ]
+}

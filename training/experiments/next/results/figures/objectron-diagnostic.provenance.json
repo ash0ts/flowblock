@@ -1,0 +1,46 @@
+{
+  "question": "Do heuristic-usable tracks establish reliable product masks?",
+  "boundedTakeaway": "All samples passed the worker heuristics; assistant inspection found apparent mask errors. Projection discrepancy is not visible-silhouette accuracy.",
+  "source": "training/experiments/next/results/objectron-diagnostic.json",
+  "sourceSha256": "fcbcf5980ba62f32fe05c0897162f8d8642898aa023caf3a851c769674467c26",
+  "experimentId": "flowblock-objectron-projection-diagnostic-v1",
+  "datasetManifestSha256": "6f88242a4b783333f96a92e4cb5d2109bf445277d4097470e786b109626aebed",
+  "renderer": "matplotlib 3.10.7",
+  "scriptSha256": "2ccd84bb7e60478c7db9c37dfad8f3fa456cc638b4da7087a003c8afb0092b81",
+  "metric": {
+    "field": "maskCentroidToProjected3dCenterFrameDiagonalDiscrepancy",
+    "sourceLocator": "rows[status=completed]",
+    "unit": "frame diagonal; multiplied by 100 for display",
+    "aggregation": "per-sequence arithmetic mean over heuristic-usable non-seed samples",
+    "missingness": "excluded sequences remain in CSV; no zero imputation",
+    "displayRounding": "two decimal places as percent"
+  },
+  "coverage": {
+    "numerator": "usableSamples",
+    "denominator": "evaluationSamplesExcludingSeed",
+    "meaning": "passes worker uncertainty heuristics, not an accuracy or usable-take judgment"
+  },
+  "inspection": {
+    "sourceLocator": "rows[].note",
+    "reviewer": "assistant qualitative inspection",
+    "independentGroundTruth": false,
+    "affectsScores": false
+  },
+  "privacy": "Metadata only; no footage, frames, pixel annotations or signed URLs included.",
+  "license": {
+    "dataset": "Objectron",
+    "id": "C-UDA-1.0",
+    "url": "https://github.com/google-research-datasets/Objectron/blob/master/LICENSE"
+  },
+  "limitations": [
+    "Convenience sample from upstream test indices, not FlowBlock confirmation data",
+    "Projected 3D boxes are not visible silhouettes; metrics are discrepancy proxies, not mask accuracy",
+    "No creator treatment, usability judgment, calibrated confidence or camera-distance inference",
+    "Eight source videos are the evaluation units; 592 non-seed samples are temporally dependent, not 592 independent trials.",
+    "Usable means passing worker tracking heuristics, not creator-rated usable footage.",
+    "Projection discrepancy compares different label definitions and must not be called tracking accuracy.",
+    "Processing timing excludes model construction and includes no queue.",
+    "The native run imports recorded local MPS execution; no remote GPU allocation is implied.",
+    "Assistant visual inspection found apparent mask errors in three sampled views despite 100% heuristic-usable coverage. Qualitative observations are not independent ground-truth accuracy scores."
+  ]
+}

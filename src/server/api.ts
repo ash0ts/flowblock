@@ -20,11 +20,26 @@ import {
   TakeAnalysisSchema,
   type PlanVersion,
 } from "@/domain";
-import { proposeRevision, revisionVersion } from "./revision-planner";
+import {
+  proposeRevision,
+  revisionVersion,
+  RevisionAbstainedError,
+} from "./revision-planner";
 import { AnalyzeSchema, UploadSchema, ProjectSchema } from "./api-contracts";
 import { readTrainingSummary } from "./showcase";
 import { idempotencyKey, reserveJob, workerReady } from "./jobs";
 import { getTake as take, takePrefix as prefix, deleteTake } from "./takes";
+import {
+  beginWorkflowAttempt,
+  finishWorkflowAttempt,
+  ownedWorkflow,
+  readWorkflow,
+} from "./workflows";
+import {
+  runWorkflowStage,
+  WorkflowTraceContextSchema,
+  type WorkflowTraceContext,
+} from "./workflow-telemetry";
 const uuid = z.string().uuid();
 const json = (body: unknown, status = 200) =>
   Response.json(body, {
@@ -95,17 +110,36 @@ export async function handleApi(request: Request): Promise<Response> {
                 jobId: reserved.job.id,
                 status: reserved.job.status,
                 error: reserved.job.error,
+                workflowId:
+                  reserved.job.payload.workflowTrace?.workflowId ?? null,
               },
               reserved.job.status === "running" ? 202 : 409,
             );
       try {
-        const result = await runPlanner(input);
+        const workflowTrace = WorkflowTraceContextSchema.parse(
+          reserved.job.payload.workflowTrace,
+        );
+        const result = {
+          ...(await runPlanner(input, { workflowTrace })),
+          workflowId: workflowTrace.workflowId,
+        };
         const published = await transaction(async (client) => {
           const update = await client.query(
             "UPDATE jobs SET status='succeeded',result=$2,updated_at=now() WHERE id=$1 AND status='running' AND cancelled_at IS NULL RETURNING id",
             [jobId, result],
           );
           if (!update.rowCount) return false;
+          await finishWorkflowAttempt(
+            workflowTrace,
+            {
+              status:
+                result.source === "forge" && result.outcome === "completed"
+                  ? "succeeded"
+                  : "needs_review",
+              source: result.source,
+            },
+            client,
+          );
           for (const plan of result.plans)
             await client.query(
               "INSERT INTO plan_versions(id,owner_id,plan,provenance) VALUES($1,$2,$3,$4)",
@@ -115,6 +149,7 @@ export async function handleApi(request: Request): Promise<Response> {
                 plan,
                 {
                   jobId,
+                  workflowId: workflowTrace.workflowId,
                   source: result.source,
                   model: result.model || null,
                   plannerVersion: result.plannerVersion,
@@ -132,6 +167,12 @@ export async function handleApi(request: Request): Promise<Response> {
           throw new HttpError(409, "Planning was cancelled before completion.");
         return json({ ...result, jobId });
       } catch (error) {
+        await finishWorkflowAttempt(reserved.job.payload.workflowTrace, {
+          status:
+            error instanceof HttpError && error.status === 409
+              ? "cancelled"
+              : "failed",
+        });
         await db().query(
           "UPDATE jobs SET status='failed',error='Planning did not complete. Retry with a new request key.',updated_at=now() WHERE id=$1 AND status='running'",
           [jobId],
@@ -156,23 +197,32 @@ export async function handleApi(request: Request): Promise<Response> {
         body.contentType,
         body.sizeBytes,
         takeId,
-        url.origin,
       );
-      await db().query(
-        "INSERT INTO takes(id,owner_id,object_key,file_name,size_bytes,mime_type,plan,training_consent) VALUES($1,$2,$3,$4,$5,$6,$7,$8)",
-        [
-          takeId,
+      const workflowId = await transaction(async (client) => {
+        const workflowId = await ownedWorkflow(
+          client,
           ownerId,
-          objectKey,
-          body.fileName,
-          body.sizeBytes,
-          body.contentType,
-          plan,
-          body.trainingConsent,
-        ],
-      );
+          body.workflowId,
+        );
+        await client.query(
+          "INSERT INTO takes(id,owner_id,object_key,file_name,size_bytes,mime_type,plan,training_consent,workflow_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)",
+          [
+            takeId,
+            ownerId,
+            objectKey,
+            body.fileName,
+            body.sizeBytes,
+            body.contentType,
+            plan,
+            body.trainingConsent,
+            workflowId,
+          ],
+        );
+        return workflowId;
+      });
       return json({
         takeId,
+        workflowId,
         uploadUrl,
         method: "PUT",
         headers: {
@@ -182,6 +232,9 @@ export async function handleApi(request: Request): Promise<Response> {
       });
     }
     let match: RegExpMatchArray | null;
+    if ((match = pathname.match(/^workflows\/([^/]+)$/)) && method === "GET") {
+      return json(await readWorkflow(ownerId, uuid.parse(match[1])));
+    }
     if (
       (match = pathname.match(/^takes\/([^/]+)\/upload$/)) &&
       method === "PUT"
@@ -284,7 +337,11 @@ export async function handleApi(request: Request): Promise<Response> {
         row.id,
       );
       return json(
-        { jobId: reserved.job.id, status: reserved.job.status },
+        {
+          jobId: reserved.job.id,
+          status: reserved.job.status,
+          workflowId: reserved.job.payload.workflowTrace?.workflowId ?? null,
+        },
         reserved.created ? 202 : 200,
       );
     }
@@ -292,7 +349,7 @@ export async function handleApi(request: Request): Promise<Response> {
       uuid.parse(match[1]);
       const row = (
         await db().query(
-          "SELECT id,status,result,error,kind,created_at,payload->>'takeId' AS take_id FROM jobs WHERE id=$1 AND owner_id=$2",
+          "SELECT id,status,result,error,kind,created_at,payload->>'takeId' AS take_id,payload->'workflowTrace'->>'workflowId' AS \"workflowId\" FROM jobs WHERE id=$1 AND owner_id=$2",
           [match[1], ownerId],
         )
       ).rows[0];
@@ -319,6 +376,10 @@ export async function handleApi(request: Request): Promise<Response> {
             };
           await client.query(
             "UPDATE jobs SET status='cancelled',cancelled_at=now(),lease_token=NULL,updated_at=now() WHERE id=$1",
+            [row.id],
+          );
+          await client.query(
+            "UPDATE workflow_attempts SET status='cancelled',ended_at=now(),summary=jsonb_build_object('status','cancelled') WHERE job_id=$1 AND status='running'",
             [row.id],
           );
           return { cancelled: true, status: "cancelled" };
@@ -376,7 +437,7 @@ export async function handleApi(request: Request): Promise<Response> {
       const plan = recompilePlan(body.plan);
       const row = (
         await db().query(
-          "SELECT result FROM jobs WHERE id=$1 AND owner_id=$2 AND kind='analysis' AND status IN ('succeeded','needs_review')",
+          "SELECT result,payload FROM jobs WHERE id=$1 AND owner_id=$2 AND kind='analysis' AND status IN ('succeeded','needs_review')",
           [body.analysis.jobId, ownerId],
         )
       ).rows[0];
@@ -395,13 +456,69 @@ export async function handleApi(request: Request): Promise<Response> {
         throw new HttpError(422, "There is no measured finding to revise.");
       if (!(await consumeQuota(ownerId, "revision", 30)))
         throw new HttpError(429, "Daily revision allowance reached.");
+      const workflowTrace = await transaction(async (client) => {
+        const live = (
+          await client.query(
+            "SELECT workflow_id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() FOR UPDATE",
+            [sourceTake.id, ownerId],
+          )
+        ).rows[0];
+        if (!live)
+          throw new HttpError(410, "The source take is no longer available.");
+        const workflowId = await ownedWorkflow(
+          client,
+          ownerId,
+          live.workflow_id ?? undefined,
+        );
+        if (!live.workflow_id)
+          await client.query("UPDATE takes SET workflow_id=$2 WHERE id=$1", [
+            sourceTake.id,
+            workflowId,
+          ]);
+        const parent = (
+          await client.query(
+            "SELECT id FROM workflow_attempts WHERE job_id=$1 AND stage IN ('analysis','replay') AND status IN ('succeeded','needs_review') ORDER BY started_at DESC LIMIT 1",
+            [analysis.jobId],
+          )
+        ).rows[0];
+        return beginWorkflowAttempt(client, ownerId, {
+          workflowId,
+          stage: "revision",
+          jobId: analysis.jobId,
+          takeId: sourceTake.id,
+          planId: plan.id,
+          ...(parent ? { parentAttemptId: parent.id } : {}),
+        });
+      });
       let proposal;
       try {
         proposal = await proposeRevision(plan, analysis, {
           overrides: body.overrides,
           findingIds: body.findingIds,
+          workflowTrace,
         });
       } catch (error) {
+        await finishWorkflowAttempt(workflowTrace, {
+          status:
+            error instanceof RevisionAbstainedError ? "needs_review" : "failed",
+          ...(error instanceof RevisionAbstainedError
+            ? { source: "forge" as const }
+            : {}),
+        });
+        if (error instanceof RevisionAbstainedError)
+          return json(
+            {
+              error: error.message,
+              outcome: "abstained",
+              reason: error.reason,
+              findingIds: error.findingIds,
+              source: error.source,
+              model: error.model,
+              traceId: error.traceId,
+              workflowId: workflowTrace.workflowId,
+            },
+            422,
+          );
         throw new HttpError(
           422,
           error instanceof Error
@@ -410,38 +527,59 @@ export async function handleApi(request: Request): Promise<Response> {
         );
       }
       const revisionId = randomUUID();
-      await transaction(async (client) => {
-        const live = await client.query(
-          "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() FOR UPDATE",
-          [sourceTake.id, ownerId],
-        );
-        if (!live.rowCount)
-          throw new HttpError(
-            410,
-            "The take was deleted or expired while its revision was being prepared.",
+      try {
+        await transaction(async (client) => {
+          const live = await client.query(
+            "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() FOR UPDATE",
+            [sourceTake.id, ownerId],
           );
-        await client.query(
-          "INSERT INTO revisions(id,owner_id,parent_plan_id,plan,finding_ids,reason,provenance) VALUES($1,$2,$3,$4,$5,$6,$7)",
-          [
-            revisionId,
-            ownerId,
-            plan.id,
-            proposal.plan,
-            JSON.stringify(proposal.findingIds),
-            proposal.reason,
+          if (!live.rowCount)
+            throw new HttpError(
+              410,
+              "The take was deleted or expired while its revision was being prepared.",
+            );
+          await client.query(
+            "INSERT INTO revisions(id,owner_id,parent_plan_id,plan,finding_ids,reason,provenance) VALUES($1,$2,$3,$4,$5,$6,$7)",
+            [
+              revisionId,
+              ownerId,
+              plan.id,
+              proposal.plan,
+              JSON.stringify(proposal.findingIds),
+              proposal.reason,
+              {
+                workflowTrace,
+                source: proposal.source,
+                model: proposal.model || null,
+                traceId: proposal.traceId || null,
+                analysisJobId: analysis.jobId,
+                engineVersion: proposal.plan.engineVersion,
+                revisionVersion,
+                events: proposal.events,
+              },
+            ],
+          );
+          await finishWorkflowAttempt(
+            workflowTrace,
             {
+              status:
+                proposal.source === "library" ? "needs_review" : "succeeded",
               source: proposal.source,
-              model: proposal.model || null,
-              traceId: proposal.traceId || null,
-              analysisJobId: analysis.jobId,
-              engineVersion: proposal.plan.engineVersion,
-              revisionVersion,
-              events: proposal.events,
+              resultPlanId: proposal.plan.id,
             },
-          ],
-        );
+            client,
+          );
+        });
+      } catch (error) {
+        await finishWorkflowAttempt(workflowTrace, { status: "failed" });
+        throw error;
+      }
+      return json({
+        ...proposal,
+        revisionId,
+        parentPlanId: plan.id,
+        workflowId: workflowTrace.workflowId,
       });
-      return json({ ...proposal, revisionId, parentPlanId: plan.id });
     }
     if (
       (match = pathname.match(/^revisions\/([^/]+)\/accept$/)) &&
@@ -452,44 +590,99 @@ export async function handleApi(request: Request): Promise<Response> {
         .object({ currentPlanId: z.string() })
         .parse(await jsonBody(request));
       const revisionId = match[1];
-      const acceptedPlan = await transaction(async (client) => {
-        const row = (
-          await client.query(
-            "SELECT * FROM revisions WHERE id=$1 AND owner_id=$2",
-            [revisionId, ownerId],
-          )
-        ).rows[0];
-        if (!row) throw new HttpError(404, "Revision not found.");
-        if (row.parent_plan_id !== body.currentPlanId)
-          throw new HttpError(
-            409,
-            "The plan changed after this revision was proposed.",
+      const prior = (
+        await db().query(
+          "SELECT provenance,accepted_at FROM revisions WHERE id=$1 AND owner_id=$2",
+          [revisionId, ownerId],
+        )
+      ).rows[0];
+      const proposalContext = WorkflowTraceContextSchema.safeParse(
+        prior?.provenance?.workflowTrace,
+      );
+      const workflowTrace: WorkflowTraceContext | undefined =
+        proposalContext.success && !prior?.accepted_at
+          ? await transaction(async (client) => {
+              const live = await client.query(
+                "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() FOR UPDATE",
+                [proposalContext.data.takeId, ownerId],
+              );
+              if (!live.rowCount)
+                throw new HttpError(
+                  409,
+                  "The source take is no longer available.",
+                );
+              return beginWorkflowAttempt(client, ownerId, {
+                ...proposalContext.data,
+                stage: "acceptance",
+                parentAttemptId: proposalContext.data.attemptId,
+              });
+            })
+          : undefined;
+      const accept = () =>
+        transaction(async (client) => {
+          const row = (
+            await client.query(
+              "SELECT * FROM revisions WHERE id=$1 AND owner_id=$2",
+              [revisionId, ownerId],
+            )
+          ).rows[0];
+          if (!row) throw new HttpError(404, "Revision not found.");
+          if (row.parent_plan_id !== body.currentPlanId)
+            throw new HttpError(
+              409,
+              "The plan changed after this revision was proposed.",
+            );
+          const analysisJobId = uuid.safeParse(row.provenance.analysisJobId);
+          if (!analysisJobId.success)
+            throw new HttpError(
+              409,
+              "The source evidence for this revision is unavailable.",
+            );
+          // Use the same take-before-revision lock order as deletion. Acceptance
+          // cannot return a cached revision after its evidence has been removed.
+          const live = await client.query(
+            "SELECT t.id FROM takes t JOIN jobs j ON j.payload->>'takeId'=t.id::text WHERE j.id=$1 AND j.owner_id=$2 AND t.owner_id=$2 AND t.deleted_at IS NULL AND t.expires_at>now() AND j.status IN ('succeeded','needs_review') FOR UPDATE OF t",
+            [analysisJobId.data, ownerId],
           );
-        const analysisJobId = uuid.safeParse(row.provenance.analysisJobId);
-        if (!analysisJobId.success)
-          throw new HttpError(
-            409,
-            "The source evidence for this revision is unavailable.",
+          if (!live.rowCount)
+            throw new HttpError(
+              409,
+              "The take was deleted or expired. This revision can no longer be accepted.",
+            );
+          const accepted = await client.query(
+            "UPDATE revisions SET accepted_at=COALESCE(accepted_at,now()) WHERE id=$1 AND owner_id=$2 RETURNING plan",
+            [row.id, ownerId],
           );
-        // Use the same take-before-revision lock order as deletion. Acceptance
-        // cannot return a cached revision after its evidence has been removed.
-        const live = await client.query(
-          "SELECT t.id FROM takes t JOIN jobs j ON j.payload->>'takeId'=t.id::text WHERE j.id=$1 AND j.owner_id=$2 AND t.owner_id=$2 AND t.deleted_at IS NULL AND t.expires_at>now() AND j.status IN ('succeeded','needs_review') FOR UPDATE OF t",
-          [analysisJobId.data, ownerId],
-        );
-        if (!live.rowCount)
-          throw new HttpError(
-            409,
-            "The take was deleted or expired. This revision can no longer be accepted.",
-          );
-        const accepted = await client.query(
-          "UPDATE revisions SET accepted_at=COALESCE(accepted_at,now()) WHERE id=$1 AND owner_id=$2 RETURNING plan",
-          [row.id, ownerId],
-        );
-        if (!accepted.rowCount) throw new HttpError(404, "Revision not found.");
-        return accepted.rows[0].plan;
+          if (!accepted.rowCount)
+            throw new HttpError(404, "Revision not found.");
+          if (workflowTrace)
+            await finishWorkflowAttempt(
+              workflowTrace,
+              { status: "succeeded", resultPlanId: accepted.rows[0].plan.id },
+              client,
+            );
+          return accepted.rows[0].plan;
+        });
+      let acceptedPlan;
+      try {
+        acceptedPlan = workflowTrace
+          ? await runWorkflowStage(workflowTrace, accept, (plan) => ({
+              status: "succeeded",
+              resultPlanId: plan.id,
+            }))
+          : await accept();
+      } catch (error) {
+        if (workflowTrace)
+          await finishWorkflowAttempt(workflowTrace, { status: "failed" });
+        throw error;
+      }
+      return json({
+        plan: acceptedPlan,
+        accepted: true,
+        workflowId: proposalContext.success
+          ? proposalContext.data.workflowId
+          : null,
       });
-      return json({ plan: acceptedPlan, accepted: true });
     }
     if (pathname === "shares" && method === "POST") {
       const body = z

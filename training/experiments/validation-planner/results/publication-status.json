@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-controlled-validation-v1",
+  "recordedAt": "2026-10-29T23:51:33.800997+00:00",
+  "status": "unresolved",
+  "verifiedEvaluations": 0,
+  "nativeImportAttempts": 2,
+  "newInferenceRequests": 0,
+  "newTrainingJobs": 0,
+  "datasetRowsPerArm": 96,
+  "sharedDatasetTasksSha256": "2f72fa817aee8f2b795cd1d67192413907a79c0a8c9bbff4270a3241e118b5b5",
+  "manifestSha256": "7690fe708df0130b7644cbeb6a396a48263fa5901f12b3c7d8bd2dbcb7a2538d",
+  "arms": {
+    "llama-base": {
+      "publicationId": "57e21f694c17837fca6688b97940f7083d82d9543c58a3a2a8cb9dbba26414ce",
+      "expectedRows": 96,
+      "scope": "development",
+      "dryRunPassed": true,
+      "nativeImportAttempts": 1,
+      "nativeImportApiOrigin": "https://api.forge.coreweave.com",
+      "status": "unresolved",
+      "verified": false,
+      "nativePublisherReceipt": "training/experiments/next/results/weave-publications/57e21f694c17837fca6688b97940f7083d82d9543c58a3a2a8cb9dbba26414ce.json",
+      "publicationWatchdog": {
+        "path": "training/artifacts/controlled-validation-v1/weave-payloads/llama-base-publication-watchdog.json",
+        "sha256": "682149ac112a2fb452d112f9910773ebad2218778dd9871639fd783ac935c161",
+        "status": "timed_out",
+        "startedAt": "2026-10-29T23:27:10.670Z",
+        "endedAt": "2026-10-29T23:30:10.679Z",
+        "timeoutMs": 180000,
+        "monotonicElapsedMs": 180010.293042,
+        "wallElapsedMs": 180009,
+        "processExitObserved": true,
+        "exitCode": null,
+        "signal": "SIGTERM"
+      },
+      "readbackAttempts": [
+        {
+          "mode": "read-only",
+          "apiOrigin": "https://api.wandb.ai",
+          "outcome": "unresolved; CLI exited without a verified receipt or exposed failure reason",
+          "watchdog": {
+            "path": "training/artifacts/controlled-validation-v1/weave-payloads/llama-base-readback-watchdog.json",
+            "sha256": "c48d7cf73142bd4465e9ca7e77798a63c4ee4a571f783315987f7be2fe962119",
+            "status": "failed",
+            "startedAt": "2026-10-29T23:31:24.068Z",
+            "endedAt": "2026-10-29T23:31:30.121Z",
+            "timeoutMs": 120000,
+            "monotonicElapsedMs": 6054.324458,
+            "wallElapsedMs": 6053,
+            "processExitObserved": true,
+            "exitCode": 1,
+            "signal": null
+          }
+        },
+        {
+          "mode": "read-only",
+          "apiOrigin": "https://api.wandb.ai",
+          "outcome": "unresolved; diagnostic terminated without output",
+          "watchdog": {
+            "path": "training/artifacts/controlled-validation-v1/weave-payloads/llama-base-readback-diagnostic-watchdog.json",
+            "sha256": "29012382ca9638c7e2f2e954585b7dc3cbbfb6e4ca4727be24a927a1c7a88a37",
+            "status": "timed_out",
+            "startedAt": "2026-10-29T23:32:13.243Z",
+            "endedAt": "2026-10-29T23:44:17.975Z",
+            "timeoutMs": 120000,
+            "monotonicElapsedMs": 724723.118709,
+            "wallElapsedMs": 724732,
+            "processExitObserved": true,
+            "exitCode": null,
+            "signal": "SIGTERM"
+          }
+        }
+      ]
+    },
+    "llama-sft": {
+      "publicationId": "a5c9c85e89d6361f704a4a7eb4bf90a709c482ca35ccb62afe4162ea3befb495",
+      "expectedRows": 96,
+      "scope": "development",
+      "dryRunPassed": true,
+      "nativeImportAttempts": 1,
+      "nativeImportApiOrigin": "https://api.forge.coreweave.com",
+      "status": "unresolved",
+      "verified": false,
+      "nativePublisherReceipt": "training/experiments/next/results/weave-publications/a5c9c85e89d6361f704a4a7eb4bf90a709c482ca35ccb62afe4162ea3befb495.json",
+      "publicationWatchdog": {
+        "path": "training/artifacts/controlled-validation-v1/weave-payloads/llama-sft-publication-watchdog.json",
+        "sha256": "7a1f90100e6ebf0413e91d9260d4e4294a188d5e3e7ef425b9dd2b6e5bc0920e",
+        "status": "timed_out",
+        "startedAt": "2026-10-29T23:30:10.681Z",
+        "endedAt": "2026-10-29T23:44:17.368Z",
+        "timeoutMs": 180000,
+        "monotonicElapsedMs": 846696.295375,
+        "wallElapsedMs": 846687,
+        "processExitObserved": true,
+        "exitCode": null,
+        "signal": "SIGTERM"
+      },
+      "readbackAttempts": []
+    }
+  },
+  "networkAttemptsStopped": true,
+  "limitations": [
+    "Local scored payloads and dry runs passed; neither remote evaluation is verified.",
+    "Neither native import was repeated. No follow-up import, recovery, or provider inference was issued.",
+    "The trained-arm publication guard recorded 846696.295375 ms against a 180000 ms configured timeout. The concurrent base read-only diagnostic guard recorded 724723.118709 ms against 120000 ms. Raw wall and monotonic timings are preserved.",
+    "These overruns show that parent-process timers did not enforce an absolute elapsed bound in this interval. Their cause has not been established, and elapsed time is not provider computation time.",
+    "The missing local publisher receipts do not by themselves establish absence of remote writes. No successful empty-root readback was obtained.",
+    "The final independent trained-arm readback was not attempted after further network operations were stopped."
+  ]
+}

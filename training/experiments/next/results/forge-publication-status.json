@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-29T20:50:51.263Z",
+  "privateProject": "wandb/flowblock",
+  "publications": [
+    {
+      "label": "Curated train dataset",
+      "service": "Models",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-b208f09c74df9dd36df81b06",
+      "receipt": "training/artifacts/next-publications/recoveries/train-final-resume-1809Z/dataset-b208f09c74df9dd36df81b06.json",
+      "receiptSha256": "7d101864cffededcb9a7c3597ac83830d6fd0af102020a2750faabc937a2bd93"
+    },
+    {
+      "label": "New planner SFT",
+      "service": "Models",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/flowblock-v2-20261029-sft",
+      "receipt": "training/artifacts/next-training/flowblock-v2-20261029/native-models-independent-reconciliation.json",
+      "receiptSha256": "6f011e60031533eb46840cddce1f6ac2e8ed2a743e8f15a859ec648aef3d94c8",
+      "meaning": "Completed training telemetry and native artifact lineage; not an accuracy or promotion claim."
+    },
+    {
+      "label": "Base development",
+      "service": "Models",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-0a8b369afba595d3fa96f344",
+      "receipt": "training/artifacts/v2-runs/development-llama-base-connected/models-metric-recovery/receipt.json",
+      "receiptSha256": "8a22c9bcf66166a75c5e71419db4f5bd71561f4c4735ad3b664e2acabf3704d3"
+    },
+    {
+      "label": "GPT development",
+      "service": "Models",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-45613265409bc847d764d262",
+      "receipt": "training/artifacts/next-publications/benchmark-45613265409bc847d764d262.json",
+      "receiptSha256": "1fb5ffd0da2a31245ef058a16cabbb75cb8535189d9271c1a0bb5171549dba47"
+    },
+    {
+      "label": "SFT development",
+      "service": "Models",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/benchmark-80d736fb442998b9852223ed",
+      "receipt": "training/artifacts/v2-runs/development-llama-sft/models-final-readback/receipt.json",
+      "receiptSha256": "5478656b90c0fe775e58e29d207538c3a9cd3f30febb9df96fb5a5214f468bdc"
+    },
+    {
+      "label": "Confirmation dataset recovery",
+      "service": "Models",
+      "status": "partial",
+      "verified": false,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-66d075e4cb960a001fa1678c",
+      "receipt": "training/artifacts/next-publications/confirmation-final-state/receipt.json",
+      "receiptSha256": "18caa126af0d4c18ceca8b7d6e671974f4b7929022251b1417d34de68d7942e9",
+      "observedAt": "2026-10-29T20:44:32.593661+00:00",
+      "producerState": "failed",
+      "artifactPresent": true,
+      "artifactBytesVerified": false,
+      "meaning": "Exact manifest matched and dataset artifact v0 exists; producer failed and artifact bytes were not verified. No confirmation benchmark Models runs were created."
+    },
+    {
+      "label": "Objectron diagnostic",
+      "service": "Models",
+      "status": "failed",
+      "verified": false,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/runs/dataset-6f88242a4b783333f96a92e4",
+      "receipt": "training/artifacts/objectron-diagnostic-v1/models-final-shared-readback.json",
+      "receiptSha256": "2305a0aaf2ee607af69a0cc3581e70bf08f736eb6c24f0d7e8e0d804b4af88a5",
+      "observedAt": "2026-10-29T18:23:45.852059+00:00",
+      "producerState": "failed",
+      "artifactPresent": false,
+      "meaning": "Producer failed with zero logged artifacts; benchmark absent. The separate Weave evaluation is verified."
+    },
+    {
+      "label": "Base development",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a188f8-5c07-7c9d-9a73-00449931dbdd",
+      "receipt": "training/experiments/next/results/weave-publications/e27f9481a7e4b4267ab46c304cd8a37a70f55e1942265a9bfebe9ab392659494.json",
+      "receiptSha256": "81de32337f16e1a3fcd233a5b4b69cef2184ebf6abcbed614f4552b1f8c16d2e",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "GPT development",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18954-d4ae-74ad-b063-498a3674cba4",
+      "receipt": "training/experiments/next/results/weave-publications/b5d549f8890ccdc864d2b6bc82ce076027d5b40a79de407d8c2416507447cd0c.json",
+      "receiptSha256": "63ccfce47cc8b4d4ff9d070e81bc2b4c613a55a28d07de5bac990107367a5a38",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "SFT development",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18955-d3c3-7b93-bdb9-ac4abf2bae8c",
+      "receipt": "training/experiments/next/results/weave-publications/698c8b176fd80e853c15979faf23fd1b78079115342ce542b06a3430a7bc9135.json",
+      "receiptSha256": "d51d10da265df46e7bb342ab12bc7b8b6643987b5ba07f7c1cb585b928ad1476",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "Library confirmation",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895b-f121-7f64-8b66-b896c0d30393",
+      "receipt": "training/experiments/next/results/weave-publications/a56246fa98136d9e65ae1a3e31f2836158ec1c4956fc14fca143e49560fd0018.json",
+      "receiptSha256": "502b44d97e983aaa752bf1c51d66138fe9a0364093a1f52ebfcda43d6e425dfd",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "Base confirmation",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895b-f49b-7c7b-baf0-64d3a849c47b",
+      "receipt": "training/experiments/next/results/weave-publications/ace405ff2b5008dc71f0b960024aadbe5b244e43714cc61c9a4bfed797b3e35f.json",
+      "receiptSha256": "1a57678b9589cff000683b5a15d3faae538ce1a6fb8312164bcdde51fab7521a",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "SFT confirmation",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895d-6064-78c9-9d7a-c4cc2716aa61",
+      "receipt": "training/experiments/next/results/weave-publications/9ed02d14788b4c067d5da7f7b6463849f8111f5203dd4ec44c74e7709fba3f69.json",
+      "receiptSha256": "567a47fc18f1fe128f1ef217299dd4bd7eaac801a8b9b2a41c1d2491e51e2318",
+      "meaning": "Exact import of recorded task results; import duration is not model latency."
+    },
+    {
+      "label": "GPT confirmation",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895e-c6a3-70b1-af6c-1b7e27ecee03",
+      "receipt": "training/experiments/next/results/weave-publications/19901ba87618123f8f6649967a10a0542179c0bc26f19844b20258bc6ddbd342.json",
+      "receiptSha256": "a1da814e787110d6e06e5e8a5a9c12df95e5ef9c1d1eff206228d94825fdbf19",
+      "meaning": "Coverage-only import; no model inference completed and no quality scores."
+    },
+    {
+      "label": "Objectron diagnostic",
+      "service": "Weave",
+      "status": "verified",
+      "verified": true,
+      "url": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a188e4-5291-75e8-be9f-642127d8a0f1",
+      "receipt": "training/experiments/next/results/weave-publications/fe81860e3c760bb61819103089bfa04d8d39b66803dfcb45948c9dd24d49c49f.json",
+      "receiptSha256": "99688901e61c67367f10d15a5efd123609a9d32bceae8c90494eb4605b62d136",
+      "meaning": "Recorded local MPS segmentation; projection proxies, not calibrated tracking accuracy."
+    }
+  ],
+  "agentLens": {
+    "url": "https://forge.coreweave.com/agent-lens/wandb/flowblock/conversations",
+    "traces": [
+      {
+        "arm": "development-llama-base-connected",
+        "receipt": "training/artifacts/v2-runs/development-llama-base-connected/agent-lens-reconciliation.json",
+        "receiptSha256": "2f05bc922714758b69a19f5f0c3db7691a332cb7e0929ffc2a55ccf59d45075c",
+        "expected": 72,
+        "observed": 71,
+        "usageMatched": 71,
+        "representativeExact": true,
+        "observedAt": "2026-10-29T18:45:13.000Z"
+      },
+      {
+        "arm": "development-gpt-oss-recovery",
+        "receipt": "training/artifacts/v2-runs/development-gpt-oss-recovery/agent-lens-reconciliation.json",
+        "receiptSha256": "04ef6aa6b2d93bef6e7cd4ca45928aeb048582451699364a3e3cf848ce05de7e",
+        "expected": 72,
+        "observed": 41,
+        "usageMatched": 41,
+        "representativeExact": true,
+        "observedAt": "2026-10-29T18:58:15.889Z"
+      },
+      {
+        "arm": "development-llama-sft",
+        "receipt": "training/artifacts/v2-runs/development-llama-sft/agent-lens-reconciliation.json",
+        "receiptSha256": "c38b1785aa60089643abb5a3abc570e839b54a18c6f6f56a445a0d3e0739dac2",
+        "expected": 72,
+        "observed": 72,
+        "usageMatched": 72,
+        "representativeExact": true,
+        "observedAt": "2026-10-29T20:35:56.635Z"
+      }
+    ],
+    "insightsClaimed": false
+  },
+  "boundaries": [
+    "Only entries with verified=true passed exact remote evidence readback.",
+    "Unknown, pending, failed, or missing publications are not treated as completed.",
+    "Prior failed receipts and interrupted imports remain preserved.",
+    "Models uses the verified native api.wandb.ai endpoint for the same private Forge project; Weave uses trace.wandb.ai.",
+    "No creator-outcome study or causally measured time savings were run."
+  ]
+}

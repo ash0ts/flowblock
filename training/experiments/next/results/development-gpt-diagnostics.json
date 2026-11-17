@@ -1,0 +1,2161 @@
+{
+  "schemaVersion": 1,
+  "diagnosticVersion": "flowblock-recorded-development-diagnostics-v1",
+  "generatorSha256": "4a3bbf65610a09e1b17135449141bbb0252dd240e70882e2cf773ccd22b2e535",
+  "scope": "development-diagnostic",
+  "attemptId": "2026-10-29T18-34-17-513Z-gpt-oss-94f32993",
+  "arm": "gpt-oss",
+  "model": "openai/gpt-oss-20b",
+  "sourceManifestPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/manifest.json",
+  "sourceManifestSha256": "aa4f9b4b88864e91771e710138656d12075000b7305de8eb46bda2db045d616c",
+  "resultsSha256": "e2ce11ff165569e9ce74c7aaf59d2f7abd6e6704f0aa15504443c8c2869bde74",
+  "taskFileSha256": "deb54c016db5888f3dd89c8bc1b272d84a22198c05cb29b21313eb97739b2576",
+  "checkerVersion": "flowblock-brief-checker-v4",
+  "runtimeVersion": "flowblock-planner-v1.2",
+  "sourceHashes": {
+    "training/experiments/next/run.ts": "0affb64b069e1bdbe5c68601dce52d064387db203e429bcabbd220292276b2f1",
+    "training/experiments/next/budget.ts": "ed90a60bc57e078f4fbc77894ebfd1c0fed0b2bbeffb0f29b9d4acb9487eb7a4",
+    "training/experiments/next/transport.ts": "c664c1248782203a1cee8c6b4e58ba6300206d05a57a91664a219e6a0395963d",
+    "package.json": "130c08c265a686b13ae379d7d56601302ab161c0487c6de84114fb10646ea23b",
+    "bun.lock": "d321c30edfa99ccabed921ecf31d39430e739a9f6ab0bc82f07e898fd1a70f79",
+    "training/experiments/next/planner.ts": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+    "training/experiments/next/search.ts": "0dff81f3b3fb78bf9124787f2006e9a160a7625fbf2c89deac0cc266734090dc",
+    "training/experiments/next/grade.ts": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c",
+    "training/experiments/next/fixtures.ts": "58fe83212a16df6a67e2f468cf8a5791fbe7b4334cc69849f70c27fa97d64cae",
+    "src/domain/engine.ts": "0b675fbde5c466479b3da5ac96d6a8af463789660fbb71eede5763ca7aede070",
+    "src/domain/contracts.ts": "b08ae3dbf39d78ef56299bf2c1f29b2f0c9906149e5a3c94708741254dcad240",
+    "src/domain/geometry.ts": "364fd365ba00937c5f5607cdc5514f42ef9f3e760fcf82d7bf54ee38844c813d",
+    "src/domain/defaults.ts": "1afce5d125a058eade903a070a4bb79e76cc6a3ded663585cfc32112d5e77807",
+    "src/server/planner.ts": "92b516981eef1d0606821c1da1847b4deac0655b7d520f5d417d721986a83aef",
+    "src/server/coordinator-runtime.ts": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c"
+  },
+  "schedule": {
+    "tasks": 72,
+    "sceneGroups": 12,
+    "attempted": 72,
+    "available": 72
+  },
+  "status": {
+    "completed": 41,
+    "actor-failure": 31
+  },
+  "termination": {
+    "finished": 41,
+    "fallback": 31
+  },
+  "outcomes": {
+    "productiveAmongScheduled": {
+      "count": 12,
+      "denominator": 72,
+      "rate": 0.16666666666666666
+    },
+    "productiveAmongAvailable": {
+      "count": 12,
+      "denominator": 72,
+      "rate": 0.16666666666666666
+    },
+    "productiveAmongAvailableWitnesses": {
+      "count": 12,
+      "denominator": 58,
+      "rate": 0.20689655172413793
+    },
+    "returnedPlans": 16,
+    "tasksWithCreditedReturnedPlans": 15,
+    "engineValidReturnedPlans": {
+      "count": 16,
+      "denominator": 16,
+      "rate": 1.0
+    },
+    "productiveReturnedPlans": {
+      "count": 13,
+      "denominator": 16,
+      "rate": 0.8125
+    },
+    "briefRejectedReturnedPlans": 3,
+    "acceptedEmptyFinishes": 26,
+    "falseAbstentions": {
+      "count": 18,
+      "denominator": 58,
+      "rate": 0.3103448275862069
+    },
+    "unsupportedAbstentions": 5,
+    "boundedEmpty": 3,
+    "uncheckedEmptyFinishes": 0,
+    "fallbackLibraryPlansExcludedFromModelCredit": 62
+  },
+  "families": [
+    {
+      "family": "hold",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 7,
+        "denominator": 12,
+        "rate": 0.5833333333333334
+      },
+      "productiveAmongAvailable": {
+        "count": 7,
+        "denominator": 12,
+        "rate": 0.5833333333333334
+      },
+      "knownWitnessTasks": 12,
+      "productiveAmongAvailableWitnesses": {
+        "count": 7,
+        "denominator": 12,
+        "rate": 0.5833333333333334
+      },
+      "returnedPlans": 8,
+      "engineValidReturnedPlans": 8,
+      "status": {
+        "completed": 10,
+        "actor-failure": 2
+      },
+      "termination": {
+        "finished": 10,
+        "fallback": 2
+      },
+      "failedBriefChecksOnReturnedPlans": {
+        "height": 1
+      },
+      "falseAbstention": 2
+    },
+    {
+      "family": "push-in",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "productiveAmongAvailable": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "knownWitnessTasks": 9,
+      "productiveAmongAvailableWitnesses": {
+        "count": 2,
+        "denominator": 9,
+        "rate": 0.2222222222222222
+      },
+      "returnedPlans": 2,
+      "engineValidReturnedPlans": 2,
+      "status": {
+        "completed": 9,
+        "actor-failure": 3
+      },
+      "termination": {
+        "finished": 9,
+        "fallback": 3
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 4
+    },
+    {
+      "family": "pull-out",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "productiveAmongAvailable": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "knownWitnessTasks": 10,
+      "productiveAmongAvailableWitnesses": {
+        "count": 2,
+        "denominator": 10,
+        "rate": 0.2
+      },
+      "returnedPlans": 3,
+      "engineValidReturnedPlans": 3,
+      "status": {
+        "completed": 6,
+        "actor-failure": 6
+      },
+      "termination": {
+        "finished": 6,
+        "fallback": 6
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 3
+    },
+    {
+      "family": "lateral",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "productiveAmongAvailable": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "knownWitnessTasks": 10,
+      "productiveAmongAvailableWitnesses": {
+        "count": 0,
+        "denominator": 10,
+        "rate": 0.0
+      },
+      "returnedPlans": 0,
+      "engineValidReturnedPlans": 0,
+      "status": {
+        "actor-failure": 7,
+        "completed": 5
+      },
+      "termination": {
+        "fallback": 7,
+        "finished": 5
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 3
+    },
+    {
+      "family": "orbit",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "productiveAmongAvailable": {
+        "count": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "knownWitnessTasks": 9,
+      "productiveAmongAvailableWitnesses": {
+        "count": 1,
+        "denominator": 9,
+        "rate": 0.1111111111111111
+      },
+      "returnedPlans": 1,
+      "engineValidReturnedPlans": 1,
+      "status": {
+        "actor-failure": 6,
+        "completed": 6
+      },
+      "termination": {
+        "fallback": 6,
+        "finished": 6
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 4
+    },
+    {
+      "family": "reveal",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "productiveAmongAvailable": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "knownWitnessTasks": 8,
+      "productiveAmongAvailableWitnesses": {
+        "count": 0,
+        "denominator": 8,
+        "rate": 0.0
+      },
+      "returnedPlans": 2,
+      "engineValidReturnedPlans": 2,
+      "status": {
+        "completed": 5,
+        "actor-failure": 7
+      },
+      "termination": {
+        "finished": 5,
+        "fallback": 7
+      },
+      "failedBriefChecksOnReturnedPlans": {
+        "family": 2
+      },
+      "falseAbstention": 2
+    }
+  ],
+  "returnedPlanCriteria": {
+    "direction": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "duration": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "family": {
+      "passed": 14,
+      "failed": {
+        "count": 2,
+        "denominator": 16,
+        "rate": 0.125
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-000-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-reveal.json",
+          "receiptSha256": "9220d455d85d9471ca96a24922e754c3b2e35714cbdf83c1d3285b27c1518dd6",
+          "traceId": "4e71ca91-508d-4e63-ade2-9bfd72038048"
+        },
+        {
+          "taskId": "development-003-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-reveal.json",
+          "receiptSha256": "35420d2c3f730de3c8eba76c07bdd532cb9404007582296f2612c483e4b56eb9",
+          "traceId": "5af76ae9-9061-4c1a-ad63-1c6b1f1a5525"
+        }
+      ]
+    },
+    "feasible": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "height": {
+      "passed": 15,
+      "failed": {
+        "count": 1,
+        "denominator": 16,
+        "rate": 0.0625
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-009-hold",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-hold.json",
+          "receiptSha256": "5103c32d406367436b3546a00bac544221e5a41ad1ce3742cf8b502a9204ad53",
+          "traceId": "6fe6306f-c8ce-47db-8eed-56d5f173af8b"
+        }
+      ]
+    },
+    "motion": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "source_preserved": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "supported_effect": {
+      "passed": 16,
+      "failed": {
+        "count": 0,
+        "denominator": 16,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    }
+  },
+  "tools": {
+    "providerCalls": 277,
+    "recordedEvents": 242,
+    "providerCallMinusEventCount": 35,
+    "recordedActionTypes": {
+      "compile_candidate": 139,
+      "propose_revision": 61,
+      "finish": 41,
+      "list_recipes": 1
+    },
+    "recordedSchemaInvalidReplies": {
+      "count": 0,
+      "denominator": 277,
+      "rate": 0.0
+    },
+    "recordedRevisionErrors": {
+      "count": 61,
+      "tasks": 58,
+      "examples": [
+        {
+          "taskId": "development-000-hold",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-hold.json",
+          "receiptSha256": "c5405f68e2b4ff997a808b5de9d2b2e1b4191be958e442144eb04616024507a7",
+          "traceId": "78e3afb1-8e21-430b-afd7-5d4a29ed701d",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-hold/1-response.json"
+          ],
+          "action": {
+            "action": "propose_revision",
+            "overrides": {
+              "distance": 1.5,
+              "bearingDeg": -37.384,
+              "height": 1.095,
+              "durationSeconds": 8,
+              "reverse": false
+            },
+            "reason": "Travel is not applicable to hero-hold. Removed travel override.",
+            "findingIds": [
+              "plan-60db7af0c080cde67f29589757c22936"
+            ]
+          },
+          "observation": {
+            "error": "Revisions require a saved take and evidence. Select a recipe for this planning request."
+          }
+        },
+        {
+          "taskId": "development-000-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+          "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+          "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-push-in/1-response.json"
+          ],
+          "action": {
+            "action": "propose_revision",
+            "overrides": {
+              "distance": 0.25,
+              "travel": 0.25,
+              "bearingDeg": 0,
+              "height": 1.235,
+              "durationSeconds": 6
+            },
+            "reason": "Increase distance to avoid product and table collision while maintaining full product framing.",
+            "findingIds": [
+              "camera_obstacle",
+              "operator_obstacle",
+              "framing_band",
+              "framing_clipped"
+            ]
+          },
+          "observation": {
+            "error": "Revisions require a saved take and evidence. Select a recipe for this planning request."
+          }
+        }
+      ]
+    },
+    "recordedCompileChecks": 139,
+    "validCompiles": {
+      "count": 16,
+      "denominator": 139,
+      "rate": 0.11510791366906475
+    },
+    "invalidCompiles": {
+      "count": 123,
+      "denominator": 139,
+      "rate": 0.8848920863309353
+    },
+    "violations": {
+      "camera_boundary": {
+        "amongInvalidCompiles": {
+          "count": 1,
+          "denominator": 123,
+          "rate": 0.008130081300813009
+        },
+        "amongExecutedCompiles": {
+          "count": 1,
+          "denominator": 139,
+          "rate": 0.007194244604316547
+        },
+        "tasksAmongScheduled": {
+          "count": 1,
+          "denominator": 72,
+          "rate": 0.013888888888888888
+        },
+        "example": {
+          "taskId": "development-010-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-pull-out.json",
+          "receiptSha256": "c91fe56cc6c1265765cf78d5a080f9a7f3976932b1e09e08ff7919a5ac702012",
+          "traceId": null,
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-010-pull-out/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "distance": 2,
+              "travel": 2,
+              "bearingDeg": 0,
+              "height": 1.341,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-6e92b32338d5d333c508fceb3c6225f5",
+            "recipeId": "wide-pull",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_boundary",
+                "framing_band",
+                "operator_boundary"
+              ]
+            }
+          }
+        }
+      },
+      "camera_obstacle": {
+        "amongInvalidCompiles": {
+          "count": 85,
+          "denominator": 123,
+          "rate": 0.6910569105691057
+        },
+        "amongExecutedCompiles": {
+          "count": 85,
+          "denominator": 139,
+          "rate": 0.6115107913669064
+        },
+        "tasksAmongScheduled": {
+          "count": 52,
+          "denominator": 72,
+          "rate": 0.7222222222222222
+        },
+        "example": {
+          "taskId": "development-000-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+          "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+          "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.15,
+              "travel": 0.15,
+              "bearingDeg": 0,
+              "height": 1.235,
+              "durationSeconds": 6
+            }
+          },
+          "observation": {
+            "candidateId": "plan-849d79dd227fb1dc04a54162c494fc72",
+            "recipeId": "gentle-push",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "framing_band": {
+        "amongInvalidCompiles": {
+          "count": 90,
+          "denominator": 123,
+          "rate": 0.7317073170731707
+        },
+        "amongExecutedCompiles": {
+          "count": 90,
+          "denominator": 139,
+          "rate": 0.6474820143884892
+        },
+        "tasksAmongScheduled": {
+          "count": 51,
+          "denominator": 72,
+          "rate": 0.7083333333333334
+        },
+        "example": {
+          "taskId": "development-000-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+          "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+          "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.15,
+              "travel": 0.15,
+              "bearingDeg": 0,
+              "height": 1.235,
+              "durationSeconds": 6
+            }
+          },
+          "observation": {
+            "candidateId": "plan-849d79dd227fb1dc04a54162c494fc72",
+            "recipeId": "gentle-push",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "framing_clipped": {
+        "amongInvalidCompiles": {
+          "count": 81,
+          "denominator": 123,
+          "rate": 0.6585365853658537
+        },
+        "amongExecutedCompiles": {
+          "count": 81,
+          "denominator": 139,
+          "rate": 0.5827338129496403
+        },
+        "tasksAmongScheduled": {
+          "count": 47,
+          "denominator": 72,
+          "rate": 0.6527777777777778
+        },
+        "example": {
+          "taskId": "development-000-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+          "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+          "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.15,
+              "travel": 0.15,
+              "bearingDeg": 0,
+              "height": 1.235,
+              "durationSeconds": 6
+            }
+          },
+          "observation": {
+            "candidateId": "plan-849d79dd227fb1dc04a54162c494fc72",
+            "recipeId": "gentle-push",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "invalid_projection": {
+        "amongInvalidCompiles": {
+          "count": 24,
+          "denominator": 123,
+          "rate": 0.1951219512195122
+        },
+        "amongExecutedCompiles": {
+          "count": 24,
+          "denominator": 139,
+          "rate": 0.17266187050359713
+        },
+        "tasksAmongScheduled": {
+          "count": 18,
+          "denominator": 72,
+          "rate": 0.25
+        },
+        "example": {
+          "taskId": "development-001-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-push-in.json",
+          "receiptSha256": "d3d2adb5c55a4c7b2bb5f2089bd34461f8146bf400ea72e001bf30560421ae58",
+          "traceId": "84bc6e97-c691-44ed-9e39-928f7c251b13",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-001-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.15,
+              "height": 1.344,
+              "durationSeconds": 8
+            }
+          },
+          "observation": {
+            "candidateId": "plan-82d5aa41bb84c244696f946f61dcfc1e",
+            "recipeId": "gentle-push",
+            "durationSeconds": 8,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "invalid_projection",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "operator_boundary": {
+        "amongInvalidCompiles": {
+          "count": 5,
+          "denominator": 123,
+          "rate": 0.04065040650406504
+        },
+        "amongExecutedCompiles": {
+          "count": 5,
+          "denominator": 139,
+          "rate": 0.03597122302158273
+        },
+        "tasksAmongScheduled": {
+          "count": 4,
+          "denominator": 72,
+          "rate": 0.05555555555555555
+        },
+        "example": {
+          "taskId": "development-007-orbit",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-orbit.json",
+          "receiptSha256": "6c62c7b2fbbdac5f39a036db48a3c8e86fea0dd6ec27d32a71c2e062091c3f9a",
+          "traceId": "55aebe1f-2fd5-49c9-9de1-9e30b1cce8bc",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-007-orbit/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "orbitDegrees": 20,
+              "height": 1.029,
+              "durationSeconds": 6
+            }
+          },
+          "observation": {
+            "candidateId": "plan-3f565be8f73fbf221c0ae7c8197f0a88",
+            "recipeId": "quarter-orbit",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "operator_boundary",
+                "tripod_translation",
+                "unused_travel"
+              ]
+            }
+          }
+        }
+      },
+      "operator_obstacle": {
+        "amongInvalidCompiles": {
+          "count": 77,
+          "denominator": 123,
+          "rate": 0.6260162601626016
+        },
+        "amongExecutedCompiles": {
+          "count": 77,
+          "denominator": 139,
+          "rate": 0.5539568345323741
+        },
+        "tasksAmongScheduled": {
+          "count": 51,
+          "denominator": 72,
+          "rate": 0.7083333333333334
+        },
+        "example": {
+          "taskId": "development-000-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+          "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+          "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.15,
+              "travel": 0.15,
+              "bearingDeg": 0,
+              "height": 1.235,
+              "durationSeconds": 6
+            }
+          },
+          "observation": {
+            "candidateId": "plan-849d79dd227fb1dc04a54162c494fc72",
+            "recipeId": "gentle-push",
+            "durationSeconds": 6,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "tripod_translation": {
+        "amongInvalidCompiles": {
+          "count": 9,
+          "denominator": 123,
+          "rate": 0.07317073170731707
+        },
+        "amongExecutedCompiles": {
+          "count": 9,
+          "denominator": 139,
+          "rate": 0.06474820143884892
+        },
+        "tasksAmongScheduled": {
+          "count": 5,
+          "denominator": 72,
+          "rate": 0.06944444444444445
+        },
+        "example": {
+          "taskId": "development-007-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-push-in.json",
+          "receiptSha256": "e3ee3c8c905ab76402899131a6113edafceff679a29a80ae323fd796f57ac626",
+          "traceId": "4b358de8-eccc-4f7a-b33c-6b773b1cb27c",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-007-push-in/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "orbitDegrees": 0,
+              "height": 1.016,
+              "durationSeconds": 10,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-c9b5f8e50b62d91c7724deb296cbbfb8",
+            "recipeId": "gentle-push",
+            "durationSeconds": 10,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "invalid_projection",
+                "operator_obstacle",
+                "tripod_translation",
+                "unused_orbit"
+              ]
+            }
+          }
+        }
+      },
+      "unused_orbit": {
+        "amongInvalidCompiles": {
+          "count": 25,
+          "denominator": 123,
+          "rate": 0.2032520325203252
+        },
+        "amongExecutedCompiles": {
+          "count": 25,
+          "denominator": 139,
+          "rate": 0.17985611510791366
+        },
+        "tasksAmongScheduled": {
+          "count": 20,
+          "denominator": 72,
+          "rate": 0.2777777777777778
+        },
+        "example": {
+          "taskId": "development-001-lateral",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-lateral.json",
+          "receiptSha256": "91acd538ee84a064bb201a8840329062c9cabf6821eadf878cc1eb22d6d55f58",
+          "traceId": null,
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-001-lateral/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "distance": 0.15,
+              "travel": 0.15,
+              "bearingDeg": 0,
+              "orbitDegrees": 0,
+              "height": 1.314,
+              "durationSeconds": 10,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-d34120253d9caf1b028944f40bfe6660",
+            "recipeId": "right-slide",
+            "durationSeconds": 10,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "invalid_projection",
+                "operator_obstacle",
+                "unused_orbit"
+              ]
+            }
+          }
+        }
+      },
+      "unused_travel": {
+        "amongInvalidCompiles": {
+          "count": 21,
+          "denominator": 123,
+          "rate": 0.17073170731707318
+        },
+        "amongExecutedCompiles": {
+          "count": 21,
+          "denominator": 139,
+          "rate": 0.1510791366906475
+        },
+        "tasksAmongScheduled": {
+          "count": 21,
+          "denominator": 72,
+          "rate": 0.2916666666666667
+        },
+        "example": {
+          "taskId": "development-000-hold",
+          "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-hold.json",
+          "receiptSha256": "c5405f68e2b4ff997a808b5de9d2b2e1b4191be958e442144eb04616024507a7",
+          "traceId": "78e3afb1-8e21-430b-afd7-5d4a29ed701d",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-hold/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "hero-hold",
+            "overrides": {
+              "distance": 1.5,
+              "travel": 0,
+              "bearingDeg": -37.384,
+              "height": 1.095,
+              "durationSeconds": 8,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-60db7af0c080cde67f29589757c22936",
+            "recipeId": "hero-hold",
+            "durationSeconds": 8,
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "unused_travel"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "schemaUnknownKeys": {},
+    "repairBudgetTasks": 0,
+    "repairBudgetTasksWithPreviouslyValidCompile": 0,
+    "repairBudgetTasksWithIdenticalRejectedCompileRepeated": []
+  },
+  "briefFailureExamples": [
+    {
+      "taskId": "development-000-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-reveal.json",
+      "receiptSha256": "9220d455d85d9471ca96a24922e754c3b2e35714cbdf83c1d3285b27c1518dd6",
+      "traceId": "4e71ca91-508d-4e63-ade2-9bfd72038048",
+      "eventIndex": 0,
+      "eventPointer": "/result/events/0",
+      "matchingCallIndices": [
+        0
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-000-reveal/0-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "distance": 1.5,
+          "travel": 0.15,
+          "bearingDeg": -45,
+          "height": 1.15,
+          "durationSeconds": 8,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-8a970f66f32d8285498b3c14a08e359d",
+        "recipeId": "left-slide",
+        "durationSeconds": 8,
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled left slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-8a970f66f32d8285498b3c14a08e359d",
+      "engineValid": true,
+      "explanation": "The left-slide plan meets all constraints: 0.15\u202fm travel, 8\u202fs duration, 1.15\u202fm height, preserves framing, keeps product fully in frame, and has sufficient clearance from the table. No revisions needed."
+    },
+    {
+      "taskId": "development-003-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-reveal.json",
+      "receiptSha256": "35420d2c3f730de3c8eba76c07bdd532cb9404007582296f2612c483e4b56eb9",
+      "traceId": "5af76ae9-9061-4c1a-ad63-1c6b1f1a5525",
+      "eventIndex": 2,
+      "eventPointer": "/result/events/2",
+      "matchingCallIndices": [
+        2
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-003-reveal/2-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "right-slide",
+        "overrides": {
+          "distance": 1,
+          "travel": 1,
+          "bearingDeg": -15,
+          "height": 1.11,
+          "durationSeconds": 6
+        }
+      },
+      "observation": {
+        "candidateId": "plan-d13e14ca4e2af771ade22c984700cc31",
+        "recipeId": "right-slide",
+        "durationSeconds": 6,
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled right slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-d13e14ca4e2af771ade22c984700cc31",
+      "engineValid": true,
+      "explanation": "The revised right slide meets all constraints: no obstacle collision, full product remains in frame, and the camera stays at the required height and duration."
+    },
+    {
+      "taskId": "development-009-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-hold.json",
+      "receiptSha256": "5103c32d406367436b3546a00bac544221e5a41ad1ce3742cf8b502a9204ad53",
+      "traceId": "6fe6306f-c8ce-47db-8eed-56d5f173af8b",
+      "eventIndex": 3,
+      "eventPointer": "/result/events/3",
+      "matchingCallIndices": [
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-gpt-oss-recovery/calls/development-009-hold/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "elevated-hold",
+        "overrides": {
+          "distance": 1.5,
+          "height": 1.8,
+          "durationSeconds": 10,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-24ef67963af42b0211691828ba85e11a",
+        "recipeId": "elevated-hold",
+        "durationSeconds": 10,
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Keep the camera stationary for a product hero shot. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "hold",
+      "failedChecks": [
+        "height"
+      ],
+      "planId": "plan-24ef67963af42b0211691828ba85e11a",
+      "engineValid": true,
+      "explanation": "Elevated hold at 1.8\u202fm height and 1.5\u202fm distance keeps the product fully framed, satisfies the 10\u2011second duration, and clears the fixed stand obstacle. No other recipe can meet the stationary hero requirement without violating constraints."
+    }
+  ],
+  "falseAbstentionExamples": [
+    {
+      "taskId": "development-000-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+      "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+      "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+      "explanation": "All push\u2011in recipes (gentle\u2011push, detail\u2011push) collide with the product and the table while attempting to keep the full product in frame at the required camera height and duration. Lateral or orbit movements cannot satisfy the brief\u2019s requirement to push toward the product and increase its apparent size. Therefore no feasible candidate exists under the given constraints.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-001-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-hold.json",
+      "receiptSha256": "77f743ec687297167b983b998ef38a478639df12bbf7aebf2c6b700f3efd6c00",
+      "traceId": "e73be861-5214-447d-a7c7-d59eae9141d7",
+      "explanation": "No feasible stationary hero shot exists within the given constraints: the product cannot be fully framed at the required camera height and distance without intersecting the table or violating the temporal framing band. The constraints on camera height, duration, and framing band cannot be satisfied simultaneously with the current room layout and gear.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-001-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-push-in.json",
+      "receiptSha256": "d3d2adb5c55a4c7b2bb5f2089bd34461f8146bf400ea72e001bf30560421ae58",
+      "traceId": "84bc6e97-c691-44ed-9e39-928f7c251b13",
+      "explanation": "The brief requires a push toward the product while keeping the full product in frame. However, the product\u2019s height (top at 1.362\u202fm) is nearly equal to the camera height (1.344\u202fm). Any forward movement would cause the camera or operator to intersect the product or the table, and the product would no longer be fully projected. Therefore, the requested motion cannot be performed within the given constraints without violating safety or framing rules.",
+      "recordedKnownWitness": true,
+      "compileChecks": 1
+    },
+    {
+      "taskId": "development-001-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-pull-out.json",
+      "receiptSha256": "98ce0398f62d7e8164a8575e5b0edc925834643ad7ce46ccf156ba6fadb3c1a4",
+      "traceId": "212cf042-c1fc-48ba-a8c3-ea247336aa1d",
+      "explanation": "All pull\u2011out recipes (context\u2011pull, wide\u2011pull) intersect the product or table or violate framing constraints. The product sits on the table at the center of the room, leaving no clearance for a forward pull while keeping the full product in frame. Lateral slides or orbits also fail to increase distance. Therefore the brief cannot be satisfied with the current room layout and gear. No feasible candidate exists.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-002-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-hold.json",
+      "receiptSha256": "573c6cfdba4f609917125a0f2bba0b1ce76f5f05d7a4e1c23ee44dcfe0367059",
+      "traceId": "12b8ac0d-11cd-4167-9696-1a7f61101942",
+      "explanation": "A stationary hero hold cannot be performed in this room without the operator\u2019s gimbal envelope intersecting Fixed stand 0 or Fixed stand 1. The product\u2019s size and the required camera height (1.306\u202fm) force the camera to be positioned too close to the stands, violating the obstacle clearance constraint. No other recipe can satisfy the brief while keeping the camera stationary and fully framing the product. Therefore the requested move is infeasible under the given constraints.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-002-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-push-in.json",
+      "receiptSha256": "ad071907420499666d4fd6c6e3aa83502cbb47790d4403974948f6af1f7d50a1",
+      "traceId": "57b2f4c8-0d88-466e-bce3-743ed07cec46",
+      "explanation": "No feasible push-in move exists that satisfies the brief while keeping the product fully in frame and avoiding collisions with the product or table. The geometry constraints force the camera to intersect the product or table for any forward travel of at least 0.10\u202fm at the specified height and framing. Therefore the brief cannot be met with the available recipes in this scene.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-002-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-pull-out.json",
+      "receiptSha256": "dc08b9a8c28c45e3e622437662d2e90b6909d7ee35d81de6f614027823acca80",
+      "traceId": "0fe26b4b-de05-4a52-b13b-d6f8f636e609",
+      "explanation": "All pull\u2011out recipes intersect the product or table, fail to keep the product fully framed, and violate the required framing band. The geometry of the room and the product\u2019s position prevent a safe pull\u2011away while maintaining the specified camera height, duration, and framing. No alternative recipe can satisfy the brief without compromising safety or framing.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-002-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-lateral.json",
+      "receiptSha256": "154749cf18834e52f1a609dc0bcbb8b6ac1acb921f96cee1ca3c290e26e6d4c4",
+      "traceId": "7e3040a3-9103-494b-9498-850743ef5532",
+      "explanation": "The left\u2011slide motion cannot be executed without intersecting the product or the table, and it fails to keep the product fully framed. No other lateral slide recipe satisfies the brief while respecting the room geometry and framing constraints. Therefore the requested move is infeasible with the current setup.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-002-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-orbit.json",
+      "receiptSha256": "95b70f4faf5b69a1aeb63579d463a20486edacd95fe64ba403b149ffde0d6d73",
+      "traceId": "7afb864f-b4a0-4a67-844f-0fb13d309e42",
+      "explanation": "The room geometry and obstacle layout prevent any feasible left\u2011orbit of at least 20\u00b0 while maintaining the required camera height, duration, and framing. Both the quarter\u2011orbit and reverse\u2011orbit recipes intersect the mandatory product, table, or stands, and no distance\u2011only or travel\u2011only override can resolve the conflicts without violating the framing band or clipping the product. Therefore the brief cannot be satisfied with the available recipes and constraints.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-004-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-lateral.json",
+      "receiptSha256": "fc46d38630630dfef950f5e061aa9f51848c0d565ca20a49f05667feb6cff44c",
+      "traceId": "8eac2697-c828-4968-b575-891c5aa18c40",
+      "explanation": "The left\u2011slide motion cannot be performed without the camera or operator intersecting the product table or violating the framing band. The product and table occupy the same floor footprint, so any lateral movement that keeps the product fully framed will inevitably collide with the table. No alternative recipe satisfies the brief while preserving the required camera height, duration, and framing. Therefore the requested move is infeasible in the given setup.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-004-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-orbit.json",
+      "receiptSha256": "66319236d188d8221830a26d4981c7c31efb1996405a769b59bb823a3eddb09a",
+      "traceId": "0e5b744b-de9a-409f-b221-d4c525212819",
+      "explanation": "No available orbit recipe can satisfy the requirement to orbit left by at least 20\u00b0 while keeping the product fully framed and avoiding the table. The quarter-orbit and reverse-orbit recipes both fail framing constraints, and the left-slide and left-reveal recipes do not provide an orbital motion. Therefore the brief cannot be met with the given gear, room, and framing constraints.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-004-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-reveal.json",
+      "receiptSha256": "ff541e24a956d4a730128b625cb16693083fea2ae449a87e6eb45761ac254a20",
+      "traceId": "33076fd7-be87-4b9f-ad41-107f891355ab",
+      "explanation": "The left\u2011slide motion cannot be executed without intersecting the product table or violating the framing band. The camera envelope inevitably collides with the table at the required 0.5\u202fm travel, and the product would be clipped from the frame. No alternative lateral recipe satisfies the brief while keeping the product fully in frame and respecting the room geometry. Therefore the requested move is infeasible with the given constraints.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-005-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-pull-out.json",
+      "receiptSha256": "bef707b2613ca7f9d7eee61ca95f7f1f4a5d3c5de425df514ab52af85f734859",
+      "traceId": "77255536-140e-437a-92f3-6be9299481be",
+      "explanation": "All pull\u2011out recipes (context\u2011pull, wide\u2011pull) fail because the camera and operator envelopes intersect the product and the product table, and the product cannot be fully framed while maintaining the required distance and height. No feasible dynamic pull\u2011away motion exists within the given room geometry, gear limits, and framing constraints. Therefore the brief cannot be satisfied without changing the setup or the shot type.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-005-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-orbit.json",
+      "receiptSha256": "7493eba28934fc2dc66f35e116022cadb7a92e8ef4581de3cbbddca6a3cbe009",
+      "traceId": "0322f2c3-de4b-4950-bf2b-df5081bdd079",
+      "explanation": "No available orbit recipe can satisfy the brief without intersecting Fixed stand\u202f0 or violating framing constraints. The required 20\u00b0 rightward orbit and 0.10\u202fm travel cannot be achieved within the room geometry while keeping the full product in frame and respecting the declared camera height. Therefore the brief cannot be fulfilled with the current setup and recipe set.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-006-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-orbit.json",
+      "receiptSha256": "250578ff20edd16947e03a8bc9ff2bb13cabfdf63b306a25705abf3317c4e5e6",
+      "traceId": "08e45da2-3cda-42d0-bef6-17d73d0e593a",
+      "explanation": "The available orbit recipes (quarter-orbit, reverse-orbit) cannot be executed without intersecting the product, table, or stand\u20111, and the brief requires a single orbit left of at least 20\u00b0 with 0.10\u202fm travel. No other recipe provides a leftward orbit while keeping the product fully framed. Therefore the requested move is infeasible with the current setup.",
+      "recordedKnownWitness": true,
+      "compileChecks": 1
+    },
+    {
+      "taskId": "development-006-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-reveal.json",
+      "receiptSha256": "ec906470a41b23f96d2e9ef5de154f7bf2d7de09a43295df941a08fe7c5406a9",
+      "traceId": "ae78efe8-a78b-4292-bde7-499d16ef1d1b",
+      "explanation": "The left\u2011slide motion cannot be executed without intersecting the product, table, or stand, and it fails to keep the product fully framed within the medium framing band. No other lateral recipe satisfies the brief while preserving the required camera height, duration, and framing. Therefore the requested move is infeasible in the current setup.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-008-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-lateral.json",
+      "receiptSha256": "df4b4671bd01f1a21b6426b07ace19a9709539582b041c68380b434fd87eb7c8",
+      "traceId": "001b0bd2-08bc-4b98-ad27-5eb74a6bc6d0",
+      "explanation": "The left\u2011slide motion cannot be performed without intersecting the product table or violating the framing band. No other lateral recipe satisfies the brief while keeping the product fully in frame and respecting the room geometry. Therefore the requested move is infeasible with the current setup.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-011-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-push-in.json",
+      "receiptSha256": "e8f4de0564aa89cdbc8fee9ab359999c39f273bfc3f53bdd0c99521a356621fe",
+      "traceId": "1fdca898-013c-4200-b4d5-1d976e2b9eec",
+      "explanation": "All push\u2011in recipes intersect the product or the table and violate the framing band. The only way to satisfy the brief would be to move the camera farther forward, but that would still clip the product or collide with the table. Therefore the requested motion cannot be performed with the current setup without compromising safety or framing. No feasible candidate exists.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    }
+  ],
+  "taskEvidence": [
+    {
+      "taskId": "development-000-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-hold.json",
+      "receiptSha256": "c5405f68e2b4ff997a808b5de9d2b2e1b4191be958e442144eb04616024507a7",
+      "traceId": "78e3afb1-8e21-430b-afd7-5d4a29ed701d",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-push-in.json",
+      "receiptSha256": "7438e8f379b940e5694ba377c2aa9095f492da39940eccee92d0fa97c750c4b3",
+      "traceId": "4d99fc80-d9fd-480d-825e-190076c1fae5",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-pull-out.json",
+      "receiptSha256": "cbd76c7c7b076c3ff6be75fa89346f02760fc3abbe37d8c6f9982fd599fb58a2",
+      "traceId": "5e487229-5885-42a0-9bc8-037229906030",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-lateral.json",
+      "receiptSha256": "d57ff801e3237d41c492b27644631c9625474175cee4c295289d19e5e6aa0e25",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-orbit.json",
+      "receiptSha256": "504e6ab5f20531ef987601590a00695caaeee451f3b4d145b664d6fee6c7cf61",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-000-reveal.json",
+      "receiptSha256": "9220d455d85d9471ca96a24922e754c3b2e35714cbdf83c1d3285b27c1518dd6",
+      "traceId": "4e71ca91-508d-4e63-ade2-9bfd72038048",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-hold.json",
+      "receiptSha256": "77f743ec687297167b983b998ef38a478639df12bbf7aebf2c6b700f3efd6c00",
+      "traceId": "e73be861-5214-447d-a7c7-d59eae9141d7",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-push-in.json",
+      "receiptSha256": "d3d2adb5c55a4c7b2bb5f2089bd34461f8146bf400ea72e001bf30560421ae58",
+      "traceId": "84bc6e97-c691-44ed-9e39-928f7c251b13",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-pull-out.json",
+      "receiptSha256": "98ce0398f62d7e8164a8575e5b0edc925834643ad7ce46ccf156ba6fadb3c1a4",
+      "traceId": "212cf042-c1fc-48ba-a8c3-ea247336aa1d",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-lateral.json",
+      "receiptSha256": "91acd538ee84a064bb201a8840329062c9cabf6821eadf878cc1eb22d6d55f58",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-orbit.json",
+      "receiptSha256": "fee43ae2a78ba5b5594279f2816564cdbee5bdf5c7923f354462e17116bce718",
+      "traceId": "b04b6a21-de02-444a-b06b-89f68c3ad7be",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-001-reveal.json",
+      "receiptSha256": "e56162e24df81294c63e57ed30493615b64bbaf66810da89dfcbacac789d6882",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-hold.json",
+      "receiptSha256": "573c6cfdba4f609917125a0f2bba0b1ce76f5f05d7a4e1c23ee44dcfe0367059",
+      "traceId": "12b8ac0d-11cd-4167-9696-1a7f61101942",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-push-in.json",
+      "receiptSha256": "ad071907420499666d4fd6c6e3aa83502cbb47790d4403974948f6af1f7d50a1",
+      "traceId": "57b2f4c8-0d88-466e-bce3-743ed07cec46",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-pull-out.json",
+      "receiptSha256": "dc08b9a8c28c45e3e622437662d2e90b6909d7ee35d81de6f614027823acca80",
+      "traceId": "0fe26b4b-de05-4a52-b13b-d6f8f636e609",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-lateral.json",
+      "receiptSha256": "154749cf18834e52f1a609dc0bcbb8b6ac1acb921f96cee1ca3c290e26e6d4c4",
+      "traceId": "7e3040a3-9103-494b-9498-850743ef5532",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-orbit.json",
+      "receiptSha256": "95b70f4faf5b69a1aeb63579d463a20486edacd95fe64ba403b149ffde0d6d73",
+      "traceId": "7afb864f-b4a0-4a67-844f-0fb13d309e42",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-002-reveal.json",
+      "receiptSha256": "0063bf81fb12333d5592f6b32be50e149715333f42fba731ad5a2eafeba7d974",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-hold.json",
+      "receiptSha256": "b523c775cd6e2b41d09d6fba4aaabb25d4e78afdcf78c32b6c9263b8f85d49c6",
+      "traceId": "899ab3f2-b04d-4849-a3c1-3f1aa568539b",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-push-in.json",
+      "receiptSha256": "bb1a923bbb86ee731101626b96cfec6e30131f428b2bac9c19cf04a4e87204b7",
+      "traceId": null,
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-pull-out.json",
+      "receiptSha256": "1cbfbd10d122dd5964c22b9c63c3d1978a9cb958e3700acd3d498920c9d80d40",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-lateral.json",
+      "receiptSha256": "9e9dc7e05b7990d65c82c713929df41aaa035dcf6947519ce73c7c5c2b01055f",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-orbit.json",
+      "receiptSha256": "8b909ee9d4e824b385113ccd8e6b26ccc12bf8fbe2c1e71fc3998f6010ab49ef",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-003-reveal.json",
+      "receiptSha256": "35420d2c3f730de3c8eba76c07bdd532cb9404007582296f2612c483e4b56eb9",
+      "traceId": "5af76ae9-9061-4c1a-ad63-1c6b1f1a5525",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-hold.json",
+      "receiptSha256": "ed10034db1b80957589f9a8e4d7a7568f2806aa56649516ac6403ff72c49e210",
+      "traceId": "2ee1cca8-80cc-467f-9d07-f82f1344f49c",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-push-in.json",
+      "receiptSha256": "6f3c4b3b373b193d11a14a2f420a4818e5de5d42136e059a2894c60c0fdd3faf",
+      "traceId": "fe0e50a8-e653-4c00-b9ec-b35d1d035b47",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-pull-out.json",
+      "receiptSha256": "23e40298e06be9586f59ca348017d9a97edc8978e4cc804778a88cedcd3feafb",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-lateral.json",
+      "receiptSha256": "fc46d38630630dfef950f5e061aa9f51848c0d565ca20a49f05667feb6cff44c",
+      "traceId": "8eac2697-c828-4968-b575-891c5aa18c40",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-orbit.json",
+      "receiptSha256": "66319236d188d8221830a26d4981c7c31efb1996405a769b59bb823a3eddb09a",
+      "traceId": "0e5b744b-de9a-409f-b221-d4c525212819",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-004-reveal.json",
+      "receiptSha256": "ff541e24a956d4a730128b625cb16693083fea2ae449a87e6eb45761ac254a20",
+      "traceId": "33076fd7-be87-4b9f-ad41-107f891355ab",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-hold.json",
+      "receiptSha256": "779d33c39266a2d1bef3f222c133fa9d2517dbff7cbd2b068a095268f03b67f3",
+      "traceId": "db413eb3-30f4-4e7a-a924-360beaadba3e",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-push-in.json",
+      "receiptSha256": "5e8078351b59b736d3e2b3cd3ad0c97b1719a6dc4a7323eef030fe8c286d2f1f",
+      "traceId": "9c1d4d2b-c4c4-46c4-8592-a738c69ff948",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-pull-out.json",
+      "receiptSha256": "bef707b2613ca7f9d7eee61ca95f7f1f4a5d3c5de425df514ab52af85f734859",
+      "traceId": "77255536-140e-437a-92f3-6be9299481be",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-lateral.json",
+      "receiptSha256": "3b17e40a3d861dab8439bb5abf87a822b97aac11ba6782be277c9b807592f7bd",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-orbit.json",
+      "receiptSha256": "7493eba28934fc2dc66f35e116022cadb7a92e8ef4581de3cbbddca6a3cbe009",
+      "traceId": "0322f2c3-de4b-4950-bf2b-df5081bdd079",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-005-reveal.json",
+      "receiptSha256": "a4a037cab73ffb111ac2f3b3c6841ba0b1255df44e5e583e3e1502868f6d709d",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-006-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-hold.json",
+      "receiptSha256": "c1ad9923ed8f534b121a0d620f2ff021f66d4abc6aea1b553ac5378869c929a3",
+      "traceId": "314d3c14-3de4-4371-a20e-876495eb3332",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-push-in.json",
+      "receiptSha256": "603e254ae9f9dd5cf7032084a1497cf0209657f006439af9e606bd2998fabcf9",
+      "traceId": null,
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-pull-out.json",
+      "receiptSha256": "a7b66aabfbdbfe0977102c31dc29944a17041c476d289be7f6f2762f4bbeb552",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-lateral.json",
+      "receiptSha256": "c2dc9f380319e7d4099f6ceb9fe05f1f2948043dbbe2f5a8b9c71a7919a45973",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-orbit.json",
+      "receiptSha256": "250578ff20edd16947e03a8bc9ff2bb13cabfdf63b306a25705abf3317c4e5e6",
+      "traceId": "08e45da2-3cda-42d0-bef6-17d73d0e593a",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-006-reveal.json",
+      "receiptSha256": "ec906470a41b23f96d2e9ef5de154f7bf2d7de09a43295df941a08fe7c5406a9",
+      "traceId": "ae78efe8-a78b-4292-bde7-499d16ef1d1b",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-007-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-hold.json",
+      "receiptSha256": "7ec0866e2223faf4b0d45a14657f38e7bef68a17231a2d5a8da3fbca835f9b0f",
+      "traceId": null,
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-007-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-push-in.json",
+      "receiptSha256": "e3ee3c8c905ab76402899131a6113edafceff679a29a80ae323fd796f57ac626",
+      "traceId": "4b358de8-eccc-4f7a-b33c-6b773b1cb27c",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-pull-out.json",
+      "receiptSha256": "516435461bc3509cd8b60e021b4fa13192edf055e712fa45cb34368bf7bd5d18",
+      "traceId": "7a12d9e6-6231-4341-8628-447cf3132b83",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-lateral.json",
+      "receiptSha256": "d45e24b46d5df5bc8bf993d268bf8940fbf8d02b9fe72c81b00277bc71c087de",
+      "traceId": "90cd9019-f34d-49e3-aaa3-2f9956742d1f",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-orbit.json",
+      "receiptSha256": "6c62c7b2fbbdac5f39a036db48a3c8e86fea0dd6ec27d32a71c2e062091c3f9a",
+      "traceId": "55aebe1f-2fd5-49c9-9de1-9e30b1cce8bc",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-007-reveal.json",
+      "receiptSha256": "40fbdbeaf56ff437cd4bd3a7418452c19180fbd951e0c73dc370d78120e8e748",
+      "traceId": "4dbe0402-f502-49f5-a893-5357f46d9352",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-008-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-hold.json",
+      "receiptSha256": "352a40b98b8eecf11ddecb9446cd6a4a527c44f1d2c650148f330ee10c9fcad8",
+      "traceId": null,
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-push-in.json",
+      "receiptSha256": "b461b56302f9f36a8143a75ec78db2f146ed5c63c28a8ddfb71d4775df535465",
+      "traceId": "9ed94aad-200d-4b28-a834-16bb5b8ce70c",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-008-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-pull-out.json",
+      "receiptSha256": "66b83b346dc844de720347b072781eeb806e2ecb182676acb7d43274e646e169",
+      "traceId": "6b3d40bc-b732-4405-bb29-6fe763efbe46",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-lateral.json",
+      "receiptSha256": "df4b4671bd01f1a21b6426b07ace19a9709539582b041c68380b434fd87eb7c8",
+      "traceId": "001b0bd2-08bc-4b98-ad27-5eb74a6bc6d0",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-orbit.json",
+      "receiptSha256": "a7e9d6ea30d5416004a620c926848bc15effd4fdadf18128f4a2cddba50398ee",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-008-reveal.json",
+      "receiptSha256": "f31590281fc8f2c4bf16802ed4d140bd38e376725f9a8724d6ac2d596d11ef70",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-hold.json",
+      "receiptSha256": "5103c32d406367436b3546a00bac544221e5a41ad1ce3742cf8b502a9204ad53",
+      "traceId": "6fe6306f-c8ce-47db-8eed-56d5f173af8b",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-push-in.json",
+      "receiptSha256": "a5a5cb57864c80c3276faa675a0b5950bbc178ab1f66f4d038be99dbbadf315f",
+      "traceId": null,
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-pull-out.json",
+      "receiptSha256": "1d71d2a96e4300bf07494e45486a05ac97c43504bef341c207e1fdfeb0a212f0",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-lateral.json",
+      "receiptSha256": "e62b16e3d3793ffd33e500cde3de93c51b9dcfa28200163c289aff41146691f7",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-orbit.json",
+      "receiptSha256": "f7f8c451ce402b560a538086b739a994055a2b4ea4a7615c63088af46edbc53a",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-009-reveal.json",
+      "receiptSha256": "ed1a91f02c81aa894401f408470e3915b03027d9740c8816e8282694cf2aa131",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-010-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-hold.json",
+      "receiptSha256": "3338f29790339238b0e4557cdc434153c3c5398bf4581d241efcd4d289a23430",
+      "traceId": "c612b1f9-b01b-4850-945c-8a57fc1f3e61",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-010-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-push-in.json",
+      "receiptSha256": "1603c018e27cc2a73bd6cae3eae9fee2b7e16fa4a742e02b1d32d116cf09cae4",
+      "traceId": "cf51d369-2416-49ea-a4f7-c61a2c138e55",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-pull-out.json",
+      "receiptSha256": "c91fe56cc6c1265765cf78d5a080f9a7f3976932b1e09e08ff7919a5ac702012",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-lateral.json",
+      "receiptSha256": "abd16099de6c7d2218c82f413c955bfccf2145138bbafd0cea6a39fda821a2f1",
+      "traceId": "ebc56d89-1a99-4f0a-a956-4690fdc9ca43",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-orbit.json",
+      "receiptSha256": "abcd043ae4d2ecf193847d04dcbf983da8dba932799ece1a4dd30cf36b99f1a0",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-010-reveal.json",
+      "receiptSha256": "589db82c057ecf2054ad434252bcf0a1ad521f4904e0f5625e2f1b66700d1364",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-011-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-hold.json",
+      "receiptSha256": "6286c18aad2c981b4b2d7297f032706a42b7c7f02f60f4993a1a64d5069f240c",
+      "traceId": "3bedf893-d763-4069-8f2b-1316684b3d63",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-push-in.json",
+      "receiptSha256": "e8f4de0564aa89cdbc8fee9ab359999c39f273bfc3f53bdd0c99521a356621fe",
+      "traceId": "1fdca898-013c-4200-b4d5-1d976e2b9eec",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-pull-out.json",
+      "receiptSha256": "82598c616c7cb2a5b45dcd5819de8a351372813b3f751aa97be78bb21ac57d3c",
+      "traceId": null,
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-lateral.json",
+      "receiptSha256": "f9b43c786a00e43e72e5b70eec386f351d48cfc69a39faabb45626f4eb875d1a",
+      "traceId": null,
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-orbit.json",
+      "receiptSha256": "81706f2431077798cfb7a11b83172e7f55dca227db154a5dff68d36ee80ec781",
+      "traceId": null,
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-011-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-gpt-oss-recovery/development-011-reveal.json",
+      "receiptSha256": "1283d2eef3e817a37c4641dd2d09768eff2458e46f7ff03c92344a1c523c37ca",
+      "traceId": null,
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "fallback",
+      "productive": false,
+      "knownWitness": false
+    }
+  ],
+  "limitations": [
+    "Recorded development outcomes only; no model calls, plan recompilation or current-checker regrading.",
+    "Criterion denominators are credited returned plans. Compilation failures have separate observed compile/task denominators; codes overlap.",
+    "Logged schema errors and compile checks are observed counts, not proof that omitted actions were valid. A provider-call/event count gap does not identify omitted action types or causes.",
+    "Engine validity is conditional on supplied synthetic geometry and is not physical safety or brief preservation.",
+    "A valid intermediate compile is not a graded final plan and receives no productive credit. Raw library fallback plans do not receive model-success credit.",
+    "Witness absence is unresolved, not proof of infeasibility. Twelve scene groups contain dependent movement tasks.",
+    "This attempt is separate from the initial GPT network pilot, failed warmups, other arms, and future confirmation.",
+    "Diagnosis does not establish creator benefit or authorize tuning the frozen candidate."
+  ]
+}

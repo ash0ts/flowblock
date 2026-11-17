@@ -1,0 +1,42 @@
+{
+  "experimentId": "flowblock-synthetic-visible-mask-stress-v1",
+  "localExecution": "completed",
+  "nativeWeavePublication": "verified",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a189f4-8937-7af0-b3b5-ca05dc146e24",
+  "verifiedAt": "2026-10-29T23:18:53.833Z",
+  "publicationId": "05f073f02f46f411922e05bcfc14f1604535fc971b4f65b2e4ce8081268e7b03",
+  "exactClipRowsVerified": 6,
+  "nonseedFrameMeasurements": 444,
+  "frameMeasurementsAreIndependentTasks": false,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "sourceHashes": {
+    "manifest": "16d26cb5e6fd2c735677dba5a96277e640889fde6505da90267eca3008c4660f",
+    "tasks": "be6fad02da92231c97b87caf63cac2272c5406230d5c8c8c152fc65eebc4e5cd",
+    "results": "1e026cdb503b6a0bbdb8c20431795d7455f87c894716e9dae2f4b2c6878163f2"
+  },
+  "receiptSha256": "92ab8cc7f3d6ba625c82ff49a0a887def47b411eb90385c6dd4c6c58217b5207",
+  "importOnly": true,
+  "executionDevice": "local MPS",
+  "metadataOnly": true,
+  "publishedMediaOrMasks": false,
+  "modelInferenceDuringPublication": false,
+  "process": {
+    "publicationId": "05f073f02f46f411922e05bcfc14f1604535fc971b4f65b2e4ce8081268e7b03",
+    "mode": "one-import-attempt",
+    "startedAtUnix": 1793315821.402447,
+    "wallTimeoutSeconds": 240,
+    "apiBase": "https://api.wandb.ai",
+    "noInference": true,
+    "status": "process-finished",
+    "exitCode": 0,
+    "elapsedSeconds": 112.47492909431458
+  },
+  "limitations": [
+    "Six authored synthetic clips share one product shape. This is development diagnostics, not a real-product performance estimate.",
+    "Twenty accepted bad masks occur within one similar-object crossing clip. Frames within a clip are correlated.",
+    "Native publication imports completed local execution. It does not represent remote GPU inference."
+  ]
+}

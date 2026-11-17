@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "flowblock-v2-20261029",
+  "trainManifestSha256": "b208f09c74df9dd36df81b06c5ce86e5b7846a3d8f35ce94ff9ffce66afab5f6",
+  "trainSourceSha256": "f830e2f4a209298f0c0bb176d98585271acff1a779d5b5c9c9083399be74e193",
+  "sourceHashes": {
+    "training/experiments/next/fixtures.ts": "58fe83212a16df6a67e2f468cf8a5791fbe7b4334cc69849f70c27fa97d64cae",
+    "training/experiments/next/grade.ts": "3d83c8e6444d0d221c08c5fdf96420dab6b1bb8ac0c85cc0af38b4e88d73123b",
+    "training/experiments/next/search.ts": "0dff81f3b3fb78bf9124787f2006e9a160a7625fbf2c89deac0cc266734090dc",
+    "training/experiments/next/planner.ts": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+    "src/domain/index.ts": "ca3255f8b5c214fc006cc089a3e18a46479b2313ec6fbbafe4ddfc7cc3490c53",
+    "src/domain/contracts.ts": "b08ae3dbf39d78ef56299bf2c1f29b2f0c9906149e5a3c94708741254dcad240",
+    "src/domain/defaults.ts": "1afce5d125a058eade903a070a4bb79e76cc6a3ded663585cfc32112d5e77807",
+    "src/domain/geometry.ts": "364fd365ba00937c5f5607cdc5514f42ef9f3e760fcf82d7bf54ee38844c813d",
+    "src/domain/engine.ts": "0b675fbde5c466479b3da5ac96d6a8af463789660fbb71eede5763ca7aede070",
+    "src/domain/take-analysis.ts": "d65fef139cbac5815a4e55e1dad27ab6239b41163a89d9ba04b1271a6e15a4e0",
+    "src/server/planner.ts": "92b516981eef1d0606821c1da1847b4deac0655b7d520f5d417d721986a83aef",
+    "src/server/coordinator-runtime.ts": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c",
+    "package.json": "a492c9d71b295dffe05e45c441495ad05b5ffeeda690ed7d649c39343e9e6468",
+    "bun.lock": "f2f0508c526118fee79b0a88f1edbcb40078c59bbdfee5923f8d0098547c9a25",
+    "training/experiments/next/train.py": "b6899bf4953aac7892ee17d1cf1c751926697de0f840ee79ca33bfb370b98fad",
+    "training/experiments/next/build.ts": "a20204f96a0ea457b1c3d8f95bf5e8848a2704995d3f905911df41952cfe88a0",
+    "training/requirements.lock": "b40a53f607541936cb468372fa24427ce4d242873fe6504054fdcef572570c41"
+  },
+  "settings": {
+    "baseModel": "meta-llama/Llama-3.1-8B-Instruct",
+    "epochs": 1,
+    "batchSize": 8,
+    "peakLearningRate": 0.0002,
+    "schedule": "cosine",
+    "assistantTurns": "last"
+  },
+  "budget": {
+    "authorizedUsd": 200,
+    "maxRuns": 1,
+    "maxExamples": 1600
+  },
+  "checkpointSelection": "final-single-run"
+}

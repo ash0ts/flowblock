@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "698c8b176fd80e853c15979faf23fd1b78079115342ce542b06a3430a7bc9135",
+  "experimentId": "flowblock-planner-v2",
+  "attemptId": "2026-10-29T18-56-34-864Z-llama-sft-1c6b56a4",
+  "verifiedAt": "2026-10-29T20:35:03.018Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "cached-same-session-read",
+    "proofSha256": "001c88dbb8712e0e9f5ed125f39a95b9fc68ba88b61d16aba58bd1ce044dd7ee",
+    "verifiedAt": "2026-10-29T20:21:02.762637+00:00",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "f766e81fecf8ac0ff0d27ea5d062e24600c872f8f1b8b5b05534b3b9310e7151",
+    "tasks": "deb54c016db5888f3dd89c8bc1b272d84a22198c05cb29b21313eb97739b2576",
+    "results": "7867789d7e7fd7bcc6d3644b0fea80bc5fdbecaa3985bac7e63f64f1710359a2"
+  },
+  "evaluationCallId": "01a18955-d3c3-7b93-bdb9-ac4abf2bae8c",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-2026-10-29T18-56-34-864Z-llama-sft-1c6b56a4-698c8b176f:MRwdK05g2FCato0gHCnZg7voZMgXTZwoYb9eXDfaKqU",
+  "modelRef": "weave:///wandb/flowblock/object/llama-sft-wandb-artifact-wandb-flowblock-flowblock-v2-20261029-af5e28634c4209df:eh9gAPbZsgj6fP5DzscqQ885WD62nSQBiJ9626QjWQA",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-scenes-development-deb54c016db5:UBH6Lk2bd3dj8Yd0ldnXdy2YdezuEZXRn5R3TpLpz0g",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18955-d3c3-7b93-bdb9-ac4abf2bae8c",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 72,
+  "observedRows": 72,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 72,
+      "mean": 1,
+      "sum": 72,
+      "true_count": 72,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "available": {
+      "count": 72,
+      "mean": 1,
+      "sum": 72,
+      "true_count": 72,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "bounded_empty": {
+      "count": 72,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 72,
+      "true_fraction": 0
+    },
+    "compile_checked": {
+      "count": 72,
+      "mean": 1,
+      "sum": 72,
+      "true_count": 72,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "false_abstention": {
+      "count": 72,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 72,
+      "true_fraction": 0
+    },
+    "productive": {
+      "count": 72,
+      "mean": 0.5,
+      "sum": 36,
+      "true_count": 36,
+      "false_count": 36,
+      "true_fraction": 0.5
+    },
+    "unchecked_empty": {
+      "count": 72,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 72,
+      "true_fraction": 0
+    },
+    "unsupported_abstention": {
+      "count": 72,
+      "mean": 0.05555555555555555,
+      "sum": 4,
+      "true_count": 4,
+      "false_count": 68,
+      "true_fraction": 0.05555555555555555
+    },
+    "task_counts": {
+      "requested": 72,
+      "published": 72
+    },
+    "recorded_summary": {
+      "requested": 72,
+      "attempted": 72,
+      "available": 72,
+      "serviceUnavailable": 0,
+      "transportWarmupUnattempted": 0,
+      "operationalFailures": 0,
+      "budgetExhausted": 0,
+      "unattempted": 0,
+      "productive": 36,
+      "productiveAmongRequested": 0.5,
+      "productiveAmongAvailable": 0.5,
+      "falseAbstentions": 0,
+      "unsupportedAbstentions": 4,
+      "boundedEmpty": 0,
+      "uncheckedEmpty": 0,
+      "completeUsageTasks": 72,
+      "reportedInputTokens": 461730,
+      "reportedOutputTokens": 7362,
+      "costDisclosure": "Token sums include complete reported usage only. Unknown usage and reservations are retained separately in the budget ledger. Billed dollars are unknown."
+    }
+  }
+}

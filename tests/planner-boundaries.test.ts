@@ -68,6 +68,8 @@ describe("planner execution boundary", () => {
     });
     expect(calls).toBe(3);
     expect(result.source).toBe("library");
+    expect(result.stopReason).toBe("repair_budget");
+    expect(result.events).toHaveLength(3);
     expect(defaultScene.subject.center.x).toBe(0);
     expect(result.plans.every((p) => p.validation.valid)).toBe(true);
   });
@@ -82,7 +84,8 @@ describe("planner execution boundary", () => {
         }),
     });
     expect(result.source).toBe("library");
-    expect(result.events).toHaveLength(6);
+    expect(result.events).toHaveLength(3);
+    expect(result.stopReason).toBe("repair_budget");
   });
   it("returns the compiled validated plan, not model-supplied coordinates", async () => {
     let i = 0;

@@ -1,0 +1,2306 @@
+[
+  {
+    "taskId": "train-000-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-000-push-in",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-000-pull-out",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-000-lateral",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-000-orbit",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-000-reveal",
+    "status": "productive-witness",
+    "witnesses": 24,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-push-in",
+    "status": "productive-witness",
+    "witnesses": 40,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-pull-out",
+    "status": "productive-witness",
+    "witnesses": 40,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-lateral",
+    "status": "productive-witness",
+    "witnesses": 16,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-orbit",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-001-reveal",
+    "status": "productive-witness",
+    "witnesses": 20,
+    "rows": 4
+  },
+  {
+    "taskId": "train-002-hold",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-002-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-002-pull-out",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-002-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-002-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-002-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-003-hold",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-003-push-in",
+    "status": "productive-witness",
+    "witnesses": 23,
+    "rows": 4
+  },
+  {
+    "taskId": "train-003-pull-out",
+    "status": "productive-witness",
+    "witnesses": 23,
+    "rows": 4
+  },
+  {
+    "taskId": "train-003-lateral",
+    "status": "productive-witness",
+    "witnesses": 11,
+    "rows": 4
+  },
+  {
+    "taskId": "train-003-orbit",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-003-reveal",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-004-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-004-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-004-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-004-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-004-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-004-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-005-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-006-hold",
+    "status": "productive-witness",
+    "witnesses": 16,
+    "rows": 4
+  },
+  {
+    "taskId": "train-006-push-in",
+    "status": "productive-witness",
+    "witnesses": 27,
+    "rows": 4
+  },
+  {
+    "taskId": "train-006-pull-out",
+    "status": "productive-witness",
+    "witnesses": 25,
+    "rows": 4
+  },
+  {
+    "taskId": "train-006-lateral",
+    "status": "productive-witness",
+    "witnesses": 16,
+    "rows": 4
+  },
+  {
+    "taskId": "train-006-orbit",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-006-reveal",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-007-hold",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-007-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-007-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-007-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-007-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-007-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-008-hold",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-008-push-in",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-008-pull-out",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-008-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-008-orbit",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-008-reveal",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-009-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-009-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-009-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-009-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-009-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-009-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-010-hold",
+    "status": "productive-witness",
+    "witnesses": 13,
+    "rows": 4
+  },
+  {
+    "taskId": "train-010-push-in",
+    "status": "productive-witness",
+    "witnesses": 34,
+    "rows": 4
+  },
+  {
+    "taskId": "train-010-pull-out",
+    "status": "productive-witness",
+    "witnesses": 26,
+    "rows": 4
+  },
+  {
+    "taskId": "train-010-lateral",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-010-orbit",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-010-reveal",
+    "status": "productive-witness",
+    "witnesses": 13,
+    "rows": 4
+  },
+  {
+    "taskId": "train-011-hold",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-011-push-in",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-011-pull-out",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-011-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-011-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-011-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-012-hold",
+    "status": "productive-witness",
+    "witnesses": 11,
+    "rows": 4
+  },
+  {
+    "taskId": "train-012-push-in",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-012-pull-out",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-012-lateral",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-012-orbit",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-012-reveal",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-hold",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-push-in",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-pull-out",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-lateral",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-orbit",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-013-reveal",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-014-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-014-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-014-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-014-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-014-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-014-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-015-hold",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-015-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-015-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-015-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-015-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-015-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-016-hold",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-016-push-in",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-016-pull-out",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-016-lateral",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-016-orbit",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-016-reveal",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-hold",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-push-in",
+    "status": "productive-witness",
+    "witnesses": 20,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-pull-out",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-lateral",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-orbit",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-017-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-018-hold",
+    "status": "productive-witness",
+    "witnesses": 13,
+    "rows": 4
+  },
+  {
+    "taskId": "train-018-push-in",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-018-pull-out",
+    "status": "productive-witness",
+    "witnesses": 25,
+    "rows": 4
+  },
+  {
+    "taskId": "train-018-lateral",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-018-orbit",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-018-reveal",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-hold",
+    "status": "productive-witness",
+    "witnesses": 11,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-push-in",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-pull-out",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-lateral",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-orbit",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-019-reveal",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-hold",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-push-in",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-pull-out",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-lateral",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-020-reveal",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-021-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-021-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-021-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-021-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-021-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-021-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-022-hold",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-022-push-in",
+    "status": "productive-witness",
+    "witnesses": 26,
+    "rows": 4
+  },
+  {
+    "taskId": "train-022-pull-out",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-022-lateral",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-022-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-022-reveal",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-023-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-023-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-023-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-023-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-023-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-023-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-024-hold",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-024-push-in",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-024-pull-out",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-024-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-024-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-024-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-025-hold",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-025-push-in",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-025-pull-out",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-025-lateral",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-025-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-025-reveal",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-hold",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-push-in",
+    "status": "productive-witness",
+    "witnesses": 31,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-pull-out",
+    "status": "productive-witness",
+    "witnesses": 29,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-lateral",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-orbit",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-026-reveal",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-hold",
+    "status": "productive-witness",
+    "witnesses": 14,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-push-in",
+    "status": "productive-witness",
+    "witnesses": 36,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-pull-out",
+    "status": "productive-witness",
+    "witnesses": 41,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-lateral",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-orbit",
+    "status": "productive-witness",
+    "witnesses": 14,
+    "rows": 4
+  },
+  {
+    "taskId": "train-027-reveal",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-push-in",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-pull-out",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-lateral",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-orbit",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-028-reveal",
+    "status": "productive-witness",
+    "witnesses": 16,
+    "rows": 4
+  },
+  {
+    "taskId": "train-029-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-029-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-029-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-029-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-029-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-029-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-030-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-030-push-in",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-030-pull-out",
+    "status": "productive-witness",
+    "witnesses": 22,
+    "rows": 4
+  },
+  {
+    "taskId": "train-030-lateral",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-030-orbit",
+    "status": "productive-witness",
+    "witnesses": 14,
+    "rows": 4
+  },
+  {
+    "taskId": "train-030-reveal",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-031-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-031-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-031-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-031-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-031-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-031-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-032-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-032-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-032-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-032-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-032-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-032-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-033-hold",
+    "status": "productive-witness",
+    "witnesses": 11,
+    "rows": 4
+  },
+  {
+    "taskId": "train-033-push-in",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-033-pull-out",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-033-lateral",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-033-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-033-reveal",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-034-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-034-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-034-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-034-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-034-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-034-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-035-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-036-hold",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-036-push-in",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-036-pull-out",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-036-lateral",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-036-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-036-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-037-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-038-hold",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-038-push-in",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-038-pull-out",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-038-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-038-orbit",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-038-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-039-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-039-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-039-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-039-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-039-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-039-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-040-hold",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-040-push-in",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-040-pull-out",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-040-lateral",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-040-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-040-reveal",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-hold",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-push-in",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-pull-out",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-orbit",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-041-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-042-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-042-push-in",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-042-pull-out",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-042-lateral",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-042-orbit",
+    "status": "productive-witness",
+    "witnesses": 20,
+    "rows": 4
+  },
+  {
+    "taskId": "train-042-reveal",
+    "status": "productive-witness",
+    "witnesses": 24,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-hold",
+    "status": "productive-witness",
+    "witnesses": 13,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-push-in",
+    "status": "productive-witness",
+    "witnesses": 32,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-pull-out",
+    "status": "productive-witness",
+    "witnesses": 27,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-lateral",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-orbit",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-043-reveal",
+    "status": "productive-witness",
+    "witnesses": 14,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-hold",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-push-in",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-pull-out",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-lateral",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-orbit",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-044-reveal",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-push-in",
+    "status": "productive-witness",
+    "witnesses": 37,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-pull-out",
+    "status": "productive-witness",
+    "witnesses": 34,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-lateral",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-orbit",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-045-reveal",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-046-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-046-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-046-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-046-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-046-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-046-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-047-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-047-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-047-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-047-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-047-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-047-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-048-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-048-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-048-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-048-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-048-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-048-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-049-hold",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-049-push-in",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-049-pull-out",
+    "status": "productive-witness",
+    "witnesses": 39,
+    "rows": 4
+  },
+  {
+    "taskId": "train-049-lateral",
+    "status": "productive-witness",
+    "witnesses": 22,
+    "rows": 4
+  },
+  {
+    "taskId": "train-049-orbit",
+    "status": "productive-witness",
+    "witnesses": 22,
+    "rows": 4
+  },
+  {
+    "taskId": "train-049-reveal",
+    "status": "productive-witness",
+    "witnesses": 25,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-hold",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-push-in",
+    "status": "productive-witness",
+    "witnesses": 14,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-pull-out",
+    "status": "productive-witness",
+    "witnesses": 19,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-lateral",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-orbit",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-050-reveal",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-051-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-051-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-051-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-051-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-051-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-051-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-052-hold",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-052-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-052-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-052-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-052-orbit",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-052-reveal",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-hold",
+    "status": "productive-witness",
+    "witnesses": 7,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-push-in",
+    "status": "productive-witness",
+    "witnesses": 12,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-pull-out",
+    "status": "productive-witness",
+    "witnesses": 10,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-lateral",
+    "status": "productive-witness",
+    "witnesses": 4,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-orbit",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-053-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-054-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-054-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-054-pull-out",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-054-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-054-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-054-reveal",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-055-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-055-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-055-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-055-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-055-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-055-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-056-hold",
+    "status": "productive-witness",
+    "witnesses": 11,
+    "rows": 4
+  },
+  {
+    "taskId": "train-056-push-in",
+    "status": "productive-witness",
+    "witnesses": 27,
+    "rows": 4
+  },
+  {
+    "taskId": "train-056-pull-out",
+    "status": "productive-witness",
+    "witnesses": 30,
+    "rows": 4
+  },
+  {
+    "taskId": "train-056-lateral",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-056-orbit",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-056-reveal",
+    "status": "productive-witness",
+    "witnesses": 16,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-hold",
+    "status": "productive-witness",
+    "witnesses": 13,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-push-in",
+    "status": "productive-witness",
+    "witnesses": 25,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-pull-out",
+    "status": "productive-witness",
+    "witnesses": 39,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-lateral",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-orbit",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-057-reveal",
+    "status": "productive-witness",
+    "witnesses": 17,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-hold",
+    "status": "productive-witness",
+    "witnesses": 15,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-push-in",
+    "status": "productive-witness",
+    "witnesses": 35,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-pull-out",
+    "status": "productive-witness",
+    "witnesses": 45,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-lateral",
+    "status": "productive-witness",
+    "witnesses": 21,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-orbit",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-058-reveal",
+    "status": "productive-witness",
+    "witnesses": 20,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-hold",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-push-in",
+    "status": "productive-witness",
+    "witnesses": 9,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-pull-out",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-orbit",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-059-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-060-hold",
+    "status": "productive-witness",
+    "witnesses": 8,
+    "rows": 4
+  },
+  {
+    "taskId": "train-060-push-in",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-060-pull-out",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-060-lateral",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-060-orbit",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-060-reveal",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-hold",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-push-in",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-pull-out",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-lateral",
+    "status": "productive-witness",
+    "witnesses": 5,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-orbit",
+    "status": "productive-witness",
+    "witnesses": 2,
+    "rows": 4
+  },
+  {
+    "taskId": "train-061-reveal",
+    "status": "productive-witness",
+    "witnesses": 1,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-hold",
+    "status": "productive-witness",
+    "witnesses": 6,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-push-in",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-pull-out",
+    "status": "productive-witness",
+    "witnesses": 18,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-lateral",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-orbit",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-062-reveal",
+    "status": "productive-witness",
+    "witnesses": 3,
+    "rows": 4
+  },
+  {
+    "taskId": "train-063-hold",
+    "status": "search-unresolved",
+    "witnesses": 0,
+    "rows": 0
+  },
+  {
+    "taskId": "train-063-push-in",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-063-pull-out",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-063-lateral",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-063-orbit",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  },
+  {
+    "taskId": "train-063-reveal",
+    "status": "hard-constraint",
+    "witnesses": 0,
+    "rows": 2
+  }
+]

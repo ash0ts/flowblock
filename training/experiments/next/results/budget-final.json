@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-29T20:34:31.595326+00:00",
+  "authorizedTotalUsd": 200,
+  "inference": {
+    "capUsd": 20,
+    "calls": 1470,
+    "callsWithEstimatedCharge": 1465,
+    "unresolvedCalls": 5,
+    "estimatedUsd": 0.74838072,
+    "unresolvedReservationUsd": 0.00964055,
+    "estimatePlusReservationUsd": 0.75802127,
+    "billedUsd": null,
+    "source": {
+      "path": "training/artifacts/v2-budget.json",
+      "sha256": "ad5647dfa50b5a42b6b9f9e792ba4dd02cddb8effe01aede3013818267754206"
+    }
+  },
+  "training": {
+    "jobs": 1,
+    "reservationUsd": 170,
+    "verifiedCompletedUpdates": 129,
+    "trainingSeconds": 317.767618,
+    "publishedUsdPerActiveGpuHour": 2.7,
+    "costPerGpuForObservedIntervalUsd": 0.23832571350000006,
+    "billedGpuCount": null,
+    "billedUsd": null,
+    "providerEnforcedCap": false,
+    "source": {
+      "path": "training/artifacts/next-training/flowblock-v2-20261029/registration-recovery-4ada4cc527bb/independent-job-2026-10-29T18-56-31.460459+00-00.json",
+      "sha256": "ee8398c22e208bd2a3c7ae642c67f142129f17f548416c51200e375f89af13f5"
+    }
+  },
+  "allocationSource": {
+    "path": "training/artifacts/v2-training-reservation.json",
+    "sha256": "2e3e35850c294f1c95fc9f97b8e0d627ff9197fea4dff587b98b2a3477a310aa"
+  },
+  "totalBilledUsd": null,
+  "disclosure": "Token-derived estimates and unresolved reservations are not an invoice. Training completed once; the observed interval is not billable GPU-hours because GPU count and billing scope are unavailable. No CoreWeave cluster or GPU pool was provisioned. No further paid runs are scheduled in this campaign."
+}

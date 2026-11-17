@@ -76,4 +76,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
-      - run: uv --no-config run --project worker --frozen --group dev pytest worker/tests
+      - run: uv --no-config run --project worker --frozen --group dev pytest worker/tests training/experiments/field-validation
+      - name: Create the pinned training client environment
+        run: uv --no-config venv --python 3.12 training/.venv
+      - run: uv --no-config pip sync --python training/.venv/bin/python training/requirements.lock
+      - run: training/.venv/bin/python -m unittest discover -s training/tests -p 'test_*.py'
+      - run: training/.venv/bin/python -m unittest discover -s training/experiments/next/tests -p 'test_*.py'

@@ -17,6 +17,7 @@ export type SavedAttempt = {
   createdAt: string;
   plan: PlanVersion;
   takeId: string | null;
+  workflowId: string | null;
   duration: number;
   ratio: number;
   uploadComplete?: boolean;
@@ -46,6 +47,7 @@ const storage = validatedStorage(
           createdAt: z.string(),
           plan: PlanVersionSchema,
           takeId: z.string().nullable(),
+          workflowId: z.uuid().nullable().default(null),
           duration: z.number().finite().nonnegative(),
           ratio: z.number().positive(),
           uploadComplete: z.boolean().optional(),

@@ -1,0 +1,170 @@
+{
+  "readAt": "2026-10-29T15:07:47.201Z",
+  "project": "wandb/flowblock",
+  "readOnly": true,
+  "window": {
+    "startedAfter": "2026-10-29T00:00:00Z",
+    "startedBefore": "2026-10-29T15:07:47.201Z"
+  },
+  "urls": {
+    "overview": "https://forge.coreweave.com/agent-lens/wandb/flowblock",
+    "conversations": "https://forge.coreweave.com/agent-lens/wandb/flowblock/conversations",
+    "insights": "https://forge.coreweave.com/agent-lens/wandb/flowblock/insights"
+  },
+  "agents": {
+    "httpStatus": 200,
+    "totalCount": 2,
+    "rows": [
+      {
+        "name": "FlowBlock revision",
+        "invocations": 1,
+        "spans": 1,
+        "errors": 0,
+        "firstSeen": "2026-10-29T10:17:25.619000",
+        "lastSeen": "2026-10-29T10:17:25.619000"
+      },
+      {
+        "name": "FlowBlock planner",
+        "invocations": 49,
+        "spans": 49,
+        "errors": 32,
+        "firstSeen": "2026-10-29T09:49:07.102000",
+        "lastSeen": "2026-10-29T10:00:32.098000"
+      }
+    ]
+  },
+  "aggregate": {
+    "httpStatus": 200,
+    "columns": [
+      {
+        "name": "timestamp",
+        "role": "time",
+        "value_type": "datetime",
+        "metric": null,
+        "aggregation": null
+      },
+      {
+        "name": "count_distinct_conversations",
+        "role": "metric",
+        "value_type": "number",
+        "metric": "conversations",
+        "aggregation": "count_distinct"
+      },
+      {
+        "name": "count_true_turns",
+        "role": "metric",
+        "value_type": "number",
+        "metric": "turns",
+        "aggregation": "count_true"
+      },
+      {
+        "name": "count_true_errors",
+        "role": "metric",
+        "value_type": "number",
+        "metric": "errors",
+        "aggregation": "count_true"
+      },
+      {
+        "name": "sum_input_tokens",
+        "role": "metric",
+        "value_type": "number",
+        "metric": "input_tokens",
+        "aggregation": "sum"
+      },
+      {
+        "name": "sum_output_tokens",
+        "role": "metric",
+        "value_type": "number",
+        "metric": "output_tokens",
+        "aggregation": "sum"
+      }
+    ],
+    "rows": [
+      {
+        "timestamp": "2026-10-29T00:00:00",
+        "count_distinct_conversations": 0,
+        "count_true_turns": 0,
+        "count_true_errors": 0,
+        "sum_input_tokens": 0,
+        "sum_output_tokens": 0
+      },
+      {
+        "timestamp": "2026-10-29T06:00:00",
+        "count_distinct_conversations": 50,
+        "count_true_turns": 50,
+        "count_true_errors": 52,
+        "sum_input_tokens": 348053,
+        "sum_output_tokens": 9683
+      },
+      {
+        "timestamp": "2026-10-29T12:00:00",
+        "count_distinct_conversations": 0,
+        "count_true_turns": 0,
+        "count_true_errors": 0,
+        "sum_input_tokens": 0,
+        "sum_output_tokens": 0
+      }
+    ]
+  },
+  "representativeConversation": {
+    "httpStatus": 200,
+    "totalCount": 3,
+    "spans": [
+      {
+        "conversationId": "b4ee91e8-2773-4fca-8ee2-ffb345eefe5a",
+        "traceId": "df03aefe07be8a8034fcf7d8985e6356",
+        "spanId": "5cd0f8fc5cad23a7",
+        "parentSpanId": "38d8dfb498fa9c15",
+        "operation": "execute_tool",
+        "agentName": "FlowBlock planner",
+        "agentVersion": "flowblock-planner-v1",
+        "provider": "",
+        "model": "",
+        "toolName": "finish",
+        "inputTokens": 0,
+        "outputTokens": 0
+      },
+      {
+        "conversationId": "b4ee91e8-2773-4fca-8ee2-ffb345eefe5a",
+        "traceId": "df03aefe07be8a8034fcf7d8985e6356",
+        "spanId": "f10bc8bbd3aaf575",
+        "parentSpanId": "38d8dfb498fa9c15",
+        "operation": "chat",
+        "agentName": "FlowBlock planner",
+        "agentVersion": "flowblock-planner-v1",
+        "provider": "coreweave",
+        "model": "wandb-artifact:///wandb/flowblock/flowblock-sft-v1-20261029-095244:step1",
+        "toolName": "",
+        "inputTokens": 1405,
+        "outputTokens": 45
+      },
+      {
+        "conversationId": "b4ee91e8-2773-4fca-8ee2-ffb345eefe5a",
+        "traceId": "df03aefe07be8a8034fcf7d8985e6356",
+        "spanId": "38d8dfb498fa9c15",
+        "parentSpanId": "",
+        "operation": "invoke_agent",
+        "agentName": "FlowBlock planner",
+        "agentVersion": "flowblock-planner-v1",
+        "provider": "",
+        "model": "wandb-artifact:///wandb/flowblock/flowblock-sft-v1-20261029-095244:step1",
+        "toolName": "",
+        "inputTokens": 0,
+        "outputTokens": 0
+      }
+    ]
+  },
+  "insights": {
+    "status": 200,
+    "data": {
+      "$schema": "https://forge.coreweave.com/api/schemas/ClusteringStatusOutputBody.json",
+      "data": []
+    }
+  },
+  "boundaries": [
+    "Existing traces only; no model inference or classification requested.",
+    "The representative trace predates agent-lens-v1 telemetry fixes.",
+    "No prompts, outputs, keys, signed URLs or media are included.",
+    "The representative span lookup omitted message details; missing payloads were not interpreted as missing instrumentation."
+  ]
+}

@@ -60,6 +60,14 @@
   margin: 10px 0;
   overflow-wrap: anywhere;
 }
+.dashboards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 20px 0;
+}
+.dashboards h3 {
+  font-size: 19px;
+  margin: 10px 0;
+}
 .cards p {
   color: #586451;
 }
@@ -127,7 +135,68 @@
   color: #65715c;
   font-size: 12px;
 }
+.workflows {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+.workflow {
+  border: 1px solid #d9dfcf;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 0;
+}
+.workflowHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.workflowHeading h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.workflow code {
+  overflow-wrap: anywhere;
+}
+.workflowHeading a {
+  flex-shrink: 0;
+  padding: 8px 0;
+}
+.workflowTable caption {
+  text-align: left;
+  font-size: 12px;
+  color: #586451;
+  padding-bottom: 8px;
+}
+.workflowTable td > span {
+  display: block;
+}
+.workflowTable summary {
+  cursor: pointer;
+  padding: 4px 0;
+}
+.workflowTable th:first-child {
+  min-width: 100px;
+}
+.workflowTable td:last-child {
+  width: 220px;
+}
+.tableWrap:focus-visible,
+.workflow a:focus-visible,
+.workflow summary:focus-visible {
+  outline: 2px solid #42614b;
+  outline-offset: 4px;
+}
 @media (max-width: 700px) {
+  .workflowHeading {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .workflow {
+    padding: 16px;
+  }
   .cards {
     grid-template-columns: 1fr;
   }

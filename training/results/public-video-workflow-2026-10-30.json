@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "experiment": "public-video-workflow-development-v1",
+  "recordedAt": "2026-10-30T21:59:55.370Z",
+  "status": "completed",
+  "workflowId": "3ef6be86-63d5-424b-93d9-09a67be94135",
+  "agentLensUrl": "https://forge.coreweave.com/agent-lens/wandb/flowblock/conversations/3ef6be86-63d5-424b-93d9-09a67be94135",
+  "scope": {
+    "evidenceKind": "public-video-integration-development",
+    "cohortExposure": "previously-inspected-development",
+    "sceneAuthoredIndependentlyOfFootage": true,
+    "automatedSandboxAcceptance": true,
+    "creatorOutcomeMeasured": false,
+    "heldOutPlannerSuccessMeasured": false,
+    "secondTakeRecorded": false
+  },
+  "versions": {
+    "planner": "flowblock-planner-v1.5",
+    "revision": "revision-v1.4",
+    "model": "openai/gpt-oss-20b",
+    "engine": "flowblock-engine-v1.1",
+    "segmentation": "SAM 2.1 Small",
+    "device": "mps"
+  },
+  "remoteReadback": {
+    "status": "verified",
+    "spanCount": 17,
+    "stageCount": 4,
+    "modelCallCount": 5,
+    "toolSpanCount": 8,
+    "distinctTraceCount": 4,
+    "providerInputsOutputsUsageAndActionsMatch": true,
+    "stages": [
+      {
+        "stage": "planning",
+        "status": "succeeded",
+        "verified": true
+      },
+      {
+        "stage": "analysis",
+        "status": "succeeded",
+        "verified": true
+      },
+      {
+        "stage": "revision",
+        "status": "succeeded",
+        "verified": true
+      },
+      {
+        "stage": "acceptance",
+        "status": "succeeded",
+        "verified": true
+      }
+    ]
+  },
+  "planning": {
+    "planId": "plan-6d730eabb989e6332c0af0b2d6fab83f",
+    "rejectedBearingDegrees": 45,
+    "selectedBearingDegrees": -45,
+    "signedSweepDegrees": 45,
+    "durationSeconds": 5,
+    "cameraHeightMeters": 1.3,
+    "radiusMeters": 2.08206611601052,
+    "minimumModeledClearanceMeters": 0.42643147472817133,
+    "firstCompileFollowedRequestedDefault": false
+  },
+  "analysis": {
+    "sequenceId": "bottle/batch-40/29",
+    "clipSeconds": 5,
+    "clipSha256": "4c7ac3e20ddd2a1828868d1995f7a89c1710f4e52de47826f5abfcf778adf044",
+    "takeId": "6c6402b7-f2fa-4747-ad8d-b740ec82d7e4",
+    "jobId": "807c40f1-0f64-4726-bfb1-9050a9f31d75",
+    "coverage": {
+      "needsReview": false,
+      "missingFrames": 0,
+      "expectedFrames": 75,
+      "measuredFrames": 75,
+      "uncertainFrames": 0,
+      "measuredFraction": 1,
+      "intentionallyHiddenFrames": 0
+    },
+    "findings": [
+      {
+        "kind": "size",
+        "phase": "middle",
+        "measurement": {
+          "unit": "relative-size",
+          "delta": 2.0703723690679166,
+          "metric": "size-ratio",
+          "target": 1,
+          "observed": 3.0703723690679166,
+          "timestamp": 2.466667
+        },
+        "evidenceTimestamps": [
+          1.2667,
+          2.4667,
+          3.7333
+        ]
+      },
+      {
+        "kind": "size",
+        "phase": "opening",
+        "measurement": {
+          "unit": "relative-size",
+          "delta": 1.763714093274095,
+          "metric": "size-ratio",
+          "target": 1,
+          "observed": 2.763714093274095,
+          "timestamp": 1.133333
+        },
+        "evidenceTimestamps": [
+          0,
+          1.1333,
+          1.2
+        ]
+      }
+    ]
+  },
+  "revision": {
+    "revisionId": "3ef5984b-c8a5-43d2-9912-a87a73f24852",
+    "revisedPlanId": "plan-0891e4f02be0118f52a7bb4cad45f95f",
+    "findingIds": [
+      "size:middle:0"
+    ],
+    "radiusMeters": 2.5,
+    "minimumModeledClearanceMeters": 0.5492740124375994,
+    "geometryValid": true,
+    "accepted": true
+  },
+  "preservedPriorAttempt": {
+    "agentLensUrl": "https://forge.coreweave.com/agent-lens/wandb/flowblock/conversations/b1bf7f85-83fe-46c4-96c6-80e6fcf6fdf2",
+    "plannerVersion": "flowblock-planner-v1.4",
+    "outcome": "checked_abstention",
+    "spanCount": 5,
+    "modelCallCount": 2,
+    "diagnosis": "Confused negative viewing bearing with reversed orbit traversal; feasible suggestions were present.",
+    "harnessFailureBeforeModelExecution": "HTTP 403 from incorrect APP_URL; zero model calls; explicit origin-only continuation preserved."
+  },
+  "cohortReceipt": {
+    "path": "../experiments/field-validation/results/public-video-repeat-2026-10-30.json",
+    "sha256": "4856735bd89f58afd11df7d317c7a743035c165d21b7d7046ad62db8c1913543"
+  },
+  "cost": {
+    "newModelCallsAcrossDiagnostics": 7,
+    "estimatedIncrementUsd": 0.00079008,
+    "successfulWorkflowIncrementUsd": 0.00053118,
+    "cumulativeEstimatedAndReservedInferenceUsd": 1.16907892,
+    "invoiceVerified": false,
+    "trainingPerformedThisRound": false,
+    "remoteInfrastructureProvisioned": false
+  },
+  "evidence": {
+    "workflow": {
+      "path": "../artifacts/public-workflow-v15-20261030/workflow-result.json",
+      "sha256": "d3b9d7cdbcfda8dd0b310c4d9e66abf8e290935a307bb2a25b884e1fd26a9363"
+    },
+    "planner": {
+      "path": "../artifacts/public-workflow-v15-20261030/planner-result.json",
+      "sha256": "b19a2166c65d7700915c05e03dc874f54ca0175158f9940feadeb8cfae6210c9"
+    },
+    "revision": {
+      "path": "../artifacts/public-workflow-v15-20261030/revision-result.json",
+      "sha256": "cf67cadc64cf35cbb534c2926b3a397be21de5a44080c3a47601cd1cd7692251"
+    },
+    "analysis": {
+      "path": "../artifacts/public-workflow-v15-20261030/analysis-result.json",
+      "sha256": "808d49e60b9278a325f0123fc9ce67da05d7e3de520724873795d311c3174ea2"
+    },
+    "verification": {
+      "path": "../artifacts/public-workflow-v15-20261030/grouped-readback/verification.json",
+      "sha256": "fe3912953b1f7e393df9cfc2cffaf9cfd4edc84afd3a7d88b1d57761d952bd64"
+    },
+    "countsVerification": {
+      "path": "../artifacts/public-workflow-v15-20261030/grouped-readback/counts-verification.json",
+      "sha256": "08300d294f3c911fb3c52d7b2b6c34b43a76ed86a0e0a3c9b353366c0f2e147f"
+    },
+    "runtimeFreeze": {
+      "path": "../artifacts/public-workflow-v15-20261030/runtime-freeze.json",
+      "sha256": "0fc140801ad6f74daf4734bc957eaddbeb9d03cff8cf3ffa3186dbefaf584e23"
+    },
+    "runtimeReadback": {
+      "path": "../artifacts/public-workflow-v15-20261030/runtime-readback.json",
+      "sha256": "68f63b8810560ad9afc635331542048b2ed103e3eb317b70ccf7f9cf6fb7e03f"
+    },
+    "protocol": {
+      "path": "../artifacts/public-workflow-v15-20261030/protocol.json",
+      "sha256": "09f5d635d9c5d418187140440e3138639a446589e42ba128d6c2aef0aaf8d0d9"
+    },
+    "costCompletion": {
+      "path": "../artifacts/public-workflow-v15-20261030/proxy-completion.json",
+      "sha256": "cabeb635d6b403928db90c5cad351d4a48b2fcda39a5ed5a05a09d9cb134c2d4"
+    }
+  },
+  "limitations": [
+    "One exposed diagnostic does not establish planner generalization or a causal improvement from v1.5.",
+    "The first compile did not follow the requested default-first order.",
+    "Authored geometry and framing targets do not reconstruct the public recording.",
+    "Tracking coverage is heuristic, not mask accuracy or usable-take rate.",
+    "The proposed radius is an experiment, not an inferred physical camera distance.",
+    "Automated acceptance and independent public media do not establish creator benefit."
+  ]
+}

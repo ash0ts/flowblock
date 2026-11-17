@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-29T23:26:23.289Z",
+  "experimentId": "flowblock-controlled-validation-v1",
+  "byArm": {
+    "llama-base": {
+      "all": {
+        "scheduled": 96,
+        "attempted": 96,
+        "available": 71,
+        "productive": 11,
+        "checkedUnsupportedAbstentions": 0,
+        "returnedAnyPlan": 23,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 12,
+        "falseAbstentions": 2,
+        "protocolFailures": 46,
+        "latencySeconds": {
+          "count": 96,
+          "median": 3.1821308750000314,
+          "p95": 16.633046875,
+          "max": 18.86801045799999
+        }
+      },
+      "positive": {
+        "scheduled": 72,
+        "attempted": 72,
+        "available": 51,
+        "productive": 11,
+        "checkedUnsupportedAbstentions": 0,
+        "returnedAnyPlan": 23,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 12,
+        "falseAbstentions": 2,
+        "protocolFailures": 26,
+        "latencySeconds": {
+          "count": 72,
+          "median": 3.3466122090000425,
+          "p95": 16.762708749999998,
+          "max": 18.86801045799999
+        }
+      },
+      "unsupported": {
+        "scheduled": 24,
+        "attempted": 24,
+        "available": 20,
+        "productive": 0,
+        "checkedUnsupportedAbstentions": 0,
+        "returnedAnyPlan": 0,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 0,
+        "falseAbstentions": 0,
+        "protocolFailures": 20,
+        "latencySeconds": {
+          "count": 24,
+          "median": 2.8628897080000026,
+          "p95": 14.885495499999998,
+          "max": 16.633046875
+        }
+      },
+      "conditions": {
+        "original": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 20,
+          "productive": 6,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 12,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 6,
+          "falseAbstentions": 1,
+          "protocolFailures": 7,
+          "latencySeconds": {
+            "count": 24,
+            "median": 3.076628999999957,
+            "p95": 11.037693708000006,
+            "max": 15.648017584000002
+          }
+        },
+        "paraphrase": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 15,
+          "productive": 3,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 6,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 3,
+          "falseAbstentions": 1,
+          "protocolFailures": 8,
+          "latencySeconds": {
+            "count": 24,
+            "median": 3.991173999999999,
+            "p95": 11.158184917000005,
+            "max": 12.626189291000017
+          }
+        },
+        "geometry-perturbation": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 16,
+          "productive": 2,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 5,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 3,
+          "falseAbstentions": 0,
+          "protocolFailures": 11,
+          "latencySeconds": {
+            "count": 24,
+            "median": 3.8739789579999635,
+            "p95": 17.681226834,
+            "max": 18.86801045799999
+          }
+        },
+        "unsupported": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 20,
+          "productive": 0,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 0,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 0,
+          "falseAbstentions": 0,
+          "protocolFailures": 20,
+          "latencySeconds": {
+            "count": 24,
+            "median": 2.8628897080000026,
+            "p95": 14.885495499999998,
+            "max": 16.633046875
+          }
+        }
+      },
+      "wording": {
+        "pairs": 24,
+        "available": 13,
+        "agreement": 12,
+        "bothProductive": 2
+      },
+      "repeats": {
+        "pairs": 48,
+        "available": 26,
+        "agreement": 26,
+        "bothPass": 3
+      }
+    },
+    "llama-sft": {
+      "all": {
+        "scheduled": 96,
+        "attempted": 96,
+        "available": 86,
+        "productive": 30,
+        "checkedUnsupportedAbstentions": 14,
+        "returnedAnyPlan": 36,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 6,
+        "falseAbstentions": 0,
+        "protocolFailures": 36,
+        "latencySeconds": {
+          "count": 96,
+          "median": 2.506654332999955,
+          "p95": 10.997288916000048,
+          "max": 17.894135542000004
+        }
+      },
+      "positive": {
+        "scheduled": 72,
+        "attempted": 72,
+        "available": 63,
+        "productive": 30,
+        "checkedUnsupportedAbstentions": 0,
+        "returnedAnyPlan": 36,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 6,
+        "falseAbstentions": 0,
+        "protocolFailures": 27,
+        "latencySeconds": {
+          "count": 72,
+          "median": 2.526533999999985,
+          "p95": 10.997288916000048,
+          "max": 17.894135542000004
+        }
+      },
+      "unsupported": {
+        "scheduled": 24,
+        "attempted": 24,
+        "available": 23,
+        "productive": 0,
+        "checkedUnsupportedAbstentions": 14,
+        "returnedAnyPlan": 0,
+        "returnedInvalidPlans": 0,
+        "independentDisagreements": 0,
+        "falseAbstentions": 0,
+        "protocolFailures": 9,
+        "latencySeconds": {
+          "count": 24,
+          "median": 2.4127104169999947,
+          "p95": 7.937655208000011,
+          "max": 11.532297000000021
+        }
+      },
+      "conditions": {
+        "original": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 20,
+          "productive": 10,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 10,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 0,
+          "falseAbstentions": 0,
+          "protocolFailures": 10,
+          "latencySeconds": {
+            "count": 24,
+            "median": 2.5373465410000065,
+            "p95": 9.45909520900005,
+            "max": 10.994148499999893
+          }
+        },
+        "paraphrase": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 22,
+          "productive": 11,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 16,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 5,
+          "falseAbstentions": 0,
+          "protocolFailures": 6,
+          "latencySeconds": {
+            "count": 24,
+            "median": 2.523917958999984,
+            "p95": 10.997288916000048,
+            "max": 11.025061332999961
+          }
+        },
+        "geometry-perturbation": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 21,
+          "productive": 9,
+          "checkedUnsupportedAbstentions": 0,
+          "returnedAnyPlan": 10,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 1,
+          "falseAbstentions": 0,
+          "protocolFailures": 11,
+          "latencySeconds": {
+            "count": 24,
+            "median": 2.5517220420000375,
+            "p95": 16.545292209000003,
+            "max": 17.894135542000004
+          }
+        },
+        "unsupported": {
+          "scheduled": 24,
+          "attempted": 24,
+          "available": 23,
+          "productive": 0,
+          "checkedUnsupportedAbstentions": 14,
+          "returnedAnyPlan": 0,
+          "returnedInvalidPlans": 0,
+          "independentDisagreements": 0,
+          "falseAbstentions": 0,
+          "protocolFailures": 9,
+          "latencySeconds": {
+            "count": 24,
+            "median": 2.4127104169999947,
+            "p95": 7.937655208000011,
+            "max": 11.532297000000021
+          }
+        }
+      },
+      "wording": {
+        "pairs": 24,
+        "available": 19,
+        "agreement": 13,
+        "bothProductive": 7
+      },
+      "repeats": {
+        "pairs": 48,
+        "available": 41,
+        "agreement": 32,
+        "bothPass": 16
+      }
+    }
+  },
+  "positivePairedAvailable": {
+    "pairs": 72,
+    "available": 46,
+    "gains": 14,
+    "losses": 3,
+    "bothPass": 7,
+    "bothFail": 22,
+    "estimate": {
+      "base": {
+        "numerator": 10,
+        "denominator": 46,
+        "rate": 0.21739130434782608
+      },
+      "trained": {
+        "numerator": 21,
+        "denominator": 46,
+        "rate": 0.45652173913043476
+      },
+      "difference": 0.2391304347826087,
+      "sceneGroups": 12,
+      "sceneGroupsWithEligiblePairs": 12,
+      "intervalLimitation": null,
+      "interval95": [
+        0,
+        0.48
+      ],
+      "seed": 2026103002,
+      "iterations": 10000,
+      "validReplicates": 10000,
+      "emptyReplicates": 0,
+      "method": "Paired scene-group percentile bootstrap; difference is trained minus base. Entire groups are sampled with replacement; no task-level independent resampling."
+    }
+  },
+  "positiveOperational": {
+    "pairs": 72,
+    "available": 46,
+    "gains": 14,
+    "losses": 3,
+    "bothPass": 7,
+    "bothFail": 22,
+    "estimate": {
+      "base": {
+        "numerator": 11,
+        "denominator": 72,
+        "rate": 0.1527777777777778
+      },
+      "trained": {
+        "numerator": 30,
+        "denominator": 72,
+        "rate": 0.4166666666666667
+      },
+      "difference": 0.2638888888888889,
+      "sceneGroups": 12,
+      "sceneGroupsWithEligiblePairs": 12,
+      "intervalLimitation": null,
+      "interval95": [
+        0.09722222222222222,
+        0.4444444444444444
+      ],
+      "seed": 2026103002,
+      "iterations": 10000,
+      "validReplicates": 10000,
+      "emptyReplicates": 0,
+      "method": "Paired scene-group percentile bootstrap; difference is trained minus base. Entire groups are sampled with replacement; no task-level independent resampling."
+    }
+  },
+  "unsupportedPairedAvailable": {
+    "pairs": 24,
+    "available": 19,
+    "gains": 10,
+    "losses": 0,
+    "bothPass": 0,
+    "bothFail": 9,
+    "estimate": {
+      "base": {
+        "numerator": 0,
+        "denominator": 19,
+        "rate": 0
+      },
+      "trained": {
+        "numerator": 10,
+        "denominator": 19,
+        "rate": 0.5263157894736842
+      },
+      "difference": 0.5263157894736842,
+      "sceneGroups": 12,
+      "sceneGroupsWithEligiblePairs": 12,
+      "intervalLimitation": null,
+      "interval95": [
+        0.2631006864988559,
+        0.8
+      ],
+      "seed": 2026103002,
+      "iterations": 10000,
+      "validReplicates": 10000,
+      "emptyReplicates": 0,
+      "method": "Paired scene-group percentile bootstrap; difference is trained minus base. Entire groups are sampled with replacement; no task-level independent resampling."
+    }
+  },
+  "cost": {
+    "newCalls": 531,
+    "withEstimatedCharge": 496,
+    "estimatedUsd": 0.30501064,
+    "unknownReservedUsd": 0.10085416,
+    "billedUsd": null,
+    "newTrainingJobs": 0
+  },
+  "scope": "Controlled synthetic stress evaluation; solver-selected positive tasks; not natural task prevalence or creator benefit.",
+  "limitations": [
+    "Two repetitions do not establish generation stability.",
+    "Twelve authored groups are not a population of real rooms.",
+    "Geometry/checker share the product engine; independent physical validity is unproven.",
+    "Parent watchdog cannot defeat host suspension and does not cancel provider computation.",
+    "Model artifact lineage is verified from recorded service metadata, not weight-byte access.",
+    "This test does not isolate which training example category caused a difference."
+  ]
+}

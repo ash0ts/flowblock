@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { defaultGear, defaultIntent, defaultScene } from "../src/domain";
+import {
+  compilePlan,
+  defaultGear,
+  defaultIntent,
+  defaultScene,
+} from "../src/domain";
 import { plan, analysis } from "./fixtures/revision";
 
 const mocks = vi.hoisted(() => ({
@@ -9,6 +14,7 @@ const mocks = vi.hoisted(() => ({
 }));
 vi.mock("weave", () => ({
   init: mocks.init,
+  runIsolated: <T>(callback: () => T) => callback(),
   flushOTel: mocks.flush,
   startConversation: mocks.start,
 }));
@@ -17,10 +23,25 @@ const input = { scene: defaultScene, gear: defaultGear, intent: defaultIntent };
 const finish = {
   content: JSON.stringify({
     action: "finish",
-    candidateIds: [],
-    explanation: "No candidate selected.",
+    candidateIds: [
+      compilePlan(defaultScene, defaultGear, defaultIntent, "hero-hold").id,
+    ],
+    explanation: "Compiled hero shot.",
   }),
   usage: { inputTokens: 1, outputTokens: 1 },
+};
+const planningChat = () => {
+  let calls = 0;
+  return async () =>
+    calls++ === 0
+      ? {
+          ...finish,
+          content: JSON.stringify({
+            action: "compile_candidate",
+            recipeId: "hero-hold",
+          }),
+        }
+      : finish;
 };
 const never = () => new Promise<never>(() => {});
 
@@ -103,7 +124,7 @@ describe("planner total deadline", () => {
     }));
     mocks.flush.mockImplementation(fail);
     const { runPlanner } = await import("../src/server/planner");
-    const planned = await runPlanner(input, { chat: async () => finish });
+    const planned = await runPlanner(input, { chat: planningChat() });
     expect(planned.source).toBe("forge");
     const { proposeRevision } = await import("../src/server/revision-planner");
     let calls = 0;
@@ -130,8 +151,8 @@ describe("planner total deadline", () => {
   it("can initialize telemetry again after a transient setup failure", async () => {
     const { runPlanner } = await import("../src/server/planner");
     mocks.init.mockRejectedValueOnce(new Error("Temporary setup failure"));
-    const first = await runPlanner(input, { chat: async () => finish });
-    const second = await runPlanner(input, { chat: async () => finish });
+    const first = await runPlanner(input, { chat: planningChat() });
+    const second = await runPlanner(input, { chat: planningChat() });
     expect(first.source).toBe("forge");
     expect(second.source).toBe("forge");
     expect(mocks.init).toHaveBeenCalledTimes(2);
@@ -183,16 +204,17 @@ describe("planner total deadline", () => {
   it("bounds final telemetry flush by the remaining budget without discarding a completed response", async () => {
     const { runPlanner } = await import("../src/server/planner");
     mocks.flush.mockImplementation(never);
+    const nextReply = planningChat();
     const pending = runPlanner(input, {
       deadlineMs: 100,
       chat: async () =>
-        new Promise((resolve) => setTimeout(() => resolve(finish), 80)),
+        new Promise((resolve) => setTimeout(() => resolve(nextReply()), 40)),
     });
     await vi.advanceTimersByTimeAsync(100);
     const result = await pending;
     expect(result.source).toBe("forge");
     expect(result.latencyMs).toBe(100);
-    expect(result.events).toHaveLength(1);
+    expect(result.events).toHaveLength(2);
     expect(mocks.flush).toHaveBeenCalledOnce();
     expect(vi.getTimerCount()).toBe(0);
   });
@@ -200,13 +222,13 @@ describe("planner total deadline", () => {
   it("caps optional initialization at one second so inference retains its remaining budget", async () => {
     const { runPlanner } = await import("../src/server/planner");
     mocks.init.mockImplementation(never);
-    const chat = vi.fn().mockResolvedValue(finish);
+    const chat = vi.fn(planningChat());
     const pending = runPlanner(input, { deadlineMs: 2000, chat });
     await vi.advanceTimersByTimeAsync(1000);
     const result = await pending;
     expect(result.source).toBe("forge");
     expect(result.latencyMs).toBe(1000);
-    expect(chat).toHaveBeenCalledOnce();
+    expect(chat).toHaveBeenCalledTimes(2);
     expect(mocks.start).not.toHaveBeenCalled();
     expect(vi.getTimerCount()).toBe(0);
   });
@@ -218,12 +240,12 @@ describe("planner total deadline", () => {
     );
     const pending = runPlanner(input, {
       deadlineMs: 100,
-      chat: async () => finish,
+      chat: planningChat(),
     });
     await vi.advanceTimersByTimeAsync(25);
     const result = await pending;
     expect(result.latencyMs).toBe(25);
-    expect(result.plannerVersion).toBe("flowblock-planner-v1.2");
+    expect(result.plannerVersion).toBe("flowblock-planner-v1.5");
     expect(vi.getTimerCount()).toBe(0);
   });
 });

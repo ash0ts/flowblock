@@ -1,0 +1,167 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "05f073f02f46f411922e05bcfc14f1604535fc971b4f65b2e4ce8081268e7b03",
+  "experimentId": "flowblock-synthetic-visible-mask-stress-v1",
+  "attemptId": "synthetic-visible-mask-local-mps-attempt-001",
+  "verifiedAt": "2026-10-29T23:18:53.833Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "live-read",
+    "verifiedAt": "2026-10-29T23:17:03.335Z",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "16d26cb5e6fd2c735677dba5a96277e640889fde6505da90267eca3008c4660f",
+    "tasks": "be6fad02da92231c97b87caf63cac2272c5406230d5c8c8c152fc65eebc4e5cd",
+    "results": "1e026cdb503b6a0bbdb8c20431795d7455f87c894716e9dae2f4b2c6878163f2"
+  },
+  "evaluationCallId": "01a189f4-8937-7af0-b3b5-ca05dc146e24",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-synthetic-visible-mask-local-mps-attempt-001-05f073f02f:mbYhZTfqvIDjhCmHtPRyZRDUdNX2VrTZGOFwvXa1iik",
+  "modelRef": "weave:///wandb/flowblock/object/SAM-2_1-Small-synthetic-mask-stress-f1f808bbdb2c0ef0:uR5scVg5A6XPwk6LcpgP9NjAjrKZXl0yuc7WSfb8V5Q",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-synthetic-visible-mask-stress-v1-be6fad02da92:ELjf8TTnxDmEaKlBEKko1P1cvpT6uUjOvjfOpVfq48k",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a189f4-8937-7af0-b3b5-ca05dc146e24",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 6,
+  "observedRows": 6,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 6,
+      "mean": 1,
+      "sum": 6,
+      "true_count": 6,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "available": {
+      "count": 6,
+      "mean": 1,
+      "sum": 6,
+      "true_count": 6,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "badMaskFrameCount": {
+      "count": 6,
+      "mean": 4.333333333333333,
+      "sum": 26
+    },
+    "falseAcceptedBadMaskFrameCount": {
+      "count": 6,
+      "mean": 3.3333333333333335,
+      "sum": 20
+    },
+    "fullyHiddenTruthFrameCount": {
+      "count": 6,
+      "mean": 3.6666666666666665,
+      "sum": 22
+    },
+    "meanMaskIoU": {
+      "count": 6,
+      "mean": 0.8132154513323138,
+      "sum": 4.879292707993883
+    },
+    "missingFrameCount": {
+      "count": 6,
+      "mean": 3.6666666666666665,
+      "sum": 22
+    },
+    "processingSeconds": {
+      "count": 6,
+      "mean": 74.75032859016937,
+      "sum": 448.50197154101625
+    },
+    "scoredFrameCount": {
+      "count": 6,
+      "mean": 74,
+      "sum": 444
+    },
+    "uncertainFrameCount": {
+      "count": 6,
+      "mean": 1.8333333333333333,
+      "sum": 11
+    },
+    "workerAcceptedFrameCount": {
+      "count": 6,
+      "mean": 68.5,
+      "sum": 411
+    },
+    "task_counts": {
+      "requested": 6,
+      "published": 6
+    },
+    "recorded_summary": {
+      "unitOfAnalysis": "six authored synthetic clips, not 444 independent tasks",
+      "requestedClips": 6,
+      "completedClips": 6,
+      "scoredNonseedFrames": 444,
+      "aggregateFrameMetrics": {
+        "samples": 444,
+        "mean_iou": 0.8132154513323138,
+        "bad_masks": 26,
+        "accepted_by_worker": 411,
+        "false_accepted_bad_masks": 20,
+        "bad_fraction_of_accepted": 0.04866180048661801,
+        "false_accept_fraction_of_bad": 0.7692307692307693,
+        "uncertain": 11,
+        "missing": 22,
+        "center_error_frame_diagonal": {
+          "mean": 0.008937283512995739,
+          "defined_samples": 422
+        },
+        "extent_error_max_normalized": {
+          "mean": 0.01573525539757767,
+          "defined_samples": 422
+        }
+      },
+      "visibleTruthFrameMetrics": {
+        "samples": 422,
+        "mean_iou": 0.8034778682264154,
+        "bad_masks": 26,
+        "accepted_by_worker": 411,
+        "false_accepted_bad_masks": 20,
+        "bad_fraction_of_accepted": 0.04866180048661801,
+        "false_accept_fraction_of_bad": 0.7692307692307693,
+        "uncertain": 11,
+        "missing": 0,
+        "center_error_frame_diagonal": {
+          "mean": 0.008937283512995739,
+          "defined_samples": 422
+        },
+        "extent_error_max_normalized": {
+          "mean": 0.01573525539757767,
+          "defined_samples": 422
+        }
+      },
+      "fullyHiddenTruthFrameMetrics": {
+        "samples": 22,
+        "mean_iou": 1,
+        "bad_masks": 0,
+        "accepted_by_worker": 0,
+        "false_accepted_bad_masks": 0,
+        "bad_fraction_of_accepted": null,
+        "false_accept_fraction_of_bad": null,
+        "uncertain": 0,
+        "missing": 22,
+        "center_error_frame_diagonal": {
+          "mean": null,
+          "defined_samples": 0
+        },
+        "extent_error_max_normalized": {
+          "mean": null,
+          "defined_samples": 0
+        }
+      },
+      "equalClipMeanIoU": 0.8132154513323138,
+      "processingSecondsTotal": 448.50197154101625,
+      "badMasksRestrictedToOneClip": "similar-object-crossing",
+      "noPopulationConfidenceInterval": true
+    }
+  }
+}

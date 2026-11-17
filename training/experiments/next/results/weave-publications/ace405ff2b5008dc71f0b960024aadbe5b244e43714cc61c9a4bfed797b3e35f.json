@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "ace405ff2b5008dc71f0b960024aadbe5b244e43714cc61c9a4bfed797b3e35f",
+  "experimentId": "flowblock-planner-v2",
+  "attemptId": "2026-10-29T19-04-22-864Z-llama-base-e6285a4d",
+  "verifiedAt": "2026-10-29T20:39:32.170Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "cached-same-session-read",
+    "proofSha256": "001c88dbb8712e0e9f5ed125f39a95b9fc68ba88b61d16aba58bd1ce044dd7ee",
+    "verifiedAt": "2026-10-29T20:21:02.762637+00:00",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "66d075e4cb960a001fa1678c189c333dd0ecb3bf1973672642b00cf06e9f46a3",
+    "tasks": "9d1efa65f5bee77f950bb4a3757e2243cedf6b428c4b2091d38a0839a2295ee8",
+    "results": "cc92ccbd5cdd9afcd27118ae95bda0f3259f87b69dd0ec4d023192b688156173"
+  },
+  "evaluationCallId": "01a1895b-f49b-7c7b-baf0-64d3a849c47b",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-2026-10-29T19-04-22-864Z-llama-base-e6285a4d-ace405ff2b:g9Og5YO6hY633jVpEeVypq6Yobd6avV9MM0GTu0zCrk",
+  "modelRef": "weave:///wandb/flowblock/object/llama-base-meta-llama-Llama-3-1-8B-Instruct-9148b71fa2e40052:BcbH4GrsRLKnoNlFKQi8vZezD0OgXrmheN1QUkDxOT4",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-scenes-confirmation-9d1efa65f5be:XOCGAXEJYTDm3w3KlhZuqzY6UCnUPWnWYCnakwmCdLg",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895b-f49b-7c7b-baf0-64d3a849c47b",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 180,
+  "observedRows": 180,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 180,
+      "mean": 0.35555555555555557,
+      "sum": 64,
+      "true_count": 64,
+      "false_count": 116,
+      "true_fraction": 0.35555555555555557
+    },
+    "available": {
+      "count": 180,
+      "mean": 0.3388888888888889,
+      "sum": 61,
+      "true_count": 61,
+      "false_count": 119,
+      "true_fraction": 0.3388888888888889
+    },
+    "bounded_empty": {
+      "count": 61,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 61,
+      "true_fraction": 0
+    },
+    "compile_checked": {
+      "count": 61,
+      "mean": 1,
+      "sum": 61,
+      "true_count": 61,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "false_abstention": {
+      "count": 61,
+      "mean": 0.04918032786885246,
+      "sum": 3,
+      "true_count": 3,
+      "false_count": 58,
+      "true_fraction": 0.04918032786885246
+    },
+    "productive": {
+      "count": 61,
+      "mean": 0.21311475409836064,
+      "sum": 13,
+      "true_count": 13,
+      "false_count": 48,
+      "true_fraction": 0.21311475409836064
+    },
+    "unchecked_empty": {
+      "count": 61,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 61,
+      "true_fraction": 0
+    },
+    "unsupported_abstention": {
+      "count": 61,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 61,
+      "true_fraction": 0
+    },
+    "task_counts": {
+      "requested": 180,
+      "published": 180
+    },
+    "recorded_summary": {
+      "requested": 180,
+      "attempted": 64,
+      "available": 61,
+      "serviceUnavailable": 2,
+      "transportWarmupUnattempted": 0,
+      "operationalFailures": 1,
+      "budgetExhausted": 0,
+      "unattempted": 116,
+      "productive": 13,
+      "productiveAmongRequested": 0.07222222222222222,
+      "productiveAmongAvailable": 0.21311475409836064,
+      "falseAbstentions": 3,
+      "unsupportedAbstentions": 0,
+      "boundedEmpty": 0,
+      "uncheckedEmpty": 0,
+      "completeUsageTasks": 61,
+      "reportedInputTokens": 732645,
+      "reportedOutputTokens": 13507,
+      "costDisclosure": "Token sums include complete reported usage only. Unknown usage and reservations are retained separately in the budget ledger. Billed dollars are unknown."
+    }
+  }
+}

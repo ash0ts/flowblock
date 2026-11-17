@@ -17,6 +17,7 @@ import { PlanVersionSchema, type PlanVersion } from "@/domain/contracts";
 import { TakeAnalysisSchema, type TakeAnalysis } from "@/domain/take-analysis";
 import { NumberField } from "./Inspector";
 import { useTakeHistory, type SavedAttempt } from "@/client/takes";
+import { workflowIdFrom } from "@/client/store";
 import Image from "next/image";
 
 type Rect = { x: number; y: number; width: number; height: number };
@@ -24,16 +25,22 @@ type Annotation = { timeSeconds: number; box: Rect };
 
 export function Review({
   plan: currentPlan,
+  workflowId: currentWorkflowId,
   active,
   connected,
   onNotice,
   onRevision,
 }: {
   plan: PlanVersion;
+  workflowId: string | null;
   active: boolean;
   connected: boolean;
   onNotice: (text: string) => void;
-  onRevision: (plan: PlanVersion, original: PlanVersion) => void;
+  onRevision: (
+    plan: PlanVersion,
+    original: PlanVersion,
+    workflowId: string | null,
+  ) => void;
 }) {
   const video = useRef<HTMLVideoElement>(null);
   const takeHistory = useTakeHistory();
@@ -47,6 +54,9 @@ export function Review({
   const [uploadComplete, setUploadComplete] = useState(false);
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [attemptPlan, setAttemptPlan] = useState<PlanVersion | null>(null);
+  const [attemptWorkflowId, setAttemptWorkflowId] = useState<string | null>(
+    null,
+  );
   const [fileName, setFileName] = useState("");
   const [compareId, setCompareId] = useState("");
   const [showTarget, setShowTarget] = useState(true);
@@ -80,6 +90,7 @@ export function Review({
     plan: PlanVersion;
     reason: string;
     revisionId: string;
+    workflowId: string | null;
   } | null>(null);
   useEffect(() => {
     const requests = jobGeneration;
@@ -120,6 +131,7 @@ export function Review({
     const id = crypto.randomUUID();
     setAttemptId(id);
     setAttemptPlan(currentPlan);
+    setAttemptWorkflowId(currentWorkflowId);
     setFileName(next.name);
     localFiles.current.set(id, next);
     takeHistory.save({
@@ -128,6 +140,7 @@ export function Review({
       createdAt: new Date().toISOString(),
       plan: currentPlan,
       takeId: null,
+      workflowId: currentWorkflowId,
       duration: 0,
       ratio: 16 / 9,
       analysis: null,
@@ -204,6 +217,7 @@ export function Review({
     setCompareId("");
     setAttemptId(saved.id);
     setAttemptPlan(saved.plan);
+    setAttemptWorkflowId(saved.workflowId);
     setFileName(saved.name);
     setFile(localFiles.current.get(saved.id) ?? null);
     setUrl(
@@ -363,6 +377,7 @@ export function Review({
     };
     try {
       let uploadedTakeId = takeId;
+      let workflowId = attemptWorkflowId;
       let createdUpload = false;
       if (!uploadedTakeId) {
         if (!file) throw new Error("Choose the original video to upload.");
@@ -372,12 +387,15 @@ export function Review({
           sizeBytes: file.size,
           plan,
           trainingConsent: consent,
+          ...(workflowId ? { workflowId } : {}),
         });
         uploadedTakeId = upload.takeId;
+        workflowId = workflowIdFrom(upload.workflowId);
+        setAttemptWorkflowId(workflowId);
         createdUpload = true;
         setTakeId(upload.takeId);
         setUploadComplete(false);
-        remember({ takeId: upload.takeId, uploadComplete: false });
+        remember({ takeId: upload.takeId, uploadComplete: false, workflowId });
         pendingUploads.current.set(upload.takeId, {
           url: upload.uploadUrl,
           method: upload.method || "PUT",
@@ -428,6 +446,9 @@ export function Review({
           },
         },
       );
+      workflowId = workflowIdFrom(job.workflowId) ?? workflowId;
+      setAttemptWorkflowId(workflowId);
+      remember({ workflowId });
       setJobId(job.jobId);
       setPhase("Queued for product tracking");
       setUploadPercent(null);
@@ -458,9 +479,12 @@ export function Review({
             throw new Error(
               "The analysis response was incomplete. Your local video is still available.",
             );
+          workflowId = workflowIdFrom(state.workflowId) ?? workflowId;
+          setAttemptWorkflowId(workflowId);
           setAnalysis(result.data);
           remember({
             analysis: result.data,
+            workflowId,
             takeId: uploadedTakeId,
             uploadComplete: true,
             revised: false,
@@ -516,6 +540,7 @@ export function Review({
         plan: parsedPlan.data,
         reason: result.reason,
         revisionId: result.revisionId,
+        workflowId: workflowIdFrom(result.workflowId) ?? attemptWorkflowId,
       });
     } catch (err) {
       if (generation === jobGeneration.current)
@@ -543,8 +568,11 @@ export function Review({
         throw new Error(result.error || "Could not apply this revision.");
       if (generation !== jobGeneration.current) return;
       setRevised(true);
-      remember({ revised: true });
-      onRevision(proposal.plan, plan);
+      const workflowId =
+        workflowIdFrom(result.workflowId) ?? proposal.workflowId;
+      setAttemptWorkflowId(workflowId);
+      remember({ revised: true, workflowId });
+      onRevision(proposal.plan, plan, workflowId);
     } catch (err) {
       if (generation === jobGeneration.current)
         setError(

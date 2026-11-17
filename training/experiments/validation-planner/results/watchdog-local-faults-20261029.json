@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "experiment": "local-external-process-watchdog-faults",
+  "createdAt": "2026-10-29T23:07:01.707Z",
+  "runtime": {
+    "node": "v24.18.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "paidRequests": 0,
+  "externalRequests": 0,
+  "passed": true,
+  "cases": [
+    {
+      "name": "normal",
+      "expectedStatus": "completed",
+      "passed": true,
+      "result": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "completed",
+        "startedAt": "2026-10-29T23:06:59.971Z",
+        "endedAt": "2026-10-29T23:07:00.086Z",
+        "monotonicElapsedMs": 117.17054099999996,
+        "wallElapsedMs": 115,
+        "timeoutMs": 750,
+        "killGraceMs": 100,
+        "pid": 93464,
+        "exitCode": 0,
+        "signal": null,
+        "processExitObserved": true,
+        "signals": [],
+        "stdout": "{\"status\":\"ok\"}\n",
+        "stderr": "",
+        "stdoutBytes": 16,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 16,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 4096,
+        "outputTruncated": false,
+        "responseStatus": "uninspected",
+        "remoteCancellation": "not_attempted"
+      }
+    },
+    {
+      "name": "hanging_request",
+      "expectedStatus": "timed_out",
+      "passed": true,
+      "result": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "timed_out",
+        "startedAt": "2026-10-29T23:07:00.088Z",
+        "endedAt": "2026-10-29T23:07:00.850Z",
+        "monotonicElapsedMs": 761.5411249999999,
+        "wallElapsedMs": 762,
+        "timeoutMs": 750,
+        "killGraceMs": 100,
+        "pid": 93479,
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "processExitObserved": true,
+        "signals": [
+          {
+            "signal": "SIGTERM",
+            "monotonicElapsedMs": 753.392541,
+            "target": "process_group",
+            "sent": true
+          }
+        ],
+        "stdout": "local request started\n",
+        "stderr": "",
+        "stdoutBytes": 22,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 22,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 4096,
+        "outputTruncated": false,
+        "responseStatus": "unknown",
+        "remoteCancellation": "not_attempted"
+      }
+    },
+    {
+      "name": "blocked_event_loop",
+      "expectedStatus": "timed_out",
+      "passed": true,
+      "result": {
+        "version": "flowblock-experiment-watchdog-v1",
+        "status": "timed_out",
+        "startedAt": "2026-10-29T23:07:00.850Z",
+        "endedAt": "2026-10-29T23:07:01.707Z",
+        "monotonicElapsedMs": 856.558417,
+        "wallElapsedMs": 857,
+        "timeoutMs": 750,
+        "killGraceMs": 100,
+        "pid": 93504,
+        "exitCode": null,
+        "signal": "SIGKILL",
+        "processExitObserved": true,
+        "signals": [
+          {
+            "signal": "SIGTERM",
+            "monotonicElapsedMs": 750.3235419999999,
+            "target": "process_group",
+            "sent": true
+          },
+          {
+            "signal": "SIGKILL",
+            "monotonicElapsedMs": 851.6381249999997,
+            "target": "process_group",
+            "sent": true
+          }
+        ],
+        "stdout": "event loop blocked\n",
+        "stderr": "",
+        "stdoutBytes": 19,
+        "stderrBytes": 0,
+        "stdoutCapturedBytes": 19,
+        "stderrCapturedBytes": 0,
+        "outputLimitBytes": 4096,
+        "outputTruncated": false,
+        "responseStatus": "unknown",
+        "remoteCancellation": "not_attempted"
+      }
+    }
+  ],
+  "limitations": [
+    "The parent process timer remains independent of a blocked child event loop.",
+    "Host suspension or parent event-loop starvation can delay timeout and escalation; these observations do not prove an absolute wall-clock bound.",
+    "Process termination does not confirm remote request cancellation or response availability. Timed-out requests retain unknown response status.",
+    "POSIX signals target the child process group. Windows signals target only the direct child."
+  ],
+  "sourceHashes": {
+    "watchdog.ts": "e6588f7fb19c00c9962429ce68028021bfe9c8a09c3338cea061c071db63921e",
+    "watchdog-probe.ts": "606b63e2d1ad076dc9fe187f3fab702c5b19b29154acabec0dee6768753c94d3"
+  }
+}

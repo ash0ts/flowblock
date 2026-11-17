@@ -1,0 +1,232 @@
+{
+  "recordedAt": "2026-10-30T21:20:34.742549+00:00",
+  "kind": "designed integration demonstration",
+  "status": "completed with a harness continuation and a separately declared 120B revision after 20B failure",
+  "heldOutEvaluation": false,
+  "creatorBenefitMeasured": false,
+  "syntheticMedia": true,
+  "acceptance": "automated",
+  "engineVersion": "flowblock-engine-v1.1",
+  "planner": {
+    "version": "flowblock-planner-v1.4",
+    "model": "openai/gpt-oss-20b",
+    "conversationId": "273834a4-0b66-4be7-b167-a6c009f3e74e",
+    "planId": "plan-d2e4e837636abd23bfcb45f733f06c14",
+    "source": "forge",
+    "outcome": "completed",
+    "actions": 3,
+    "requestedCompiles": 2,
+    "internalRepairSearchCompiles": 10,
+    "bearingDegrees": -45,
+    "radiusMeters": 2.08206611601052,
+    "sweepDegrees": 45,
+    "durationSeconds": 5,
+    "heightMeters": 1.3,
+    "minClearanceMeters": 0.42643147472817133,
+    "remoteReadback": "verified"
+  },
+  "analysis": {
+    "jobId": "53c2c315-29a0-447d-882d-1d59cca4c98d",
+    "takeId": "925da87b-8b95-42fa-ad34-c0b7bf4cac96",
+    "coverage": {
+      "needsReview": false,
+      "missingFrames": 0,
+      "expectedFrames": 75,
+      "measuredFrames": 75,
+      "uncertainFrames": 0,
+      "measuredFraction": 1,
+      "intentionallyHiddenFrames": 0
+    },
+    "provenance": {
+      "model": "SAM 2.1 Small",
+      "device": "mps",
+      "generatedAt": "2026-10-30T21:14:05.116445+00:00",
+      "rulesVersion": "framing-v1.1",
+      "realInference": true,
+      "targetTimeBasis": "normalized-phase",
+      "checkpointSha256": "6d1aa6f30de5c92224f8172114de081d104bbd23dd9dc5c58996f0cad5dc4d38",
+      "repositoryCommit": "2b90b9f5ceec907a1c18123530e92e794ad901a4"
+    },
+    "endingFinding": {
+      "unit": "relative-size",
+      "delta": 0.8541666291673742,
+      "metric": "size-ratio",
+      "target": 1,
+      "observed": 1.8541666291673742,
+      "timestamp": 4.933333
+    }
+  },
+  "revision": {
+    "version": "revision-v1.3",
+    "model": "openai/gpt-oss-120b",
+    "conversationId": "08ea0bbb-472b-4174-a16e-571d893d50d0",
+    "parentPlanId": "plan-d2e4e837636abd23bfcb45f733f06c14",
+    "planId": "plan-33b0962344fc6f2f275b6019e7bec80d",
+    "source": "forge",
+    "actions": 2,
+    "findingIds": [
+      "size:ending:0"
+    ],
+    "overrides": {
+      "distance": 2.5,
+      "bearingDeg": -45
+    },
+    "minClearanceMeters": 0.5492740124375994,
+    "remoteReadback": "verified",
+    "persistedProject": {
+      "projectId": "b392f17f-ab2f-4bc6-ba4a-55c5e5859a1c",
+      "versionId": "27b35636-940b-4412-b5a8-1d154bc8f989"
+    }
+  },
+  "replay": {
+    "sameClip": true,
+    "jobId": "a9f54627-a072-431e-ac03-a231aba19d30",
+    "takeId": "b4f89f8c-2144-4b38-bdef-e5905f6b3542",
+    "coverage": {
+      "needsReview": false,
+      "missingFrames": 0,
+      "expectedFrames": 75,
+      "measuredFrames": 75,
+      "uncertainFrames": 0,
+      "measuredFraction": 1,
+      "intentionallyHiddenFrames": 0
+    },
+    "provenance": {
+      "model": "SAM 2.1 Small",
+      "device": "mps",
+      "generatedAt": "2026-10-30T21:18:53.036806+00:00",
+      "rulesVersion": "framing-v1.1",
+      "realInference": true,
+      "targetTimeBasis": "normalized-phase",
+      "checkpointSha256": "6d1aa6f30de5c92224f8172114de081d104bbd23dd9dc5c58996f0cad5dc4d38",
+      "repositoryCommit": "2b90b9f5ceec907a1c18123530e92e794ad901a4"
+    },
+    "endingFinding": {
+      "unit": "relative-size",
+      "delta": 1.2405197485258124,
+      "metric": "size-ratio",
+      "target": 1,
+      "observed": 2.2405197485258124,
+      "timestamp": 4.933333
+    },
+    "interpretation": "Unchanged media against a smaller projected product target still violates the size rule. This is a pipeline check, not a second filmed take or evidence of improvement."
+  },
+  "preservedFailures": [
+    {
+      "conversationId": "132106f4-da76-4090-97e5-d3a5139ccb0c",
+      "stage": "planner",
+      "version": "v1.3",
+      "model": "20B",
+      "stopReason": "repair_budget",
+      "readback": "verified"
+    },
+    {
+      "conversationId": "5a81fb63-d6fe-4947-89ab-70aab488d7cc",
+      "stage": "planner",
+      "version": "v1.3",
+      "model": "120B",
+      "stopReason": "repair_budget",
+      "readback": "verified"
+    },
+    {
+      "conversationId": "bb1ce01b-93ac-40d2-8cfa-a71d17d81a2b",
+      "stage": "planner",
+      "version": "v1.4",
+      "model": "20B",
+      "stopReason": "deadline",
+      "readback": "verified",
+      "unknownUsageReservationRetained": true
+    },
+    {
+      "conversationId": "517e9daa-ddb1-4a16-83d9-e08a035f69af",
+      "stage": "revision",
+      "version": "v1.3",
+      "model": "20B",
+      "stopReason": "repair_budget",
+      "readback": "needs_review: two empty tool arguments normalized to empty strings; other recorded fields reconcile"
+    }
+  ],
+  "inferenceBudget": {
+    "authorizedUsd": 200,
+    "newRequests": 18,
+    "newEstimatedChargesAndReservationsUsd": 0.00440277,
+    "includesUnresolvedReservation": true,
+    "invoiceCost": false,
+    "trainingExcluded": true
+  },
+  "traceBoundary": "Two agent conversations connected through plan and analysis IDs. Worker, acceptance, persistence and replay use API receipts; they are not Agent Lens spans.",
+  "sourceReceipts": [
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/planner-result.json",
+      "sha256": "b2b13fff20dc129ffcd13094a8cb4d503d07ac7a127220b37b542a29da613016"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/analysis-result.json",
+      "sha256": "159904c76491e3e982f8ef861cebf8d359e927ab7b434e02867959f07dbd241c"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/continuation-amendment.json",
+      "sha256": "53bdd295ff0fe9a147071f49a171a915c302a94103ca1903e744bb3a85a865a0"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/revision-result.json",
+      "sha256": "a9740a487417c4e2898a0122f6a1b0bd607eec388b6cb05e9d9304479ed40f48"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/protocol.json",
+      "sha256": "dd7bfb6e99a1b2704a59dabda1cc49f9708e41481d438722ab228107b69ef8ad"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/revision-result.json",
+      "sha256": "5bfe88ea6ac26cc7d25ecee89aed07112d6136d4a22dec5a120bdaf7ea6baeee"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/accepted-plan.json",
+      "sha256": "a3c612d5f980c50fa825419edb908bf3ecc6ab4ea6f85d2c784af3552f3f8eb6"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/replay-result.json",
+      "sha256": "52feee152fe9b58c16f12214d373a7099a611309841bbe85e775e01df1801040"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/workflow-result.json",
+      "sha256": "48a87c3c873d5619436b1aab9f9b18ecd130fea5f91d754ed7eede8993303eca"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/persisted-project-readback.json",
+      "sha256": "6d085c295d33238daaa2c5e805201ef0cd8c5bbfb476727b3077f0e0d74f7c38"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/readbacks/2026-10-30T21-12-52.213Z/verification.json",
+      "sha256": "79ec56a754e69f3971a8aade97eb2ae0802326c99a8fb1158718e3dc278a5add"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/readbacks/2026-10-30T21-17-29.265Z/verification.json",
+      "sha256": "9ba652b146443ad007f4ffe4d8c4d1682d311be5267cea5e2d6b096003951ec9"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-revision120-20261030/budget.json",
+      "sha256": "e9c95ad170dec0c52e7c413a836ba169f0cbecb3df663d934b07084ef227a189"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/readbacks/2026-10-30T21-16-05.643Z/verification.json",
+      "sha256": "32b56e9e9d0818b408d0e41104ddd2849f394ee0dfb694e9965d0a7b511a1fbf"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-second-20261030/readback-empty-arguments-note.json",
+      "sha256": "7904917dbb1324661e81b5787376d0e02c7d87bcf2795651b311d64588df8516"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-20261030/readbacks/2026-10-30T20-21-33.667Z/verification.json",
+      "sha256": "d8286fa1736c04c48243b59758f9e314a5d3f29b117d6c68dac796021f309d01"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-120b-20261030/readbacks/2026-10-30T21-01-47.828Z/verification.json",
+      "sha256": "16e119667cfe611d3108ed99a86a013abe437181e52d9b9491ae1bbb91d17784"
+    },
+    {
+      "path": "training/artifacts/fresh-agent-loop-v14-20261030/readbacks/2026-10-30T21-10-16.187Z/verification.json",
+      "sha256": "06bde33a381bc2f9366f0b1f14ebfc0c7a99c4baf4b26ed3c3683664aff99c89"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "question": "Which masks were accepted despite poor independent overlap?",
+  "audience": "FlowBlock implementation reviewers",
+  "selection": "Per clip worst IoU among worker-accepted bad nonseed masks, otherwise worst nonseed IoU",
+  "source_summary_sha256": "bc700ace1a670f78a611934949b811f30382dd558bb570adfdffe456a382007e",
+  "frozen_manifest_sha256": "1fc2572631b5cad21e3f215e37bbddce433ad7d0f2dbe323a340833b454596d1",
+  "generator_sha256": "15f559d276dc7f0889a9b322527908ec5b16fa84f11b2258909c5250f534a3e3",
+  "selected_frames": [
+    {
+      "case_id": "textured-translation",
+      "frame_index": 20,
+      "timestamp": 1.333333,
+      "iou": 0.6409826912339475,
+      "worker_visibility": "visible",
+      "selection": "worst nonseed"
+    },
+    {
+      "case_id": "textureless-translation",
+      "frame_index": 17,
+      "timestamp": 1.133333,
+      "iou": 0.9796203238414294,
+      "worker_visibility": "visible",
+      "selection": "worst nonseed"
+    },
+    {
+      "case_id": "gradual-scale",
+      "frame_index": 25,
+      "timestamp": 1.666667,
+      "iou": 0.9888888888888889,
+      "worker_visibility": "visible",
+      "selection": "worst nonseed"
+    },
+    {
+      "case_id": "boundary-exit-reentry",
+      "frame_index": 45,
+      "timestamp": 3.0,
+      "iou": 0.9452054794520548,
+      "worker_visibility": "visible",
+      "selection": "worst nonseed"
+    },
+    {
+      "case_id": "occlusion-recovery",
+      "frame_index": 16,
+      "timestamp": 1.066667,
+      "iou": 0.610858356081286,
+      "worker_visibility": "visible",
+      "selection": "worst nonseed"
+    },
+    {
+      "case_id": "similar-object-crossing",
+      "frame_index": 38,
+      "timestamp": 2.533333,
+      "iou": 0.06286013619696176,
+      "worker_visibility": "visible",
+      "selection": "worst accepted bad nonseed"
+    }
+  ],
+  "privacy": "Authored synthetic imagery only; no customer data or credentials",
+  "limitations": [
+    "Six authored synthetic clips share one rendered product shape and are not independent real-product samples.",
+    "Visible-mask truth is produced by our raster renderer independently of SAM, not human annotation.",
+    "IoU<0.5 is a frozen diagnostic threshold, not a validated product usability cutoff.",
+    "No creator treatment or claim about time to usable footage.",
+    "Expected visibility covers the whole clip; fully hidden ground-truth frames are separately scored as an abstention stress condition.",
+    "Boundary rasterization and video compression can affect edge agreement."
+  ]
+}

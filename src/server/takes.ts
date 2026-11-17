@@ -34,6 +34,10 @@ export async function deleteTake(id: string, ownerId: string) {
       "UPDATE jobs SET status='cancelled',cancelled_at=COALESCE(cancelled_at,now()),lease_token=NULL,result=NULL,error=NULL,payload=jsonb_build_object('takeId',$2::text,'deleted',true),updated_at=now() WHERE owner_id=$1 AND payload->>'takeId'=$2",
       [ownerId, id],
     );
+    await client.query(
+      "DELETE FROM workflow_attempts WHERE take_id=$1 AND workflow_id IN (SELECT id FROM workflows WHERE owner_id=$2)",
+      [id, ownerId],
+    );
   });
   await deletePrefix(takePrefix(ownerId, id));
   await db().query(

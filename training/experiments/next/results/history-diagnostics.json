@@ -1,0 +1,3932 @@
+{
+  "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+  "createdAt": "2026-10-29T16:19:11.430Z",
+  "purpose": "Development diagnosis of already inspected historical tasks",
+  "fixtureSha256": "27a8fe2e04d23fcbfac4f71e3f1f41c23c9cc981042bec810473a165be399689",
+  "trainingTargetCounts": {
+    "compile_candidate": 94,
+    "finish-with-candidate": 94,
+    "finish-empty": 50
+  },
+  "uniqueBoundaryWidths": [
+    7.180000000000001
+  ],
+  "arms": [
+    {
+      "arm": "baseline",
+      "attempt": "2026-10-29T09-55-47-916Z-baseline-9b8ab274",
+      "manifestSha256": "d6c61853bc2b05ca741909540646ee18f7e8d96f0786c3a45e528fb6cec6f8cb",
+      "taskCount": 12,
+      "counts": {
+        "rawCalls": 51,
+        "noResponse": 1,
+        "invalidJson": 6,
+        "invalidActions": 2,
+        "validActions": 42,
+        "rawCompileReplies": 26,
+        "schemaValidCompileReplies": 24,
+        "recordedCompileEvents": 15,
+        "compileRepliesWithoutRecordedEvent": 9,
+        "recomputedValidCompiles": 1,
+        "recomputedInvalidCompiles": 23,
+        "emptyFinishReplies": 0,
+        "revisionActionsWithoutTake": 11,
+        "unmatchedRecordedEvents": 0
+      },
+      "recomputedViolationCounts": {
+        "framing_band": 19,
+        "operator_boundary": 5,
+        "camera_boundary": 1,
+        "camera_obstacle": 6,
+        "unused_orbit": 5,
+        "unused_travel": 3,
+        "reveal_visibility": 4,
+        "invalid_projection": 1,
+        "operator_obstacle": 3
+      },
+      "tasks": [
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-hold.json",
+          "sourceSha256": "55cffab8d4d75a3ca3b91b1cbaa72e3d1587bf07724f1cb28964243dcef00aa4",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "status": "no-response",
+              "recordedExecution": "not-recorded"
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 1,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 0,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": null,
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 0,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-push-in.json",
+          "sourceSha256": "2106f8d273a2e7de5c2a855fedb69305f667dfb8835d97f86d29c1831ea04ced",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "01cd6de61ca55bef4b0737eb9fb2bfb25a627d6dc6df3a73c61609e8599313d4",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-5ebc3a1742800729da9c3b19b835e10b",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "operator_boundary"
+                ]
+              }
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "ed66df3c8e890a8ae96273128b9442eeb196c87a81b8b8930bd6011f4d0aa3f0",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "79daa6b038896eec76299b1d5a4fdc48f174988e34e79de911fab3da63a0cf35",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 3,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-66454c6e843c4caadd107280b1da53c8",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band"
+                ]
+              }
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "22f9c41f7ff2771f4c76995ab8fdcf1d47dd98ea8f750277b06dc9cb76d8ab44",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 4
+            },
+            {
+              "callIndex": 5,
+              "contentSha256": "fcb376f70edc23a0538e45039510af84f0d2994b2b1ffd38b36cb1a7ef83897f",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-f389f99bc8e4ead20a4b536b3496cfd3",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 6,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 6,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 2,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 3,
+            "operator_boundary": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 5,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 5,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-pull-out.json",
+          "sourceSha256": "b7c66193e32de52253c694f2e736ea59676c48bbd8fdb4c228815c00fb9b874a",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "016d4a5951834c01b3c14a53ad6b8d3d210ce348db20b1ea2919dd5bae0c0af1",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "f24157b1ab98e3e52ebd6862ad76f99e7be66ba076496ebe8f7307455b892d43",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-55872c637f2f020061515882b2679e40",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "camera_obstacle",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "2b980b9b9430f8088e01489be16652150eb86cbdf4271a47a28157583741077c",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 3
+            },
+            {
+              "callIndex": 5,
+              "contentSha256": "b111a806c28315cd6c7f07110e555ea8d0e90f9fc17a2a3c936791fc3ad9720d",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            }
+          ],
+          "counts": {
+            "rawCalls": 6,
+            "noResponse": 0,
+            "invalidJson": 2,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 1,
+            "schemaValidCompileReplies": 1,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 1,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_boundary": 1,
+            "camera_obstacle": 1,
+            "framing_band": 1,
+            "operator_boundary": 1,
+            "unused_orbit": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.6666666666666666,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 4,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.6666666666666666,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 4,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-lateral.json",
+          "sourceSha256": "499f553c39d0fb9ffc36ccc917a0f4b1b34196e945fbdd3621ca0214aa0f54f0",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "0eeb576902c351c0d7ab7f24f97486725de36c33ad4e4bf865cbe997bd253135",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "4ad7118dca9e135c7ff729745b07f1ea520c64d38978f7d92cb3dc734b9bf759",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-26a79763b6fe49b2c091fedeec2f1f86",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "7d5e732ebe2cc7218908b70001b846d93dae71e891434df19972b7c7a0c3c3be",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "a16b31c908e577e199f31e7ce7f5e12a0fc16b989a5e3289837b981af23491f7",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-13c49d4a9a35a286cd830aa757047cb1",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 5,
+            "noResponse": 0,
+            "invalidJson": 1,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.8,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.8,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-orbit.json",
+          "sourceSha256": "f907ed84b458d05d3806206df6405b77d5afd7d139632fdd226d0029a160ac60",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "ff0bc120ac62055dd3c992f26fafc425a17f6299c6a8a632d4bac70bbadb786f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-070d815110a36b77ca1aee2d2fa7092f",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_travel"
+                ]
+              }
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "7f2fd2321a01cf0782623d453eb125a274ba4af7c7f3055242afce39fc752927",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "db0c0a22810b96bc5c3ad4afe4edb93291d4486909e55fe0515ee44a7783db4b",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-dc00dec3134eb0037df482c3c16b0e34",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "a195790555444e3938bacbda2513db7a8e5d367860f2e245226c5fd12721fd3c",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-09ef975778a006617a3332709e0f9af4",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 1,
+            "unused_travel": 1,
+            "operator_boundary": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-00-reveal.json",
+          "sourceSha256": "96aa31d70a39b24c4f24c26f30a43a5deeb231e9815fc0e9582f942a7314dfb3",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "ba90cd81775455f050a2b2aa8c825792e1b26b5ef3ab8389cf29824a9946f479",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-fc697f019ed07e46ea0cd8165864ba23",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility"
+                ]
+              }
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "22b9169c5d4830ae8b1d37193d2b18e4960dae769e60e1e733ecfd052b4c89bc",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "4af06aff745bcc714b333842c36e7c50e47bba545612cd6c60ff272e9443b853",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-e91b7bcc63db1d81d69f3fdbc5646242",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "1813d001fba5b5073c71581a50ff100ab38274d29a147336553854f41e10a48f",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-2256122c64a1eca8b377b26fdda4026b",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 3,
+            "reveal_visibility": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-hold.json",
+          "sourceSha256": "ae22ab8771bb9a5593c88b88789836da89ae44c2c717748a3d0f66fb6b169c21",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "118ead38d45dbca502bcb55c17979c38ef77c3d1cf52d28802951ad2d8170f91",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-4305767981f3c984dddda2774c0e81cd",
+                "valid": false,
+                "violationCodes": [
+                  "unused_orbit",
+                  "unused_travel"
+                ]
+              }
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "dffe2a3ab0508c6b40197c4dd48975ce9fc738d403e2e8e70625634fa67d0b09",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "446cfb76889f604d3014d09af0116358640fc77595cecfe2b982599c916fe735",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-14de81722e7619a27b41d71db0b3d7fe",
+                "valid": true,
+                "violationCodes": []
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "07a5067ac155a8b05819ea386b881bba3f287bdf903fc16d2767b33cdb3e01ed",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 3
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 1,
+            "recomputedInvalidCompiles": 1,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "unused_orbit": 1,
+            "unused_travel": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": true,
+            "feasibilityOutcome": "candidate",
+            "success": true,
+            "invalidCandidateCount": 1,
+            "compileCount": 2,
+            "toolCalls": 4
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": true,
+              "feasibilityOutcome": "candidate",
+              "success": true,
+              "invalidCandidateCount": 1,
+              "compileCount": 2,
+              "toolCalls": 4
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-push-in.json",
+          "sourceSha256": "4da2342f19a6cb971110594553170facbe09e04a9db98c379cb5e37c96c01d18",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "d922809ba83b31a27cb62afdc2a99385b433475ea2c276e63ca4351f464e3d78",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-75a9e70ec8376b1b4aaed048c6c1533f",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band"
+                ]
+              }
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "44109f061f6917ac84f33ace0cf5905050921482407ec0f5627822bd51ce44b5",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "e6420a37dde1b8c6902eee379df5d8fea327568e5c469f7ab6eb0bf6fae0ff5c",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-73f06d19ce5f9d54c040d5b8f8ff305a",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "6152e6c6ddf27b45234534700657cca448c5acdcdd8dfa9a3f1eef166d40f851",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-77008423fa8a58e08d6edc89633745e7",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "invalid_projection",
+                  "operator_obstacle"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_obstacle": 3,
+            "framing_band": 3,
+            "invalid_projection": 1,
+            "operator_obstacle": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-pull-out.json",
+          "sourceSha256": "fbccefa6a61e75227d9e965a4c04821b353d66cc475e9dcc514612a2b0abdd62",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "ca6cad300886b3773e4bdd955f48cae119c7978c03376079be1b747e95b4ad3e",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "c3a459f0ebe78e96e4b1085f87820b6a63f3133d212cf39972055fe7cc426ba2",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-88879fb3cad00c089044755c04a766c6",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "2e3f3ed32a8a96b26485b3a5e2c7f51e062d0473143dc4dfa61ff15028fe4d14",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "74fcf4ce5288d01c08cc95c21959b942268969054e24e092abf6cae6f54ce8db",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-6a9fc75642b759542b8b7453bf86f583",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 5,
+            "noResponse": 0,
+            "invalidJson": 1,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 2,
+            "unused_orbit": 2,
+            "operator_boundary": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.8,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.8,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-lateral.json",
+          "sourceSha256": "06b75afe25f6c8ef7611ed17e8fa202762a50a07a1936b6b8afaedb80921a546",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "e3eda723182ecef125fff7b4cc5ea4d1f041628529d1d7368386f1cb26ee017d",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "f28a64944e73b87ac71a0efad7e99f419f3625382e70dfe37793bfbd21124487",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-fce2a8c13c0679087a2a2431727b5024",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "operator_obstacle"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "0df89e8a6b3077c0469e5c434d4c28670500b341ebc91fa4c1161b0b8a21207e",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "9fc7fda6b89c5d78ef9d582574a66e8b8b613813ef9db91b1916b425965ef426",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-fb2fdc1f3039b3b162e7a6f90bb1c501",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "operator_obstacle"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 5,
+            "noResponse": 0,
+            "invalidJson": 1,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_obstacle": 2,
+            "framing_band": 2,
+            "operator_obstacle": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.8,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.8,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-orbit.json",
+          "sourceSha256": "569d057e191f93a97f12727ba7e07d6e87366170234ce3d642f375905b113e6e",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "266fae8479fd13f2f6e7b97e6347006888130a6d8e50366c71e53b589c3e0265",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.travel",
+                  "message": "Too big: expected number to be <=20"
+                }
+              ]
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "266fae8479fd13f2f6e7b97e6347006888130a6d8e50366c71e53b589c3e0265",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.travel",
+                  "message": "Too big: expected number to be <=20"
+                }
+              ]
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "a424b41f87e492fd5d8cf24696e8d77d7bebae86bdc1a9735e99de4a221bfd01",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-5a47a73cda1b93d82e526bb51e99dc89",
+                "valid": false,
+                "violationCodes": [
+                  "unused_travel"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 3,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 2,
+            "validActions": 1,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 1,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 1,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "unused_travel": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.3333333333333333,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 0,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.3333333333333333,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 0,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-55-47-916Z-baseline-9b8ab274/test-scene-01-reveal.json",
+          "sourceSha256": "98162e578a0df82e47a0de6f83a78bde71b21cac13c4ad3ba1e1cfebec5557fe",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "2d1dca40f07d24a51891a81280dfaa10acc44fa57a38fc3beef9776246a65516",
+              "recordedExecution": "not-recorded",
+              "status": "invalid-json"
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "afde140d2a812e9d64317ec97ea42161725399e366dbc26b4cf421697b819e8f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 0,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-71e286433f8dfc5069182d670f2f65f5",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "4bc482279b39694d778a71d1cad11e94edde261ff6631b21e8c607ebed4c6aac",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 1
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "ed937c6a97f7577620966a3fcd6fcaaec8c7fc5fcf3433bfd5a751619160b2d1",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-05115fdcf84aba8ed91ebcc4fb81793c",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 1,
+            "invalidActions": 0,
+            "validActions": 3,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 2,
+            "reveal_visibility": 2,
+            "unused_orbit": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.75,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 2,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.75,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 2,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        }
+      ]
+    },
+    {
+      "arm": "base",
+      "attempt": "2026-10-29T09-57-33-340Z-base-cf306701",
+      "manifestSha256": "80a2ae705d96485f4142baca69919cb525bcb9e90a92e1920439bd9285a6bb9f",
+      "taskCount": 12,
+      "counts": {
+        "rawCalls": 53,
+        "noResponse": 0,
+        "invalidJson": 0,
+        "invalidActions": 12,
+        "validActions": 41,
+        "rawCompileReplies": 34,
+        "schemaValidCompileReplies": 22,
+        "recordedCompileEvents": 17,
+        "compileRepliesWithoutRecordedEvent": 5,
+        "recomputedValidCompiles": 0,
+        "recomputedInvalidCompiles": 22,
+        "emptyFinishReplies": 0,
+        "revisionActionsWithoutTake": 2,
+        "unmatchedRecordedEvents": 0
+      },
+      "recomputedViolationCounts": {
+        "operator_boundary": 10,
+        "camera_obstacle": 6,
+        "framing_band": 17,
+        "operator_obstacle": 1,
+        "unused_orbit": 16,
+        "reveal_visibility": 3,
+        "camera_boundary": 5,
+        "unused_travel": 1,
+        "camera_speed": 2
+      },
+      "tasks": [
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-hold.json",
+          "sourceSha256": "e3570229e43856419ca88b8067d7584566692b7a4b4cd3909160866abed16fe5",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "14a6d51ff6c47dd5e215812ccaf13566aaabe9ef5a466cb90fb6625686782f92",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-aae7aedd989d3f01f962adf7b2f0e6ba",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "9697ee375167d1fcafad066025f3e495e90c4422b198815aa07bb97eaed1ebd9",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-6f12307b7e0585aaf5fa80be2214364f",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "ab919c60acba431ee08e92c68169235749ad727c7ecd680867002a84bd4cad0d",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-229d658954cd6bb25bf5f5e7b92b444d",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "operator_obstacle"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "operator_boundary": 2,
+            "camera_obstacle": 1,
+            "framing_band": 1,
+            "operator_obstacle": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-push-in.json",
+          "sourceSha256": "604b71563b4dc50c922741b4383404756dd8bf6ba4b6c54bf7b2a538aa82fc2c",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "8878b11580ce83093dcd143320194f398fdf401fecc4c9a154f1c811010146d0",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-923e82cd5eb813b0c18e3c628acad26c",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "042ead40d6ef5993c35f6542662271c694d2d283b6d99de954c6bd9712646c41",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-2751f9ec3ca7f801f5d5f5abc119e719",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "dcb3471ad88b42b3f7e5fb572a271c0d591faef2c8cc82527195d635cc119041",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-c622a62415964a2a28c349c3144ab85b",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "reveal_visibility",
+                  "unused_orbit"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_obstacle": 3,
+            "framing_band": 3,
+            "unused_orbit": 3,
+            "reveal_visibility": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-pull-out.json",
+          "sourceSha256": "ebada12df497bde59c439d1a78953e4a2aad618c07cce62636907f9c8950812d",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "b021a2d48ce77e4478c8e1db9f29ce1ddd0d56237db381174a9bf182a82200ec",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-f23cb0125cd9636ce18044fc12329ca6",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "58acd31f05e3ca3eee908a9fc3927bba502f5df24fb754f4865db3d6194a318d",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "validate_candidate",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "a50fba180b3f1953f074f1ba186a016f5b6d315f9da7046fd043b56720fe6acb",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 3
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "b021a2d48ce77e4478c8e1db9f29ce1ddd0d56237db381174a9bf182a82200ec",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 4,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-f23cb0125cd9636ce18044fc12329ca6",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 5,
+              "contentSha256": "58acd31f05e3ca3eee908a9fc3927bba502f5df24fb754f4865db3d6194a318d",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "validate_candidate",
+              "recordedEventIndex": 5
+            }
+          ],
+          "counts": {
+            "rawCalls": 6,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 6,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_boundary": 2,
+            "framing_band": 2,
+            "operator_boundary": 2,
+            "unused_orbit": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 6,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 6,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-lateral.json",
+          "sourceSha256": "7f469faaeeba934b1e7939114b1f420e27dd40075553b0a750bd453a6cc67eb1",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "5ae314b18bed17fca8ff1d19aeee9bc3eeefedf9e24ddd0841b59e59a7f90daf",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-7c64cd4e04aa9fe8a8c14f78322628cf",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "5ae314b18bed17fca8ff1d19aeee9bc3eeefedf9e24ddd0841b59e59a7f90daf",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-7c64cd4e04aa9fe8a8c14f78322628cf",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "bc7b8fe8f40c3eac4e9b9fc6272e79e1ce4264b536813f4c663214278dade9d8",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.travel",
+                  "message": "Too small: expected number to be >=0"
+                }
+              ]
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 1,
+            "validActions": 3,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 2,
+            "unused_orbit": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.75,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.75,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-orbit.json",
+          "sourceSha256": "e97757f796282fa8c52ff5fd5227bad366aa38caa06d55a47a489dc4e32461ea",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "63f143f6cacd32efb95e5904e081cc925fe176b9cf96e629111abeb4cc7e9c63",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-e4a4b38a3d034d733fcdec616fd7405d",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary",
+                  "unused_travel"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "eaa83efa74b14831b330ce6bbdab846576f731647f5a950faf63cc0fc7347d88",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-65893d49e4f1dfb089aebc1983ae9e8a",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "92a4fc2a0fe7093bfb4edb64fa83a2e006861ecffc181e34f01b9d75a2e925f9",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-375a28ce15a17db966ca08e4bd795917",
+                "valid": false,
+                "violationCodes": [
+                  "operator_boundary"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "operator_boundary": 3,
+            "unused_travel": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-00-reveal.json",
+          "sourceSha256": "034683abdcac12a39ec7a7e06d1a045393d1bcfeb4ee0822fa9a83d9a0b0f1dd",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "ba2634179c08516f0921fd6f8950b6ee2caefaed2a24ff9605457d99f83985fd",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-1ce87ba3b30621e3340c25b4d4bfea5f",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "aa16b5add385c061910610922d68168a2914538245e83447c48e1ba8c5c50326",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-e52793b612e5a9da7f68cd2ce06982c3",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "reveal_visibility",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "058bf1e4e30d3eef7eab0e4aafbda5276edbfeed3e42053443e63b1f72f66bc8",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-3913663094383dfe79598772433a7f9a",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 3,
+            "reveal_visibility": 2,
+            "unused_orbit": 3
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-hold.json",
+          "sourceSha256": "2da31117e4e4dbcaaa387b7d39de449f2e7ddf766b1482d21387bcebc38a3592",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "5fc8781efe96c6aec71f376d5afc50f404e736d89e1cc9d39c934cc81b8bf12e",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "860260d2053e383b234df386279307d792d4ae9a2b200f3507867c9b23b35c52",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "2ffb408d1ce0f1379c1be584df3c58b533d53727c7aa1fa868b74450fbc78d6c",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 3,
+            "validActions": 1,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 0.25,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.25,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-push-in.json",
+          "sourceSha256": "efa7762b74c385cdf782da46779e301f6b2de4d19ebd5949feffed3384cea1cb",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "edf5171559596188a645562e53a7924c6d38bbd14f731a61fc706753a21984ef",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-3c377a99869ca5e5fdc28b3c41fb08b2",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "8f43b4832433f949cea4d11c918c79c18e9073061da787d33f30ae06b10ebe76",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "validate_candidate",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "b9401c743fe69c596dff8ebd06187c49b5bb817bd06fa89cb2a17d8c5ff8a565",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "propose_revision",
+              "recordedEventIndex": 3
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "37d1ef856f5affe9e94c057c92b04d7e09190b904ac16f2176e1699292108f7b",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 4,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-c6b8dff2c374e239f7e7badb919847af",
+                "valid": false,
+                "violationCodes": [
+                  "camera_obstacle",
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 5,
+              "contentSha256": "52b7735b5b93dc86677b7c1852d41a5f85beec035a44ed33e3d6beb11ebcfc6b",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "validate_candidate",
+              "recordedEventIndex": 5
+            }
+          ],
+          "counts": {
+            "rawCalls": 6,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 6,
+            "rawCompileReplies": 2,
+            "schemaValidCompileReplies": 2,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 2,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 1,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_obstacle": 2,
+            "framing_band": 2,
+            "unused_orbit": 2
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 6,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 6,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-pull-out.json",
+          "sourceSha256": "7a21783ba896732a588a1f5e8e224e37d0e729257242e6f660fef3ad1a645a89",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "77969dd22d0aea33015014c58ce38c89967bb87845e3a1f9aee442d9014ab88b",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-4385c5937f6138c9fb92a6fcadf6d07e",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "camera_speed",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "c6d24933a1e1ad5d427e41c09251423bdd501ece84fa73b507f2e034c83147a4",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 2,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-cab22086d7a48d3b648f6ce378875579",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "camera_speed",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "7e5b0d3845cbb4f33e10a67cbed7ae0a514d7340171b77c9e26e8b351d998d57",
+              "recordedExecution": "not-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-10e4fa54936e0d22dffa38767504daa6",
+                "valid": false,
+                "violationCodes": [
+                  "camera_boundary",
+                  "framing_band",
+                  "operator_boundary",
+                  "unused_orbit"
+                ]
+              }
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 4,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 3,
+            "recordedCompileEvents": 2,
+            "compileRepliesWithoutRecordedEvent": 1,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 3,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "camera_boundary": 3,
+            "camera_speed": 2,
+            "framing_band": 3,
+            "operator_boundary": 3,
+            "unused_orbit": 3
+          },
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 2,
+            "compileCount": 2,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 2,
+              "compileCount": 2,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-lateral.json",
+          "sourceSha256": "17562569377867dd6942f9091253305fd2c130411c61073accb5852b5cf90afc",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "3cf8f4cbca5c62f7d065bf218be202b8f491600268a36c3aaa148412de977845",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "compile_candidate",
+              "recordedEventIndex": 1,
+              "recomputedCompile": {
+                "provenance": "offline-recomputation",
+                "candidateId": "plan-cd489cc6d88d5e78f3fcc76df68a6406",
+                "valid": false,
+                "violationCodes": [
+                  "framing_band",
+                  "unused_orbit"
+                ]
+              }
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "80317d7900e0451545e93d906c85d51ac57e6f846976c8f60341d50532a6d37c",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides",
+                  "message": "Unrecognized key: \"travelFactor\""
+                }
+              ]
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "2951d7678dedfb3fc6343cdfbf5861154506ed3459ba6fefb94554fba553dcb1",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "validate_candidate",
+              "recordedEventIndex": 2
+            },
+            {
+              "callIndex": 4,
+              "contentSha256": "c7f22444a73020bc1eab656c9b2889356d140ced46f2d24589ff7de82c12a868",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides",
+                  "message": "Unrecognized key: \"travelFactor\""
+                }
+              ]
+            }
+          ],
+          "counts": {
+            "rawCalls": 5,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 2,
+            "validActions": 3,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 1,
+            "recordedCompileEvents": 1,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 1,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {
+            "framing_band": 1,
+            "unused_orbit": 1
+          },
+          "recordedGrade": {
+            "schemaValidity": 0.6,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 1,
+            "compileCount": 1,
+            "toolCalls": 3,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.6,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 1,
+              "compileCount": 1,
+              "toolCalls": 3,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-orbit.json",
+          "sourceSha256": "bbcd3f2182262068986b577319a192e3bf5de2af4cb79b396ddffc8e79dad942",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "122031794336dd7c3c0ae83ecd4adf070d403da7265fec41bd0f407ea53fa9b1",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "122031794336dd7c3c0ae83ecd4adf070d403da7265fec41bd0f407ea53fa9b1",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "cd874ad8bb12b5ad44fc5783720c1588e078efa1fb1d6a6e92cc86e136111cfc",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.distance",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 3,
+            "validActions": 1,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 0.25,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.25,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T09-57-33-340Z-base-cf306701/test-scene-01-reveal.json",
+          "sourceSha256": "44b595af1a217cec75809bf39cfd2e512bc548e7e0cb05124b52a6ad7c20b316",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "089df3221feb94fa03f614f76d7f57890dd9a7942e4785f290d82f6674fad928",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "list_recipes",
+              "recordedEventIndex": 0
+            },
+            {
+              "callIndex": 1,
+              "contentSha256": "d526db15fc71bf47957be9a939792e23701915d7185025e558292f26ea7facef",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 2,
+              "contentSha256": "d526db15fc71bf47957be9a939792e23701915d7185025e558292f26ea7facef",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            },
+            {
+              "callIndex": 3,
+              "contentSha256": "d526db15fc71bf47957be9a939792e23701915d7185025e558292f26ea7facef",
+              "recordedExecution": "not-recorded",
+              "actionName": "compile_candidate",
+              "status": "invalid-action",
+              "schemaErrors": [
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >0"
+                },
+                {
+                  "path": "overrides.height",
+                  "message": "Too small: expected number to be >=0.1"
+                }
+              ]
+            }
+          ],
+          "counts": {
+            "rawCalls": 4,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 3,
+            "validActions": 1,
+            "rawCompileReplies": 3,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 0,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 0.25,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1,
+            "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 0.25,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1,
+              "error": "Model execution fell back to the recipe library; library results are not credited to the model."
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        }
+      ]
+    },
+    {
+      "arm": "candidate",
+      "attempt": "2026-10-29T10-00-01-734Z-candidate-3dd66429",
+      "manifestSha256": "f7b7c5f53ea50ba2acf83595744e1acae8322708df0a67a9dac77a4328ee1abf",
+      "taskCount": 12,
+      "counts": {
+        "rawCalls": 12,
+        "noResponse": 0,
+        "invalidJson": 0,
+        "invalidActions": 0,
+        "validActions": 12,
+        "rawCompileReplies": 0,
+        "schemaValidCompileReplies": 0,
+        "recordedCompileEvents": 0,
+        "compileRepliesWithoutRecordedEvent": 0,
+        "recomputedValidCompiles": 0,
+        "recomputedInvalidCompiles": 0,
+        "emptyFinishReplies": 12,
+        "revisionActionsWithoutTake": 0,
+        "unmatchedRecordedEvents": 0
+      },
+      "recomputedViolationCounts": {},
+      "tasks": [
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-hold.json",
+          "sourceSha256": "09b36eeac6accfcf96cca5819c54769b8c808730b9af4c69bda56b093e613ce1",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-push-in.json",
+          "sourceSha256": "7e63f4308965cf38e676809693b259274ea700ef8347d55ad965a54227a981b0",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-pull-out.json",
+          "sourceSha256": "bc592ad66d556c8d1e7b08d0bf28d24ff80d1fc521c453aebaf4f5a060c35f56",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-lateral.json",
+          "sourceSha256": "327dbe0108a54116cc141f096b5cd2a9fb33e25e85df793b3a159453308f4277",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-orbit.json",
+          "sourceSha256": "f1d32922216ad4f1d4ab41580e114e4ca7705a8f3d1ac7429bb5333347f4970d",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-00-reveal.json",
+          "sourceSha256": "68ec6e29ab67927cb305fb8db70f875746a2641d703c342af35fe429746f8cd6",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-00-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 1,
+            "familyMatch": false,
+            "feasibilityOutcome": "bounded-search-abstention",
+            "success": true,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 1,
+              "familyMatch": false,
+              "feasibilityOutcome": "bounded-search-abstention",
+              "success": true,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-hold.json",
+          "sourceSha256": "2dfcf2959776c407343fc4f6566888b002868d0c44fd1cf7e5f15f63aa2bce13",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-hold",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-push-in.json",
+          "sourceSha256": "8c2f646239b898a722047bf4126a6f0e31bf250720dadc34edef62e502b2a26f",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-push-in",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-pull-out.json",
+          "sourceSha256": "5b377f23550edd203936e090247ecb27dfa3b325b5d6edbe80c04ce47b8cd0b6",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-pull-out",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-lateral.json",
+          "sourceSha256": "3e091f43b9659ba6daf4cc7f00356fb7fa6b80a9e84b1b29a4f55e405b717b77",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-lateral",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-orbit.json",
+          "sourceSha256": "dbb7b0c72c1593e6e3100d56030873aa85b5fd98e4bb0e2fcd5bd4edcf2a3a4a",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-orbit",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        },
+        {
+          "sourcePath": "training/artifacts/2026-10-29T10-00-01-734Z-candidate-3dd66429/test-scene-01-reveal.json",
+          "sourceSha256": "d7a9d6fcac5c42c513bdccf09a6a1b51c9f005db41d28cd5b70ea9bf8974b6b4",
+          "diagnosticsVersion": "flowblock-raw-reply-diagnostics-v1",
+          "fixtureId": "test-scene-01-reveal",
+          "runtime": {
+            "selection": "frozen-v1",
+            "plannerVersion": "flowblock-planner-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "sourceHashes": {
+              "src/server/planner.ts": "8b21e16f9fd9cb43cc9a01a0f30c138907765505f5ca102481ea7d2a729972e9",
+              "src/domain/engine.ts": "6e5d49b575fd2717580c9da8138bf9af30a0e96b18b207510792972ae53bcddb",
+              "src/domain/contracts.ts": "6cd6cc097c511787583946239ad41455d8d2a2fadf8e802c5d27f00038eca8eb",
+              "training/evaluation.ts": "48f8aebc845661e9674161739bfffac696c70d0c552e4b48569a570d46c512ee"
+            },
+            "sourceManifestSha256": "d511426d528bde1ce49644b773f6809154c47ba5967eeff76feb8ec3238cfaba"
+          },
+          "replies": [
+            {
+              "callIndex": 0,
+              "contentSha256": "3981b6ee39890650dfd82827ac88a737ad89e0ca6200f58f0d474d603c82c86f",
+              "recordedExecution": "event-recorded",
+              "status": "valid-action",
+              "actionName": "finish",
+              "recordedEventIndex": 0
+            }
+          ],
+          "counts": {
+            "rawCalls": 1,
+            "noResponse": 0,
+            "invalidJson": 0,
+            "invalidActions": 0,
+            "validActions": 1,
+            "rawCompileReplies": 0,
+            "schemaValidCompileReplies": 0,
+            "recordedCompileEvents": 0,
+            "compileRepliesWithoutRecordedEvent": 0,
+            "recomputedValidCompiles": 0,
+            "recomputedInvalidCompiles": 0,
+            "emptyFinishReplies": 1,
+            "revisionActionsWithoutTake": 0,
+            "unmatchedRecordedEvents": 0
+          },
+          "recomputedViolationCounts": {},
+          "recordedGrade": {
+            "schemaValidity": 1,
+            "geometryValidity": 0,
+            "familyMatch": false,
+            "feasibilityOutcome": "failure",
+            "success": false,
+            "invalidCandidateCount": 0,
+            "compileCount": 0,
+            "toolCalls": 1
+          },
+          "recomputedLegacyGrade": {
+            "provenance": "offline-recomputation",
+            "runtime": "frozen-v1",
+            "checkerVersion": "flowblock-planner-checker-v2",
+            "value": {
+              "schemaValidity": 1,
+              "geometryValidity": 0,
+              "familyMatch": false,
+              "feasibilityOutcome": "failure",
+              "success": false,
+              "invalidCandidateCount": 0,
+              "compileCount": 0,
+              "toolCalls": 1
+            }
+          },
+          "disclosure": "Development diagnostics only. Original records and scores are unchanged. A missing event does not establish whether a tool executed. Offline recompilation is separately labeled and does not establish historical execution. The legacy checker measures family match, not full preservation of a creative brief."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Recomputed compiles are diagnostic counterfactuals, not a new model run or evidence that an unrecorded tool ran.",
+    "The three arms share the same twelve inspected tasks in two scene groups. These tasks are development data for future changes.",
+    "Recorded grades are retained. The next experiment requires a fresh confirmation set and a stronger brief-preservation checker."
+  ]
+}

@@ -56,4 +56,12 @@ node --env-file-if-exists=.env.local --import tsx training/read-traces.ts traini
 
 Infrastructure failures, malformed actor output, library fallback and unattempted tasks stay distinct. Model results never receive credit for fallback library candidates. Summary success counts are split into matching valid candidates and bounded-search abstentions. Token counts come from provider responses; billed dollar cost remains unknown unless independently available. Compact sanitized summaries and readbacks live in tracked `results/`; full synthetic conversations remain in ignored local artifacts.
 
+Existing qualification results can be imported as native Weave evaluations without another model run. The importer validates source hashes and checks exact remote predictions, scores, and aggregates before recording a verified receipt. [Forge integration](../docs/forge-integration.md) documents the publication and readback commands, denominator choices, and historical checker differences. [Models and inference](../docs/models-inference.md) documents the verified native optimizer history and the separate recovered-dataset publication.
+
 The completed qualification did **not** establish a useful planning improvement. The trained checkpoint returned an empty candidate list on all 12 tasks. Six counted as acceptable abstentions because the fixed recipe search found no candidate in that scene; the other six were failures on the scene with feasible recipes. Productive matching candidates remained zero for both matched base and candidate runs. The candidate was not promoted. [The results guide](results/README.md) links the receipts, exact comparison and trace readbacks; [the compact summary](results/summary.json) feeds the separate developer view.
+
+The [next research campaign](experiments/next/README.md) preserves the original comparison, versions a new planner corpus, runs real-video diagnostics, and provides the prospective creator-study instrument.
+
+## Controlled validation follow-up
+
+The [controlled planner and tracking experiments](experiments/validation-planner/results/report.md) reuse the trained checkpoint on new synthetic room templates, wording changes, blocked-path alternatives and explicit equipment limits. Independent rendered masks expose a tracking-review failure. The report keeps service missingness, checked abstentions and plan success separate; it does not establish creator benefit.

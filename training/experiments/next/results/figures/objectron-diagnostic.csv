@@ -1,0 +1,11 @@
+sequenceId,status,maskCentroidToProjected3dCenterFrameDiagonalDiscrepancy,usableSamples,evaluationSamplesExcludingSeed,usableFraction,processingSeconds,note,reason
+camera/batch-3/11,completed,0.009581858750153379,74,74,1.0,71.48667579200992,,
+bottle/batch-40/29,completed,0.018423943993160847,74,74,1.0,79.14414429200406,,
+cup/batch-37/28,completed,0.01927704917680555,74,74,1.0,70.96140708400344,"Assistant visual inspection at source frame 148, 4.933333s: The predicted mask covers the red exterior but excludes the visible white cup interior. Not independently annotated ground truth.",
+camera/batch-7/24,completed,0.021392006533554647,74,74,1.0,71.05483570900105,"Assistant visual inspection at source frame 74, 2.466667s: The predicted mask extends from the camera onto a neighboring price card. Not independently annotated ground truth.",
+laptop/batch-3/14,completed,0.02397981238588284,74,74,1.0,74.09230283299985,,
+book/batch-6/16,completed,0.025228234388057814,74,74,1.0,66.49261391699838,,
+book/batch-20/35,completed,0.0495320640370975,74,74,1.0,72.03353124999558,,
+laptop/batch-37/20,completed,0.09711238587475253,74,74,1.0,70.34727354200731,"Assistant visual inspection at source frame 148, 4.931667s: The predicted boundary extends beyond the laptop body toward cables and the adjacent table. Not independently annotated ground truth.",
+bottle/batch-3/14,excluded,,,,,,,source shorter than worker minimum of 5 seconds
+cup/batch-16/47,excluded,,,,,,,annotation unavailable

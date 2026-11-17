@@ -173,7 +173,143 @@ describe("evidence-linked revisions", () => {
   it("cannot bypass validation even with a real finding", () => {
     expect(() =>
       validateRevision(plan, analysis, { distance: 30 }, ids),
+    ).toThrow("duration finding can justify only a duration");
+    const spatial = {
+      ...analysis,
+      findings: [{ ...analysis.findings[0], kind: "clipping" as const }],
+    };
+    expect(() =>
+      validateRevision(plan, spatial, { distance: 30 }, ["clipping:whole:0"]),
     ).toThrow("does not fit");
+    expect(() =>
+      validateRevision(plan, spatial, { durationSeconds: 5 }, [
+        "clipping:whole:0",
+      ]),
+    ).toThrow("spatial finding cannot justify a duration");
+  });
+  it("rejects unused parameters and changes that erase or reverse movement", () => {
+    const spatial = {
+      ...analysis,
+      findings: [{ ...analysis.findings[0], kind: "framing" as const }],
+    };
+    const citation = ["framing:whole:0"];
+    expect(() =>
+      validateRevision(plan, spatial, { travel: 0.2 }, citation),
+    ).toThrow("does not use travel");
+    expect(() =>
+      validateRevision(plan, spatial, { orbitDegrees: 20 }, citation),
+    ).toThrow("Only an orbit");
+    const orbit = compilePlan(
+      defaultScene,
+      defaultGear,
+      defaultIntent,
+      "quarter-orbit",
+    );
+    for (const orbitDegrees of [-30, 0])
+      expect(() =>
+        validateRevision(
+          orbit,
+          { ...spatial, planId: orbit.id },
+          { orbitDegrees },
+          citation,
+        ),
+      ).toThrow("Preserve the planned movement");
+    const slide = compilePlan(
+      defaultScene,
+      defaultGear,
+      defaultIntent,
+      "left-slide",
+    );
+    expect(() =>
+      validateRevision(
+        slide,
+        { ...spatial, planId: slide.id },
+        { travel: 0 },
+        citation,
+      ),
+    ).toThrow("Preserve the planned movement");
+  });
+  it("exposes only the read action before evidence and then allows a grounded revision", async () => {
+    const prompts: string[] = [];
+    const requests: { role: string; content: string }[][] = [];
+    const replies = [
+      {
+        action: "propose_revision",
+        overrides: { durationSeconds: 5 },
+        findingIds: ids,
+        reason: "Before evidence",
+      },
+      { action: "read_take_findings" },
+      {
+        action: "propose_revision",
+        overrides: { durationSeconds: 5 },
+        findingIds: ids,
+        reason: "Measured duration experiment",
+      },
+    ];
+    const result = await proposeRevision(plan, analysis, {
+      trace: false,
+      chat: async (messages) => {
+        prompts.push(messages[0].content);
+        requests.push(messages);
+        return {
+          content: JSON.stringify(replies[prompts.length - 1]),
+          usage: { inputTokens: 1, outputTokens: 1 },
+        };
+      },
+    });
+    expect(prompts[0]).not.toContain('"propose_revision"');
+    expect(prompts[1]).not.toContain('"propose_revision"');
+    expect(prompts[2]).toContain('"propose_revision"');
+    expect(requests[0]).toHaveLength(2);
+    expect(requests[0][0].content).toBe(prompts[0]);
+    const context = JSON.parse(requests[0][1].content);
+    expect(context.plan.intent).toEqual(plan.intent);
+    expect(context.plan.intent.brief).toBe(plan.intent.brief);
+    expect(context.plan.allowedOverrides).toEqual(["durationSeconds"]);
+    expect(context.parameterUnits.durationSeconds).toBe("seconds");
+    expect(result.source).toBe("forge");
+    expect(result.events).toHaveLength(3);
+    expect(result.events[0].observation).toMatchObject({ status: "rejected" });
+    expect(result.plan.scene).toEqual(plan.scene);
+    expect(result.plan.gear).toEqual(plan.gear);
+    expect(result.plan.intent).toEqual(plan.intent);
+  });
+  it("allows the model to repair an irrelevant evidence citation", async () => {
+    let calls = 0;
+    const actions = [
+      { action: "read_take_findings" },
+      {
+        action: "propose_revision",
+        overrides: { distance: 30 },
+        findingIds: ids,
+        reason: "Unrelated change",
+      },
+      {
+        action: "propose_revision",
+        overrides: { durationSeconds: 5 },
+        findingIds: ids,
+        reason: "Try measured duration",
+      },
+    ];
+    const result = await proposeRevision(plan, analysis, {
+      trace: false,
+      chat: async (messages) => {
+        if (calls === 2)
+          expect(messages.at(-1)?.content).toContain(
+            "duration finding can justify only",
+          );
+        return {
+          content: JSON.stringify(actions[calls++]),
+          usage: { inputTokens: 1, outputTokens: 1 },
+        };
+      },
+    });
+    expect(result.source).toBe("forge");
+    expect(result.events[1].observation).toMatchObject({
+      status: "rejected",
+      error: expect.stringContaining("duration finding"),
+    });
   });
   it("bounds malformed actions and exposes deterministic fallback", async () => {
     let count = 0;
@@ -190,5 +326,12 @@ describe("evidence-linked revisions", () => {
     expect(count).toBe(3);
     expect(result.source).toBe("library");
     expect(result.plan.validation.valid).toBe(true);
+    expect(result.events).toHaveLength(3);
+    expect(
+      result.events.every(
+        (event) =>
+          (event.observation as { status: string }).status === "rejected",
+      ),
+    ).toBe(true);
   });
 });

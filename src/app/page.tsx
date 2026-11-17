@@ -39,7 +39,7 @@ import { recipes, samplePlan, planShots } from "@/domain";
 import { PlanVersionSchema, type Family } from "@/domain/contracts";
 import { useTakeHistory } from "@/client/takes";
 import { getPendingWrites, subscribeStorage } from "@/client/storage";
-import { selectedPlan, useWorkspace } from "@/client/store";
+import { selectedPlan, useWorkspace, workflowIdFrom } from "@/client/store";
 import { Inspector } from "@/components/Inspector";
 import { FramingPreview, SceneCanvas } from "@/components/SceneCanvas";
 import { Review } from "@/components/Review";
@@ -268,6 +268,7 @@ export default function WorkspacePage() {
           parsedPlans.data.slice(0, 3),
           result.source === "forge" ? "forge" : "library",
           message,
+          workflowIdFrom(result.workflowId),
         );
         setNotice(message);
       }
@@ -916,14 +917,15 @@ export default function WorkspacePage() {
             <Review
               active={tab === "review"}
               plan={plan}
+              workflowId={s.workflowId}
               connected={
                 !!(status?.storage && status?.worker && status?.database)
               }
               onNotice={setNotice}
-              onRevision={(revision, original) => {
+              onRevision={(revision, original, workflowId) => {
                 s.saveVersion(original);
                 s.saveVersion(revision);
-                s.restore(revision);
+                s.restore(revision, workflowId);
                 setTab("plan");
                 setNotice(
                   "One revised plan is ready. The original is in Saved versions.",

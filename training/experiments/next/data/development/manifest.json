@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "flowblock-scenes-development",
+  "version": "v2",
+  "description": "FlowBlock authored synthetic development scenes and declared brief constraints. No creator data.",
+  "files": [
+    {
+      "path": "tasks.json",
+      "role": "scenes",
+      "sha256": "deb54c016db5888f3dd89c8bc1b272d84a22198c05cb29b21313eb97739b2576",
+      "split": "development",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    },
+    {
+      "path": "protocol.json",
+      "role": "protocol",
+      "sha256": "4c98f40517cdf2989de48dff83a3eeb8773c6b459f21eb8c02fdf8524fd06fae",
+      "split": "development",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    }
+  ],
+  "metadata": {
+    "kind": "authored-synthetic",
+    "splitUnit": "sceneGroup",
+    "counts": {
+      "groups": 12,
+      "tasks": 72
+    },
+    "limitations": [
+      "Authored synthetic scenes, not measured rooms or human cinematography ratings.",
+      "All splits share a generator and engine; new geometry is not a new real-world population.",
+      "The deterministic baseline receives the structured movement family and filters against the brief checker; it is a privileged upper reference, not a natural-language parser.",
+      "A finite search without a witness is unresolved, not proof of infeasibility.",
+      "The product GPT-OSS baseline uses its existing coordinator. Only base and trained Llama share the research prompt/tools for a training-effect comparison.",
+      "Public video measurements cannot establish whether creators get a usable take faster."
+    ]
+  }
+}

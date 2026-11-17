@@ -50,6 +50,7 @@ const persistedWorkspace = z
     recipeId: RecipeIdSchema,
     history: z.array(PlanVersionSchema).max(20),
     source: z.string(),
+    workflowId: z.uuid().nullable(),
     planningResult: z
       .object({ source: z.string(), message: z.string() })
       .nullable(),
@@ -68,6 +69,7 @@ type Workspace = {
   recipeId: RecipeId;
   history: PlanVersion[];
   source: string;
+  workflowId: string | null;
   hydrated: boolean;
   planningResult: { source: string; message: string } | null;
   drafts: Partial<Record<RecipeId, PlanVersion>>;
@@ -78,9 +80,14 @@ type Workspace = {
   updateShot: (patch: { durationSeconds?: number; height?: number }) => void;
   setPrompt: (prompt: string) => void;
   selectRecipe: (recipeId: RecipeId) => void;
-  setPlans: (plans: PlanVersion[], source: string, message?: string) => void;
+  setPlans: (
+    plans: PlanVersion[],
+    source: string,
+    message?: string,
+    workflowId?: string | null,
+  ) => void;
   saveVersion: (plan: PlanVersion) => void;
-  restore: (plan: PlanVersion) => void;
+  restore: (plan: PlanVersion, workflowId?: string | null) => void;
   reset: () => void;
   markHydrated: () => void;
 };
@@ -104,6 +111,7 @@ function updatedDraft(s: Workspace, scene: Scene, gear: Gear, intent: Intent) {
     drafts: { ...s.drafts, [s.recipeId]: plan },
     draftSources: { ...s.draftSources, [s.recipeId]: "local" },
     source: "local",
+    workflowId: plan.id === selectedPlan(s).id ? s.workflowId : null,
     planningResult: null,
   };
 }
@@ -119,6 +127,7 @@ export const useWorkspace = create<Workspace>()(
       recipeId: "quarter-orbit",
       history: [],
       source: "local",
+      workflowId: null,
       hydrated: false,
       drafts: {},
       draftSources: {},
@@ -131,6 +140,14 @@ export const useWorkspace = create<Workspace>()(
         setState((s) => updatedDraft(s, s.scene, s.gear, intent)),
       updateShot: (patch) =>
         setState((s) => {
+          const current = selectedPlan(s);
+          if (
+            (patch.durationSeconds === undefined ||
+              patch.durationSeconds === current.durationSeconds) &&
+            (patch.height === undefined ||
+              patch.height === current.cameraHeight)
+          )
+            return s;
           const intent = {
             ...s.intent,
             ...(patch.durationSeconds === undefined
@@ -149,10 +166,16 @@ export const useWorkspace = create<Workspace>()(
             drafts: { ...s.drafts, [s.recipeId]: plan },
             draftSources: { ...s.draftSources, [s.recipeId]: "local" },
             source: "local",
+            workflowId: plan.id === selectedPlan(s).id ? s.workflowId : null,
             planningResult: null,
           };
         }),
-      setPrompt: (prompt) => setState({ prompt, planningResult: null }),
+      setPrompt: (prompt) =>
+        setState((s) => ({
+          prompt,
+          workflowId: prompt === s.prompt ? s.workflowId : null,
+          planningResult: null,
+        })),
       selectRecipe: (recipeId) =>
         setState((s) => {
           const current = selectedPlan(s);
@@ -162,6 +185,11 @@ export const useWorkspace = create<Workspace>()(
             compilePlan(s.scene, s.gear, s.intent, recipeId);
           return {
             recipeId,
+            workflowId:
+              target.id === current.id ||
+              s.plans.some((p) => p.id === target.id)
+                ? s.workflowId
+                : null,
             planningResult: null,
             scene: target.scene,
             gear: target.gear,
@@ -170,12 +198,13 @@ export const useWorkspace = create<Workspace>()(
             drafts: { ...s.drafts, [s.recipeId]: current, [recipeId]: target },
           };
         }),
-      setPlans: (plans, source, message) =>
+      setPlans: (plans, source, message, workflowId) =>
         setState((s) => {
           const first = plans[0];
           return {
             plans,
             source,
+            workflowId: first ? workflowIdFrom(workflowId) : null,
             planningResult: {
               source,
               message:
@@ -205,7 +234,7 @@ export const useWorkspace = create<Workspace>()(
             ...s.history.filter((p) => p.id !== plan.id),
           ].slice(0, 20),
         })),
-      restore: (snapshot) =>
+      restore: (snapshot, workflowId) =>
         setState((s) => {
           const plan = compilePlan(
             snapshot.scene,
@@ -215,6 +244,7 @@ export const useWorkspace = create<Workspace>()(
             snapshot.overrides,
           );
           return {
+            plans: [plan],
             scene: plan.scene,
             gear: plan.gear,
             intent: plan.intent,
@@ -222,6 +252,7 @@ export const useWorkspace = create<Workspace>()(
             drafts: { ...s.drafts, [plan.recipeId]: plan },
             draftSources: { ...s.draftSources, [plan.recipeId]: "saved" },
             source: "saved",
+            workflowId: workflowIdFrom(workflowId),
             planningResult: null,
           };
         }),
@@ -235,6 +266,7 @@ export const useWorkspace = create<Workspace>()(
           drafts: {},
           draftSources: {},
           source: "local",
+          workflowId: null,
           planningResult: null,
         }),
       markHydrated: () => setState({ hydrated: true }),
@@ -255,6 +287,7 @@ export const useWorkspace = create<Workspace>()(
         plans,
         source,
         planningResult,
+        workflowId,
       }) => ({
         scene,
         gear,
@@ -267,6 +300,7 @@ export const useWorkspace = create<Workspace>()(
         plans,
         source,
         planningResult,
+        workflowId,
       }),
     },
   ),
@@ -283,4 +317,9 @@ export function selectedPlan(
     s.plans.find((p) => p.recipeId === s.recipeId) ??
     compilePlan(s.scene, s.gear, s.intent, s.recipeId)
   );
+}
+
+export function workflowIdFrom(value: unknown): string | null {
+  const parsed = z.uuid().safeParse(value);
+  return parsed.success ? parsed.data : null;
 }

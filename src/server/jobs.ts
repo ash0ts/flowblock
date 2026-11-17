@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { db, transaction } from "./db";
+import { beginWorkflowAttempt, ownedWorkflow } from "./workflows";
+import { createWorkflowTraceContext } from "./workflow-telemetry";
 import { HttpError } from "./security";
 
 export async function workerReady() {
@@ -57,13 +59,15 @@ export async function reserveJob(
           "The analysis worker is unavailable. Your uploaded take is saved; retry when the worker is ready.",
         );
     }
+    let takeRow;
     if (takeId) {
       const live = (
         await client.query(
-          "SELECT id FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() AND status='uploaded' FOR UPDATE",
+          "SELECT id,workflow_id,plan FROM takes WHERE id=$1 AND owner_id=$2 AND deleted_at IS NULL AND expires_at>now() AND status='uploaded' FOR UPDATE",
           [takeId, ownerId],
         )
       ).rows[0];
+      takeRow = live;
       if (!live)
         throw new HttpError(
           409,
@@ -88,6 +92,50 @@ export async function reserveJob(
       "INSERT INTO usage_events(owner_id,kind) VALUES($1,$2)",
       [ownerId, kind],
     );
+    let workflowTrace;
+    if (kind === "plan") {
+      workflowTrace = await beginWorkflowAttempt(client, ownerId, {
+        stage: "planning",
+        jobId,
+      });
+    } else {
+      const workflowId = await ownedWorkflow(
+        client,
+        ownerId,
+        takeRow?.workflow_id ?? undefined,
+      );
+      if (takeRow && !takeRow.workflow_id)
+        await client.query("UPDATE takes SET workflow_id=$2 WHERE id=$1", [
+          takeId,
+          workflowId,
+        ]);
+      const parent = (
+        await client.query(
+          `SELECT a.id FROM workflow_attempts a WHERE a.workflow_id=$1 AND a.status IN ('succeeded','needs_review') AND (
+             (a.stage IN ('analysis','replay') AND a.take_id=$2) OR
+             (a.stage='acceptance' AND a.summary->>'resultPlanId'=$3) OR
+             (a.stage='planning' AND EXISTS (SELECT 1 FROM jobs j WHERE j.id=a.job_id AND j.result->'plans' @> $4::jsonb))
+           ) ORDER BY a.started_at DESC LIMIT 1`,
+          [
+            workflowId,
+            takeId,
+            takeRow?.plan?.id,
+            JSON.stringify([{ id: takeRow?.plan?.id }]),
+          ],
+        )
+      ).rows[0];
+      // Scheduling metadata is not an executed attempt. The worker allocates the
+      // real attempt from its lease UUID when it claims this job.
+      workflowTrace = createWorkflowTraceContext({
+        workflowId,
+        stage: "analysis",
+        attempt: 1,
+        jobId,
+        takeId,
+        planId: takeRow?.plan?.id,
+        ...(parent ? { parentAttemptId: parent.id } : {}),
+      });
+    }
     const job = (
       await client.query(
         "INSERT INTO jobs(id,owner_id,kind,status,payload,idempotency_key) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
@@ -96,7 +144,7 @@ export async function reserveJob(
           ownerId,
           kind,
           kind === "plan" ? "running" : "queued",
-          { ...payload, inputHash },
+          { ...payload, inputHash, workflowTrace },
           key,
         ],
       )

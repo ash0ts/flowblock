@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="583.2pt" viewBox="0 0 864 583.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-29T13:38:29.221429</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.7, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 583.2 
+L 864 583.2 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 224.64 320.76 
+L 570.24 320.76 
+L 570.24 128.304 
+L 224.64 128.304 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 224.64 320.76 
+L 224.64 128.304 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #dce3e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="224.64" y="338.118281" transform="rotate(-0 224.64 338.118281)">0%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 311.04 320.76 
+L 311.04 128.304 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #dce3e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="311.04" y="338.118281" transform="rotate(-0 311.04 338.118281)">25%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 397.44 320.76 
+L 397.44 128.304 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #dce3e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="397.44" y="338.118281" transform="rotate(-0 397.44 338.118281)">50%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 483.84 320.76 
+L 483.84 128.304 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #dce3e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="483.84" y="338.118281" transform="rotate(-0 483.84 338.118281)">75%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 570.24 320.76 
+L 570.24 128.304 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #dce3e7; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="570.24" y="338.118281" transform="rotate(-0 570.24 338.118281)">100%</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="397.44" y="361.764219" transform="rotate(-0 397.44 361.764219)">Productive plans / available graded outcomes</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(97.159844 151.217172)">Deterministic library</text>
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(82.292656 163.534766)">Structured-brief search</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(107.508438 199.331172)">Llama 3.1 8B base</text>
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(84.563125 211.648766)">Bounded JSON planner</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_13"/>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(94.377188 247.445172)">Llama 3.1 8B trained</text>
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(84.563125 259.762766)">Bounded JSON planner</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_14"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(136.832031 295.559172)">GPT-OSS 20B</text>
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #182630" transform="translate(101.228125 307.876766)">Product coordinator</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 224.64 152.361 
+L 422.4 152.361 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #bdd4de; stroke-width: 3"/>
+   </g>
+   <g id="LineCollection_2">
+    <path d="M 224.64 200.475 
+L 298.292459 200.475 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #bdd4de; stroke-width: 3"/>
+   </g>
+   <g id="LineCollection_3">
+    <path d="M 224.64 248.589 
+L 351.36 248.589 
+" clip-path="url(#p3252d06477)" style="fill: none; stroke: #bdd4de; stroke-width: 3"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m872e6e6bd4" d="M -4.330127 4.330127 
+L 4.330127 4.330127 
+L 4.330127 -4.330127 
+L -4.330127 -4.330127 
+z
+" style="stroke: #176f91"/>
+    </defs>
+    <g clip-path="url(#p3252d06477)">
+     <use xlink:href="#m872e6e6bd4" x="422.4" y="152.361" style="fill: #176f91; stroke: #176f91"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="422.4" y="137.361" transform="rotate(-0 422.4 137.361)">57.2%</text>
+   </g>
+   <g id="PathCollection_2">
+    <defs>
+     <path id="mb4b1177793" d="M 0 4.330127 
+C 1.148363 4.330127 2.249847 3.873878 3.061862 3.061862 
+C 3.873878 2.249847 4.330127 1.148363 4.330127 0 
+C 4.330127 -1.148363 3.873878 -2.249847 3.061862 -3.061862 
+C 2.249847 -3.873878 1.148363 -4.330127 0 -4.330127 
+C -1.148363 -4.330127 -2.249847 -3.873878 -3.061862 -3.061862 
+C -3.873878 -2.249847 -4.330127 -1.148363 -4.330127 0 
+C -4.330127 1.148363 -3.873878 2.249847 -3.061862 3.061862 
+C -2.249847 3.873878 -1.148363 4.330127 0 4.330127 
+z
+" style="stroke: #176f91"/>
+    </defs>
+    <g clip-path="url(#p3252d06477)">
+     <use xlink:href="#mb4b1177793" x="298.292459" y="200.475" style="fill: #176f91; stroke: #176f91"/>
+    </g>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="298.292459" y="185.475" transform="rotate(-0 298.292459 185.475)">21.3%</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p3252d06477)">
+     <use xlink:href="#mb4b1177793" x="351.36" y="248.589" style="fill: #176f91; stroke: #176f91"/>
+    </g>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="351.36" y="233.589" transform="rotate(-0 351.36 233.589)">36.7%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #53616a" x="231.552" y="299.738312" transform="rotate(-0 231.552 299.738312)">Unavailable; no quality score</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="text_15">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="609.12" y="155.396312" transform="rotate(-0 609.12 155.396312)">103 / 180</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="609.12" y="203.510312" transform="rotate(-0 609.12 203.510312)">13 / 61</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="609.12" y="218.475" transform="rotate(-0 609.12 218.475)">13/180 scheduled</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="609.12" y="251.624312" transform="rotate(-0 609.12 251.624312)">66 / 180</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="609.12" y="299.738312" transform="rotate(-0 609.12 299.738312)">Unavailable</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="609.12" y="314.703" transform="rotate(-0 609.12 314.703)">0/180 scheduled</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="text_21">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="704.16" y="155.396312" transform="rotate(-0 704.16 155.396312)">180 / 180</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="704.16" y="203.510312" transform="rotate(-0 704.16 203.510312)">61 / 180</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="704.16" y="218.475" transform="rotate(-0 704.16 218.475)">64 attempted</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="704.16" y="251.624312" transform="rotate(-0 704.16 251.624312)">180 / 180</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="704.16" y="299.738312" transform="rotate(-0 704.16 299.738312)">0 / 180</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="704.16" y="314.703" transform="rotate(-0 704.16 314.703)">0 attempted</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="text_27">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="799.2" y="155.396312" transform="rotate(-0 799.2 155.396312)">0 / 103</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="799.2" y="203.510312" transform="rotate(-0 799.2 203.510312)">0 / 18</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="799.2" y="251.624312" transform="rotate(-0 799.2 251.624312)">0 / 67</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="799.2" y="299.738312" transform="rotate(-0 799.2 299.738312)">Unmeasured</text>
+   </g>
+  </g>
+  <g id="text_31">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182630" x="51.84" y="34.992" transform="rotate(-0 51.84 34.992)">Feasible plans that preserve the brief</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #53616a" x="51.84" y="64.152" transform="rotate(-0 51.84 64.152)">Confirmation · 180 authored tasks in 30 scene groups · descriptive system comparison</text>
+  </g>
+  <g id="text_33">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="609.12" y="109.0584" transform="rotate(-0 609.12 109.0584)">Productive</text>
+  </g>
+  <g id="text_34">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="704.16" y="109.0584" transform="rotate(-0 704.16 109.0584)">Available</text>
+  </g>
+  <g id="text_35">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #182630" x="799.2" y="109.0584" transform="rotate(-0 799.2 109.0584)">Invalid</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="704.16" y="121.3056" transform="rotate(-0 704.16 121.3056)">/ scheduled</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #53616a" x="799.2" y="121.3056" transform="rotate(-0 799.2 121.3056)">/ admitted plans</text>
+  </g>
+  <g id="text_38">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182630" x="51.84" y="399.492" transform="rotate(-0 51.84 399.492)">What these measurements establish</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 424.637747)">A productive result passes the recorded geometry and brief checks; it is not a judged usable take.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 438.231659)">Library search receives structured constraints. GPT-OSS uses a different product coordinator.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 451.82557)">These authored rooms share topology templates. Tasks within each scene are dependent.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 465.419482)">Matched trained − base: +18.0 percentage points; 95% scene-group bootstrap interval 4.9 to 32.9 pp. 11 groups with paired outcomes.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 479.013394)">Paired subset: base 13 / 61, trained 24 / 61. Outages select available tasks; this is not the full-cohort model-quality effect.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 492.607305)">Unavailable outcomes stay missing. Available counts and attempted counts expose incomplete pipeline coverage.</text>
+   <text style="font-size: 9.3px; font-family: 'DejaVu Sans'; fill: #53616a" transform="translate(51.84 506.201217)">Outside this chart: 1 initial pilot, 5 zero-call transport attempts; 4 other cohort attempts. All attempts remain in the CSV.</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #53616a" x="51.84" y="551.124" transform="rotate(-0 51.84 551.124)">Recorded analysis: flowblock-campaign-analysis-v1 · source SHA-256 fb955fb958d70749…</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p3252d06477">
+   <rect x="224.64" y="128.304" width="345.6" height="192.456"/>
+  </clipPath>
+ </defs>
+</svg>

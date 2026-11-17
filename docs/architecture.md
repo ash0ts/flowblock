@@ -8,6 +8,8 @@ The Next.js application serves a React editor and a Node API. A pure TypeScript 
 
 The application, database, private media, and MPS worker run on the local machine. Optional Forge APIs supply model inference, tracing, and training. No CoreWeave cluster or bucket is required for this setup. Google identity and remote storage remain optional, unvalidated integrations.
 
+[The Forge integration guide](forge-integration.md) maps Inference, Agent Lens, Weave evaluations, Models, and Serverless Training to their evidence. Evaluation publication imports frozen historical results; it does not invoke the model again or change the original comparison.
+
 ```mermaid
 flowchart LR
     Brief[Brief and measurements] --> Compiler[Geometry and optics compiler]
@@ -38,7 +40,7 @@ Framing uses a rectilinear pinhole projection of a dimensioned product box. Fiel
 
 ## Agent and perception
 
-The planning coordinator alternates typed model actions with observations returned by application tools. This is related to the action-and-observation interaction studied in [ReAct](https://arxiv.org/abs/2210.03629). FlowBlock adds fixed action and repair budgets, a wall-clock deadline, source constraints, and a deterministic validator. It does not execute model-generated code.
+The planning coordinator alternates typed model actions with observations returned by application tools. This is related to the action-and-observation interaction studied in [ReAct](https://arxiv.org/abs/2210.03629). FlowBlock adds stage-specific action schemas, fixed action and repair budgets, a cooperative deadline, source constraints, and a deterministic validator. Host suspension or event-loop blocking can delay that deadline. It does not execute model-generated code. [The agent workflow guide](agent-workflow.md) maps the decisions to their evidence and explains the live repairs motivated by Agent Lens failures.
 
 [SAM 2](https://arxiv.org/abs/2408.00714) provides prompted video segmentation. The creator marks the product, and the worker propagates its mask. Deterministic code derives normalized center, extent, border contact, and duration observations. Time-dependent framing targets accommodate changing product size during a push-in. A separately annotated visibility interval permits intentional hiding; reveal recipes do not plan foreground occlusion.
 
@@ -50,6 +52,6 @@ The practical loop is plan, observe, propose one change, and try again. One chan
 
 Immutable plan snapshots preserve what was intended for each take. Expected-version checks prevent a stale synchronization from overwriting newer work. Job leases give a worker temporary authority; publication checks that authority again. Idempotency keys prevent duplicate job requests from consuming quota twice. These are explicit state transitions, not an exactly-once delivery claim.
 
-Training is supervised next-action learning from synthetic, solver-selected examples. It is not online reinforcement learning from every upload. The completed candidate produced zero useful matching plans in its small held-out qualification and was not promoted. Historical planner, geometry, fixture generation, and checker sources now execute from an isolated, hash-verified archive; changing the product cannot silently change that experiment. See [training and its recorded limitations](../training/README.md).
+Training is supervised next-action learning from synthetic, solver-selected examples. It is not online reinforcement learning from every upload. The original candidate produced zero useful matching plans in its small held-out qualification. A later candidate improved over its matched base in development and partial confirmation, with unresolved availability and brief-preservation failures. Neither candidate was promoted. Historical runtime and checker sources remain separate from product fixes; changing the product cannot silently change those experiments. See [training and its recorded limitations](../training/README.md), the [broader campaign](../training/experiments/next/results/campaign-report.md), and the [controlled follow-up](../training/experiments/validation-planner/results/report.md).
 
 The product hypothesis is that corrections tied to a creator's constraints and actual footage can help them reach a usable take sooner. The implementation makes that hypothesis testable. Real creator clips, recipe review, physical-device testing, and a counterbalanced field study are still needed to evaluate it.

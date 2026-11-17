@@ -1,0 +1,3872 @@
+{
+  "schemaVersion": 1,
+  "diagnosticVersion": "flowblock-recorded-development-diagnostics-v1",
+  "generatorSha256": "4a3bbf65610a09e1b17135449141bbb0252dd240e70882e2cf773ccd22b2e535",
+  "scope": "development-diagnostic",
+  "attemptId": "2026-10-29T18-20-24-724Z-llama-base-b8620514",
+  "arm": "llama-base",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "sourceManifestPath": "../../../artifacts/v2-runs/development-llama-base-connected/manifest.json",
+  "sourceManifestSha256": "d4b7fbe3713d148f9cc808d25d55199ff58e4294c82392693d5bef20a2cb735c",
+  "resultsSha256": "35e079202051ffb09c7223a336059d41d44f413049b0fbfa1820ab509970fa82",
+  "taskFileSha256": "deb54c016db5888f3dd89c8bc1b272d84a22198c05cb29b21313eb97739b2576",
+  "checkerVersion": "flowblock-brief-checker-v4",
+  "runtimeVersion": "flowblock-research-planner-v2",
+  "sourceHashes": {
+    "training/experiments/next/run.ts": "0affb64b069e1bdbe5c68601dce52d064387db203e429bcabbd220292276b2f1",
+    "training/experiments/next/budget.ts": "ed90a60bc57e078f4fbc77894ebfd1c0fed0b2bbeffb0f29b9d4acb9487eb7a4",
+    "training/experiments/next/transport.ts": "c664c1248782203a1cee8c6b4e58ba6300206d05a57a91664a219e6a0395963d",
+    "package.json": "130c08c265a686b13ae379d7d56601302ab161c0487c6de84114fb10646ea23b",
+    "bun.lock": "d321c30edfa99ccabed921ecf31d39430e739a9f6ab0bc82f07e898fd1a70f79",
+    "training/experiments/next/planner.ts": "55f5ea886bfb03cb43e6e16dee977ed61c9fd6faa34d2f0d1e6d329fbcf9c08d",
+    "training/experiments/next/search.ts": "0dff81f3b3fb78bf9124787f2006e9a160a7625fbf2c89deac0cc266734090dc",
+    "training/experiments/next/grade.ts": "a731f10de13866da4c3c80862b7a8a265a4086c44eaed4d17b5a05a84d02234c",
+    "training/experiments/next/fixtures.ts": "58fe83212a16df6a67e2f468cf8a5791fbe7b4334cc69849f70c27fa97d64cae",
+    "src/domain/engine.ts": "0b675fbde5c466479b3da5ac96d6a8af463789660fbb71eede5763ca7aede070",
+    "src/domain/contracts.ts": "b08ae3dbf39d78ef56299bf2c1f29b2f0c9906149e5a3c94708741254dcad240",
+    "src/domain/geometry.ts": "364fd365ba00937c5f5607cdc5514f42ef9f3e760fcf82d7bf54ee38844c813d",
+    "src/domain/defaults.ts": "1afce5d125a058eade903a070a4bb79e76cc6a3ded663585cfc32112d5e77807",
+    "src/server/planner.ts": "92b516981eef1d0606821c1da1847b4deac0655b7d520f5d417d721986a83aef",
+    "src/server/coordinator-runtime.ts": "738b5327c7097710b604c1601cf9493b244236de95fb4056931e8ec3c81a2d1c"
+  },
+  "schedule": {
+    "tasks": 72,
+    "sceneGroups": 12,
+    "attempted": 72,
+    "available": 72
+  },
+  "status": {
+    "completed": 30,
+    "actor-failure": 42
+  },
+  "termination": {
+    "finished": 30,
+    "repair-budget": 42
+  },
+  "outcomes": {
+    "productiveAmongScheduled": {
+      "count": 17,
+      "denominator": 72,
+      "rate": 0.2361111111111111
+    },
+    "productiveAmongAvailable": {
+      "count": 17,
+      "denominator": 72,
+      "rate": 0.2361111111111111
+    },
+    "productiveAmongAvailableWitnesses": {
+      "count": 17,
+      "denominator": 58,
+      "rate": 0.29310344827586204
+    },
+    "returnedPlans": 26,
+    "tasksWithCreditedReturnedPlans": 26,
+    "engineValidReturnedPlans": {
+      "count": 26,
+      "denominator": 26,
+      "rate": 1.0
+    },
+    "productiveReturnedPlans": {
+      "count": 17,
+      "denominator": 26,
+      "rate": 0.6538461538461539
+    },
+    "briefRejectedReturnedPlans": 9,
+    "acceptedEmptyFinishes": 4,
+    "falseAbstentions": {
+      "count": 4,
+      "denominator": 58,
+      "rate": 0.06896551724137931
+    },
+    "unsupportedAbstentions": 0,
+    "boundedEmpty": 0,
+    "uncheckedEmptyFinishes": 0,
+    "fallbackLibraryPlansExcludedFromModelCredit": 0
+  },
+  "families": [
+    {
+      "family": "hold",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "productiveAmongAvailable": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "knownWitnessTasks": 12,
+      "productiveAmongAvailableWitnesses": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "returnedPlans": 6,
+      "engineValidReturnedPlans": 6,
+      "status": {
+        "completed": 7,
+        "actor-failure": 5
+      },
+      "termination": {
+        "finished": 7,
+        "repair-budget": 5
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 1
+    },
+    {
+      "family": "push-in",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "productiveAmongAvailable": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "knownWitnessTasks": 9,
+      "productiveAmongAvailableWitnesses": {
+        "count": 6,
+        "denominator": 9,
+        "rate": 0.6666666666666666
+      },
+      "returnedPlans": 7,
+      "engineValidReturnedPlans": 7,
+      "status": {
+        "completed": 7,
+        "actor-failure": 5
+      },
+      "termination": {
+        "finished": 7,
+        "repair-budget": 5
+      },
+      "failedBriefChecksOnReturnedPlans": {
+        "family": 1,
+        "direction": 1
+      },
+      "falseAbstention": 0
+    },
+    {
+      "family": "pull-out",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "productiveAmongAvailable": {
+        "count": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "knownWitnessTasks": 10,
+      "productiveAmongAvailableWitnesses": {
+        "count": 2,
+        "denominator": 10,
+        "rate": 0.2
+      },
+      "returnedPlans": 2,
+      "engineValidReturnedPlans": 2,
+      "status": {
+        "actor-failure": 8,
+        "completed": 4
+      },
+      "termination": {
+        "repair-budget": 8,
+        "finished": 4
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 2
+    },
+    {
+      "family": "lateral",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 3,
+        "denominator": 12,
+        "rate": 0.25
+      },
+      "productiveAmongAvailable": {
+        "count": 3,
+        "denominator": 12,
+        "rate": 0.25
+      },
+      "knownWitnessTasks": 10,
+      "productiveAmongAvailableWitnesses": {
+        "count": 3,
+        "denominator": 10,
+        "rate": 0.3
+      },
+      "returnedPlans": 3,
+      "engineValidReturnedPlans": 3,
+      "status": {
+        "completed": 4,
+        "actor-failure": 8
+      },
+      "termination": {
+        "finished": 4,
+        "repair-budget": 8
+      },
+      "failedBriefChecksOnReturnedPlans": {},
+      "falseAbstention": 1
+    },
+    {
+      "family": "orbit",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "productiveAmongAvailable": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "knownWitnessTasks": 9,
+      "productiveAmongAvailableWitnesses": {
+        "count": 0,
+        "denominator": 9,
+        "rate": 0.0
+      },
+      "returnedPlans": 1,
+      "engineValidReturnedPlans": 1,
+      "status": {
+        "actor-failure": 11,
+        "completed": 1
+      },
+      "termination": {
+        "repair-budget": 11,
+        "finished": 1
+      },
+      "failedBriefChecksOnReturnedPlans": {
+        "family": 1,
+        "motion": 1
+      },
+      "falseAbstention": 0
+    },
+    {
+      "family": "reveal",
+      "scheduled": 12,
+      "available": 12,
+      "productiveAmongScheduled": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "productiveAmongAvailable": {
+        "count": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "knownWitnessTasks": 8,
+      "productiveAmongAvailableWitnesses": {
+        "count": 0,
+        "denominator": 8,
+        "rate": 0.0
+      },
+      "returnedPlans": 7,
+      "engineValidReturnedPlans": 7,
+      "status": {
+        "completed": 7,
+        "actor-failure": 5
+      },
+      "termination": {
+        "finished": 7,
+        "repair-budget": 5
+      },
+      "failedBriefChecksOnReturnedPlans": {
+        "family": 6,
+        "direction": 2,
+        "supported_effect": 1
+      },
+      "falseAbstention": 0
+    }
+  ],
+  "returnedPlanCriteria": {
+    "direction": {
+      "passed": 23,
+      "failed": {
+        "count": 3,
+        "denominator": 26,
+        "rate": 0.11538461538461539
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-001-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-push-in.json",
+          "receiptSha256": "781550393cc6b75f2ef09bfe4d9521314033b5d46c848af09beda39a7f8d97cf",
+          "traceId": "9e443432-27ce-4eaa-8810-ad4242c110dc"
+        },
+        {
+          "taskId": "development-001-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-reveal.json",
+          "receiptSha256": "e66ac9f0b9b0a55659dbfa8cfbec0d7c6eb9fa27a3e7668b47add860f5f05a70",
+          "traceId": "aa3115cf-2815-40fd-bf13-f980248fe5c2"
+        }
+      ]
+    },
+    "duration": {
+      "passed": 26,
+      "failed": {
+        "count": 0,
+        "denominator": 26,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "family": {
+      "passed": 18,
+      "failed": {
+        "count": 8,
+        "denominator": 26,
+        "rate": 0.3076923076923077
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-000-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-reveal.json",
+          "receiptSha256": "b26751aacb5b28f5139493b05c50f4c1122feca49905250b5ca6a79c31962b3a",
+          "traceId": "d49768e1-3953-4720-a3da-5ec6bdc7544a"
+        },
+        {
+          "taskId": "development-001-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-push-in.json",
+          "receiptSha256": "781550393cc6b75f2ef09bfe4d9521314033b5d46c848af09beda39a7f8d97cf",
+          "traceId": "9e443432-27ce-4eaa-8810-ad4242c110dc"
+        }
+      ]
+    },
+    "feasible": {
+      "passed": 26,
+      "failed": {
+        "count": 0,
+        "denominator": 26,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "height": {
+      "passed": 26,
+      "failed": {
+        "count": 0,
+        "denominator": 26,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "motion": {
+      "passed": 25,
+      "failed": {
+        "count": 1,
+        "denominator": 26,
+        "rate": 0.038461538461538464
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-002-orbit",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-orbit.json",
+          "receiptSha256": "5e211cc81d9fc542c398e701a323fa6ed58a2a3d7e51319c762b44f76514f0cc",
+          "traceId": "43ae5a38-29a9-4f83-aeb5-527eb16c32ff"
+        }
+      ]
+    },
+    "source_preserved": {
+      "passed": 26,
+      "failed": {
+        "count": 0,
+        "denominator": 26,
+        "rate": 0.0
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": []
+    },
+    "supported_effect": {
+      "passed": 25,
+      "failed": {
+        "count": 1,
+        "denominator": 26,
+        "rate": 0.038461538461538464
+      },
+      "unit": "credited returned plan",
+      "missing": 0,
+      "examples": [
+        {
+          "taskId": "development-011-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-reveal.json",
+          "receiptSha256": "233136d42613dfcb30555c492eb9d7403ce4473743a54f976a8512b3fcd495b3",
+          "traceId": "f922ff98-e190-457d-b357-d651f7b00e7a"
+        }
+      ]
+    }
+  },
+  "tools": {
+    "providerCalls": 283,
+    "recordedEvents": 283,
+    "providerCallMinusEventCount": 0,
+    "recordedActionTypes": {
+      "compile_candidate": 198,
+      "validate_candidate": 4,
+      "finish": 31,
+      "list_recipes": 49,
+      "non-object-action": 1
+    },
+    "recordedSchemaInvalidReplies": {
+      "count": 36,
+      "denominator": 283,
+      "rate": 0.127208480565371
+    },
+    "recordedRevisionErrors": {
+      "count": 0,
+      "tasks": 0,
+      "examples": []
+    },
+    "recordedCompileChecks": 170,
+    "validCompiles": {
+      "count": 57,
+      "denominator": 170,
+      "rate": 0.3352941176470588
+    },
+    "invalidCompiles": {
+      "count": 113,
+      "denominator": 170,
+      "rate": 0.6647058823529411
+    },
+    "violations": {
+      "camera_boundary": {
+        "amongInvalidCompiles": {
+          "count": 8,
+          "denominator": 113,
+          "rate": 0.07079646017699115
+        },
+        "amongExecutedCompiles": {
+          "count": 8,
+          "denominator": 170,
+          "rate": 0.047058823529411764
+        },
+        "tasksAmongScheduled": {
+          "count": 4,
+          "denominator": 72,
+          "rate": 0.05555555555555555
+        },
+        "example": {
+          "taskId": "development-008-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-push-in.json",
+          "receiptSha256": "2b8ea7b9da6753a726d6452dcb8d6721fc78eda4c22deb8e38195fa766d72867",
+          "traceId": "85c1f3c7-4d9e-434e-b880-d8ef8a580937",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-008-push-in/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0.1,
+              "height": 1.296,
+              "durationSeconds": 8,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-cafb203389144f2099e50521a03936af",
+            "recipeId": "gentle-push",
+            "family": "push-in",
+            "durationSeconds": 8,
+            "cameraHeight": 1.296,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.09999999999999987,
+              "startPosition": {
+                "x": 0,
+                "y": 1.296,
+                "z": 2.073073614929532
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.296,
+                "z": 1.9730736149295323
+              },
+              "startDistanceMeters": 2.0862382924577427,
+              "endDistanceMeters": 1.9869009763778092,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_boundary",
+                "operator_boundary"
+              ]
+            }
+          }
+        }
+      },
+      "camera_obstacle": {
+        "amongInvalidCompiles": {
+          "count": 41,
+          "denominator": 113,
+          "rate": 0.36283185840707965
+        },
+        "amongExecutedCompiles": {
+          "count": 41,
+          "denominator": 170,
+          "rate": 0.2411764705882353
+        },
+        "tasksAmongScheduled": {
+          "count": 22,
+          "denominator": 72,
+          "rate": 0.3055555555555556
+        },
+        "example": {
+          "taskId": "development-000-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+          "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+          "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-pull-out/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "height": 1.135,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-1c86f82f6658e7632849e99842b0eef2",
+            "recipeId": "context-pull",
+            "family": "pull-out",
+            "durationSeconds": 6,
+            "cameraHeight": 1.135,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.10000000000000002,
+              "startPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.05
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.15000000000000002
+              },
+              "startDistanceMeters": 0.23195312026355672,
+              "endDistanceMeters": 0.2716656952947869,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "framing_band": {
+        "amongInvalidCompiles": {
+          "count": 19,
+          "denominator": 113,
+          "rate": 0.168141592920354
+        },
+        "amongExecutedCompiles": {
+          "count": 19,
+          "denominator": 170,
+          "rate": 0.11176470588235295
+        },
+        "tasksAmongScheduled": {
+          "count": 11,
+          "denominator": 72,
+          "rate": 0.1527777777777778
+        },
+        "example": {
+          "taskId": "development-000-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+          "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+          "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-pull-out/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "height": 1.135,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-1c86f82f6658e7632849e99842b0eef2",
+            "recipeId": "context-pull",
+            "family": "pull-out",
+            "durationSeconds": 6,
+            "cameraHeight": 1.135,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.10000000000000002,
+              "startPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.05
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.15000000000000002
+              },
+              "startDistanceMeters": 0.23195312026355672,
+              "endDistanceMeters": 0.2716656952947869,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "framing_clipped": {
+        "amongInvalidCompiles": {
+          "count": 19,
+          "denominator": 113,
+          "rate": 0.168141592920354
+        },
+        "amongExecutedCompiles": {
+          "count": 19,
+          "denominator": 170,
+          "rate": 0.11176470588235295
+        },
+        "tasksAmongScheduled": {
+          "count": 11,
+          "denominator": 72,
+          "rate": 0.1527777777777778
+        },
+        "example": {
+          "taskId": "development-000-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+          "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+          "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-pull-out/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "height": 1.135,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-1c86f82f6658e7632849e99842b0eef2",
+            "recipeId": "context-pull",
+            "family": "pull-out",
+            "durationSeconds": 6,
+            "cameraHeight": 1.135,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.10000000000000002,
+              "startPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.05
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.15000000000000002
+              },
+              "startDistanceMeters": 0.23195312026355672,
+              "endDistanceMeters": 0.2716656952947869,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "invalid_projection": {
+        "amongInvalidCompiles": {
+          "count": 6,
+          "denominator": 113,
+          "rate": 0.05309734513274336
+        },
+        "amongExecutedCompiles": {
+          "count": 6,
+          "denominator": 170,
+          "rate": 0.03529411764705882
+        },
+        "tasksAmongScheduled": {
+          "count": 4,
+          "denominator": 72,
+          "rate": 0.05555555555555555
+        },
+        "example": {
+          "taskId": "development-001-orbit",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-orbit.json",
+          "receiptSha256": "65c7b2e9a591b55aef31c28ae0378e405dc4d16af2a6b056b550279c879ff3ba",
+          "traceId": "58dabcf9-9a27-4344-a1ce-cd25f34b43b6",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-001-orbit/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "orbitDegrees": 20,
+              "height": 1.344,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-3c0b6cccc2d80fe94982423b5586e2a9",
+            "recipeId": "quarter-orbit",
+            "family": "orbit",
+            "durationSeconds": 6,
+            "cameraHeight": 1.344,
+            "motion": {
+              "pathKind": "arc",
+              "travelMeters": 0.03490658503988659,
+              "startPosition": {
+                "x": -0.017364817766693033,
+                "y": 1.344,
+                "z": 0.0984807753012208
+              },
+              "endPosition": {
+                "x": 0.017364817766693033,
+                "y": 1.344,
+                "z": 0.0984807753012208
+              },
+              "startDistanceMeters": 0.20897906593723706,
+              "endDistanceMeters": 0.20897906593723706,
+              "orbitSweepDegrees": 20
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "invalid_projection",
+                "operator_obstacle",
+                "unused_travel"
+              ]
+            }
+          }
+        }
+      },
+      "operator_boundary": {
+        "amongInvalidCompiles": {
+          "count": 43,
+          "denominator": 113,
+          "rate": 0.3805309734513274
+        },
+        "amongExecutedCompiles": {
+          "count": 43,
+          "denominator": 170,
+          "rate": 0.2529411764705882
+        },
+        "tasksAmongScheduled": {
+          "count": 17,
+          "denominator": 72,
+          "rate": 0.2361111111111111
+        },
+        "example": {
+          "taskId": "development-001-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-reveal.json",
+          "receiptSha256": "e66ac9f0b9b0a55659dbfa8cfbec0d7c6eb9fa27a3e7668b47add860f5f05a70",
+          "traceId": "aa3115cf-2815-40fd-bf13-f980248fe5c2",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-001-reveal/0-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "right-slide",
+            "overrides": {
+              "travel": 0.1,
+              "bearingDeg": 45,
+              "height": 1.362,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-3e0aefaecaa4f92025baa1ca4263602c",
+            "recipeId": "right-slide",
+            "family": "lateral",
+            "durationSeconds": 6,
+            "cameraHeight": 1.362,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.09999999999999981,
+              "startPosition": {
+                "x": 1.0991115749912101,
+                "y": 1.362,
+                "z": 1.169822253109865
+              },
+              "endPosition": {
+                "x": 1.1698222531098648,
+                "y": 1.362,
+                "z": 1.0991115749912104
+              },
+              "startDistanceMeters": 1.6177554228469453,
+              "endDistanceMeters": 1.6177554228469453,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "operator_boundary"
+              ]
+            }
+          }
+        }
+      },
+      "operator_obstacle": {
+        "amongInvalidCompiles": {
+          "count": 51,
+          "denominator": 113,
+          "rate": 0.45132743362831856
+        },
+        "amongExecutedCompiles": {
+          "count": 51,
+          "denominator": 170,
+          "rate": 0.3
+        },
+        "tasksAmongScheduled": {
+          "count": 28,
+          "denominator": 72,
+          "rate": 0.3888888888888889
+        },
+        "example": {
+          "taskId": "development-000-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+          "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+          "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-pull-out/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0.1,
+              "bearingDeg": 0,
+              "height": 1.135,
+              "durationSeconds": 6,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-1c86f82f6658e7632849e99842b0eef2",
+            "recipeId": "context-pull",
+            "family": "pull-out",
+            "durationSeconds": 6,
+            "cameraHeight": 1.135,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.10000000000000002,
+              "startPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.05
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.135,
+                "z": 0.15000000000000002
+              },
+              "startDistanceMeters": 0.23195312026355672,
+              "endDistanceMeters": 0.2716656952947869,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle"
+              ]
+            }
+          }
+        }
+      },
+      "tripod_translation": {
+        "amongInvalidCompiles": {
+          "count": 12,
+          "denominator": 113,
+          "rate": 0.10619469026548672
+        },
+        "amongExecutedCompiles": {
+          "count": 12,
+          "denominator": 170,
+          "rate": 0.07058823529411765
+        },
+        "tasksAmongScheduled": {
+          "count": 6,
+          "denominator": 72,
+          "rate": 0.08333333333333333
+        },
+        "example": {
+          "taskId": "development-007-hold",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-hold.json",
+          "receiptSha256": "59a3aebf7b39617616aa051096d9137264e1d124df1f103484ce622e1a23becd",
+          "traceId": "b608b0bd-edfd-4320-b15a-477fca474e98",
+          "eventIndex": 2,
+          "eventPointer": "/result/events/2",
+          "matchingCallIndices": [
+            2
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-007-hold/2-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "gentle-push",
+            "overrides": {
+              "travel": 0,
+              "bearingDeg": 0,
+              "height": 1.017,
+              "durationSeconds": 8,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-bd52690acb65669d167777d66f0a8bde",
+            "recipeId": "gentle-push",
+            "family": "push-in",
+            "durationSeconds": 8,
+            "cameraHeight": 1.017,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0,
+              "startPosition": {
+                "x": 0,
+                "y": 1.017,
+                "z": 2.8324336004943946
+              },
+              "endPosition": {
+                "x": 0,
+                "y": 1.017,
+                "z": 2.8324336004943946
+              },
+              "startDistanceMeters": 2.833620317051958,
+              "endDistanceMeters": 2.833620317051958,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "operator_boundary",
+                "tripod_translation"
+              ]
+            }
+          }
+        }
+      },
+      "unused_orbit": {
+        "amongInvalidCompiles": {
+          "count": 12,
+          "denominator": 113,
+          "rate": 0.10619469026548672
+        },
+        "amongExecutedCompiles": {
+          "count": 12,
+          "denominator": 170,
+          "rate": 0.07058823529411765
+        },
+        "tasksAmongScheduled": {
+          "count": 9,
+          "denominator": 72,
+          "rate": 0.125
+        },
+        "example": {
+          "taskId": "development-001-push-in",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-push-in.json",
+          "receiptSha256": "781550393cc6b75f2ef09bfe4d9521314033b5d46c848af09beda39a7f8d97cf",
+          "traceId": "9e443432-27ce-4eaa-8810-ad4242c110dc",
+          "eventIndex": 3,
+          "eventPointer": "/result/events/3",
+          "matchingCallIndices": [
+            3
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-001-push-in/3-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "detail-push",
+            "overrides": {
+              "travel": 0.1,
+              "orbitDegrees": 0,
+              "height": 1.344,
+              "durationSeconds": 8,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-a23f041b2e47cf8cb8076d9a7bf9356e",
+            "recipeId": "detail-push",
+            "family": "push-in",
+            "durationSeconds": 8,
+            "cameraHeight": 1.344,
+            "motion": {
+              "pathKind": "line",
+              "travelMeters": 0.1000000000000002,
+              "startPosition": {
+                "x": 0.5722200053799221,
+                "y": 1.344,
+                "z": 1.5721615437415386
+              },
+              "endPosition": {
+                "x": 0.5380179910473551,
+                "y": 1.344,
+                "z": 1.4781922816629476
+              },
+              "startDistanceMeters": 1.683092363531121,
+              "endDistanceMeters": 1.5837259959533854,
+              "orbitSweepDegrees": 0
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "unused_orbit"
+              ]
+            }
+          }
+        }
+      },
+      "unused_travel": {
+        "amongInvalidCompiles": {
+          "count": 18,
+          "denominator": 113,
+          "rate": 0.1592920353982301
+        },
+        "amongExecutedCompiles": {
+          "count": 18,
+          "denominator": 170,
+          "rate": 0.10588235294117647
+        },
+        "tasksAmongScheduled": {
+          "count": 12,
+          "denominator": 72,
+          "rate": 0.16666666666666666
+        },
+        "example": {
+          "taskId": "development-000-orbit",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-orbit.json",
+          "receiptSha256": "cc0c043145033b7c977ca14f871182f97a8570a6210f524f70210138c9a46c92",
+          "traceId": "fbe53efe-27d6-4aa0-956d-1df05c0c3f88",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-orbit/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "quarter-orbit",
+            "overrides": {
+              "distance": 0.1,
+              "travel": 0,
+              "bearingDeg": 0,
+              "orbitDegrees": 20,
+              "height": 1.158,
+              "durationSeconds": 8,
+              "reverse": false
+            }
+          },
+          "observation": {
+            "candidateId": "plan-ae444b40469c483b4bfc37b559c44402",
+            "recipeId": "quarter-orbit",
+            "family": "orbit",
+            "durationSeconds": 8,
+            "cameraHeight": 1.158,
+            "motion": {
+              "pathKind": "arc",
+              "travelMeters": 0.03490658503988659,
+              "startPosition": {
+                "x": -0.017364817766693033,
+                "y": 1.158,
+                "z": 0.0984807753012208
+              },
+              "endPosition": {
+                "x": 0.017364817766693033,
+                "y": 1.158,
+                "z": 0.0984807753012208
+              },
+              "startDistanceMeters": 0.2687940661547423,
+              "endDistanceMeters": 0.2687940661547423,
+              "orbitSweepDegrees": 20
+            },
+            "validation": {
+              "valid": false,
+              "violationCodes": [
+                "camera_obstacle",
+                "framing_band",
+                "framing_clipped",
+                "operator_obstacle",
+                "unused_travel"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "schemaUnknownKeys": {
+      "distanceOffset": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "distanceOffsetFraction": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "distanceOffsetFractionOfOpticallySolvedDistance": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "distanceOffsetMeters": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "heightOffsetMeters": {
+        "repliesAmongSchemaInvalid": {
+          "count": 4,
+          "denominator": 36,
+          "rate": 0.1111111111111111
+        },
+        "tasks": 4,
+        "example": {
+          "taskId": "development-002-lateral",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-lateral.json",
+          "receiptSha256": "f467076dc72392d73b2c025496cd55c832c97f796148d095cb165945b4b35425",
+          "traceId": "d966700b-c3db-421e-8f5e-2df6df4ac815",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-002-lateral/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "left-slide",
+            "overrides": {
+              "bearingDeg": 0,
+              "heightOffsetMeters": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.45,
+              "durationSeconds": 8,
+              "reverse": false,
+              "distance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "travelFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"travelFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "orbitDegreesOffset": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "recipes": {
+        "repliesAmongSchemaInvalid": {
+          "count": 6,
+          "denominator": 36,
+          "rate": 0.16666666666666666
+        },
+        "tasks": 6,
+        "example": {
+          "taskId": "development-003-reveal",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-reveal.json",
+          "receiptSha256": "57ff77193b2e526f04a46ca5e41fa573205f66f0df3473361c03659844621855",
+          "traceId": "b06964c7-e713-4ea3-b832-c94d33ae0026",
+          "eventIndex": 0,
+          "eventPointer": "/result/events/0",
+          "matchingCallIndices": [
+            0
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-003-reveal/0-response.json"
+          ],
+          "action": {
+            "action": "list_recipes",
+            "recipes": [
+              {
+                "id": "hero-hold",
+                "family": "hold",
+                "name": "Hero hold",
+                "description": "A locked composition with room for the product to breathe.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse"
+                ]
+              },
+              {
+                "id": "elevated-hold",
+                "family": "hold",
+                "name": "Elevated hold",
+                "description": "A raised three-quarter view for the top and front surfaces.",
+                "defaults": {
+                  "bearingDeg": -25,
+                  "heightOffsetMeters": 0.2
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse"
+                ]
+              },
+              {
+                "id": "gentle-push",
+                "family": "push-in",
+                "name": "Gentle push",
+                "description": "Move from context toward the product at a measured pace.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.3
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "detail-push",
+                "family": "push-in",
+                "name": "Detail push",
+                "description": "A longer approach that brings the product details forward.",
+                "defaults": {
+                  "bearingDeg": 20,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.5
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "context-pull",
+                "family": "pull-out",
+                "name": "Context pull",
+                "description": "Begin close and open up the surrounding scene.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.3
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "wide-pull",
+                "family": "pull-out",
+                "name": "Wide pull",
+                "description": "A longer departure into the surrounding space.",
+                "defaults": {
+                  "bearingDeg": -20,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.5
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "left-slide",
+                "family": "lateral",
+                "name": "Left slide",
+                "description": "Track left while keeping the product in the composition.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.45
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "right-slide",
+                "family": "lateral",
+                "name": "Right slide",
+                "description": "Track right with a consistent look at the product.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.45
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "quarter-orbit",
+                "family": "orbit",
+                "name": "Quarter orbit",
+                "description": "Trace a curved approach around the front of the product.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "orbitDegrees": 45
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "orbitDegrees"
+                ]
+              },
+              {
+                "id": "reverse-orbit",
+                "family": "orbit",
+                "name": "Reverse orbit",
+                "description": "Trace the same arc in the opposite direction.",
+                "defaults": {
+                  "bearingDeg": 0,
+                  "heightOffsetMeters": 0,
+                  "orbitDegrees": -45
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "orbitDegrees"
+                ]
+              },
+              {
+                "id": "left-reveal",
+                "family": "reveal",
+                "name": "Left reveal",
+                "description": "Slide from an angled opening into the hero view. Foreground occlusion must be arranged and checked separately.",
+                "defaults": {
+                  "bearingDeg": 15,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.65
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              },
+              {
+                "id": "right-reveal",
+                "family": "reveal",
+                "name": "Right reveal",
+                "description": "Slide from the other side into the hero view. Foreground occlusion must be arranged and checked separately.",
+                "defaults": {
+                  "bearingDeg": -15,
+                  "heightOffsetMeters": 0,
+                  "travelFractionOfOpticallySolvedDistance": 0.65
+                },
+                "allowedOverrides": [
+                  "distance",
+                  "bearingDeg",
+                  "height",
+                  "durationSeconds",
+                  "reverse",
+                  "travel"
+                ]
+              }
+            ]
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "recipes"
+                ],
+                "path": [],
+                "message": "Unrecognized key: \"recipes\""
+              }
+            ]
+          }
+        }
+      },
+      "travelFractionOfOpticallySolvedDistance": {
+        "repliesAmongSchemaInvalid": {
+          "count": 23,
+          "denominator": 36,
+          "rate": 0.6388888888888888
+        },
+        "tasks": 22,
+        "example": {
+          "taskId": "development-000-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+          "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+          "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "context-pull",
+            "overrides": {
+              "travel": 0.1,
+              "durationSeconds": 6,
+              "height": 1.135,
+              "reverse": false,
+              "bearingDeg": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.3
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "travelFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized key: \"travelFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "travelOffset": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "travelOffsetFraction": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "travelOffsetFractionOfOpticallySolvedDistance": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      },
+      "travelOffsetMeters": {
+        "repliesAmongSchemaInvalid": {
+          "count": 1,
+          "denominator": 36,
+          "rate": 0.027777777777777776
+        },
+        "tasks": 1,
+        "example": {
+          "taskId": "development-006-pull-out",
+          "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+          "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+          "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+          "eventIndex": 1,
+          "eventPointer": "/result/events/1",
+          "matchingCallIndices": [
+            1
+          ],
+          "callResponsePaths": [
+            "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-pull-out/1-response.json"
+          ],
+          "action": {
+            "action": "compile_candidate",
+            "recipeId": "wide-pull",
+            "overrides": {
+              "bearingDeg": -20,
+              "height": 1.339,
+              "durationSeconds": 10,
+              "travel": 0.1,
+              "reverse": false,
+              "orbitDegrees": 0,
+              "distance": 0,
+              "heightOffsetMeters": 0,
+              "orbitDegreesOffset": 0,
+              "travelFractionOfOpticallySolvedDistance": 0.5,
+              "distanceOffset": 0,
+              "distanceOffsetMeters": 0,
+              "travelOffset": 0,
+              "travelOffsetMeters": 0,
+              "distanceOffsetFraction": 0,
+              "travelOffsetFraction": 0,
+              "distanceOffsetFractionOfOpticallySolvedDistance": 0,
+              "travelOffsetFractionOfOpticallySolvedDistance": 0
+            }
+          },
+          "observation": {
+            "error": "invalid_action",
+            "issues": [
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0,
+                "inclusive": false,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >0"
+              },
+              {
+                "origin": "number",
+                "code": "too_small",
+                "minimum": 0.1,
+                "inclusive": true,
+                "path": [
+                  "overrides",
+                  "distance"
+                ],
+                "message": "Too small: expected number to be >=0.1"
+              },
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "heightOffsetMeters",
+                  "orbitDegreesOffset",
+                  "travelFractionOfOpticallySolvedDistance",
+                  "distanceOffset",
+                  "distanceOffsetMeters",
+                  "travelOffset",
+                  "travelOffsetMeters",
+                  "distanceOffsetFraction",
+                  "travelOffsetFraction",
+                  "distanceOffsetFractionOfOpticallySolvedDistance",
+                  "travelOffsetFractionOfOpticallySolvedDistance"
+                ],
+                "path": [
+                  "overrides"
+                ],
+                "message": "Unrecognized keys: \"heightOffsetMeters\", \"orbitDegreesOffset\", \"travelFractionOfOpticallySolvedDistance\", \"distanceOffset\", \"distanceOffsetMeters\", \"travelOffset\", \"travelOffsetMeters\", \"distanceOffsetFraction\", \"travelOffsetFraction\", \"distanceOffsetFractionOfOpticallySolvedDistance\", \"travelOffsetFractionOfOpticallySolvedDistance\""
+              }
+            ]
+          }
+        }
+      }
+    },
+    "repairBudgetTasks": 42,
+    "repairBudgetTasksWithPreviouslyValidCompile": 2,
+    "repairBudgetTasksWithIdenticalRejectedCompileRepeated": [
+      {
+        "taskId": "development-004-lateral",
+        "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-lateral.json",
+        "receiptSha256": "fd9c82234bda3ddd8c32d429af1df93f35f2db52aae694b7d9ca87f1770d50c6",
+        "traceId": "a59a743b-c8ee-4db6-b1bd-a48fe88ebafa"
+      },
+      {
+        "taskId": "development-008-lateral",
+        "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-lateral.json",
+        "receiptSha256": "5bc673ada81146b8f962a21e70b82e0b84b16c81e28fb0519106642421415f08",
+        "traceId": "d1f576a4-71bf-48f4-8eea-8f0ed7db3035"
+      },
+      {
+        "taskId": "development-008-reveal",
+        "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-reveal.json",
+        "receiptSha256": "c3a2b99a64cd77808311a36fc4e17cd9382cfae48623e2ddc208b8f98390667e",
+        "traceId": "37350f0c-9db4-411e-858d-bf7d2fe45adc"
+      },
+      {
+        "taskId": "development-009-lateral",
+        "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-lateral.json",
+        "receiptSha256": "72b0952d30d0690d78fcbca7e3d72aa955a59f952e7829962929f207d1cafacf",
+        "traceId": "0d358367-3fb4-4e51-a7c1-98ce51507563"
+      },
+      {
+        "taskId": "development-011-lateral",
+        "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-lateral.json",
+        "receiptSha256": "cd2b09937a66ba7f37282ab100e55263e3b97b4aeef9bc96eb06229fcfd06ef4",
+        "traceId": "6b560f5c-3137-4f22-b63e-a3b212c44f07"
+      }
+    ]
+  },
+  "briefFailureExamples": [
+    {
+      "taskId": "development-000-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-reveal.json",
+      "receiptSha256": "b26751aacb5b28f5139493b05c50f4c1122feca49905250b5ca6a79c31962b3a",
+      "traceId": "d49768e1-3953-4720-a3da-5ec6bdc7544a",
+      "eventIndex": 1,
+      "eventPointer": "/result/events/1",
+      "matchingCallIndices": [
+        1,
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-reveal/1-response.json",
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-000-reveal/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": 45,
+          "height": 1.15,
+          "durationSeconds": 8,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-303ba39ad7910afb2d0e6b970a5187aa",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 8,
+        "cameraHeight": 1.15,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999996,
+          "startPosition": {
+            "x": 1.0273812378299874,
+            "y": 1.15,
+            "z": 0.9566705597113329
+          },
+          "endPosition": {
+            "x": 0.9566705597113326,
+            "y": 1.15,
+            "z": 1.0273812378299876
+          },
+          "startDistanceMeters": 1.4244483204607572,
+          "endDistanceMeters": 1.424448320460757,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled left slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-303ba39ad7910afb2d0e6b970a5187aa",
+      "engineValid": true,
+      "explanation": "The candidate plan preserves the user's brief and supplied scene, gear, framing targets, exact camera height, and exact duration."
+    },
+    {
+      "taskId": "development-001-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-push-in.json",
+      "receiptSha256": "781550393cc6b75f2ef09bfe4d9521314033b5d46c848af09beda39a7f8d97cf",
+      "traceId": "9e443432-27ce-4eaa-8810-ad4242c110dc",
+      "eventIndex": 4,
+      "eventPointer": "/result/events/4",
+      "matchingCallIndices": [
+        4
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-001-push-in/4-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-reveal",
+        "overrides": {
+          "travel": 0.1,
+          "height": 1.344,
+          "durationSeconds": 8,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-681fdfd56e5d9f277579e0724b72b682",
+        "recipeId": "left-reveal",
+        "family": "reveal",
+        "durationSeconds": 8,
+        "cameraHeight": 1.344,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.10000000000000002,
+          "startPosition": {
+            "x": 0.516414914256071,
+            "y": 1.344,
+            "z": 1.540916367274355
+          },
+          "endPosition": {
+            "x": 0.41982233162716415,
+            "y": 1.344,
+            "z": 1.5667982717846072
+          },
+          "startDistanceMeters": 1.6354754246396062,
+          "endDistanceMeters": 1.6324153468404112,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Push toward the product, increasing its apparent size. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "push-in",
+      "failedChecks": [
+        "family",
+        "direction"
+      ],
+      "planId": "plan-681fdfd56e5d9f277579e0724b72b682",
+      "engineValid": true,
+      "explanation": "The left-reveal recipe successfully compiled and validated, preserving the user's brief and supplied scene, gear, framing targets, exact camera height, and exact duration."
+    },
+    {
+      "taskId": "development-001-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-reveal.json",
+      "receiptSha256": "e66ac9f0b9b0a55659dbfa8cfbec0d7c6eb9fa27a3e7668b47add860f5f05a70",
+      "traceId": "aa3115cf-2815-40fd-bf13-f980248fe5c2",
+      "eventIndex": 2,
+      "eventPointer": "/result/events/2",
+      "matchingCallIndices": [
+        2
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-001-reveal/2-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": -45,
+          "height": 1.362,
+          "durationSeconds": 6,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-8ca39de36f60085386b2e95c41c25e8b",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 6,
+        "cameraHeight": 1.362,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999981,
+          "startPosition": {
+            "x": -1.0344495288768156,
+            "y": 1.362,
+            "z": 1.1051602069954705
+          },
+          "endPosition": {
+            "x": -1.1051602069954702,
+            "y": 1.362,
+            "z": 1.0344495288768158
+          },
+          "startDistanceMeters": 1.5271107232023935,
+          "endDistanceMeters": 1.5271107232023933,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled right slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family",
+        "direction"
+      ],
+      "planId": "plan-8ca39de36f60085386b2e95c41c25e8b",
+      "engineValid": true,
+      "explanation": "The candidate plan 'plan-8ca39de36f60085386b2e95c41c25e8b' is a valid lateral move that meets the requirements specified in the brief."
+    },
+    {
+      "taskId": "development-002-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-orbit.json",
+      "receiptSha256": "5e211cc81d9fc542c398e701a323fa6ed58a2a3d7e51319c762b44f76514f0cc",
+      "traceId": "43ae5a38-29a9-4f83-aeb5-527eb16c32ff",
+      "eventIndex": 2,
+      "eventPointer": "/result/events/2",
+      "matchingCallIndices": [
+        2
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-002-orbit/2-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": -21.71,
+          "height": 1.317,
+          "durationSeconds": 10
+        }
+      },
+      "observation": {
+        "candidateId": "plan-eb002a97a1e1e5702a28f225da1e54ef",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 10,
+        "cameraHeight": 1.317,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999992,
+          "startPosition": {
+            "x": -0.44378953500739304,
+            "y": 1.317,
+            "z": 1.2497959543769597
+          },
+          "endPosition": {
+            "x": -0.5366963374473686,
+            "y": 1.317,
+            "z": 1.212805062790255
+          },
+          "startDistanceMeters": 1.349054512967913,
+          "endDistanceMeters": 1.3490545129679132,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Orbit left around the product by at least 20 degrees. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "orbit",
+      "failedChecks": [
+        "family",
+        "motion"
+      ],
+      "planId": "plan-eb002a97a1e1e5702a28f225da1e54ef",
+      "engineValid": true,
+      "explanation": "The left-slide recipe successfully validated with the given parameters, preserving the declared camera height, duration, gear, room, and framing bands. The full product remains in frame throughout the move."
+    },
+    {
+      "taskId": "development-002-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-reveal.json",
+      "receiptSha256": "778c411d983d16f989cdd2e78b0c91ecb4875e2a9b6b2b113ed7f3c27d1dac8b",
+      "traceId": "1fce2b4c-be85-4e56-9407-c052ab90ca59",
+      "eventIndex": 2,
+      "eventPointer": "/result/events/2",
+      "matchingCallIndices": [
+        2,
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-002-reveal/2-response.json",
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-002-reveal/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": -31.784,
+          "height": 1.222,
+          "durationSeconds": 8,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-538bff139b1b8f4d80d208d5a40d0965",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 8,
+        "cameraHeight": 1.222,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999994,
+          "startPosition": {
+            "x": -0.5593983068624698,
+            "y": 1.222,
+            "z": 0.9977072995385065
+          },
+          "endPosition": {
+            "x": -0.644402288228976,
+            "y": 1.222,
+            "z": 0.9450354555244352
+          },
+          "startDistanceMeters": 1.153884882158102,
+          "endDistanceMeters": 1.153884882158102,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled left slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-538bff139b1b8f4d80d208d5a40d0965",
+      "engineValid": true,
+      "explanation": "The candidate plan preserves the user's brief and supplied scene, gear, framing targets, exact camera height and exact duration."
+    },
+    {
+      "taskId": "development-004-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-reveal.json",
+      "receiptSha256": "9d6ab723b2e8ef96c482798d5bc5456de3b93154e5d617f9e7cbec59b5baa37a",
+      "traceId": "1bf4bdaf-ea01-4efc-82d5-f5323c530c57",
+      "eventIndex": 1,
+      "eventPointer": "/result/events/1",
+      "matchingCallIndices": [
+        1,
+        4
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-004-reveal/1-response.json",
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-004-reveal/4-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": 45,
+          "height": 1.381,
+          "durationSeconds": 6,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-0d7ee84d108e5d0f0603dc78dd96d07a",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 6,
+        "cameraHeight": 1.381,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999981,
+          "startPosition": {
+            "x": 1.3677552332710199,
+            "y": 1.381,
+            "z": 1.2970445551523655
+          },
+          "endPosition": {
+            "x": 1.2970445551523653,
+            "y": 1.381,
+            "z": 1.36775523327102
+          },
+          "startDistanceMeters": 1.9097175723626412,
+          "endDistanceMeters": 1.9097175723626412,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled left slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-0d7ee84d108e5d0f0603dc78dd96d07a",
+      "engineValid": true,
+      "explanation": "The candidate plan-0d7ee84d108e5d0f0603dc78dd96d07a is a valid solution to the planning problem."
+    },
+    {
+      "taskId": "development-006-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-reveal.json",
+      "receiptSha256": "fdd4bee56ec1d34f7af82e313cb248c0051c4d4d99b952d30102fe9a5f518a47",
+      "traceId": "5b3ec134-b58d-4bee-8eb6-11b4ec98eb83",
+      "eventIndex": 1,
+      "eventPointer": "/result/events/1",
+      "matchingCallIndices": [
+        1,
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-reveal/1-response.json",
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-006-reveal/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": -58.149,
+          "height": 1.401,
+          "durationSeconds": 8,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-96d4421db94537e446c5daba142ab3b9",
+        "recipeId": "left-slide",
+        "family": "lateral",
+        "durationSeconds": 8,
+        "cameraHeight": 1.401,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999988,
+          "startPosition": {
+            "x": -1.1743145858161106,
+            "y": 1.401,
+            "z": 0.7884172746150521
+          },
+          "endPosition": {
+            "x": -1.2270857949516594,
+            "y": 1.401,
+            "z": 0.7034749442586735
+          },
+          "startDistanceMeters": 1.4299358535864077,
+          "endDistanceMeters": 1.429935853586408,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled left slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-96d4421db94537e446c5daba142ab3b9",
+      "engineValid": true,
+      "explanation": "The candidate plan preserves the user's brief and supplied scene, gear, framing targets, exact camera height and exact duration."
+    },
+    {
+      "taskId": "development-009-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-reveal.json",
+      "receiptSha256": "3748e9c0126cbf9de8285a370234c37589639aa31e103b362ff23686f31577b4",
+      "traceId": "1c2b9b48-6db7-4f6c-a0f8-669f2602ae62",
+      "eventIndex": 1,
+      "eventPointer": "/result/events/1",
+      "matchingCallIndices": [
+        1,
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-009-reveal/1-response.json",
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-009-reveal/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "right-slide",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": 42.801,
+          "height": 1.253,
+          "durationSeconds": 10,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-bb4a25c71bbbb30686d5235eabe8ef1d",
+        "recipeId": "right-slide",
+        "family": "lateral",
+        "durationSeconds": 10,
+        "cameraHeight": 1.253,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999985,
+          "startPosition": {
+            "x": 0.9592204501315325,
+            "y": 1.253,
+            "z": 1.1094160806749296
+          },
+          "endPosition": {
+            "x": 1.0325922507218614,
+            "y": 1.253,
+            "z": 1.041470669658931
+          },
+          "startDistanceMeters": 1.4830063762542163,
+          "endDistanceMeters": 1.4830063762542163,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Make an angled right slide into the hero view. No foreground hiding is requested. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "family"
+      ],
+      "planId": "plan-bb4a25c71bbbb30686d5235eabe8ef1d",
+      "engineValid": true,
+      "explanation": "The candidate plan 'plan-bb4a25c71bbbb30686d5235eabe8ef1d' is a valid right slide into the hero view, preserving the declared camera height, duration, gear, room and framing bands. The full product is kept in frame, and the minimum travel of 0.10 m is met."
+    },
+    {
+      "taskId": "development-011-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-reveal.json",
+      "receiptSha256": "233136d42613dfcb30555c492eb9d7403ce4473743a54f976a8512b3fcd495b3",
+      "traceId": "f922ff98-e190-457d-b357-d651f7b00e7a",
+      "eventIndex": 3,
+      "eventPointer": "/result/events/3",
+      "matchingCallIndices": [
+        3
+      ],
+      "callResponsePaths": [
+        "../../../artifacts/v2-runs/development-llama-base-connected/calls/development-011-reveal/3-response.json"
+      ],
+      "action": {
+        "action": "compile_candidate",
+        "recipeId": "left-reveal",
+        "overrides": {
+          "travel": 0.1,
+          "bearingDeg": 15,
+          "height": 1.055,
+          "durationSeconds": 6,
+          "reverse": false
+        }
+      },
+      "observation": {
+        "candidateId": "plan-6bd989835c3484db3ad266f414e12566",
+        "recipeId": "left-reveal",
+        "family": "reveal",
+        "durationSeconds": 6,
+        "cameraHeight": 1.055,
+        "motion": {
+          "pathKind": "line",
+          "travelMeters": 0.09999999999999996,
+          "startPosition": {
+            "x": 0.6118358549020159,
+            "y": 1.055,
+            "z": 1.8970321658710358
+          },
+          "endPosition": {
+            "x": 0.5152432722731091,
+            "y": 1.055,
+            "z": 1.922914070381288
+          },
+          "startDistanceMeters": 1.9987071825790375,
+          "endDistanceMeters": 1.9962039980154913,
+          "orbitSweepDegrees": 0
+        },
+        "validation": {
+          "valid": true,
+          "violationCodes": []
+        }
+      },
+      "brief": "Reveal the product from behind an actual foreground occluder, moving right; a plain visible slide does not satisfy this brief. Travel at least 0.10 m. Preserve the declared camera height, duration, gear, room and framing bands. Keep the full product in frame. If the setup cannot perform the move, explain the constraint without substituting another move.",
+      "requestedFamily": "reveal",
+      "failedChecks": [
+        "supported_effect",
+        "direction"
+      ],
+      "planId": "plan-6bd989835c3484db3ad266f414e12566",
+      "engineValid": true,
+      "explanation": "The left reveal recipe meets the requirements, but note that foreground reveal timing requires a measured occluder and a separate visibility check."
+    }
+  ],
+  "falseAbstentionExamples": [
+    {
+      "taskId": "development-002-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-pull-out.json",
+      "receiptSha256": "4a7ffbfb88d040640365cae4e80d1012559fbb18297e7b56af20c4d2ddaee67f",
+      "traceId": "d917fd75-11b8-4caa-b3cb-807265043319",
+      "explanation": "No valid candidates were found that meet the requirements. No candidate was selected after 2 compile checks. These finite checks do not prove that the requested shot is infeasible.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-003-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-hold.json",
+      "receiptSha256": "94ca2aeee2613cee06d46d4d5eb85b0f8b543451e3f192a758e2323ef0de9bad",
+      "traceId": "4115a28d-9d93-4eec-a923-9a527c494db4",
+      "explanation": "No valid candidates were compiled. No candidate was selected after 2 compile checks. These finite checks do not prove that the requested shot is infeasible.",
+      "recordedKnownWitness": true,
+      "compileChecks": 2
+    },
+    {
+      "taskId": "development-003-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-pull-out.json",
+      "receiptSha256": "113ac5a1b3e5097d77cee479d4c1f6ecdaf92ed9ee5570492e665bc3af6a3ba6",
+      "traceId": "8882dc30-5f26-45fa-b2df-3f90dcd2a2c9",
+      "explanation": "The wide-pull recipe failed to meet the minimum travel requirement of 0.10 m. The final candidate, plan-3d9d62a0c9700241a270da38059d5d6c, has a travel distance of 0.10000000000000009 m, which is less than the required minimum. No candidate was selected after 4 compile checks. These finite checks do not prove that the requested shot is infeasible.",
+      "recordedKnownWitness": true,
+      "compileChecks": 4
+    },
+    {
+      "taskId": "development-003-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-lateral.json",
+      "receiptSha256": "1e64a9ed629665f6ca1b1f30034587623a55de2bd4a3f4389797c934e1fe6a56",
+      "traceId": "c77f380c-3ca3-43ea-83b3-c4c70263b83c",
+      "explanation": "No valid candidate compiled. No candidate was selected after 3 compile checks. These finite checks do not prove that the requested shot is infeasible.",
+      "recordedKnownWitness": true,
+      "compileChecks": 3
+    }
+  ],
+  "taskEvidence": [
+    {
+      "taskId": "development-000-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-hold.json",
+      "receiptSha256": "1ddbbce92a83cd73852c131acf16ce24a5a85e5edce1e7a04b37d6d330266c5f",
+      "traceId": "57448075-1d8e-40fa-8fef-7f2ff7b1ddbf",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-push-in.json",
+      "receiptSha256": "0b238aa8df3073d3d24fd6ea90a398770f03097a6f25b4c869e77d5975a9a498",
+      "traceId": "ca9cb22e-aa59-45f5-bbb8-176f2251585f",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-pull-out.json",
+      "receiptSha256": "674ff7dcf2f2fd0e55a6e8f9590e46563b46d124cd5f2c3d64118d4840cc953f",
+      "traceId": "af6c3b4a-1d01-4669-b85b-90c0e6c66b21",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-lateral.json",
+      "receiptSha256": "f950289f5c01503c87a588c74d89791ecb65f5ae9cb52bbb202ee2c35d6212f0",
+      "traceId": "a8d4c132-29a3-4e5a-913e-c7fde5550045",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-orbit.json",
+      "receiptSha256": "cc0c043145033b7c977ca14f871182f97a8570a6210f524f70210138c9a46c92",
+      "traceId": "fbe53efe-27d6-4aa0-956d-1df05c0c3f88",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-000-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-000-reveal.json",
+      "receiptSha256": "b26751aacb5b28f5139493b05c50f4c1122feca49905250b5ca6a79c31962b3a",
+      "traceId": "d49768e1-3953-4720-a3da-5ec6bdc7544a",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-hold.json",
+      "receiptSha256": "82d8de81d5158c2072c4184262c0a8e026162dbdbbc9640179589e5852c24120",
+      "traceId": "ea76ab9e-c9eb-4d79-957f-f704bbc0f0e3",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-push-in.json",
+      "receiptSha256": "781550393cc6b75f2ef09bfe4d9521314033b5d46c848af09beda39a7f8d97cf",
+      "traceId": "9e443432-27ce-4eaa-8810-ad4242c110dc",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-pull-out.json",
+      "receiptSha256": "495b18933a013f0cd4fbc26ae5421dd7ebc0e7a9ceb79f567988c0601c4ec393",
+      "traceId": "6a07cf78-f02d-4446-8e1e-f1ccca0ac781",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-lateral.json",
+      "receiptSha256": "edc84706118bb992292cdfc5039a0ff630c7af3377b155e8d01bd1b19a524ed2",
+      "traceId": "09c6ed47-0058-459e-a3a0-c958122240c2",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-orbit.json",
+      "receiptSha256": "65c7b2e9a591b55aef31c28ae0378e405dc4d16af2a6b056b550279c879ff3ba",
+      "traceId": "58dabcf9-9a27-4344-a1ce-cd25f34b43b6",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-001-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-001-reveal.json",
+      "receiptSha256": "e66ac9f0b9b0a55659dbfa8cfbec0d7c6eb9fa27a3e7668b47add860f5f05a70",
+      "traceId": "aa3115cf-2815-40fd-bf13-f980248fe5c2",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-hold.json",
+      "receiptSha256": "a029a23363427dd3f68e4cd658226d3ef549876263ca5c82daaa2ca9ee53eaf1",
+      "traceId": "1500394c-7ea7-4c2c-b6e6-e6a2e8556bb2",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-push-in.json",
+      "receiptSha256": "81aee9158c97f40843bc02857548a063e23d0ea58f0a50585077b1adac6d7c8e",
+      "traceId": "6dbf05dd-9136-4739-931d-9a0714d306fd",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-pull-out.json",
+      "receiptSha256": "4a7ffbfb88d040640365cae4e80d1012559fbb18297e7b56af20c4d2ddaee67f",
+      "traceId": "d917fd75-11b8-4caa-b3cb-807265043319",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-lateral.json",
+      "receiptSha256": "f467076dc72392d73b2c025496cd55c832c97f796148d095cb165945b4b35425",
+      "traceId": "d966700b-c3db-421e-8f5e-2df6df4ac815",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-orbit.json",
+      "receiptSha256": "5e211cc81d9fc542c398e701a323fa6ed58a2a3d7e51319c762b44f76514f0cc",
+      "traceId": "43ae5a38-29a9-4f83-aeb5-527eb16c32ff",
+      "family": "orbit",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-002-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-002-reveal.json",
+      "receiptSha256": "778c411d983d16f989cdd2e78b0c91ecb4875e2a9b6b2b113ed7f3c27d1dac8b",
+      "traceId": "1fce2b4c-be85-4e56-9407-c052ab90ca59",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-hold.json",
+      "receiptSha256": "94ca2aeee2613cee06d46d4d5eb85b0f8b543451e3f192a758e2323ef0de9bad",
+      "traceId": "4115a28d-9d93-4eec-a923-9a527c494db4",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-push-in.json",
+      "receiptSha256": "bfdac2c913757bb1bd08b54d25c47ae46351cc01e9740a82b54e445c26a31438",
+      "traceId": "a30507a4-6721-4b20-93f6-59d85e63696a",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-pull-out.json",
+      "receiptSha256": "113ac5a1b3e5097d77cee479d4c1f6ecdaf92ed9ee5570492e665bc3af6a3ba6",
+      "traceId": "8882dc30-5f26-45fa-b2df-3f90dcd2a2c9",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-lateral.json",
+      "receiptSha256": "1e64a9ed629665f6ca1b1f30034587623a55de2bd4a3f4389797c934e1fe6a56",
+      "traceId": "c77f380c-3ca3-43ea-83b3-c4c70263b83c",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-orbit.json",
+      "receiptSha256": "aca09b52a1781221a0c1197e8b0edcd64299dca79285a849f5f2d55e541ae74c",
+      "traceId": "02bfb999-6e6b-4af3-997d-24b4df8113d9",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-003-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-003-reveal.json",
+      "receiptSha256": "57ff77193b2e526f04a46ca5e41fa573205f66f0df3473361c03659844621855",
+      "traceId": "b06964c7-e713-4ea3-b832-c94d33ae0026",
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-hold.json",
+      "receiptSha256": "f968dceb544887fade9eaeeb3a2d55cd6e64222be2542a3c5136aa8ef074081b",
+      "traceId": "91ce271f-7b83-471e-a376-f5a99c33d21c",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-push-in.json",
+      "receiptSha256": "18810d070791324c347b1812c87d66e96a825507dd5f3c3588284fa5de14881e",
+      "traceId": "fb61e29b-f714-40aa-8382-4692a85e46aa",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-pull-out.json",
+      "receiptSha256": "7882bdfcd2179555cb042b064820f2f79fd64fdf50e33160ab3facd5f96b8b1d",
+      "traceId": "993a16c3-840c-4cea-a378-c0bf5223cf64",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-lateral.json",
+      "receiptSha256": "fd9c82234bda3ddd8c32d429af1df93f35f2db52aae694b7d9ca87f1770d50c6",
+      "traceId": "a59a743b-c8ee-4db6-b1bd-a48fe88ebafa",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-orbit.json",
+      "receiptSha256": "bd56a92f0d5d7bca24853e08e8b965b4c61b310ea52281047dee5d6712ff77d2",
+      "traceId": "45ae87c5-418a-486f-b74e-5653eae0966b",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-004-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-004-reveal.json",
+      "receiptSha256": "9d6ab723b2e8ef96c482798d5bc5456de3b93154e5d617f9e7cbec59b5baa37a",
+      "traceId": "1bf4bdaf-ea01-4efc-82d5-f5323c530c57",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-hold.json",
+      "receiptSha256": "7c079ef4aebb2532d12695eade099c34db44096325a7ba8dedb7fd92619c945a",
+      "traceId": "e58e937f-4450-4b93-a9ec-dc37eccd57dd",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-push-in.json",
+      "receiptSha256": "8e5ab926ce280fdc819caa5dd2a193473b28d91b7a595d2e38bd89ff067b3a92",
+      "traceId": "fafa2427-1849-496d-ac19-cde732b9e0e6",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-pull-out.json",
+      "receiptSha256": "1ac10a8bec451a5df31515361b0f4d00cd189d37af9236c0bad8a368cf857157",
+      "traceId": "f273b18f-14bd-48bd-b034-2d9142c1264f",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-lateral.json",
+      "receiptSha256": "07e421f7d50c0a2b8a2e2a77e08528c2e2ec400807991ced9ff4cc19d3a17ca9",
+      "traceId": "e937c54e-6da5-42ee-a08b-01503273d796",
+      "family": "lateral",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-orbit.json",
+      "receiptSha256": "edd5b7d853f24f934bae7b197bd64a95b701690ec7d861a31b58c3968d005074",
+      "traceId": "afff979c-d263-4367-b5c5-c5ed2798d37d",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-005-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-005-reveal.json",
+      "receiptSha256": "b12acb0bec0f08538d21cac22f52180b35313ff1dfb1be178ed9909e0356df86",
+      "traceId": "ef104c16-3a55-4772-813f-6b932c860906",
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-006-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-hold.json",
+      "receiptSha256": "2a944a5186e95bd19fabe2af22e90320955c10a7131bcfb8fbb705e595b947fe",
+      "traceId": "8009451c-e71b-4163-8f95-bc4bb9627550",
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-push-in.json",
+      "receiptSha256": "0e3427725ba523de61f1e3abb571ea32897168a98438b3501cf31be3e86d9cc0",
+      "traceId": "7b2e8614-460e-48cc-a239-59abeb150585",
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-pull-out.json",
+      "receiptSha256": "31568cf1d165e7f942a0e4ca8d56a74323bc8f6968474d1ac6ac83809308c3c1",
+      "traceId": "6381334e-a6ec-4014-8d86-e71ce64aad40",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-lateral.json",
+      "receiptSha256": "f043d456103f681e333abcb4f1f5a588c5469c5e888f8f79a347cb91b93b3b42",
+      "traceId": "8a024e84-6df3-44a0-8e44-2f6ecf7bd468",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-orbit.json",
+      "receiptSha256": "fc00a2dae01c4c3107c6466bfb08c1792eeb97580d7ed0aeaede806d3dd83f74",
+      "traceId": "4f8ff974-9ea6-41b1-a8ad-d30718c343cb",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-006-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-006-reveal.json",
+      "receiptSha256": "fdd4bee56ec1d34f7af82e313cb248c0051c4d4d99b952d30102fe9a5f518a47",
+      "traceId": "5b3ec134-b58d-4bee-8eb6-11b4ec98eb83",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-007-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-hold.json",
+      "receiptSha256": "59a3aebf7b39617616aa051096d9137264e1d124df1f103484ce622e1a23becd",
+      "traceId": "b608b0bd-edfd-4320-b15a-477fca474e98",
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-007-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-push-in.json",
+      "receiptSha256": "84338e124c8e9e2e881d5d47e103187ca589b3b9f26a6e9086e1d88f39bd59af",
+      "traceId": "2995e502-7dae-4007-8e95-e46eed7a554d",
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-pull-out.json",
+      "receiptSha256": "fb5fb80f5ec087a1b173ace453f7cfdd0729d9bf7585e4ad5917a6571d3c2f4e",
+      "traceId": "5467e15c-c544-4187-81a3-e8089fd900e4",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-lateral.json",
+      "receiptSha256": "5191f8442fbe19c7cce67328f033c2fad7b50fc030f473654339bcd3cb0fe0e5",
+      "traceId": "e3a68ca3-68c6-4ffe-b867-4a884a6dd577",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-orbit.json",
+      "receiptSha256": "343afb1854acdcbfb1a93dafd4d2de929d28bafa2ac2c1c608e49d216888513b",
+      "traceId": "c06bfada-73fa-496d-acf4-a86b62260f23",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-007-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-007-reveal.json",
+      "receiptSha256": "ca5e8ab89e3a7071726726b1b9349f0d8afa74a62dfffe4730a03c73e234b2a2",
+      "traceId": "ce49399e-4dc3-40f9-96ae-c09ad2b4ffad",
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-008-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-hold.json",
+      "receiptSha256": "3b596f72ae3a586771bf1947ed61eb6f598968ef7c1ac8202b94e3f8b1968070",
+      "traceId": "df6848a0-414a-4149-9b31-ff055739dacd",
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-push-in.json",
+      "receiptSha256": "2b8ea7b9da6753a726d6452dcb8d6721fc78eda4c22deb8e38195fa766d72867",
+      "traceId": "85c1f3c7-4d9e-434e-b880-d8ef8a580937",
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-008-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-pull-out.json",
+      "receiptSha256": "cc904d4df9668cd7f4bce59d4210a97366a50d31580bf8f9edbfb110905dd4d8",
+      "traceId": "bfc0a925-4b35-4f30-b012-dd9c34d641c2",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-lateral.json",
+      "receiptSha256": "5bc673ada81146b8f962a21e70b82e0b84b16c81e28fb0519106642421415f08",
+      "traceId": "d1f576a4-71bf-48f4-8eea-8f0ed7db3035",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-orbit.json",
+      "receiptSha256": "c63b9753ed303dd352b0162ea511c31037e86b4db6bd8be4a9e5c166ad7029fc",
+      "traceId": "a7c4b9c0-e035-4536-a70f-e01a71026754",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-008-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-008-reveal.json",
+      "receiptSha256": "c3a2b99a64cd77808311a36fc4e17cd9382cfae48623e2ddc208b8f98390667e",
+      "traceId": "37350f0c-9db4-411e-858d-bf7d2fe45adc",
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-hold.json",
+      "receiptSha256": "8511b6af4c572d5e950de37c70651210e5ab0edd322f5dfc5932ed56dfad5dd5",
+      "traceId": "e78d1424-07cd-4751-870a-ea0e6fe42545",
+      "family": "hold",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-push-in.json",
+      "receiptSha256": "2617f8ddc30454832a1497249cc1d3d2619967392b02b4971bf72a65db76fc45",
+      "traceId": "ffda63ad-40e1-4c61-97e0-57df5eb72750",
+      "family": "push-in",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-pull-out.json",
+      "receiptSha256": "f7ec36c9f64b91bb0f9879a20ca39c7aed4ee0c5970522ebaaf172350507f65c",
+      "traceId": "3d45ebc3-e788-4362-a161-4223835dcb9e",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-lateral.json",
+      "receiptSha256": "72b0952d30d0690d78fcbca7e3d72aa955a59f952e7829962929f207d1cafacf",
+      "traceId": "0d358367-3fb4-4e51-a7c1-98ce51507563",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-orbit.json",
+      "receiptSha256": "27c4000ecd41b2b2c1a71106a5a12550bf4639abf3678c1423e439f66db6bd2e",
+      "traceId": "a7c9996e-9b32-4d92-a2b9-beac5dab9f6a",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-009-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-009-reveal.json",
+      "receiptSha256": "3748e9c0126cbf9de8285a370234c37589639aa31e103b362ff23686f31577b4",
+      "traceId": "1c2b9b48-6db7-4f6c-a0f8-669f2602ae62",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-010-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-hold.json",
+      "receiptSha256": "029d9155b7f6234e8ffc40d0b66952f18cea299028bc8ef09bf104bfc7bad74b",
+      "traceId": "f7f053ac-ccce-4955-b451-5f980311bd9c",
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-010-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-push-in.json",
+      "receiptSha256": "d8fd6d566b42448d2d6a2f8281449b0a2c139b1e90a22b4b0b0c0dfcd65c59cb",
+      "traceId": "0fffe303-0892-4ee4-b3d3-f4bd0d7f2763",
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-pull-out.json",
+      "receiptSha256": "16a6ea0bea148ac862f649169fdf0f353aa36bc62bf30d72061477673b05fa33",
+      "traceId": "adba720d-b16d-4c0c-bf6e-997d1afedb49",
+      "family": "pull-out",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-lateral.json",
+      "receiptSha256": "7a53e1e2ab179498b86675e4768fd3029848c7db47f44bfb777899fbce48b186",
+      "traceId": "42d9f8cb-ddcb-4f47-b0a3-0edd601b414a",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-orbit.json",
+      "receiptSha256": "3632c60481f3f0de9ade0fcb669259eef4afafae503fc66e1a1f9c3f26e1cc16",
+      "traceId": "71c0cad0-27eb-4b6a-bc4f-a7b5430ab4fb",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-010-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-010-reveal.json",
+      "receiptSha256": "1118d0935bbd0a5673e3f0452d574cd3ee0f51c193bc6b27fb314b5d059192b4",
+      "traceId": "b754cb0a-8b99-4521-9a47-29ec6d664884",
+      "family": "reveal",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-011-hold",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-hold.json",
+      "receiptSha256": "1085cedeba351fad4ca08af5f6d53ecfe3ffd92a47269c399501382da4f8529f",
+      "traceId": "ebd70545-af08-4d68-b7b2-403f51dc2aa2",
+      "family": "hold",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-push-in",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-push-in.json",
+      "receiptSha256": "e544f24797e2751dbc036d6858b86f2a89ad6921f62fbe1a166832da3efab225",
+      "traceId": "99fa9e71-e5a0-45af-965c-0663e855138f",
+      "family": "push-in",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-pull-out",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-pull-out.json",
+      "receiptSha256": "2f9086b67121b00638c01fba74fecd58d99b9776d00b7cbd29bbb1be07fca4de",
+      "traceId": "d93fcd4a-72da-4181-a47f-df559429f44f",
+      "family": "pull-out",
+      "status": "completed",
+      "termination": "finished",
+      "productive": true,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-lateral",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-lateral.json",
+      "receiptSha256": "cd2b09937a66ba7f37282ab100e55263e3b97b4aeef9bc96eb06229fcfd06ef4",
+      "traceId": "6b560f5c-3137-4f22-b63e-a3b212c44f07",
+      "family": "lateral",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": true
+    },
+    {
+      "taskId": "development-011-orbit",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-orbit.json",
+      "receiptSha256": "0148e7cef40672ce0313ba90876f7a13c5308d2374828a5f5a0612cf164b3bc7",
+      "traceId": "e9501b55-2f84-47e5-9942-d689fa1cdf3b",
+      "family": "orbit",
+      "status": "actor-failure",
+      "termination": "repair-budget",
+      "productive": false,
+      "knownWitness": false
+    },
+    {
+      "taskId": "development-011-reveal",
+      "receiptPath": "../../../artifacts/v2-runs/development-llama-base-connected/development-011-reveal.json",
+      "receiptSha256": "233136d42613dfcb30555c492eb9d7403ce4473743a54f976a8512b3fcd495b3",
+      "traceId": "f922ff98-e190-457d-b357-d651f7b00e7a",
+      "family": "reveal",
+      "status": "completed",
+      "termination": "finished",
+      "productive": false,
+      "knownWitness": false
+    }
+  ],
+  "limitations": [
+    "Recorded development outcomes only; no model calls, plan recompilation or current-checker regrading.",
+    "Criterion denominators are credited returned plans. Compilation failures have separate observed compile/task denominators; codes overlap.",
+    "Logged schema errors and compile checks are observed counts, not proof that omitted actions were valid. A provider-call/event count gap does not identify omitted action types or causes.",
+    "Engine validity is conditional on supplied synthetic geometry and is not physical safety or brief preservation.",
+    "A valid intermediate compile is not a graded final plan and receives no productive credit. Raw library fallback plans do not receive model-success credit.",
+    "Witness absence is unresolved, not proof of infeasibility. Twelve scene groups contain dependent movement tasks.",
+    "This attempt is separate from the initial GPT network pilot, failed warmups, other arms, and future confirmation.",
+    "Diagnosis does not establish creator benefit or authorize tuning the frozen candidate."
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "b5d549f8890ccdc864d2b6bc82ce076027d5b40a79de407d8c2416507447cd0c",
+  "experimentId": "flowblock-planner-v2",
+  "attemptId": "2026-10-29T18-34-17-513Z-gpt-oss-94f32993",
+  "verifiedAt": "2026-10-29T20:29:40.997Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "cached-same-session-read",
+    "proofSha256": "001c88dbb8712e0e9f5ed125f39a95b9fc68ba88b61d16aba58bd1ce044dd7ee",
+    "verifiedAt": "2026-10-29T20:21:02.762637+00:00",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "f766e81fecf8ac0ff0d27ea5d062e24600c872f8f1b8b5b05534b3b9310e7151",
+    "tasks": "deb54c016db5888f3dd89c8bc1b272d84a22198c05cb29b21313eb97739b2576",
+    "results": "f8c33a0f495add62cd71fa163f5d18095c57044245a78e98248dbb9c4dbedd5a"
+  },
+  "evaluationCallId": "01a18954-d4ae-74ad-b063-498a3674cba4",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-2026-10-29T18-34-17-513Z-gpt-oss-94f32993-b5d549f889:DYCbtp47XK6IZs2EdRlDy3k4C8MWhdXDjPK1MpX6xvQ",
+  "modelRef": "weave:///wandb/flowblock/object/gpt-oss-openai-gpt-oss-20b-d4d6bfcdcdcb819a:nwBLz66YNjv4WjMyGecZ25fDstT6SvwDPlXrq3ZXwhE",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-scenes-development-deb54c016db5:UBH6Lk2bd3dj8Yd0ldnXdy2YdezuEZXRn5R3TpLpz0g",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18954-d4ae-74ad-b063-498a3674cba4",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 72,
+  "observedRows": 72,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 72,
+      "mean": 1,
+      "sum": 72,
+      "true_count": 72,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "available": {
+      "count": 72,
+      "mean": 1,
+      "sum": 72,
+      "true_count": 72,
+      "false_count": 0,
+      "true_fraction": 1
+    },
+    "bounded_empty": {
+      "count": 72,
+      "mean": 0.041666666666666664,
+      "sum": 3,
+      "true_count": 3,
+      "false_count": 69,
+      "true_fraction": 0.041666666666666664
+    },
+    "compile_checked": {
+      "count": 72,
+      "mean": 0.5694444444444444,
+      "sum": 41,
+      "true_count": 41,
+      "false_count": 31,
+      "true_fraction": 0.5694444444444444
+    },
+    "false_abstention": {
+      "count": 72,
+      "mean": 0.25,
+      "sum": 18,
+      "true_count": 18,
+      "false_count": 54,
+      "true_fraction": 0.25
+    },
+    "productive": {
+      "count": 72,
+      "mean": 0.16666666666666666,
+      "sum": 12,
+      "true_count": 12,
+      "false_count": 60,
+      "true_fraction": 0.16666666666666666
+    },
+    "unchecked_empty": {
+      "count": 72,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 72,
+      "true_fraction": 0
+    },
+    "unsupported_abstention": {
+      "count": 72,
+      "mean": 0.06944444444444445,
+      "sum": 5,
+      "true_count": 5,
+      "false_count": 67,
+      "true_fraction": 0.06944444444444445
+    },
+    "task_counts": {
+      "requested": 72,
+      "published": 72
+    },
+    "recorded_summary": {
+      "requested": 72,
+      "attempted": 72,
+      "available": 72,
+      "serviceUnavailable": 0,
+      "transportWarmupUnattempted": 0,
+      "operationalFailures": 0,
+      "budgetExhausted": 0,
+      "unattempted": 0,
+      "productive": 12,
+      "productiveAmongRequested": 0.16666666666666666,
+      "productiveAmongAvailable": 0.16666666666666666,
+      "falseAbstentions": 18,
+      "unsupportedAbstentions": 5,
+      "boundedEmpty": 3,
+      "uncheckedEmpty": 0,
+      "completeUsageTasks": 72,
+      "reportedInputTokens": 538897,
+      "reportedOutputTokens": 31636,
+      "costDisclosure": "Token sums include complete reported usage only. Unknown usage and reservations are retained separately in the budget ledger. Billed dollars are unknown."
+    }
+  }
+}

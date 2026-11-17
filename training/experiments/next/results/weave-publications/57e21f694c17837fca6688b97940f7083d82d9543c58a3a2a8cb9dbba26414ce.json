@@ -1,0 +1,17 @@
+{
+  "status": "publishing",
+  "publicationId": "57e21f694c17837fca6688b97940f7083d82d9543c58a3a2a8cb9dbba26414ce",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "attemptId": "flowblock-controlled-validation-v1-llama-base-recorded",
+  "startedAt": "2026-10-29T23:29:10.008Z",
+  "sourceHashes": {
+    "manifest": "7690fe708df0130b7644cbeb6a396a48263fa5901f12b3c7d8bd2dbcb7a2538d",
+    "tasks": "2f72fa817aee8f2b795cd1d67192413907a79c0a8c9bbff4270a3241e118b5b5",
+    "results": "441ff465c47f5b0ae3d0b41b69953eb8c97784be89fda8a95a49e3b2d7275114"
+  },
+  "projectAccess": {
+    "source": "live-read",
+    "verifiedAt": "2026-10-29T23:27:11.834Z",
+    "apiBase": "https://api.forge.coreweave.com"
+  }
+}

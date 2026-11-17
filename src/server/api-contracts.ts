@@ -55,6 +55,7 @@ export const UploadSchema = z
     sizeBytes: z.number().int().positive().max(104857600),
     plan: z.unknown(),
     trainingConsent: z.boolean().default(false),
+    workflowId: z.uuid().optional(),
   })
   .strict();
 export const ProjectSchema = z

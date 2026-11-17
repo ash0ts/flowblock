@@ -1,0 +1,58 @@
+{
+  "status": "verified",
+  "publicationVersion": "recorded-evaluation-v1",
+  "publicationId": "0aaf313a8fda3a188e1e908243fabd5636dc6d5d6671788f72539ddb7ff3dac3",
+  "attempt": "2026-10-29T09-53-42-893Z-library-de89a328",
+  "readAt": "2026-10-29T15:34:25.443Z",
+  "importedHistoricalResults": true,
+  "evaluationCallId": "01a18839-9ed8-7491-aad2-9f13f9071201",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-recorded-library-0aaf313a8f:svOsmGTKYTRM9bYYGsQqZN0qSL7Ht7VUQXd3trrgrh0",
+  "modelRef": "weave:///wandb/flowblock/object/deterministic-library-v1:c2dplYq5SOJzT3l8iKYvjtu907FB9yG8aM8mfX1ADSc",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a18839-9ed8-7491-aad2-9f13f9071201",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "observedPredictionCount": 12,
+  "expectedPredictionCount": 12,
+  "allFinished": true,
+  "predictionScoresMatch": true,
+  "summaryMatches": true,
+  "summary": {
+    "available": {
+      "true_count": 12,
+      "true_fraction": 1
+    },
+    "productive_plan": {
+      "true_count": 2,
+      "true_fraction": 0.16666666666666666
+    },
+    "accepted_abstention": {
+      "true_count": 0,
+      "true_fraction": 0
+    },
+    "coverage": {
+      "requested": 12,
+      "attempted": 12,
+      "available": 12,
+      "unavailable": 0,
+      "unattempted": 0
+    },
+    "recorded_latency_ms": {
+      "mean": 7.5
+    }
+  },
+  "sourceFileHashes": {
+    "manifest.json": "9f3e9450dd8c9836df5197e8e6ad224057104f3de936dd8e910bece622919f87",
+    "results.jsonl": "f1abaa16405cf284d2257179d85ef380cf582d26857c37bd22eb1f890209cf54",
+    "test-scene-00-hold.json": "a3cf56ffb9441c1da34f4792aa72d3e76bc119949314d74cf63c3895ec3601eb",
+    "test-scene-00-push-in.json": "dabed65c01963873ad9dbb029d548e3703ac94c3f74aea2c453a6bed9c2f12da",
+    "test-scene-00-pull-out.json": "d7d783c92aa375e2518364c2673c1c7858d2df75fa69a0d925de9a1bfcef6b87",
+    "test-scene-00-lateral.json": "31a3b2b3057d14fd7e6053a562dabc2f3c9b1c742c7b824295b913c52deeafad",
+    "test-scene-00-orbit.json": "1e913a8d132dc47f9f267bd11897d5d468c5abec491a8cfafad9675ef6dc6708",
+    "test-scene-00-reveal.json": "12a29c5d3dc3a0ebdb90b4832cfb1a4c59e79765cf6602420c479788c8c60dce",
+    "test-scene-01-hold.json": "49b3e2c6cc27e4b13041613455e730730143498f7a93bfbbb212fa209080c8da",
+    "test-scene-01-push-in.json": "fe79ec8e4faf76467c6c2827fd272b7aadffc25be7c8b4446f1f5c34f85d957b",
+    "test-scene-01-pull-out.json": "7d2e757e482c25af2172c2ce4d9fbcc65295fd6dcd4905cf75b2a7f9b88e5d6b",
+    "test-scene-01-lateral.json": "6fde4acf22788d654864a84b4453004c056dfbe82112f2264ae161f3057a79d2",
+    "test-scene-01-orbit.json": "db250fcfe7a359dfe26f339f21c81bfdc3b1ae1e05d8bc5d0a7e40e63b9e82cd",
+    "test-scene-01-reveal.json": "ae42f9f45ded2c470443297f098c4fae2aa9810a5ffd216eec8d3ac6b7239be3"
+  }
+}

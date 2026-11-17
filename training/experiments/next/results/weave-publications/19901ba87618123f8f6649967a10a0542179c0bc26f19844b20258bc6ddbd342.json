@@ -1,0 +1,76 @@
+{
+  "status": "verified",
+  "publicationVersion": "flowblock-native-evaluation-v2",
+  "publicationId": "19901ba87618123f8f6649967a10a0542179c0bc26f19844b20258bc6ddbd342",
+  "experimentId": "flowblock-planner-v2",
+  "attemptId": "2026-10-29T20-29-38-701Z-gpt-oss-1ff2c4ac",
+  "verifiedAt": "2026-10-29T20:41:59.598Z",
+  "importOnly": true,
+  "projectAccess": {
+    "source": "live-read",
+    "verifiedAt": "2026-10-29T20:41:44.292Z",
+    "apiBase": "https://api.wandb.ai"
+  },
+  "modelsApiBase": "https://api.wandb.ai",
+  "traceApiBase": "https://trace.wandb.ai",
+  "sourceHashes": {
+    "manifest": "66d075e4cb960a001fa1678c189c333dd0ecb3bf1973672642b00cf06e9f46a3",
+    "tasks": "9d1efa65f5bee77f950bb4a3757e2243cedf6b428c4b2091d38a0839a2295ee8",
+    "results": "4e234c10982b530950558c67d9760978ede5cc6706f461d7e0bdd7f5cfb6caf6"
+  },
+  "evaluationCallId": "01a1895e-c6a3-70b1-af6c-1b7e27ecee03",
+  "evaluationRef": "weave:///wandb/flowblock/object/flowblock-2026-10-29T20-29-38-701Z-gpt-oss-1ff2c4ac-19901ba876:M0PI826kVXoWjvyRPesxnqcuuWchMNixVfUccHlSbwA",
+  "modelRef": "weave:///wandb/flowblock/object/gpt-oss-openai-gpt-oss-20b-6f92034434bff80b:1Tl7g54LSxhzd0tOJq6RLj5VcrngYmpQzf5tUhQNA9Q",
+  "datasetRef": "weave:///wandb/flowblock/object/flowblock-flowblock-scenes-confirmation-9d1efa65f5be:XOCGAXEJYTDm3w3KlhZuqzY6UCnUPWnWYCnakwmCdLg",
+  "evaluationUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/calls/01a1895e-c6a3-70b1-af6c-1b7e27ecee03",
+  "evaluationsUrl": "https://forge.coreweave.com/wandb/wandb/flowblock/weave/evaluations",
+  "expectedRows": 180,
+  "observedRows": 180,
+  "rowsMatch": true,
+  "summaryMatches": true,
+  "datasetMatches": true,
+  "configurationMatches": true,
+  "summary": {
+    "attempted": {
+      "count": 180,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 180,
+      "true_fraction": 0
+    },
+    "available": {
+      "count": 180,
+      "mean": 0,
+      "sum": 0,
+      "true_count": 0,
+      "false_count": 180,
+      "true_fraction": 0
+    },
+    "task_counts": {
+      "requested": 180,
+      "published": 180
+    },
+    "recorded_summary": {
+      "requested": 180,
+      "attempted": 0,
+      "available": 0,
+      "serviceUnavailable": 0,
+      "transportWarmupUnattempted": 180,
+      "operationalFailures": 0,
+      "budgetExhausted": 0,
+      "unattempted": 180,
+      "productive": 0,
+      "productiveAmongRequested": 0,
+      "productiveAmongAvailable": null,
+      "falseAbstentions": 0,
+      "unsupportedAbstentions": 0,
+      "boundedEmpty": 0,
+      "uncheckedEmpty": 0,
+      "completeUsageTasks": 0,
+      "reportedInputTokens": 0,
+      "reportedOutputTokens": 0,
+      "costDisclosure": "Token sums include complete reported usage only. Unknown usage and reservations are retained separately in the budget ledger. Billed dollars are unknown."
+    }
+  }
+}

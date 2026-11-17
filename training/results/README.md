@@ -30,3 +30,13 @@ After the qualification, the evaluated planner source was copied byte for byte i
 The candidate's accepted-abstention trace and feasible-task failure trace were both read back from Weave with HTTP 200 and one recorded turn each. [The candidate trace receipt](2026-10-29T10-00-01-734Z-candidate-3dd66429-trace-readback.json) and [baseline trace receipt](2026-10-29T09-55-47-916Z-baseline-9b8ab274-trace-readback.json) contain their conversation and trace IDs. They are available under [the Forge Weave project](https://forge.coreweave.com/wandb/wandb/flowblock/weave).
 
 Provider token usage is retained per arm. No invoice was read, so billed dollar cost is unknown. The geometry oracle is a finite search and does not prove that a scene admits no possible path. These synthetic checks do not establish human cinematic quality, on-set suitability or general performance beyond this qualification.
+
+## Forge readback
+
+[Agent Lens readback](agent-lens-readback-2026-10-29.json) verifies 50 existing conversations and turns. [Native Models readback](models-native-readback.json) reconciles all 30 optimizer steps and eight metrics with job events, despite the client run's failed state. The [dataset recovery receipt](models-publication.json) records an authentication timeout before any remote write; that optional lineage repair remains pending.
+
+[Native evaluation receipts](weave-publications) record imports of these historical qualification results, with source hashes, evaluation links, per-task readback, and aggregate comparison. Only a `verified` receipt establishes a completed import. [The integration guide](../../docs/forge-integration.md) explains publication, score denominators, and service boundaries. None of these imports reruns inference or changes the original experiment.
+
+## Public-video follow-up
+
+[The October 30 workflow receipt](public-video-workflow-2026-10-30.json) records a separately frozen planner v1.5 / revision v1.4 integration check with real public footage and verified Agent Lens continuity. [The walkthrough](../../docs/public-video-workflow.md) explains the preserved failure, bounded agent decisions, eight-clip cohort, Models and Weave readbacks, and remaining creator-outcome limits. This development check does not change the historical qualification above.

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "flowblock-scenes-train",
+  "version": "v2",
+  "description": "FlowBlock authored synthetic train scenes and declared brief constraints. No creator data.",
+  "files": [
+    {
+      "path": "tasks.json",
+      "role": "scenes",
+      "sha256": "1a12932bca1a1140e2a77be83bacb1ea1366c5fd436d3af34498b4cb50f2e7ee",
+      "split": "train",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    },
+    {
+      "path": "protocol.json",
+      "role": "protocol",
+      "sha256": "4c98f40517cdf2989de48dff83a3eeb8773c6b459f21eb8c02fdf8524fd06fae",
+      "split": "train",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    },
+    {
+      "path": "actions.jsonl",
+      "role": "training_actions",
+      "sha256": "f830e2f4a209298f0c0bb176d98585271acff1a779d5b5c9c9083399be74e193",
+      "split": "train",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    },
+    {
+      "path": "labels.json",
+      "role": "metadata",
+      "sha256": "c9a4cacec421a5f9d84e2fc50241162a853ee7eb4b12fd720287f8ebbf4a3d0e",
+      "split": "train",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    },
+    {
+      "path": "teacher-audit.json",
+      "role": "metadata",
+      "sha256": "045cc9d30359a65ec32ed4caa2f2a8cd6328ca1a734c581db2b9baa7b1ff3a74",
+      "split": "train",
+      "license": {
+        "id": "LicenseRef-FlowBlock-Authored",
+        "url": "https://github.com/ash0ts/flowblock",
+        "redistributionAllowed": true
+      }
+    }
+  ],
+  "metadata": {
+    "kind": "authored-synthetic",
+    "splitUnit": "sceneGroup",
+    "counts": {
+      "groups": 64,
+      "tasks": 384,
+      "trainingRows": 1032,
+      "productive-initial": 234,
+      "productive-finish": 234,
+      "failed-compile-repair": 234,
+      "repair-finish": 234,
+      "checked-constraint-initial": 48,
+      "checked-constraint-finish": 48
+    },
+    "limitations": [
+      "Authored synthetic scenes, not measured rooms or human cinematography ratings.",
+      "All splits share a generator and engine; new geometry is not a new real-world population.",
+      "The deterministic baseline receives the structured movement family and filters against the brief checker; it is a privileged upper reference, not a natural-language parser.",
+      "A finite search without a witness is unresolved, not proof of infeasibility.",
+      "The product GPT-OSS baseline uses its existing coordinator. Only base and trained Llama share the research prompt/tools for a training-effect comparison.",
+      "Public video measurements cannot establish whether creators get a usable take faster."
+    ]
+  }
+}

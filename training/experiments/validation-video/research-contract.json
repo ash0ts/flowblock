@@ -1,0 +1,28 @@
+{
+  "experiment": "synthetic-visible-mask-stress-v1",
+  "phase": "development-diagnostic",
+  "question": "Do the unchanged worker uncertainty rules reject inaccurate SAM masks under controlled movement, texture, occlusion, boundary and identity stress?",
+  "decision": "Identify cases requiring abstention or reannotation before broader real-footage validation. No production change or model promotion follows from this small suite alone.",
+  "cases": ["textured-translation", "textureless-translation", "gradual-scale", "boundary-exit-reentry", "occlusion-recovery", "similar-object-crossing"],
+  "unit": "Six authored synthetic clips, each 75 frames at 15 fps. Frames are repeated observations within clips, not independent trial replications.",
+  "control": "Textured translation shares product shape, frame dimensions, colors and camera view with the stress clips. Textureless translation removes the label while preserving the translation trajectory.",
+  "truth": "Visible target silhouette from an independently authored raster alpha layer. Occluder pixels are removed; pixels outside the frame do not exist. No SAM prediction produces or corrects a label.",
+  "prompt": "Only frame-0 ground-truth bounding box; no later truth mask or box is supplied to the segmenter. Prompt frame excluded from headline scoring.",
+  "expected_visibility": "Worker receives the entire 0–5 second interval as expected visible. Truth-visible means at least one visible target pixel. Fully hidden frames have an empty truth mask and are reported separately. This is a recovery/abstention stress condition, not an intentionally hidden reveal target.",
+  "worker": "Existing production pipeline and pinned SAM 2.1 Small, MPS with explicit CPU fallback. Exact binary masks are observed at describe_mask without changing its inputs, returned values or predictor state.",
+  "metrics": {
+    "iou": "Intersection pixels divided by union pixels. Both empty means 1; exactly one empty means 0. Per-clip mean and equal-clip mean reported. No pooled frame independence confidence interval.",
+    "bad_mask": "IoU strictly below 0.5; frozen diagnostic threshold, not calibrated product accuracy.",
+    "false_accepted_bad_masks": "Count of bad masks labeled visible by existing worker. Show numerator and bad-mask denominator, and separately denominator of all worker-accepted masks.",
+    "center_error": "Visible-mask centroid distance normalized by frame diagonal; undefined and excluded if either mask is empty, with defined denominator shown.",
+    "extent_error": "Maximum absolute width/height discrepancy normalized by corresponding image dimension; undefined when either mask is empty.",
+    "coverage": "Existing worker visible, uncertain and missing counts; shown independently of independent mask correctness. Fully hidden frames separate from visible-truth frames."
+  },
+  "collection": "One frozen attempt per clip, no adaptive reruns or threshold tuning. Abort on input/source drift. Preserve partial output and failure; any later retry requires a separate attempt directory.",
+  "retry_policy": "None in this diagnostic execution.",
+  "missingness": "Failure to finish a clip is an infrastructure/runtime missing outcome, not a zero mask score. Preserve and report it.",
+  "runtime": "Per-clip process wall time; no paid inference/training, no external publication, no creator footage.",
+  "scope_limits": ["Synthetic diagnostic, not real-product tracking accuracy", "One rendered product shape, not a broad held-out distribution", "No human or creator benefit claim", "No changes to earlier Objectron or planner artifacts"],
+  "reproduction": "worker/.venv/bin/python training/experiments/validation-video/benchmark.py prepare --output training/experiments/validation-video/artifacts/frozen-v1; worker/.venv/bin/python training/experiments/validation-video/benchmark.py run --inputs training/experiments/validation-video/artifacts/frozen-v1 --output training/experiments/validation-video/artifacts/attempt-001",
+  "publication": "Local files only. Generated media and raw masks remain in gitignored artifacts directories."
+}
